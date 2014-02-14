@@ -34,7 +34,7 @@ SceneConstants.TIP_LAYER="tipLayer";--tips层
 
 
 --游戏优先级的基本定义 
-SceneConstants.LayerEventPriorityConstants_touchLayer = 100; 
+SceneConstants.LayerEventPriorityConstants_scene_touchLayer = 100; 
 
 
 

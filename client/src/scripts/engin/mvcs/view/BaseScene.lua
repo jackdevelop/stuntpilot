@@ -44,7 +44,6 @@ function BaseScene:ctor(param)
 	audio.playBackgroundMusic(self.sceneSound_);
 	
 	
-	
 	 -- mapLayer 包含地图的整个视图
     self.mapLayer = display.newNode()
     self.mapLayer:align(display.LEFT_BOTTOM, 0, 0)
@@ -497,7 +496,7 @@ function BaseScene:onEnter()
 --		 	end
 	 	
 --	    end,self.isMultiTouch_,LayerEventPriority.BaseSceneLayer,false)
-	     end,true,LayerEventPriority.BaseSceneLayer,false)
+	     end,true,SceneConstants.LayerEventPriorityConstants_scene_touchLayer,false)
 	    self.touchLayer_:setTouchEnabled(true)
 	    
 --	    if self.isMultiTouch_ then

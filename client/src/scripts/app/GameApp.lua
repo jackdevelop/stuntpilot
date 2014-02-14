@@ -36,9 +36,17 @@ end
 进入某个场景
 ]]
 function UIDemoApp:enterScene(sceneName, param,...)
+	local function enterSceneFun(sceneName, args, transitionType, time, more)
+	    local scenePackageName = self. packageRoot .. ".scenes." .. sceneName
+	    local sceneClass = require(scenePackageName)
+	    local scene = sceneClass.new(args)
+	    display.replaceScene(scene, transitionType, time, more)
+	end
+
 	if not param then param = {} end
 	param.sceneName = sceneName;
-    UIDemoApp.super.enterScene(self, sceneName,param, ...)
+  	--UIDemoApp.super.enterScene(self, sceneName,param, ...)
+    enterSceneFun(sceneName,param, ...);
     
     self.previousSceneName_ = self.currentSceneName_;
     self.currentSceneName_ = sceneName;

@@ -7,9 +7,7 @@ local FightScene = class("FightScene", BaseScene)
 
 	
 function FightScene:ctor(param)
-	self.currentSceneName_ = GameSoundProperties.bg_sound;
---	audio.playBackgroundMusic(self.currentSceneName_());
-	
+	param.sceneSound = GameSoundProperties.bg_sound();
 	FightScene.super.ctor(self,param)
 	 
 	
