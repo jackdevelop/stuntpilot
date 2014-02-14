@@ -1,0 +1,14 @@
+--git使用
+前期获取
+	 安装 git 工具，然后下载 CreativeProject 仓库：
+	git clone   https://github.com/jackdevelop/stuntpilot.git
+				git://github.com/iyou/CreativeProject.git  --这是克隆别人的
+			  
+后期维护  
+ git pull origin master
+  并使用git gui  依次点击 重新扫描》缓动改动》提交》上传
+
+
+
+--获取毫秒
+require("socket").gettime()

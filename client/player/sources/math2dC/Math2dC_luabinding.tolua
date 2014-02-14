@@ -1,0 +1,10 @@
+$#include <Math2dC.h>
+
+
+class Math2dC
+{
+ 
+         static float distByFloat(float ax, float ay,float bx,float by);
+		static int dist(int ax, int ay,int bx,int by);
+};
+

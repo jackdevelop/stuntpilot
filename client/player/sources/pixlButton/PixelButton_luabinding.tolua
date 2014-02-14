@@ -1,0 +1,36 @@
+
+$#include "CCControlButton.h"
+$#include "CCScale9Sprite.h"
+$#include "PixelButton.h"
+
+
+$using namespace std;
+$using namespace cocos2d;
+
+
+class PixelButton : public CCControlButton
+{
+	virtual bool init();
+	static PixelButton* create(void);
+
+	static PixelButton* create(std::string normalSprite,std::string selectedSprite , std::string disabledSprite);
+
+	
+	static PixelButton* create(std::string normalSprite,std::string selectedSprite , std::string disabledSprite , bool isZoomOnTouchDown);
+
+	
+	static PixelButton* create(std::string srcName , bool isZoomOnTouchDown = false);
+
+	int clickX;
+	int clickY;
+
+	string m_src;
+
+	virtual void onEnter();
+	virtual void onExit();
+
+	virtual bool ccTouchBegan(CCTouch *pTouch, CCEvent *pEvent);
+	virtual void ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent);
+	virtual void ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent);
+	virtual void ccTouchCancelled(CCTouch *pTouch, CCEvent *pEvent);
+};

@@ -1,0 +1,8 @@
+$#include "PixelGraySprite.h"
+$using namespace GameLuabinding;
+
+class PixelGraySprite
+{
+    static PixelGraySprite *create(void);
+    CCSprite* graylightWithCCSprite(CCSprite* oldSprite,bool isLight);
+};

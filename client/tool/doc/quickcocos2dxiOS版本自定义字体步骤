@@ -1,0 +1,57 @@
+quick cocos2dx iOS版本自定义字体步骤 
+
+https://groups.google.com/forum/#!searchin/quick-x/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E4%BD%93/quick-x/H3T_wAtS2qk/mPF9iqF7aBQJ
+
+
+
+比如字体文件名叫abc.ttf, 用mac字体工具查到字体的名称：
+
+
+
+
+PostScript 名称FZYHJW--GB1-0
+
+                   全名方正艺黑简体
+
+ 这个PostScript 名称就是我们的字体名称，要在代码里用到
+
+
+
+
+
+
+
+假设你的项目名叫PROJECT，当前目录就是在项目里
+
+步骤如下：
+
+1，把abc.ttf拷贝到项目的res目录下
+
+2，修改proj.ios/PROJECT/Resources/Info.plist
+    添加一个为UIAppFonts的key，注意一定要是UIAppFonts，大小写敏感
+
+        <key>UIAppFonts</key>
+
+        <array>
+
+                <string>res/abc.ttf</string> 
+
+        </array>
+如果要添加多个字体，请复制string节点
+
+3，在lua代码里指定字体的名字为字体名称就可以了，比如：
+local label = ui.newTTFLabel({
+
+    text = "1234",
+
+    font = "FZYHJW--GB1-0",
+
+    size = 64
+
+}):pos(d.cx,d.cy-100):addTo(self)
+
+这里的字体名称跟字体的文件名无关，一定要是前面用mac字体工具打开显示的字体名称一致
+
+
+
+至此iOS 自定义字体就OK了，在模拟器和真机上看吧，player里还不能正确显示字体
