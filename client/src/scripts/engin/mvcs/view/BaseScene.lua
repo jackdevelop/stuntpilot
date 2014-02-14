@@ -32,9 +32,10 @@ function BaseScene:ctor(param)
 	local width = param.width;
 	local height = param.height;
 	local sceneName = param.sceneName;
-	local isMultiTouch =param.isMultiTouch; 
-	self.sceneSound_ = param.sceneSound
+	local isMultiTouch =param.isMultiTouch;
 	
+	 
+	self.sceneSound_ = param.sceneSound
 	self.currentSceneName_ = sceneName;--场景名称
 	self.isMultiTouch_=isMultiTouch;--多点触摸
 
@@ -76,8 +77,8 @@ function BaseScene:ctor(param)
     
     
     
-	self.width_=width;
-	self.height_=height;
+	self.width_=width or display.width;
+	self.height_=height or display.height;
 	
 	
 	

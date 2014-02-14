@@ -35,8 +35,10 @@ end
 --[[
 进入某个场景
 ]]
-function UIDemoApp:enterScene(sceneName, ...)
-    UIDemoApp.super.enterScene(self, sceneName, ...)
+function UIDemoApp:enterScene(sceneName, param,...)
+	if not param then param = {} end
+	param.sceneName = sceneName;
+    UIDemoApp.super.enterScene(self, sceneName,param, ...)
     
     self.previousSceneName_ = self.currentSceneName_;
     self.currentSceneName_ = sceneName;

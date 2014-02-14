@@ -10,8 +10,12 @@ function FightScene:ctor(param)
 	self.currentSceneName_ = GameSoundProperties.bg_sound;
 --	audio.playBackgroundMusic(self.currentSceneName_());
 	
+	FightScene.super.ctor(self,param)
+	 
 	
 	--创建一个批量渲染层
+--	self.backgroundSprite_:align(display.LEFT_BOTTOM, 0, 0)
+--	self.mapLayer:addChild(self.backgroundSprite_)--背景地图
     local  voidNode = CCParallaxNode:create()
     self:addChild( voidNode )
     
