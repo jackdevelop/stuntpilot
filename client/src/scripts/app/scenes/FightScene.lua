@@ -14,8 +14,8 @@ function FightScene:ctor(param)
 	--创建一个批量渲染层
 --	self.backgroundSprite_:align(display.LEFT_BOTTOM, 0, 0)
 --	self.mapLayer:addChild(self.backgroundSprite_)--背景地图
-    local  voidNode = CCParallaxNode:create()
-    self:addChild( voidNode )
+    self.backgroundSprite_ = CCParallaxNode:create()
+    self.mapLayer:addChild( self.backgroundSprite_ )
     
     --远景
     local background = display.newSprite("res/fight/background.png")
@@ -25,29 +25,29 @@ function FightScene:ctor(param)
 --	 刚刚开始研究CCParallaxNode习惯性设置位置，所以导致自己郁闷了好久，先与大家分析一下，讲解一下原理，望大家不要再走我的弯路……
 --	至于为什么我添加四个节点都是屏幕中间位置，那是我为了让大家更好的明白这个位置问题，之后我贴出的代码有注释了的，注释了的为设置了CCParallaxNode的实例的位置，大家开启比较一下，会更加明白的。
 --	 对了，还有一点就是关于这个移动，你移动CCParallaxNode的实例也行，移动层也行，看需求。
-    voidNode:addChild(background, -1, ccp(0,0), ccp(display.cx,display.cy))
+    self.backgroundSprite_:addChild(background, -1, ccp(0,0), ccp(display.cx,display.cy))
     
     
     
     --中景
      local background_mountain = display.newSprite("res/fight/background_mountain.png")
      display.align(background_mountain,display.LEFT_CENTER)
-     voidNode:addChild(background_mountain, 1, ccp(0.2,0), ccp(0,84)) -- 在少一个像素刚好和background重合
+     self.backgroundSprite_:addChild(background_mountain, 1, ccp(0.2,0), ccp(0,84)) -- 在少一个像素刚好和background重合
      
      local background_mountain2 = display.newSprite("res/fight/background_mountain.png")
       display.align(background_mountain2,display.LEFT_CENTER)
-     voidNode:addChild(background_mountain2, 1, ccp(0.2,0), ccp(800,84)) -- 在少一个像素刚好和background重合
+     self.backgroundSprite_:addChild(background_mountain2, 1, ccp(0.2,0), ccp(800,84)) -- 在少一个像素刚好和background重合
      
      
      
      --近景
      self.ground_ = display.newSprite("res/fight/ground.png")
       display.align( self.ground_,display.LEFT_CENTER)
-     voidNode:addChild( self.ground_, 2, ccp(0.5,0), ccp(0,60))
+     self.backgroundSprite_:addChild( self.ground_, 2, ccp(0.5,0), ccp(0,60))
      
      self.ground2_ = display.newSprite("res/fight/ground.png")
      display.align( self.ground2_,display.LEFT_CENTER)
-     voidNode:addChild(self.ground2_, 2, ccp(0.5,0), ccp(1150,60))
+     self.backgroundSprite_:addChild(self.ground2_, 2, ccp(0.5,0), ccp(1150,60))
      
      
      
