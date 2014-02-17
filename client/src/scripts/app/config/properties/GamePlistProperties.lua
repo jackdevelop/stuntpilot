@@ -18,8 +18,7 @@ local GamePlistProperties = {}
 
 
 local Jplist = Jplist;
-GamePlistProperties.Sheet_Bullet=Jplist("bullet/Sheet_Bullet",nil)
+GamePlistProperties.Sheet_Map=Jplist("fight/Sheet_Map",nil)
 
-GamePlistProperties.Sheet_AllSprites=Jplist("fight/AllSprites",nil)
 
 return GamePlistProperties

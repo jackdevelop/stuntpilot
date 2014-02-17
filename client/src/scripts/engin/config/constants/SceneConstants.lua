@@ -45,7 +45,7 @@ SceneConstants.MIN_UI_ZORDER      = 0
 SceneConstants.MAX_UI_ZORDER      = 100
 
 --MapConstants.DEFAULT_OBJECT_ZORDER  = 200
---MapConstants.MAX_OBJECT_ZORDER      = 20000
+SceneConstants.MAX_OBJECT_ZORDER      = 20000
 --MapConstants.BULLET_ZORDER          = 21000
 
 

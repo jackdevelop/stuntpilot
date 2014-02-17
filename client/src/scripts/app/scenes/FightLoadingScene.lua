@@ -15,7 +15,7 @@ function FightLoadingScene:ctor(param)
 
     self.steps = {}
     self.steps[#self.steps + 1] = function()
-        display.addSpriteFramesWithFileListName(GamePlistProperties.Sheet_AllSprites());
+        display.addSpriteFramesWithFileListName(GamePlistProperties.Sheet_Map());
     end
 end
 

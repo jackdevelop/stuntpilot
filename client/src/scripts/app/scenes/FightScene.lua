@@ -132,7 +132,7 @@ function FightScene:tick(dt)
 	
 	self.backgroundSprite_:setPosition(positionX+self.addNum_,0);
 --	if ([_backgroundNode convertToWorldSpace:spaceDust.position].x <-spaceDust.contentSize.width) {
-	
+	self.sceneController_:tick(dt);
 end
 
 

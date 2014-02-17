@@ -6,6 +6,8 @@ local ObjectFactory = require("app.gameObject.ObjectFactory")
 local FightModel = class("FightModel")
 
 
+
+
 function FightModel:ctor()
 	self.objects_           = {}
     self.objectsByClass_    = {}
