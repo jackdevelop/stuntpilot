@@ -25,7 +25,7 @@ GameSoundProperties = require("app.config.properties.GameSoundProperties")  --�
 GameServerProperties = require("app.config.properties.GameServerProperties")  --服务器地址
 
 
-
+BehaviorClassProperties = require("app.config.properties.BehaviorClassProperties")
 
 
 

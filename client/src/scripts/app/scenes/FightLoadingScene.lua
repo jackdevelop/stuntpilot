@@ -7,8 +7,8 @@ local FightLoadingScene = class("FightLoadingScene", BaseScene)
 
 
 function FightLoadingScene:ctor(param)
-	self.currentSceneName_ = GameSoundProperties.bg_sound;
-	audio.playBackgroundMusic(self.currentSceneName_());
+--	self.currentSceneName_ = GameSoundProperties.bg_sound;
+--	audio.playBackgroundMusic(self.currentSceneName_());
 	
 	
 	self.stepIndex   = 0

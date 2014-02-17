@@ -10,10 +10,12 @@ function FightScene:ctor(param)
 	param.sceneSound = GameSoundProperties.bg_sound();
 	FightScene.super.ctor(self,param)
 	 
+	--控制器
+	local FightController = require("app.controllers.FightController")
+	self.sceneController_ = FightController.new(self);
+	
 	
 	--创建一个批量渲染层
---	self.backgroundSprite_:align(display.LEFT_BOTTOM, 0, 0)
---	self.mapLayer:addChild(self.backgroundSprite_)--背景地图
     self.backgroundSprite_ = CCParallaxNode:create()
     self.mapLayer:addChild( self.backgroundSprite_ )
     
@@ -50,26 +52,37 @@ function FightScene:ctor(param)
      self.backgroundSprite_:addChild(self.ground2_, 2, ccp(0.5,0), ccp(1150,60))
      
      
-     
-     
-     
+     --默认的地图走向
+     self.addNum_ = -20; 
     --运转动画
-    local  go = CCMoveBy:create(10, ccp(-2700,0) )
-    local  goBack = go:reverse()
-    local arr = CCArray:create()
-    arr:addObject(go)
-    arr:addObject(goBack)
-    local  seq = CCSequence:create(arr)
---    voidNode:runAction( (CCRepeatForever:create(seq) ))
+--    local  go = CCMoveBy:create(10, ccp(-2700,0) )
+--    local  goBack = go:reverse()
+--    local arr = CCArray:create()
+--    arr:addObject(go)
+--    arr:addObject(goBack)
+--    local  seq = CCSequence:create(arr)
+--    self.backgroundSprite_:runAction( (CCRepeatForever:create(seq) ))
 end
 
 
 
 
 function FightScene:tick(dt)
-	local groundPosition = self.ground_:getPosition();
+	local positionX = self.backgroundSprite_:getPosition();
+	if positionX < -2700 then 
+		self.addNum_ = 20; 
+	elseif positionX > 20 then 
+		self.addNum_ = -20; 
+	end
 	
-	
+	self.backgroundSprite_:setPosition(positionX+self.addNum_,0);
 end
 
+
+
+
+--触摸
+function FightScene:multiTouchHandle(event, points)
+
+end
 return FightScene

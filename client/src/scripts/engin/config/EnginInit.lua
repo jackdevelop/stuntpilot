@@ -26,12 +26,15 @@ SceneConstants = require("engin.config.constants.SceneConstants")
 GameConstants = require("engin.config.constants.GameConstants")
 
 GameUtil = require("engin.util.GameUtil"); 
+BehaviorFactory = require("engin.util.behavior.BehaviorFactory");
+BehaviorBase  =  require("engin.util.behavior.BehaviorBase");
 
 StringUtil = require("engin.util.string.StringUtil"); --字符串相关工具类
 StringBuffer= require("engin.util.string.StringBuffer"); --高效字符串连接类
  
 
 --可重写 全部重写的
+--BehaviorClassProperties = require("engin.util.behavior.BehaviorClassProperties");
 --AnimationProperties = require("engin.config.properties.AnimationProperties") -- 动画的一些基础定义 game的app中可以直接重写覆盖此类
 --GameImageUIProperties =  require("engin.config.properties.GameImageUIProperties") --ui以及图片的常量类 game的app中可以直接重写覆盖此类
 --GamePlistProperties  = require("engin.config.properties.GamePlistProperties") --plist常量类 game的app中可以直接重写覆盖此类
