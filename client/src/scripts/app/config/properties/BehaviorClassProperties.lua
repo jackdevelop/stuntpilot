@@ -17,7 +17,8 @@ local BehaviorClassProperties = {}
 
 --定义所有的behavior的class
 local defines = {
-	DecorateBehavior  =  require("app.gameObject.behavior.DecorateBehavior")
+	DecorateBehavior  =  require("app.gameObject.behavior.DecorateBehavior"),
+	ObjectViewBehavior =  require("app.gameObject.behavior.ObjectViewBehavior"),
 
 }
 

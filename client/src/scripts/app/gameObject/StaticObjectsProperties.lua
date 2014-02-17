@@ -13,18 +13,18 @@ local defines = {}
 
 local object = {
     classId      = "static",
-    framesName   = "IncreaseHp%04d.png",
+    framesName   = "p1_cart%03d.png",
     framesBegin  = 1,
-    framesLength = 28,
+    framesLength = 2,
     framesTime   = 1.0 / 28,
-    radius       = 60,
-    scale        = 2.0,
-    offsetY      = 20,
+--    radius       = 60,
+--    scale        = 2.0,
+--    offsetY      = 20,
     zorder       = 30000,
-    viewZOrdered = false,
-    behaviors   = {"DecorateBehavior"},
+    viewZOrdered = true,
+    behaviors   = {"DecorateBehavior","ObjectViewBehavior"},
 }
-defines["IncreaseHp"] = object
+defines["p1_cart"] = object
 
 ----------------------------------------
 

@@ -18,7 +18,7 @@ function FightController:ctor(scene,param)
 	
 	--模型
 	local FightModel = require("app.model.FightModel")
-	self.model_ = FightModel.new(self);
+	self.model_ = FightModel.new(self,self.scene_.batch);
 	
 	
 	self:init();
@@ -31,9 +31,7 @@ end
 初始化
 ]]
 function FightController:init()
-	
-	
-	
+	local plane = self.model_:newObject("static", {defineId = "p1_cart"})
 end
 
 

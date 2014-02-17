@@ -48,7 +48,7 @@ function FightScene:createCCParallax()
     self.mapLayer:addChild( self.backgroundSprite_ )
     
     --远景
-    local background = display.newSprite("res/fight/background.png")
+    local background = display.newSprite("#background.png")
     GameUtil.spriteFullScreen(background)
 	--第一个参数不用废话了，第二个参数就是正常的zOrder，第三个参数是比例，例如你设置为(0.1,0.9),若你的层或者说是CCParallaxNode的实例x轴移动1，y轴移动1，则你添加的这个精灵x轴移动0.1（1*0.1），y轴移动0.9（1*0.9），这是移动对精灵的处理，但是在位置设置的时候也是有影响的。子节点的位置是这么设置的：
     --第四个参数想设置要什么位置就设置什么位置,原理在我绕了一个大弯路讲解之后大家应该明白了吧！
@@ -65,12 +65,12 @@ function FightScene:createCCParallax()
      background_mountain:align(display.LEFT_BOTTOM, 0, 0)
 --    local background_mountain = display.newSprite("res/fight/background_mountain.png")
 --    display.align(background_mountain,display.LEFT_CENTER)
-	local spt = display.newSprite("res/fight/background_mountain.png");
+	local spt = display.newSprite("#background_mountain.png");
 	 spt:align(display.LEFT_BOTTOM, 0, 0)
     background_mountain:addChild(spt) 
 --     local background_mountain2 = display.newSprite("res/fight/background_mountain.png")
 --      display.align(background_mountain2,display.LEFT_CENTER)
-	local spt = display.newSprite("res/fight/background_mountain.png");
+	local spt = display.newSprite("#background_mountain.png");
 	 spt:align(display.LEFT_BOTTOM, 800, 0)
     background_mountain:addChild(spt) 
 --    background_mountain:addChild(display.newSprite("res/fight/background_mountain.png",800,0));
@@ -82,10 +82,10 @@ function FightScene:createCCParallax()
 --     local background_mountain = display.newBatchNode(image, capacity)
      local ground = display.newNode();
       ground:align(display.LEFT_BOTTOM, 0, 0)
-      local spt = display.newSprite("res/fight/ground.png");
+      local spt = display.newSprite("#ground.png");
 	 spt:align(display.LEFT_BOTTOM, 0, 0)
     ground:addChild(spt) 
-     local spt = display.newSprite("res/fight/ground.png");
+     local spt = display.newSprite("#ground.png");
 	 spt:align(display.LEFT_BOTTOM, 1150, 0)
     ground:addChild(spt) 
 --     self.backgroundSprite_:addChild( self.ground_, 2, ccp(0.3,0), ccp(0,60))

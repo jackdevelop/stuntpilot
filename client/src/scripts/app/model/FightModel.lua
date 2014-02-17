@@ -8,13 +8,12 @@ local FightModel = class("FightModel")
 
 
 
-function FightModel:ctor()
+function FightModel:ctor(batch)
 	self.objects_           = {}
     self.objectsByClass_    = {}
     self.nextObjectIndex_   = 1
     
-	--添加一架飞机
---	local plane = ObjectFactory.newObject("static", "static:1", {defineId = "IncreaseHp"}, self);
+    self.batch_ = batch;
 end
 
 
