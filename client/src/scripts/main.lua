@@ -19,3 +19,5 @@ CCLuaLoadChunksFromZIP("res/script/framework_precompiled.zip")
 
 
 require("app.GameApp").new():run()
+
+

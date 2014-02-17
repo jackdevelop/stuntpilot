@@ -21,14 +21,13 @@ function FightScene:ctor(param)
     self:addChild(self.touchLayer_)-- touchLayer 用于接收触摸事
     
     
-    self.batch_=display.newNode()
-    self.mapLayer:addChild(self.batch_)--渲染层
+    self:createCCParallax();
+    
     
     
     self.uiLayer_ = display.newLayer();
     self.mapLayer:addChild(self.uiLayer_);--ui层
     
-    self:createCCParallax();
 	 
 	--控制器
 	local FightController = require("app.controllers.FightController")
@@ -61,28 +60,50 @@ function FightScene:createCCParallax()
     
     
     --中景
-     local background_mountain = display.newSprite("res/fight/background_mountain.png")
-     display.align(background_mountain,display.LEFT_CENTER)
-     self.backgroundSprite_:addChild(background_mountain, 1, ccp(0.2,0), ccp(0,84)) 
-     
-     local background_mountain2 = display.newSprite("res/fight/background_mountain.png")
-      display.align(background_mountain2,display.LEFT_CENTER)
-     self.backgroundSprite_:addChild(background_mountain2, 1, ccp(0.2,0), ccp(800,84)) 
+    --local background_mountain = display.newBatchNode(image, capacity)
+    local background_mountain = display.newNode();
+     background_mountain:align(display.LEFT_BOTTOM, 0, 0)
+--    local background_mountain = display.newSprite("res/fight/background_mountain.png")
+--    display.align(background_mountain,display.LEFT_CENTER)
+	local spt = display.newSprite("res/fight/background_mountain.png");
+	 spt:align(display.LEFT_BOTTOM, 0, 0)
+    background_mountain:addChild(spt) 
+--     local background_mountain2 = display.newSprite("res/fight/background_mountain.png")
+--      display.align(background_mountain2,display.LEFT_CENTER)
+	local spt = display.newSprite("res/fight/background_mountain.png");
+	 spt:align(display.LEFT_BOTTOM, 800, 0)
+    background_mountain:addChild(spt) 
+--    background_mountain:addChild(display.newSprite("res/fight/background_mountain.png",800,0));
+     self.backgroundSprite_:addChild(background_mountain, 1, ccp(0.1,0), ccp(0,84)) 
      
      
      
      --近景
-     self.ground_ = display.newSprite("res/fight/ground.png")
-      display.align( self.ground_,display.LEFT_CENTER)
-     self.backgroundSprite_:addChild( self.ground_, 2, ccp(0.5,0), ccp(0,60))
+--     local background_mountain = display.newBatchNode(image, capacity)
+     local ground = display.newNode();
+      ground:align(display.LEFT_BOTTOM, 0, 0)
+      local spt = display.newSprite("res/fight/ground.png");
+	 spt:align(display.LEFT_BOTTOM, 0, 0)
+    ground:addChild(spt) 
+     local spt = display.newSprite("res/fight/ground.png");
+	 spt:align(display.LEFT_BOTTOM, 1150, 0)
+    ground:addChild(spt) 
+--     self.backgroundSprite_:addChild( self.ground_, 2, ccp(0.3,0), ccp(0,60))
      
-     self.ground2_ = display.newSprite("res/fight/ground.png")
-     display.align( self.ground2_,display.LEFT_CENTER)
-     self.backgroundSprite_:addChild(self.ground2_, 2, ccp(0.5,0), ccp(1150,60))
+--     self.ground2_ = display.newSprite("res/fight/ground.png")
+--     display.align( self.ground2_,display.LEFT_CENTER)
+     self.backgroundSprite_:addChild(ground, 2, ccp(0.2,0), ccp(0,60))
      
+     
+     
+     
+      self.batch_=display.newNode()
+      self.backgroundSprite_:addChild(self.batch_, 3, ccp(0.2,0), ccp(0,0))
+--    self.mapLayer:addChild(self.batch_)--渲染层
+--     self.backgroundSprite_:setPosition(-1200,0);
      
      --默认的地图走向
-     self.addNum_ = -20; 
+     self.addNum_ = -10;
     --运转动画
 --    local  go = CCMoveBy:create(10, ccp(-2700,0) )
 --    local  goBack = go:reverse()
@@ -103,15 +124,13 @@ end
 
 function FightScene:tick(dt)
 	local positionX = self.backgroundSprite_:getPosition();
-	if positionX < -2700 then 
-		self.addNum_ = 20; 
-	elseif positionX > 20 then 
-		self.addNum_ = -20; 
+	if positionX < -6600 then 
+		self.addNum_ = 10; 
+	elseif positionX > 0 then 
+		self.addNum_ = -10; 
 	end
 	
 	self.backgroundSprite_:setPosition(positionX+self.addNum_,0);
-	
-	
 --	if ([_backgroundNode convertToWorldSpace:spaceDust.position].x <-spaceDust.contentSize.width) {
 	
 end
