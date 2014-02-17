@@ -44,7 +44,7 @@ function BaseScene:ctor(param)
 	audio.playBackgroundMusic(self.sceneSound_);
 	
 	
-	 -- mapLayer 包含地图的整个视图
+	-- mapLayer 包含地图的整个视图
     self.mapLayer = display.newNode()
     self.mapLayer:align(display.LEFT_BOTTOM, 0, 0)
     self:addChild(self.mapLayer)
@@ -503,7 +503,14 @@ function BaseScene:onEnter()
 		    self.touchLayer_:setTouchMode(kCCTouchesAllAtOnce) -- 一次性把所有点的数据传入回调函数
 			 --self.touchLayer_:setTouchMode(kCCTouchesOneByOne) -- 多个点分成多次传入，也就是说多点触摸时，回调函数会调用多次
 --		end
-	
+		
+        -- keypad layer, for android
+        self.touchLayer_:addKeypadEventListener(function(event)
+            if event == "back" then 
+            	app.exit()
+            end
+        end)
+        self.touchLayer_:setKeypadEnabled(true)
 	end 
 	
 --	self:performWithDelay(function()

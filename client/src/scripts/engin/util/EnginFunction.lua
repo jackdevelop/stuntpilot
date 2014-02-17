@@ -81,6 +81,26 @@ function Jsound(soundUrl,isLoop)
 		else return soundUrl,isLoop end
 	end
 end
+
+
+--[[
+高效构造Jscene 的场景名称  以及 上一个场景
+	使用范例：
+	p=Jsound("bullet/Sheet_Bullet",isLoop)
+	print(p("soundUrl"))		-- bullet/Sheet_Bullet
+	print(p("isLoop"))		-- kCCTexture2DPixelFormat_RGBA8888
+@param sceneName  当前场景
+@param backSceneName  上一场景
+]]
+function Jscene(sceneName,backSceneName)
+	return function (idx) 
+		if idx=="sceneName" then return sceneName
+		elseif idx=="backSceneName" then return backSceneName
+		else return sceneName,backSceneName end
+	end
+end
+
+
 -- lua 中判断字符串前缀
 --一个 lua 的小技巧
 --在写 lua debugger 的时候，我需要判断一个字符串的前缀是不是 "@" 。

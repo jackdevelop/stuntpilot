@@ -35,7 +35,7 @@ function FightLoadingScene:tick()
     elseif self.stepIndex >= count then
         self:unscheduleUpdate()
         self:performWithDelay(function() 
-        	app:enterScene(SceneConstants.FightScene)
+        	app:enterScene(SceneConstants.FightScene())
         end, 0.1)
     end
 end

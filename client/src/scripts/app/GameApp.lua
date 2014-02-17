@@ -23,7 +23,8 @@ end
 
 function UIDemoApp:run()
     CCFileUtils:sharedFileUtils():addSearchPath("res/")
-    self:enterScene(SceneConstants.FightLoadingScene)
+    local sceneName,backScaneName = SceneConstants.FightLoadingScene();
+    self:enterScene(sceneName,backScaneName)
   	--self:enterScene(SceneConstants.FightLoadingScene, nil, "flipy")
 end
 
@@ -35,7 +36,7 @@ end
 --[[
 进入某个场景
 ]]
-function UIDemoApp:enterScene(sceneName, param,...)
+function UIDemoApp:enterScene(sceneName,backScaneName, param,...)
 	local function enterSceneFun(sceneName, args, transitionType, time, more)
 	    local scenePackageName = self. packageRoot .. ".scenes." .. sceneName
 	    local sceneClass = require(scenePackageName)
@@ -52,5 +53,20 @@ function UIDemoApp:enterScene(sceneName, param,...)
     self.currentSceneName_ = sceneName;
     self.currentScene_ = display.getRunningScene();
 end
+
+
+
+--[[
+回退到某个场景
+]]
+function UIDemoApp:back()
+	local sceneName,backScaneName =  clone(SceneConstants[self.currentSceneName_]()) --SceneConstants.FightScene();
+	if backScaneName then 
+		self:enterScene(sceneName,backScaneName)
+	else	
+		self:exit();
+	end
+end
+
 
 return UIDemoApp

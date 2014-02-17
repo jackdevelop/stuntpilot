@@ -21,70 +21,47 @@ LOAD LUA FILE: F:/workspace/lua/stuntpilot/client/src//scripts/main.lua
 ------------------------------------------------
 lua_loadChunksFromZIP() - load zip file: F:\workspace\lua\stuntpilot\client\src\res/script/framework_precompiled.zip
 lua_loadChunksFromZIP() - loaded chunks count: 54
-[0.1366] [INFO] 
-[0.1371] [INFO] # DEBUG                        = 1
-[0.1377] [INFO] #
-[0.1383] [INFO] # device.platform              = windows
-[0.1387] [INFO] # device.model                 = unknown
-[0.1391] [INFO] # device.language              = cn
-[0.1395] [INFO] # device.writablePath          = F:\workspace\lua\stuntpilot\client\src\\
-[0.1403] [INFO] # device.cachePath             = F:\workspace\lua\stuntpilot\client\src\\
-[0.1411] [INFO] # device.directorySeparator    = \
-[0.1415] [INFO] # device.pathSeparator         = ;
-[0.1419] [INFO] #
-[0.1441] [INFO] # CONFIG_SCREEN_AUTOSCALE      = FIXED_HEIGHT
-[0.1445] [INFO] # CONFIG_SCREEN_WIDTH          = 960.00
-[0.1450] [INFO] # CONFIG_SCREEN_HEIGHT         = 640.00
-[0.1454] [INFO] # display.widthInPixels        = 960.00
-[0.1459] [INFO] # display.heightInPixels       = 640.00
-[0.1463] [INFO] # display.contentScaleFactor   = 1.00
-[0.1469] [INFO] # display.width                = 960.00
-[0.1477] [INFO] # display.height               = 640.00
-[0.1484] [INFO] # display.cx                   = 480.00
-[0.1490] [INFO] # display.cy                   = 320.00
-[0.1496] [INFO] # display.left                 = 0.00
-[0.1502] [INFO] # display.right                = 960.00
-[0.1508] [INFO] # display.top                  = 640.00
-[0.1531] [INFO] # display.bottom               = 0.00
-[0.1536] [INFO] # display.c_left               = -480.00
-[0.1544] [INFO] # display.c_right              = 480.00
-[0.1549] [INFO] # display.c_top                = 320.00
-[0.1554] [INFO] # display.c_bottom             = -320.00
-[0.1558] [INFO] #
-[0.2684] [INFO] Scene "BaseScene:onEnter()"
-[1.7928] 加载进度：, 100
-[1.9953] [INFO] Scene "BaseScene:onExit()"
-[1.9958] [INFO] ----------------------------------------
-[1.9968] [INFO] LUA VM MEMORY USED: 1556.27 KB
+[0.1309] [INFO] 
+[0.1314] [INFO] # DEBUG                        = 1
+[0.1321] [INFO] #
+[0.1332] [INFO] # device.platform              = windows
+[0.1336] [INFO] # device.model                 = unknown
+[0.1340] [INFO] # device.language              = cn
+[0.1345] [INFO] # device.writablePath          = F:\workspace\lua\stuntpilot\client\src\\
+[0.1354] [INFO] # device.cachePath             = F:\workspace\lua\stuntpilot\client\src\\
+[0.1361] [INFO] # device.directorySeparator    = \
+[0.1365] [INFO] # device.pathSeparator         = ;
+[0.1368] [INFO] #
+[0.1390] [INFO] # CONFIG_SCREEN_AUTOSCALE      = FIXED_HEIGHT
+[0.1394] [INFO] # CONFIG_SCREEN_WIDTH          = 960.00
+[0.1400] [INFO] # CONFIG_SCREEN_HEIGHT         = 640.00
+[0.1404] [INFO] # display.widthInPixels        = 960.00
+[0.1409] [INFO] # display.heightInPixels       = 640.00
+[0.1413] [INFO] # display.contentScaleFactor   = 1.00
+[0.1418] [INFO] # display.width                = 960.00
+[0.1423] [INFO] # display.height               = 640.00
+[0.1428] [INFO] # display.cx                   = 480.00
+[0.1433] [INFO] # display.cy                   = 320.00
+[0.1437] [INFO] # display.left                 = 0.00
+[0.1441] [INFO] # display.right                = 960.00
+[0.1445] [INFO] # display.top                  = 640.00
+[0.1449] [INFO] # display.bottom               = 0.00
+[0.1461] [INFO] # display.c_left               = -480.00
+[0.1467] [INFO] # display.c_right              = 480.00
+[0.1471] [INFO] # display.c_top                = 320.00
+[0.1475] [INFO] # display.c_bottom             = -320.00
+[0.1480] [INFO] #
+[0.1885] [INFO] Scene "BaseScene:onEnter()"
+Get data from file(fight/AllSprites.png) failed!
+cocos2d: CCSpriteFrameCache: couldn't load texture file. File not found fight/AllSprites.png
+[1.7056] 加载进度：, 100
+[1.8782] [INFO] Scene "BaseScene:onExit()"
+[1.8786] [INFO] ----------------------------------------
+[1.8791] [INFO] LUA VM MEMORY USED: 1593.00 KB
 cocos2d: "cc_fps_images" rc=4 id=2 256 x 32 @ 16 bpp => 16 KB
-cocos2d: "F:\workspace\lua\stuntpilot\client\src\\res/fight/AllSprites.png" rc=9 id=1 128 x 256 @ 32 bpp => 128 KB
-cocos2d: "F:\workspace\lua\stuntpilot\client\src\res/fight/background.png" rc=2 id=3 800 x 600 @ 32 bpp => 1875 KB
-cocos2d: "F:\workspace\lua\stuntpilot\client\src\res/fight/background_mountain.png" rc=3 id=4 800 x 128 @ 32 bpp => 400 KB
-cocos2d: "F:\workspace\lua\stuntpilot\client\src\res/fight/ground.png" rc=3 id=5 1150 x 48 @ 32 bpp => 215 KB
-cocos2d: CCTextureCache dumpDebugInfo: 5 textures, for 2634 KB (2.57 MB)
-[2.0011] [INFO] ----------------------------------------
-[2.0016] [INFO] Scene "BaseScene:onEnter()"
-[5.1107] [INFO] Scene "BaseScene:onExit()"
-[5.1115] [INFO] ----------------------------------------
-[5.1131] [INFO] LUA VM MEMORY USED: 1556.66 KB
-cocos2d: "cc_fps_images" rc=4 id=2 256 x 32 @ 16 bpp => 16 KB
-cocos2d: "F:\workspace\lua\stuntpilot\client\src\\res/fight/AllSprites.png" rc=9 id=1 128 x 256 @ 32 bpp => 128 KB
-cocos2d: "F:\workspace\lua\stuntpilot\client\src\res/fight/background.png" rc=2 id=3 800 x 600 @ 32 bpp => 1875 KB
-cocos2d: "F:\workspace\lua\stuntpilot\client\src\res/fight/background_mountain.png" rc=3 id=4 800 x 128 @ 32 bpp => 400 KB
-cocos2d: "F:\workspace\lua\stuntpilot\client\src\res/fight/ground.png" rc=3 id=5 1150 x 48 @ 32 bpp => 215 KB
-cocos2d: CCTextureCache dumpDebugInfo: 5 textures, for 2634 KB (2.57 MB)
-[5.1221] [INFO] ----------------------------------------
-cocos2d: CCSpriteFrameCache: removing unused frame: Bullet.png
-cocos2d: CCSpriteFrameCache: removing unused frame: HeroDead0001.png
-cocos2d: CCSpriteFrameCache: removing unused frame: HeroDead0002.png
-cocos2d: CCSpriteFrameCache: removing unused frame: HeroDead0003.png
-cocos2d: CCSpriteFrameCache: removing unused frame: HeroDead0004.png
-cocos2d: CCSpriteFrameCache: removing unused frame: HeroFiring.png
-cocos2d: CCSpriteFrameCache: removing unused frame: HeroIdle.png
-cocos2d: CCSpriteFrameCache: removing unused frame: Miss.png
-cocos2d: CCTextureCache: texture: cc_fps_images
-cocos2d: CCTextureCache: texture: F:\workspace\lua\stuntpilot\client\src\\res/fight/AllSprites.png
-cocos2d: CCTextureCache: texture: F:\workspace\lua\stuntpilot\client\src\res/fight/background.png
-cocos2d: CCTextureCache: texture: F:\workspace\lua\stuntpilot\client\src\res/fight/background_mountain.png
-cocos2d: CCTextureCache: texture: F:\workspace\lua\stuntpilot\client\src\res/fight/ground.png
-cocos2d: CCTextureCache: removing unused texture: F:\workspace\lua\stuntpilot\client\src\\res/fight/AllSprites.png
+cocos2d: "F:\workspace\lua\stuntpilot\client\src\res/fight/background.png" rc=2 id=1 800 x 600 @ 32 bpp => 1875 KB
+cocos2d: "F:\workspace\lua\stuntpilot\client\src\res/fight/background_mountain.png" rc=3 id=3 800 x 128 @ 32 bpp => 400 KB
+cocos2d: "F:\workspace\lua\stuntpilot\client\src\res/fight/ground.png" rc=3 id=4 1150 x 48 @ 32 bpp => 215 KB
+cocos2d: CCTextureCache dumpDebugInfo: 4 textures, for 2506 KB (2.45 MB)
+[1.8827] [INFO] ----------------------------------------
+[1.8832] [INFO] Scene "BaseScene:onEnter()"

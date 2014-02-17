@@ -8,13 +8,42 @@ local FightScene = class("FightScene", BaseScene)
 	
 function FightScene:ctor(param)
 	param.sceneSound = GameSoundProperties.bg_sound();
-	FightScene.super.ctor(self,param)
+--	FightScene.super.ctor(self,param)
+	 
+	
+	-- mapLayer 包含地图的整个视图
+    self.mapLayer = display.newNode()
+    self.mapLayer:align(display.LEFT_BOTTOM, 0, 0)
+    self:addChild(self.mapLayer)
+    
+    
+    self.touchLayer_ = display.newLayer()
+    self:addChild(self.touchLayer_)-- touchLayer 用于接收触摸事
+    
+    
+    self.batch_=display.newNode()
+    self.mapLayer:addChild(self.batch_)--渲染层
+    
+    
+    self.uiLayer_ = display.newLayer();
+    self.mapLayer:addChild(self.uiLayer_);--ui层
+    
+    self:createCCParallax();
 	 
 	--控制器
 	local FightController = require("app.controllers.FightController")
 	self.sceneController_ = FightController.new(self);
-	
-	
+end
+
+
+
+
+
+
+--[[
+创建CCParallaxNode 
+]]
+function FightScene:createCCParallax()	
 	--创建一个批量渲染层
     self.backgroundSprite_ = CCParallaxNode:create()
     self.mapLayer:addChild( self.backgroundSprite_ )
@@ -34,11 +63,11 @@ function FightScene:ctor(param)
     --中景
      local background_mountain = display.newSprite("res/fight/background_mountain.png")
      display.align(background_mountain,display.LEFT_CENTER)
-     self.backgroundSprite_:addChild(background_mountain, 1, ccp(0.2,0), ccp(0,84)) -- 在少一个像素刚好和background重合
+     self.backgroundSprite_:addChild(background_mountain, 1, ccp(0.2,0), ccp(0,84)) 
      
      local background_mountain2 = display.newSprite("res/fight/background_mountain.png")
       display.align(background_mountain2,display.LEFT_CENTER)
-     self.backgroundSprite_:addChild(background_mountain2, 1, ccp(0.2,0), ccp(800,84)) -- 在少一个像素刚好和background重合
+     self.backgroundSprite_:addChild(background_mountain2, 1, ccp(0.2,0), ccp(800,84)) 
      
      
      
@@ -67,6 +96,11 @@ end
 
 
 
+
+
+
+
+
 function FightScene:tick(dt)
 	local positionX = self.backgroundSprite_:getPosition();
 	if positionX < -2700 then 
@@ -76,6 +110,10 @@ function FightScene:tick(dt)
 	end
 	
 	self.backgroundSprite_:setPosition(positionX+self.addNum_,0);
+	
+	
+--	if ([_backgroundNode convertToWorldSpace:spaceDust.position].x <-spaceDust.contentSize.width) {
+	
 end
 
 

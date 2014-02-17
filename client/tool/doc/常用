@@ -12,3 +12,16 @@
 
 --获取毫秒
 require("socket").gettime()
+
+
+
+
+
+--ipad 禁止自动锁屏 
+ 在AppController.mm中添加 
+  [UIAplication sharedApplication].idleTimerDisabled = YES;
+ --安卓上
+ http://blog.csdn.net/chenyafei617/article/details/6575621 
+  
+  
+  
