@@ -65,6 +65,7 @@ function RoleMapCamera:flyTo(x,y,moveEndCallback)
 	self.moveStartPoint_ = Jpoint(self:getOffset());
 	self.moveEndPoint_ = Jpoint(x,y);
 	self.moveEndCallback_ = moveEndCallback;
+--	self.moveEndMark_ = 
 --	self.moveLen_ = Math2d.dist(ax, ay, bx, by);
 end
 
@@ -78,13 +79,46 @@ end
 5.把路径点转换为世界坐标，如果已经靠近边缘，则移动主角（再把世界坐标转换为舞台坐标），如果没有靠近边缘，则主角在中心，移动地图
 ]]
 function RoleMapCamera:tick(dt)
-	local focus = self.focus_;--当前的焦点
-	if focus then 
-		
+	local moveEndPointX,moveEndPointY = self.moveEndPoint_();
 	
+	
+	--判断当前焦点对象是否移动到了指定的点
+	local function judgeFocusPosition()
+		local focus = self.focus_;--当前的焦点
+		if focus then 
+			local focusPositionX,focusPositionY = focus:getPosition();
+			if focusPositionX == moveEndPointX and focusPositionY == moveEndPointY then 
+				return true
+			end
+		end
+		return false;
 	end
 	
 	
+	
+	--首先移动地图
+	local function moveMap(movingSpeed,onComplete)
+		if not movingSpeed then movingSpeed = 1 end;
+		--self:moveTo(moveEndPointX,moveEndPointY);
+		self:setOffset(moveEndPointX,moveEndPointY, movingSpeed, onComplete)
+	end
+	
+	
+	
+	
+	local focus = self.focus_;--当前的焦点
+	if focus then 
+		if judgeFocusPosition() then return end
+		
+		
+		moveMap(nil,function()
+			if not judgeFocusPosition() then --开始移动主角
+			
+			end
+		end);
+	else
+		moveMap();
+	end
 end
 --public function update():void
 --		{
