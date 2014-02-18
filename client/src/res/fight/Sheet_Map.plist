@@ -7,67 +7,67 @@
             <key>background.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1,1},{400,300}}</string>
+                <string>{{1,1},{800,600}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{400,300}}</string>
+                <string>{{0,0},{800,600}}</string>
                 <key>sourceSize</key>
-                <string>{400,300}</string>
+                <string>{800,600}</string>
             </dict>
             <key>background_mountain.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{402,1},{400,64}}</string>
+                <string>{{802,1},{800,128}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{400,64}}</string>
+                <string>{{0,0},{800,128}}</string>
                 <key>sourceSize</key>
-                <string>{400,64}</string>
+                <string>{800,128}</string>
             </dict>
             <key>ground.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{467,1},{575,24}}</string>
+                <string>{{931,1},{1150,48}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{575,24}}</string>
+                <string>{{0,0},{1150,48}}</string>
                 <key>sourceSize</key>
-                <string>{575,24}</string>
+                <string>{1150,48}</string>
             </dict>
             <key>p1_cart001.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{23,302},{21,21}}</string>
+                <string>{{980,44},{42,42}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{21,21}}</string>
+                <string>{{0,0},{42,42}}</string>
                 <key>sourceSize</key>
-                <string>{21,21}</string>
+                <string>{42,42}</string>
             </dict>
             <key>p1_cart002.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1,302},{21,21}}</string>
+                <string>{{980,1},{42,42}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{21,21}}</string>
+                <string>{{0,0},{42,42}}</string>
                 <key>sourceSize</key>
-                <string>{21,21}</string>
+                <string>{42,42}</string>
             </dict>
         </dict>
         <key>metadata</key>
@@ -77,9 +77,9 @@
             <key>realTextureFileName</key>
             <string>Sheet_Map.png</string>
             <key>size</key>
-            <string>{512,1024}</string>
+            <string>{1024,2048}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:487a27eba2925922d9d09122d9f2eb47:dcd3d9749f6587706f63ef433796cfc9:82b3ecc0a55ff3c0002100a74a15cdbc$</string>
+            <string>$TexturePacker:SmartUpdate:6de99bbf2461d98452e884a4206fe42c:dcd3d9749f6587706f63ef433796cfc9:82b3ecc0a55ff3c0002100a74a15cdbc$</string>
             <key>textureFileName</key>
             <string>Sheet_Map.png</string>
         </dict>
