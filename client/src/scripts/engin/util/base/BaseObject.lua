@@ -17,6 +17,11 @@ BaseObject.CLASS_INDEX = {
     static     = 0,
 }
 
+BaseObject.CLASS_ID = {
+    static     = "static",
+}
+
+
 function BaseObject:ctor(id, state, model)
     assert(type(state) == "table", "BaseObject:ctor() - invalid state")
 
@@ -30,7 +35,7 @@ function BaseObject:ctor(id, state, model)
 	self.model_        = model --当前的模型管理者
 	
     local classId, index = unpack(string.split(id, ":"))
-    self.classId_    = classId
+    self.classId_    = BaseObject.CLASS_ID[classId]
     self.classIndex_ = BaseObject.CLASS_INDEX[classId]
     self.index_      = toint(index)
     

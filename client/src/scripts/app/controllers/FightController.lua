@@ -31,9 +31,12 @@ end
 初始化
 ]]
 function FightController:init()
-	self.plane = self.model_:newObject("static", {defineId = "p1_cart"})
-	self.plane:setPosition(500,300);
-	self.plane:updateView();
+	local state = {
+		defineId = "p1_cart",
+		x = display.cx,
+		y = display.cy
+	}
+	self.plane = self.model_:newObject(BaseObject.CLASS_ID["static"], state)
 end
 
 
