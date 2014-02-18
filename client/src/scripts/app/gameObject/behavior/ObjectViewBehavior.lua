@@ -71,14 +71,10 @@ function ObjectViewBehavior:bind(object)
 
     local function updateView(object)		
         local x, y = math.floor(object.x_), math.floor(object.y_)
-        
+        object.sprite_:setPosition(x,y)
+    	--object.sprite_:setFlipX(self.flipSprite_)
     end
     object:bindMethod(self, "updateView", updateView)
-
-    local function fastUpdateView(object)
-        updateView(object)
-    end
-    object:bindMethod(self, "fastUpdateView", fastUpdateView)
 end
 
 function ObjectViewBehavior:unbind(object)

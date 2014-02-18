@@ -18,7 +18,7 @@ function FightController:ctor(scene,param)
 	
 	--模型
 	local FightModel = require("app.model.FightModel")
-	self.model_ = FightModel.new(self.scene_.batch_);
+	self.model_ = FightModel.new(self.scene_:getBatchLayer());
 	
 	
 	self:init();
@@ -31,7 +31,9 @@ end
 初始化
 ]]
 function FightController:init()
-	local plane = self.model_:newObject("static", {defineId = "p1_cart"})
+	self.plane = self.model_:newObject("static", {defineId = "p1_cart"})
+	self.plane:setPosition(500,300);
+	self.plane:updateView();
 end
 
 
@@ -54,12 +56,16 @@ function FightController:tick(dt)
         object.updated__ = lx ~= object.x_ or ly ~= object.y_
 
         -- 只有当对象的位置发生变化时才调整对象的 ZOrder
-        if object.updated__ and object.sprite_ and object.viewZOrdered_ then
-            self.batch_:reorderChild(object.sprite_, maxZOrder - object.y_ )
+        if object.updated__ and object.sprite_  then
+        	
+        	object:updateView();
+        	
+        	if object.viewZOrdered_ then 
+            	self.batch_:reorderChild(object.sprite_, maxZOrder - object.y_ )
+            end
         end
 	
 	end
-	
 end
 
 

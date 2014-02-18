@@ -22,8 +22,7 @@ function FightScene:ctor(param)
     
     
     self:createCCParallax();
-    
-    
+      
     
     self.uiLayer_ = display.newLayer();
     self.mapLayer:addChild(self.uiLayer_);--ui层
@@ -98,6 +97,7 @@ function FightScene:createCCParallax()
      
      
       self.batch_=display.newNode()
+      self.batch_:align(display.LEFT_BOTTOM, 0, 0)
       self.backgroundSprite_:addChild(self.batch_, 3, ccp(0.2,0), ccp(0,0))
 --    self.mapLayer:addChild(self.batch_)--渲染层
 --     self.backgroundSprite_:setPosition(-1200,0);
@@ -122,15 +122,34 @@ end
 
 
 
+----添加移动的子节点
+--function FightScene:addCCParallaxChild(child,zorder,parallaxRatio,positionOffset)	
+--	if not zorder then zorder = 0 end
+--	if not parallaxRatio then parallaxRatio = ccp(0,0) end
+--	if not positionOffset then positionOffset = ccp(0,0) end
+--	
+--	self.backgroundSprite_:addChild(child, zorder,parallaxRatio,positionOffset)
+--end
+
+
+
+
+
+
+
+
+
+
 function FightScene:tick(dt)
-	local positionX = self.backgroundSprite_:getPosition();
-	if positionX < -6600 then 
-		self.addNum_ = 10; 
-	elseif positionX > 0 then 
-		self.addNum_ = -10; 
-	end
+--	local positionX = self.backgroundSprite_:getPosition();
+--	if positionX < -6600 then 
+--		self.addNum_ = 10; 
+--	elseif positionX > 0 then 
+--		self.addNum_ = -10; 
+--	end
+--	
+--	self.backgroundSprite_:setPosition(positionX+self.addNum_,0);
 	
-	self.backgroundSprite_:setPosition(positionX+self.addNum_,0);
 --	if ([_backgroundNode convertToWorldSpace:spaceDust.position].x <-spaceDust.contentSize.width) {
 	self.sceneController_:tick(dt);
 end
