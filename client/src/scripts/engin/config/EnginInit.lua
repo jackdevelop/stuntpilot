@@ -25,6 +25,8 @@ UrlConfig = require("engin.config.constants.UrlConfig")
 SceneConstants = require("engin.config.constants.SceneConstants")
 GameConstants = require("engin.config.constants.GameConstants")
 
+Math2d =  require("engin.util.math.Math2d"); 
+
 GameUtil = require("engin.util.GameUtil"); 
 BehaviorFactory = require("engin.util.behavior.BehaviorFactory");
 BehaviorBase  =  require("engin.util.behavior.BehaviorBase");

@@ -3,6 +3,11 @@
  	public ->> 全局公开类
  	
 	场景的摄像机管理
+	使用方法：basescene.lua中
+		-- 计算地图位移限定值
+	    self.camera_ = MapCamera.new(self)
+	    self.camera_:resetOffsetLimit()
+		self.camera_:setMargin(0, 0, 0, 0)
 ]]
 local MapCamera = class("MapCamera")
 
@@ -14,8 +19,8 @@ function MapCamera:ctor(map)
     self.actualScale_   = 1
     self.offsetX_       = 0
     self.offsetY_       = 0
-    self.offsetLimit_   = nil
-    self.margin_        = {top = 0, right = 0, bottom = 0, left = 0}
+    self.offsetLimit_   = nil --地图的卷动限制
+    self.margin_        = {top = 0, right = 0, bottom = 0, left = 0} --地图的边空
 
 
 	
@@ -266,12 +271,14 @@ function MapCamera:setOffset(x, y, movingSpeed, onComplete)
     
     if type(movingSpeed) == "number" and movingSpeed > 0 then
         local function moveLayer(oneLayer)
-	    	 transition.moveTo(oneLayer, {
-	            x = x,
-	            y = y,
-	            time = movingSpeed,
-	            onComplete = onComplete
-	        })
+        	if oneLayer then 
+		    	 transition.moveTo(oneLayer, {
+		            x = x,
+		            y = y,
+		            time = movingSpeed,
+		            onComplete = onComplete
+		        })
+	        end
 	    end
         
         moveLayer(backgroundLayer)
@@ -349,12 +356,16 @@ end
 
 --[[--
 
-将地图坐标转换为屏幕坐标
+将地图坐标转换为屏幕坐标 
 
 ]]
-function MapCamera:convertToWorldPosition(x, y)
+--function MapCamera:convertToWorldPosition(x, y)
+--    return x * self.actualScale_ + self.offsetX_, y * self.actualScale_ + self.offsetY_
+--end
+function MapCamera:convertToScreenPosition(x, y)
     return x * self.actualScale_ + self.offsetX_, y * self.actualScale_ + self.offsetY_
 end
+
 
 --[[--
 

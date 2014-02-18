@@ -141,14 +141,14 @@ end
 
 
 function FightScene:tick(dt)
---	local positionX = self.backgroundSprite_:getPosition();
---	if positionX < -6600 then 
---		self.addNum_ = 10; 
---	elseif positionX > 0 then 
---		self.addNum_ = -10; 
---	end
---	
---	self.backgroundSprite_:setPosition(positionX+self.addNum_,0);
+	local positionX = self.backgroundSprite_:getPosition();
+	if positionX < -6600 then 
+		self.addNum_ = 10; 
+	elseif positionX > 0 then 
+		self.addNum_ = -10; 
+	end
+	
+	self.backgroundSprite_:setPosition(positionX+self.addNum_,0);
 	
 --	if ([_backgroundNode convertToWorldSpace:spaceDust.position].x <-spaceDust.contentSize.width) {
 	self.sceneController_:tick(dt);

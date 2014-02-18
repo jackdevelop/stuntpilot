@@ -9,7 +9,7 @@
  * $Id:$
  * @version 1.0
 ]]
-local MapCamera = require("engin.util.MapCamera")
+local MapCamera = require("engin.util.camera.MapCamera")
 
 local BaseScene = class("BaseScene", function()
     return display.newScene("BaseScene")
