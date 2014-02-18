@@ -18,7 +18,7 @@ function FightController:ctor(scene,param)
 	
 	--模型
 	local FightModel = require("app.model.FightModel")
-	self.model_ = FightModel.new(self,self.scene_.batch);
+	self.model_ = FightModel.new(self.scene_.batch_);
 	
 	
 	self:init();

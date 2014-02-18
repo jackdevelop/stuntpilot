@@ -139,7 +139,8 @@ end
 function BaseObject:updateView()
 end
 
-
+function BaseObject:tick()
+end
 
 
 

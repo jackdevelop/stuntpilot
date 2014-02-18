@@ -34,26 +34,27 @@ function ObjectViewBehavior:bind(object)
 	
 	--创建动画
     local function createView(object, batch, marksLayer, debugLayer)
-       if self.framesName_ then
-	        local frames = display.newFrames(self.framesName_, self.framesBegin_, self.framesLength_)
-	        self.sprite_ = display.newSpriteWithFrame(frames[1])
-	        self.sprite_:playAnimationForever(display.newAnimation(frames, self.framesTime_))
+       if object.framesName_ then
+	        local frames = display.newFrames(object.framesName_, object.framesBegin_, object.framesLength_)
+	        object.sprite_ = display.newSprite();--display.newSpriteFrame(frames[1])
+	        object.sprite_:playAnimationForever(display.newAnimation(frames, object.framesTime_))
+	        object.sprite_:displayFrame(frames[1])
 	    else
-	        local imageName = self.imageName_
+	        local imageName = object.imageName_
 	        if type(imageName) == "table" then
 	            imageName = imageName[1]
 	        end
-	        self.sprite_ = display.newSprite(imageName)
+	        object.sprite_ = display.newSprite(imageName)
 	    end
 	
-	    local size = self.sprite_:getContentSize()
-	    self.spriteSize_ = {size.width, size.height}
+	    local size = object.sprite_:getContentSize()
+	    object.spriteSize_ = {size.width, size.height}
 	
-	    if self.scale_ then
-	        self.sprite_:setScale(self.scale_)
+	    if object.scale_ then
+	        object.sprite_:setScale(self.scale_)
 	    end
-	
-	    batch:addChild(self.sprite_)
+	    
+	    batch:addChild(object.sprite_)
     end
     object:bindMethod(self, "createView", createView)
 
@@ -61,9 +62,9 @@ function ObjectViewBehavior:bind(object)
 	
 	
     local function removeView(object)
-    	if self.sprite_ then
-			self.sprite_:removeSelf()
-			self.sprite_ = nil
+    	if object.sprite_ then
+			object.sprite_:removeSelf()
+			object.sprite_ = nil
 		end
     end
     object:bindMethod(self, "removeView", removeView, true)
