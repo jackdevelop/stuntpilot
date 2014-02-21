@@ -104,6 +104,18 @@ function FightScene:createCCParallax()
      
      --默认的地图走向
      self.addNum_ = -10;
+     
+     
+ 
+     echoj(    self.batch_:getBoundingBox(),self.batch_:getContentSize());
+     --
+--     self.backgroundSprite_ :setVisible(false);
+--    echoj(self.batch_:get);
+    
+    
+    self.backgroundSprite_:setVisible(false);
+    local scrollSprite = require("engin.components.ScrollSprite").new();
+    scrollSprite:initData("#ground.png",scrollImageContentSize)
     --运转动画
 --    local  go = CCMoveBy:create(10, ccp(-2700,0) )
 --    local  goBack = go:reverse()

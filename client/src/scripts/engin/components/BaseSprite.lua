@@ -18,7 +18,8 @@ end)
 
 
 
-function BaseSprite:ctor(object)
+function BaseSprite:ctor(batch,object)
+	self.batch_ = batch;
 	self.object_=object;
 end
 

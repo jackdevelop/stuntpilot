@@ -12,6 +12,22 @@
 
 
 
+--[[
+四舍五入
+math.ceil(x)    -- 向上取整
+math.floor(x)   -- 向下取整
+]]
+function math.round(value)
+    local intNum,num=math.modf(value);
+    if num < 0.5 then 
+        return math.floor (value)
+    else
+        return math.ceil (value)    
+    end
+end
+
+
+
 
 --[[
 巧妙使用 and or 还可以实现类似 C 语言中的 ?: 三元操作：
@@ -20,6 +36,18 @@
 function Jmax(a,b)
     return a>b and a or b
 end
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 --[[

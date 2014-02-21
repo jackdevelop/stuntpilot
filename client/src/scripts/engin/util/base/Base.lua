@@ -14,7 +14,7 @@ local Base = class("Base")
 
 
 
-function Base:ctor(object,batch)
+function Base:ctor(batch,object)
 	self.object_=object;
 	self.batch_=batch;--父类
 end

@@ -103,6 +103,15 @@ function RoleMapCamera:tick(dt)
 		self:setOffset(moveEndPointX,moveEndPointY, movingSpeed, onComplete)
 	end
 	
+	--移动完成后的回调
+	local function moveMapEndCallBackFun()
+		if self.moveEndCallback_ then 
+			self.moveEndCallback_();
+		end
+	end
+	
+	
+	
 	
 	
 	
@@ -110,16 +119,24 @@ function RoleMapCamera:tick(dt)
 	if focus then 
 		if judgeFocusPosition() then return end
 		
-		
 		moveMap(nil,function()
 			if not judgeFocusPosition() then --开始移动主角
-			
+				transition.moveTo(focus, {
+		            x = moveEndPointX,
+		            y = moveEndPointY,
+		            time = 1,
+		            onComplete = moveMapEndCallBackFun
+		        })
 			end
 		end);
 	else
-		moveMap();
+		moveMap(nil,moveMapEndCallBackFun);
 	end
 end
+
+
+
+
 --public function update():void
 --		{
 --			if(_focus)

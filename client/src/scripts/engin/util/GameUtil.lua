@@ -19,9 +19,19 @@ end
 
 
 
-
-
-
+--[[
+截图功能
+@param string filename 文件名
+@return bool 返回是否截图成功
+]]
+function GameUtil.screenshot(filename)
+    local texture = CCRenderTexture:create(display.width,display.height)
+    texture:setPosition(ccp(display.cx, display.cy))
+    texture:begin()
+    display.getRunningScene():visit()
+    texture:endToLua()
+    return texture:saveToFile(filename)
+end
 
 
 
