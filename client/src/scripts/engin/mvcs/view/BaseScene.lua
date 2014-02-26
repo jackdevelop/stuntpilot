@@ -52,8 +52,6 @@ function BaseScene:ctor(param)
     
     
     
-    
-    
 	--添加背景
 	if backgroundImageName then 
 		CCTexture2D:setDefaultAlphaPixelFormat(kCCTexture2DPixelFormat_RGB565)
@@ -66,10 +64,12 @@ function BaseScene:ctor(param)
 	        end
 	    end)
 	    
-	    if width then self.backgroundSprite_:setContentSize(CCSize(width,height)); end
+	    --if width then self.backgroundSprite_:setContentSize(CCSize(width,height)); end
 		local contentSize=self.backgroundSprite_:getContentSize();
-		width = contentSize.width;
-		height= contentSize.height;
+		if not width then
+			width = contentSize.width;
+			height= contentSize.height;
+		end
 		self.backgroundSprite_:align(display.LEFT_BOTTOM, 0, 0)
 	    self.mapLayer:addChild(self.backgroundSprite_)--背景地图
     end
@@ -195,6 +195,15 @@ end
 ]]
 function BaseScene:getTipLayer_()
     return self.tipLayer_
+end
+
+
+--[[--
+返回背景图
+]]
+function BaseScene:getBackgroundLayer()
+    
+    
 end
 
 

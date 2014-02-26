@@ -14,6 +14,22 @@ function FightLoadingScene:ctor(param)
 	self.stepIndex   = 0
 
     self.steps = {}
+    
+    
+    self.steps[#self.steps + 1] = function()
+       --加载数据
+       local level = param.level;--地图
+       local levelModuleName    = string.format("app.data.level.Lv%s_map", level)
+	   local ok, data = pcall(function() return require(levelModuleName) end)
+	   if not ok or type(data) ~= "table" then
+	   		ok, data = pcall(function() return require("app.data.level.Lv1000_map") end)
+	   end
+	   
+	   self.param_ = {levelData = data};
+	   
+    end
+    
+    
     self.steps[#self.steps + 1] = function()
         display.addSpriteFramesWithFileListName(GamePlistProperties.Sheet_Map());
     end
@@ -34,8 +50,9 @@ function FightLoadingScene:tick()
 	    end
     elseif self.stepIndex >= count then
         self:unscheduleUpdate()
-        self:performWithDelay(function() 
-        	app:enterScene(SceneConstants.FightScene())
+        self:performWithDelay(function()
+        	local sceneName,backScaneName = SceneConstants.FightScene()
+        	app:enterScene(sceneName,backScaneName,self.param_)
         end, 0.1)
     end
 end

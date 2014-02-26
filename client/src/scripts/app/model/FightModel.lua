@@ -8,12 +8,13 @@ local FightModel = class("FightModel")
 
 
 
-function FightModel:ctor(batch)
+function FightModel:ctor(batch,levelData)
 	self.objects_           = {}
     self.objectsByClass_    = {}
     self.nextObjectIndex_   = 1
     
     self.batch_ = batch;
+    self.levelData_ = levelData;
 end
 
 

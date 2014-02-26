@@ -19,7 +19,8 @@ local BehaviorClassProperties = {}
 local defines = {
 	DecorateBehavior  =  require("app.gameObject.behavior.DecorateBehavior"),
 	ObjectViewBehavior =  require("app.gameObject.behavior.ObjectViewBehavior"),
-
+	MovableBehavior    = require("app.gameObject.behavior.MovableBehavior"),
+	MovableDirectBehavior    = require("app.gameObject.behavior.MovableDirectBehavior"),
 }
 
 

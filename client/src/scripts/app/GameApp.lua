@@ -44,6 +44,7 @@ function UIDemoApp:enterScene(sceneName,backScaneName, param,...)
 	    display.replaceScene(scene, transitionType, time, more)
 	end
 
+echoj("dfffff",sceneName,backScaneName, param);
 	if not param then param = {} end
 	param.sceneName = sceneName;
   	--UIDemoApp.super.enterScene(self, sceneName,param, ...)

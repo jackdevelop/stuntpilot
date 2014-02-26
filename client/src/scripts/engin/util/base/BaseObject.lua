@@ -15,10 +15,12 @@ local BaseObject = class("BaseObject")
 
 BaseObject.CLASS_INDEX = {
     static     = 0,
+    role       = 1,
 }
 
 BaseObject.CLASS_ID = {
     static     = "static",
+    role	   = "role",
 }
 
 

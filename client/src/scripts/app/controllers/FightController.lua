@@ -18,7 +18,7 @@ function FightController:ctor(scene,param)
 	
 	--模型
 	local FightModel = require("app.model.FightModel")
-	self.model_ = FightModel.new(self.scene_:getBatchLayer());
+	self.model_ = FightModel.new(self.scene_:getBatchLayer(),param.levelData);
 	
 	
 	self:init();
@@ -36,12 +36,18 @@ function FightController:init()
 		x = display.cx,
 		y = display.cy
 	}
-	self.plane = self.model_:newObject(BaseObject.CLASS_ID["static"], state)
+	self.plane = self.model_:newObject(BaseObject.CLASS_ID["role"], state)
 end
 
 
 
-
+--[[
+设置飞机加油量
+]]
+function FightController:setPlaneFlyRadians(radians)
+	local plane = self.plane_;--飞机对象
+	self.plane:setPlaneFlyRadians(radians);
+end
 
 
 

@@ -23,6 +23,8 @@ local object = {
     zorder       = 30000,
     viewZOrdered = true,
     behaviors   = {"DecorateBehavior","ObjectViewBehavior"},
+    
+    flyRadians = 0,--飞行的角度 初始化向右为0
 }
 defines["p1_cart"] = object
 
