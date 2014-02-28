@@ -469,6 +469,8 @@ end
 tick帧更新事件
 ]]
 function BaseScene:tick(dt)
+	self.camera_:tick(dt);
+	   
     if self.drag then
         self.drag.time = self.drag.time + dt
     end

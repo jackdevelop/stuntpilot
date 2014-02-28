@@ -21,48 +21,62 @@ LOAD LUA FILE: F:/workspace/lua/stuntpilot/client/src//scripts/main.lua
 ------------------------------------------------
 lua_loadChunksFromZIP() - load zip file: F:\workspace\lua\stuntpilot\client\src\res/script/framework_precompiled.zip
 lua_loadChunksFromZIP() - loaded chunks count: 54
-[0.1348] [INFO] 
-[0.1352] [INFO] # DEBUG                        = 1
-[0.1357] [INFO] #
-[0.1365] [INFO] # device.platform              = windows
-[0.1368] [INFO] # device.model                 = unknown
-[0.1373] [INFO] # device.language              = cn
-[0.1378] [INFO] # device.writablePath          = F:\workspace\lua\stuntpilot\client\src\\
-[0.1385] [INFO] # device.cachePath             = F:\workspace\lua\stuntpilot\client\src\\
-[0.1396] [INFO] # device.directorySeparator    = \
-[0.1401] [INFO] # device.pathSeparator         = ;
-[0.1404] [INFO] #
-[0.1426] [INFO] # CONFIG_SCREEN_AUTOSCALE      = FIXED_HEIGHT
-[0.1430] [INFO] # CONFIG_SCREEN_WIDTH          = 960.00
-[0.1436] [INFO] # CONFIG_SCREEN_HEIGHT         = 640.00
-[0.1443] [INFO] # display.widthInPixels        = 960.00
-[0.1448] [INFO] # display.heightInPixels       = 640.00
-[0.1454] [INFO] # display.contentScaleFactor   = 1.00
-[0.1459] [INFO] # display.width                = 960.00
-[0.1464] [INFO] # display.height               = 640.00
-[0.1468] [INFO] # display.cx                   = 480.00
-[0.1496] [INFO] # display.cy                   = 320.00
-[0.1504] [INFO] # display.left                 = 0.00
-[0.1508] [INFO] # display.right                = 960.00
-[0.1513] [INFO] # display.top                  = 640.00
-[0.1517] [INFO] # display.bottom               = 0.00
-[0.1522] [INFO] # display.c_left               = -480.00
-[0.1525] [INFO] # display.c_right              = 480.00
-[0.1529] [INFO] # display.c_top                = 320.00
-[0.1534] [INFO] # display.c_bottom             = -320.00
-[0.1538] [INFO] #
-[0.1851] dfffff, FightLoadingScene, nil, nil
-[0.2026] [INFO] Scene "BaseScene:onEnter()"
-[1.7193] 加载进度：, 50
-[1.8665] 加载进度：, 100
-[1.9842] dfffff, FightScene, LoginScene, {"levelData":{"backgroundImageName":"#background.png","sceneSound":"bg_sound","levelId":"1000"}}
-[2.0609] [INFO] Scene "BaseScene:onExit()"
-[2.0614] [INFO] ----------------------------------------
-[2.0619] [INFO] LUA VM MEMORY USED: 1662.26 KB
+[0.5469] [INFO] 
+[0.5473] [INFO] # DEBUG                        = 1
+[0.5478] [INFO] #
+[0.5497] [INFO] # device.platform              = windows
+[0.5500] [INFO] # device.model                 = unknown
+[0.5504] [INFO] # device.language              = cn
+[0.5509] [INFO] # device.writablePath          = F:\workspace\lua\stuntpilot\client\src\\
+[0.5518] [INFO] # device.cachePath             = F:\workspace\lua\stuntpilot\client\src\\
+[0.5527] [INFO] # device.directorySeparator    = \
+[0.5532] [INFO] # device.pathSeparator         = ;
+[0.5536] [INFO] #
+[0.5643] [INFO] # CONFIG_SCREEN_AUTOSCALE      = FIXED_HEIGHT
+[0.5647] [INFO] # CONFIG_SCREEN_WIDTH          = 960.00
+[0.5656] [INFO] # CONFIG_SCREEN_HEIGHT         = 640.00
+[0.5662] [INFO] # display.widthInPixels        = 960.00
+[0.5667] [INFO] # display.heightInPixels       = 640.00
+[0.5674] [INFO] # display.contentScaleFactor   = 1.00
+[0.5676] [INFO] # display.width                = 960.00
+[0.5686] [INFO] # display.height               = 640.00
+[0.5691] [INFO] # display.cx                   = 480.00
+[0.5697] [INFO] # display.cy                   = 320.00
+[0.5703] [INFO] # display.left                 = 0.00
+[0.5708] [INFO] # display.right                = 960.00
+[0.5715] [INFO] # display.top                  = 640.00
+[0.5719] [INFO] # display.bottom               = 0.00
+[0.5726] [INFO] # display.c_left               = -480.00
+[0.5730] [INFO] # display.c_right              = 480.00
+[0.5734] [INFO] # display.c_top                = 320.00
+[0.5738] [INFO] # display.c_bottom             = -320.00
+[0.5743] [INFO] #
+[1.0208] dfffff, FightLoadingScene, nil, nil
+[1.0439] [INFO] Scene "BaseScene:onEnter()"
+[2.6592] 加载进度：, 50
+[2.9494] 加载进度：, 100
+[3.0685] dfffff, FightScene, LoginScene, {"levelData":{"backgroundImageName":"#background.png","sceneSound":"bg_sound","levelId":"1000"}}
+[3.2806] [INFO] Scene "BaseScene:onExit()"
+[3.2810] [INFO] ----------------------------------------
+[3.2817] [INFO] LUA VM MEMORY USED: 1688.93 KB
 cocos2d: "cc_fps_images" rc=4 id=2 256 x 32 @ 16 bpp => 16 KB
 cocos2d: "F:\workspace\lua\stuntpilot\client\src\\res/fight/Sheet_Map.png" rc=16 id=1 1024 x 2048 @ 32 bpp => 8192 KB
 cocos2d: "cc_2x2_white_image" rc=2 id=3 2 x 2 @ 32 bpp => 0 KB
 cocos2d: CCTextureCache dumpDebugInfo: 3 textures, for 8208 KB (8.02 MB)
-[2.0649] [INFO] ----------------------------------------
-[2.0655] [INFO] Scene "BaseScene:onEnter()"
-[10.2024] [INFO] LUA VM MEMORY USED: 1741.37 KB
+[3.2858] [INFO] ----------------------------------------
+[3.2864] [INFO] Scene "BaseScene:onEnter()"
+[8.8815] [INFO] Scene "BaseScene:onExit()"
+[8.8818] [INFO] ----------------------------------------
+[8.8822] [INFO] LUA VM MEMORY USED: 1725.39 KB
+cocos2d: "cc_fps_images" rc=4 id=2 256 x 32 @ 16 bpp => 16 KB
+cocos2d: "F:\workspace\lua\stuntpilot\client\src\\res/fight/Sheet_Map.png" rc=14 id=1 1024 x 2048 @ 32 bpp => 8192 KB
+cocos2d: "cc_2x2_white_image" rc=1 id=3 2 x 2 @ 32 bpp => 0 KB
+cocos2d: CCTextureCache dumpDebugInfo: 3 textures, for 8208 KB (8.02 MB)
+[8.8834] [INFO] ----------------------------------------
+cocos2d: CCSpriteFrameCache: removing unused frame: background.png
+cocos2d: CCSpriteFrameCache: removing unused frame: background_mountain.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ground.png
+cocos2d: CCTextureCache: texture: cc_fps_images
+cocos2d: CCTextureCache: texture: F:\workspace\lua\stuntpilot\client\src\\res/fight/Sheet_Map.png
+cocos2d: CCTextureCache: texture: cc_2x2_white_image
+cocos2d: CCTextureCache: removing unused texture: cc_2x2_white_image

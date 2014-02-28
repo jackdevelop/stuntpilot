@@ -9,10 +9,11 @@ local FightScene = class("FightScene", BaseScene)
 function FightScene:ctor(param)
 	local levelData = param.levelData;
 	
+	
 	param.sceneSound = GameSoundProperties[levelData.sceneSound](); --GameSoundProperties.bg_sound();
 	param.backgroundImageName = levelData.backgroundImageName;
-	param.width = 2048;
-	param.height = 2048;
+	param.width = levelData.width;
+	param.height = levelData.height;
 	FightScene.super.ctor(self,param)
     GameUtil.spriteFullScreen(self.backgroundSprite_)
     
@@ -50,6 +51,13 @@ function FightScene:createCCParallax()
     ground:initView()
     self.ground_ = ground;
     self.batch_:addChild(ground);
+    
+--    最简单的算法是
+--	 三层移动速度都是一样的
+--	 不过
+--	 背景层.scaleX = 背景层.scaleY = 0.8
+--	地面层不动
+--	 前景层.scaleX = 前景层.scaley = 1.2
 end
 
 
@@ -67,6 +75,8 @@ end
 
 
 function FightScene:tick(dt)
+	FightScene.super.tick(self,dt);
+	
 	self.sceneController_:tick(dt);
 	
 	--测试

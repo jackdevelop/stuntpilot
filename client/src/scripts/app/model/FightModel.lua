@@ -8,13 +8,18 @@ local FightModel = class("FightModel")
 
 
 
-function FightModel:ctor(batch,levelData)
+function FightModel:ctor(controller,levelData)
 	self.objects_           = {}
     self.objectsByClass_    = {}
     self.nextObjectIndex_   = 1
     
-    self.batch_ = batch;
+    self.controller_ = controller;
+    self.batch_ = controller.scene_:getBatchLayer();
+    
+    --拆分数据
     self.levelData_ = levelData;
+    self.width_ = levelData.width;
+    self.height_ = levelData.height;
 end
 
 

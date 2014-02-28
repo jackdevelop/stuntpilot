@@ -26,7 +26,7 @@ end
 
 -- 求两点的夹角（弧度）
 function Math2d.radians4point(ax, ay, bx, by)
-    return atan2(ay - by, bx - ax)
+    return atan2(tonum(ay) - tonum(by), tonum(bx) - tonum(ax))
 end
 
 -- 求圆上一个点的位置

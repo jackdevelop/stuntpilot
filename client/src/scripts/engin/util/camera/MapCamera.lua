@@ -177,8 +177,6 @@ function MapCamera:zoomTo(scale, x, y)
   	if batchLayer then  self.batchLayerAction_ = transition.scaleTo(batchLayer, {scale = scale, time = MapConstants.ZOOM_TIME})  end
     if flysLayer then  self.marksLayerAction_ = transition.scaleTo(flysLayer, {scale = scale, time = MapConstants.ZOOM_TIME})  end
      if floorsLayer then  self.marksLayerAction_ = transition.scaleTo(floorsLayer, {scale = scale, time = MapConstants.ZOOM_TIME})  end
-   
-   
     if debugLayer then transition.scaleTo(debugLayer, {scale = scale, time = MapConstants.ZOOM_TIME})  end
      
 
@@ -206,6 +204,14 @@ function MapCamera:zoomTo(scale, x, y)
     if floorsLayer then  transition.moveTo(floorsLayer, {x = x, y = y, time = MapConstants.ZOOM_TIME})  end
     if debugLayer then  transition.moveTo(debugLayer, {x = x, y = y, time = MapConstants.ZOOM_TIME})  end
 end
+
+
+
+
+
+
+
+
 
 --[[--
 
@@ -250,66 +256,53 @@ function MapCamera:setOffset(x, y, movingSpeed, onComplete)
 
     local x, y = display.pixels(x, y)
     self.offsetX_, self.offsetY_ = x, y
-    if backgroundLayer then
-        transition.stopTarget(backgroundLayer)
-    end
-    if batchLayer then
-        transition.stopTarget(batchLayer)
-    end
-     if flysLayer then
-        transition.stopTarget(flysLayer)
-    end
-     if floorsLayer then
-        transition.stopTarget(floorsLayer)
-    end
-    if debugLayer then
-        transition.stopTarget(debugLayer)
-    end
-    
-    
-    
-    
-    if type(movingSpeed) == "number" and movingSpeed > 0 then
-        local function moveLayer(oneLayer)
-        	if oneLayer then 
-		    	 transition.moveTo(oneLayer, {
-		            x = x,
-		            y = y,
-		            time = movingSpeed,
-		            onComplete = onComplete
-		        })
-	        end
-	    end
-        
-        moveLayer(backgroundLayer)
-        moveLayer(batchLayer)
-        moveLayer(flysLayer)
-        moveLayer(floorsLayer)
-        moveLayer(debugLayer)
-    else
-        if backgroundLayer then  self.map_:getBackgroundLayer():setPosition(x, y) end
-        if batchLayer then  batchLayer:setPosition(x, y) end
-        if flysLayer then flysLayer:setPosition(x, y) end
-        if floorsLayer then floorsLayer:setPosition(x, y) end
-        if debugLayer then debugLayer:setPosition(x, y) end
-    end
+--    if backgroundLayer then
+--        transition.stopTarget(backgroundLayer)
+--    end
+--    if batchLayer then
+--        transition.stopTarget(batchLayer)
+--    end
+--     if flysLayer then
+--        transition.stopTarget(flysLayer)
+--    end
+--     if floorsLayer then
+--        transition.stopTarget(floorsLayer)
+--    end
+--    if debugLayer then
+--        transition.stopTarget(debugLayer)
+--    end
+--    
+--    
+--    
+--    
+--    if type(movingSpeed) == "number" and movingSpeed > 0 then
+--        local function moveLayer(oneLayer,callBack)
+--        	if oneLayer then 
+--		    	 transition.moveTo(oneLayer, {
+--		            x = x,
+--		            y = y,
+--		            time = movingSpeed,
+--		            onComplete = callBack
+--		        })
+--	        end
+--	    end
+--        
+--        moveLayer(backgroundLayer,onComplete)
+--        moveLayer(batchLayer)
+--        moveLayer(flysLayer)
+--        moveLayer(floorsLayer)
+--        moveLayer(debugLayer)
+--    else
+--        if backgroundLayer then  self.map_:getBackgroundLayer():setPosition(x, y) end
+--        if batchLayer then  batchLayer:setPosition(x, y) end
+--        if flysLayer then flysLayer:setPosition(x, y) end
+--        if floorsLayer then floorsLayer:setPosition(x, y) end
+--        if debugLayer then debugLayer:setPosition(x, y) end
+--    end
 end
 
---[[--
 
-移动指定的偏移量
 
-]]
-function MapCamera:moveOffset(offsetX, offsetY, movingSpeed)
-    self:setOffset(self.offsetX_ + offsetX, self.offsetY_ + offsetY, movingSpeed)
-end
-
---[[--
-移动到指定的位置
-]]
-function MapCamera:moveTo(positionX, positionY)
-    self:setOffset(positionX, positionY)
-end
 
 --[[--
 
@@ -334,6 +327,168 @@ function MapCamera:resetOffsetLimit()
         maxY = self.margin_.bottom,
     }
 end
+
+
+--[[--
+
+移动指定的偏移量
+
+]]
+function MapCamera:moveOffset(offsetX, offsetY, movingSpeed)
+    self:setOffset(self.offsetX_ + offsetX, self.offsetY_ + offsetY, movingSpeed)
+end
+
+--[[--
+移动到指定的位置
+]]
+function MapCamera:moveTo(positionX, positionY)
+    self:setOffset(positionX, positionY)
+end
+--[[--
+飞行到指定的位置
+]]
+function MapCamera:flyTo(positionX, positionY,callback)
+	if  self.handle_ then
+		echoj("[MapCamera] Camera is moving,can not do this operation.");
+		return;
+	end
+	
+	--//从数学上看，左移1位等于乘以2，右移1位等于除以2，然后再取整，移位溢出的丢弃。
+	--//a<<=1;  //0b00000010 a左移1位等效于a=a*2
+	--//a>>=1;  //0b00000010 a左移1位等效于a=a/2
+	local halfWidth = math.floor(display.width/2); --display.width>>1
+	local halfHeight = math.floor(display.height/2);
+    local moveStart = Jpoint(self.offsetX_-(halfWidth),self.offsetY_-(halfHeight));
+    local moveEnd = Jpoint(positionX-halfWidth,positionY  - halfHeight );
+    
+    
+    local function listener()
+    	local xspeed = (moveEnd("x") - moveStart("x"))/5
+    	local yspeed = (moveEnd("y") - moveStart("y"))/5
+    	local moveStartX = moveStart("x") + xspeed;
+    	local moveStartY = moveStart("y") + yspeed;
+    	moveStart = Jpoint(moveStartX,moveStartY);
+    	self:setOffset(moveStart());
+    	
+    	if (xspeed>-0.5 and xspeed<0.5)
+    	 and (yspeed>-0.5 and yspeed<0.5) then 
+    		scheduler.unscheduleGlobal(self.handle_)
+    		self.handle_ = nil;
+    		if(callback)then callback(); end
+    	end 
+    end
+    self.handle_ = scheduler.scheduleUpdateGlobal(listener)
+    
+end
+
+
+
+
+
+
+
+
+function MapCamera:setFocus(focusObject)
+	self.focusObject_:setFocus(false);
+	focusObject:setFocus(true);
+	self.focusObject_ =focusObject; 
+end
+
+
+
+--[[
+更新
+]]
+function MapCamera:tick(dt)
+	if self.focusObject_ then 
+		local _zeroX = self.focusObject_.x_ - math.floor(display.width/2);
+		local _zeroY = self.focusObject_.y - math.floor(display.height/2);
+		
+		local width,height = self:getMapSize();
+		local value = width - display.width;
+		if _zeroX<0 then _zeroX = 0 end
+		if _zeroX>value then _zeroX = value  end
+		
+		
+		local value = height - display.height;
+		if _zeroY<0 then _zeroY = 0 end
+		if _zeroY>value then _zeroY = value  end
+		
+		self:setOffset(_zeroX, _zeroY);
+	end
+	
+	
+	
+	
+	
+	
+	
+	local backgroundLayer = self.map_:getBackgroundLayer()
+    local batchLayer      = self.map_:getBatchLayer()
+    local flysLayer      = self.map_:getFlysLayer()
+    local debugLayer      = self.map_:getDebugLayer()
+    local floorsLayer    = self.map_:getFloorsLayer()
+	
+	
+	local x,y = self.offsetX_, self.offsetY_;
+	local currentX , currentY = batchLayer:getPosition()
+	if x  == currentX and y == currentY then 
+		return;
+	end
+	
+	
+    if backgroundLayer then
+        transition.stopTarget(backgroundLayer)
+    end
+    if batchLayer then
+        transition.stopTarget(batchLayer)
+    end
+     if flysLayer then
+        transition.stopTarget(flysLayer)
+    end
+     if floorsLayer then
+        transition.stopTarget(floorsLayer)
+    end
+    if debugLayer then
+        transition.stopTarget(debugLayer)
+    end
+	
+    if backgroundLayer then  self.map_:getBackgroundLayer():setPosition(x, y) end
+    if batchLayer then  batchLayer:setPosition(x, y) end
+    if flysLayer then flysLayer:setPosition(x, y) end
+    if floorsLayer then floorsLayer:setPosition(x, y) end
+    if debugLayer then debugLayer:setPosition(x, y) end
+    
+--	self:setOffset(x, y);--, movingSpeed, onComplete)
+end
+
+
+--public function update():void
+--		{
+--			if(_focus)
+--			{
+--				_zeroX = _focus.PosX - (Global.W>>1);
+--				_zeroY = _focus.PosY - (Global.H>>1);
+--				
+--				var value:Number = Global.MAPSIZE.x-Global.W;
+--				_zeroX = _zeroX<0 ? 0 : _zeroX;
+--				_zeroX = _zeroX>value ? value : _zeroX;
+--				
+--				value = Global.MAPSIZE.y-Global.H;
+--				_zeroY = _zeroY<0 ? 0 : _zeroY;
+--				_zeroY = _zeroY>value ? value : _zeroY;
+--			}
+--			
+--			_cameraView.x = _zeroX;
+--			_cameraView.y = _zeroY;
+--			
+--			_cameraView.width = Global.W;
+--			_cameraView.height = Global.H;
+--		}
+
+
+
+
 
 
 
@@ -370,6 +525,7 @@ end
 --[[--
 
 将指定的地图坐标转换为摄像机坐标
+ 这个是加上上下左右一个留空的卷轴 
 
 ]]
 function MapCamera:convertToCameraPosition(x, y)

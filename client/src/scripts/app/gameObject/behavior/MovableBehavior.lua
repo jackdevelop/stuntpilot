@@ -131,7 +131,7 @@ function MovableBehavior:bind(object)
     object:bindMethod(self, "getFuturePosition", getFuturePosition)
 
     local function setSpeed(object, maxSpeed)
-        object.speed_ = tonumber(maxSpeed)
+        object.speed_ = tonum(maxSpeed)
         if object.speed_ < 0 then object.speed_ = 0 end
 
         object.speedIncr_ = object.speed_ * 0.025 * MovableBehavior.SPEED_SCALE
@@ -140,7 +140,85 @@ function MovableBehavior:bind(object)
     end
     object:bindMethod(self, "setSpeed", setSpeed)
 
-
+	
+	
+	
+	local function runPos(object)
+    	local targetX,targety;
+    	local model = self.model_ ;
+    	local maxX = model.width_
+    	local maxY = model.height_;
+    	
+    	
+    	
+    	
+    	local targetx,targety;
+    	if object:getFocus() then
+    		
+    		local halfWidth = math.floor(display.width/2); --display.width>>1
+			local halfHeight = math.floor(display.height/2);
+    		
+    		if object.x_ < halfWidth then 
+    			targetx = object.x_;
+    		else
+    			targetx = halfWidth;
+    		end
+    		
+    		if object.y_ < halfHeight then 
+    			targety = object.y_;
+    		else
+    			targety = halfHeight;
+    		end
+    		
+    		
+    		if object.x_ > maxX - halfWidth then
+    			targetx = object.x_ - (maxX - display.width);
+    		end
+    		
+    		if object.y_ > maxY - halfHeight then
+    			targety = object.y_ - (maxY - display.height);
+    		end
+    		
+    	else
+    		
+    		targetx,targety=self.controller_.scene_:getCamera():convertToScreenPosition(object.x_,object.y_);
+    	end
+    	
+    	object.x_ = 0 ;
+    	object.y_ = 0 ;
+    end
+    object:bindMethod(self, "runPos", runPos)
+	
+--		/**
+--		 * 计算坐标
+--		 */ 
+--		public function runPos():void
+--		{
+--			if(_controler) _controler.calcAction();
+--			
+--			var targetx:Number;
+--			var targety:Number;
+--			var maxX:uint = Global.MAPSIZE.x;
+--			var maxY:uint = Global.MAPSIZE.y;
+--			
+--			if(D5Game.me.camera.focusObject==this)
+--			{
+--				targetx = pos.x<(Global.W>>1) ? pos.x : (Global.W>>1);
+--				targety = pos.y<(Global.H>>1) ? pos.y : (Global.H>>1);
+--				
+--				targetx = pos.x>maxX-(Global.W>>1) ? pos.x-(maxX-Global.W) : targetx;
+--				targety = pos.y>maxY-(Global.H>>1) ? pos.y-(maxY-Global.H) : targety;
+--			}else{
+--				var target:Point = WorldMap.me.getScreenPostion(pos.x,pos.y);
+--				targetx = target.x;
+--				targety = target.y;
+--			}
+--			x = Number(targetx.toFixed(1));
+--			y = Number(targety.toFixed(1));
+--		}
+	
+	
+	
 	
     local function vardump(object, state)
         return state
@@ -165,7 +243,7 @@ function MovableBehavior:unbind(object)
 end
 
 function MovableBehavior:reset(object)
-    object:setSpeed(tonumber(object.state_.speed))
+    object:setSpeed(tonum(object.state_.speed))
     object.currentSpeed_ = 0
     object.movingState_  = MovableBehavior.MOVING_STATE_STOPPED
 end

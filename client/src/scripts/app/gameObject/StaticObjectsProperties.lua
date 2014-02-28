@@ -22,7 +22,7 @@ local object = {
 --    offsetY      = 20,
     zorder       = 30000,
     viewZOrdered = true,
-    behaviors   = {"DecorateBehavior","ObjectViewBehavior"},
+    behaviors   = {"DecorateBehavior","ObjectViewBehavior","MovableBehavior","MovableDirectBehavior","RoleBehavior"},
     
     flyRadians = 0,--飞行的角度 初始化向右为0
 }
