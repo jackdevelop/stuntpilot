@@ -130,6 +130,8 @@ function MovableBehavior:bind(object)
     end
     object:bindMethod(self, "getFuturePosition", getFuturePosition)
 
+
+
     local function setSpeed(object, maxSpeed)
         object.speed_ = tonum(maxSpeed)
         if object.speed_ < 0 then object.speed_ = 0 end
@@ -144,6 +146,8 @@ function MovableBehavior:bind(object)
 	
 	
 	local function runPos(object)
+--		if(_controler) _controler.calcAction();
+		
     	local targetX,targety;
     	local model = self.model_ ;
     	local maxX = model.width_
@@ -184,8 +188,7 @@ function MovableBehavior:bind(object)
     		targetx,targety=self.controller_.scene_:getCamera():convertToScreenPosition(object.x_,object.y_);
     	end
     	
-    	object.x_ = 0 ;
-    	object.y_ = 0 ;
+    	object.x_,object.y_ = targetx,targety ;
     end
     object:bindMethod(self, "runPos", runPos)
 	
