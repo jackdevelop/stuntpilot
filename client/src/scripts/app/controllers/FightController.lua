@@ -12,13 +12,13 @@ local FightController = class("FightController")
 战斗控制器 构造函数
 @param scene 场景
 ]]
-function FightController:ctor(scene,param)
+function FightController:ctor(scene,levelData)
 	--显示场景
 	self.scene_  =  scene; 
 	
 	--模型
 	local FightModel = require("app.model.FightModel")
-	self.model_ = FightModel.new(self,param.levelData);
+	self.model_ = FightModel.new(self,levelData);
 	
 	
 	self:init();
@@ -33,8 +33,8 @@ end
 function FightController:init()
 	local state = {
 		defineId = "p1_cart",
-		x = display.cx,
-		y = display.cy
+		x =display.width,
+		y =display.height
 	}
 	self.plane = self.model_:newObject(BaseObject.CLASS_ID["role"], state)
 end
@@ -47,6 +47,8 @@ end
 function FightController:setPlaneFlyRadians(radians)
 	local plane = self.plane_;--飞机对象
 	self.plane:setPlaneFlyRadians(radians);
+	local mapCamera = self.scene_:getCamera()
+	mapCamera:setFocus(self.plane)
 end
 
 

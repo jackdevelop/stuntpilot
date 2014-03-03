@@ -238,7 +238,6 @@ function MapCamera:setOffset(x, y, movingSpeed, onComplete)
     local floorsLayer    = self.map_:getFloorsLayer()
 
 	
-	
     if x < self.offsetLimit_.minX then
         x = self.offsetLimit_.minX
     end
@@ -389,7 +388,9 @@ end
 
 
 function MapCamera:setFocus(focusObject)
-	self.focusObject_:setFocus(false);
+	if 	self.focusObject_ then
+		self.focusObject_:setFocus(false);
+	end
 	focusObject:setFocus(true);
 	self.focusObject_ =focusObject; 
 end
@@ -401,20 +402,22 @@ end
 ]]
 function MapCamera:tick(dt)
 	if self.focusObject_ then 
+		--获取偏离中心点多远
 		local _zeroX = self.focusObject_.x_ - math.floor(display.width/2);
-		local _zeroY = self.focusObject_.y - math.floor(display.height/2);
+		local _zeroY = self.focusObject_.y_ - math.floor(display.height/2);
 		
+		--宽度计算不能超过最大最小的值
 		local width,height = self:getMapSize();
 		local value = width - display.width;
 		if _zeroX<0 then _zeroX = 0 end
 		if _zeroX>value then _zeroX = value  end
 		
-		
+		--高度计算不能超过最大最小的值
 		local value = height - display.height;
 		if _zeroY<0 then _zeroY = 0 end
 		if _zeroY>value then _zeroY = value  end
 		
-		self:setOffset(_zeroX, _zeroY);
+		self:setOffset(-_zeroX, -_zeroY);
 	end
 	
 	

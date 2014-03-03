@@ -34,6 +34,10 @@ function MovableBehavior:bind(object)
     object:bindMethod(self, "removeMovingLock", removeMovingLock)
 
 
+
+
+
+	
 	
 	
 	
@@ -68,57 +72,55 @@ function MovableBehavior:bind(object)
     object:bindMethod(self, "isMoving", isMoving)
 
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	--[[
+	设置速度
+	]]
+    local function setSpeed(object, maxSpeed)
+        object.speed_ = tonum(maxSpeed)
+        if object.speed_ < 0 then object.speed_ = 0 end
+
+        object.speedIncr_ = object.speed_ * 0.025 * MovableBehavior.SPEED_SCALE
+        object.speedDecr_ = object.speed_ * 0.038 * MovableBehavior.SPEED_SCALE
+        object.maxSpeed_  = object.speed_ * MovableBehavior.SPEED_SCALE
+    end
+    object:bindMethod(self, "setSpeed", setSpeed)
+    
+    
+	
+	
+	
+	
+	
+	
     local function tick(object, dt)
---        if not object.play_ or object.movingLocked_ > 0 or not object.bindingPathId_ then return end
---
---        local state = object.movingState_
---        if state == MovableBehavior.MOVING_STATE_STOPPED then return end
---
---        if state == MovableBehavior.MOVING_STATE_SPEEDUP
---                or (state == MovableBehavior.MOVING_STATE_FULLSPEED
---                    and object.currentSpeed_ < object.maxSpeed_) then
---            object.currentSpeed_ = object.currentSpeed_ + object.speedIncr_
---            if object.currentSpeed_ >= object.maxSpeed_ then
---                object.currentSpeed_ = object.maxSpeed_
---                object.movingState_ = MovableBehavior.MOVING_STATE_FULLSPEED
---            end
---        elseif state == MovableBehavior.MOVING_STATE_SPEEDDOWN then
---            object.currentSpeed_ = object.currentSpeed_ - object.speedDecr_
---            if object.currentSpeed_ <= 0 then
---                object.currentSpeed_ = 0
---                object.movingState_ = MovableBehavior.MOVING_STATE_STOPPED
---            end
---        elseif object.currentSpeed_ > object.maxSpeed_ then
---            object.currentSpeed_ = object.currentSpeed_ - object.speedDecr_
---            if object.currentSpeed_ < object.maxSpeed_ then
---                object.currentSpeed_ = object.maxSpeed_
---            end
---        end
---
---        local x, y = object.x_, object.y_
---        local currentDist = object.currentDist_ + object.currentSpeed_
---        if currentDist >= object.nextDist_ then
---            object.x_, object.y_ = object.nextX_, object.nextY_
---            currentDist = currentDist - object.nextDist_
---            self:setNextPosition(object)
---            x, y = math2d.pointAtCircle(object.x_, object.y_, object.nextRadians_, currentDist)
---        else
---            local ox, oy = math2d.pointAtCircle(0, 0, object.nextRadians_, object.currentSpeed_)
---            x = x + ox
---            y = y + oy
---        end
---        object.currentDist_ = currentDist
---
---        if x < object.x_ then
---            object.flipSprite_ = true
---        elseif x > object.x_ then
---            object.flipSprite_ = false
---        end
---        object.x_, object.y_ = x, y
+        if object.movingLocked_ > 0  then return end
+
+        local state = object.movingState_
+        if state == MovableBehavior.MOVING_STATE_STOPPED then return end
+		
+		
+		object:runPos();
     end
     object:bindMethod(self, "tick", tick)
 
 
+
+
+	
+
+
+
+	--[[
+	获取time后的点
+	]]
     local function getFuturePosition(object, time)
         local x, y = object.x_, object.y_
         if object.currentSpeed_ == 0  then
@@ -132,27 +134,20 @@ function MovableBehavior:bind(object)
 
 
 
-    local function setSpeed(object, maxSpeed)
-        object.speed_ = tonum(maxSpeed)
-        if object.speed_ < 0 then object.speed_ = 0 end
-
-        object.speedIncr_ = object.speed_ * 0.025 * MovableBehavior.SPEED_SCALE
-        object.speedDecr_ = object.speed_ * 0.038 * MovableBehavior.SPEED_SCALE
-        object.maxSpeed_  = object.speed_ * MovableBehavior.SPEED_SCALE
-    end
-    object:bindMethod(self, "setSpeed", setSpeed)
-
 	
 	
 	
+	
+	--[[
+	计算坐标
+	]]
 	local function runPos(object)
---		if(_controler) _controler.calcAction();
+		--if(_controler) _controler.calcAction();
 		
     	local targetX,targety;
     	local model = self.model_ ;
     	local maxX = model.width_
     	local maxY = model.height_;
-    	
     	
     	
     	
@@ -192,34 +187,6 @@ function MovableBehavior:bind(object)
     end
     object:bindMethod(self, "runPos", runPos)
 	
---		/**
---		 * 计算坐标
---		 */ 
---		public function runPos():void
---		{
---			if(_controler) _controler.calcAction();
---			
---			var targetx:Number;
---			var targety:Number;
---			var maxX:uint = Global.MAPSIZE.x;
---			var maxY:uint = Global.MAPSIZE.y;
---			
---			if(D5Game.me.camera.focusObject==this)
---			{
---				targetx = pos.x<(Global.W>>1) ? pos.x : (Global.W>>1);
---				targety = pos.y<(Global.H>>1) ? pos.y : (Global.H>>1);
---				
---				targetx = pos.x>maxX-(Global.W>>1) ? pos.x-(maxX-Global.W) : targetx;
---				targety = pos.y>maxY-(Global.H>>1) ? pos.y-(maxY-Global.H) : targety;
---			}else{
---				var target:Point = WorldMap.me.getScreenPostion(pos.x,pos.y);
---				targetx = target.x;
---				targety = target.y;
---			}
---			x = Number(targetx.toFixed(1));
---			y = Number(targety.toFixed(1));
---		}
-	
 	
 	
 	
@@ -227,8 +194,6 @@ function MovableBehavior:bind(object)
         return state
     end
     object:bindMethod(self, "vardump", vardump)
-
-    self:reset(object)
 end
 
 function MovableBehavior:unbind(object)
@@ -244,6 +209,9 @@ function MovableBehavior:unbind(object)
     object:unbindMethod(self, "setSpeed")
     object:unbindMethod(self, "vardump")
 end
+
+
+
 
 function MovableBehavior:reset(object)
     object:setSpeed(tonum(object.state_.speed))

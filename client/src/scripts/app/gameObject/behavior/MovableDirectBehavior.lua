@@ -13,7 +13,7 @@ function MovableDirectBehavior:bind(object)
 	
 	--[[
 	设置发行的角度
-	正右为0度   顺时针旋转 读书增加
+	正右为0度   顺时针旋转 度数增加
 	]]
     local function setPlaneFlyRadians(object,flyRadians)
     	object.flyRadians_ = flyRadians;

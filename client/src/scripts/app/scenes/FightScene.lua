@@ -39,18 +39,18 @@ end
 ]]
 function FightScene:createCCParallax()	
 	--远处山
-	local backgroundMountain = require("engin.components.HorizontalScrollSpriteByAllGeneration").new();
-    backgroundMountain:initData("#background_mountain.png",nil,Jpoint(-1,0),Jpoint(2,0))
-    backgroundMountain:initView()
-    self.backgroundSprite_:addChild(backgroundMountain);
-    self.backgroundMountain_ = backgroundMountain;
+--	local backgroundMountain = require("engin.components.HorizontalScrollSpriteByAllGeneration").new();
+--    backgroundMountain:initData("#background_mountain.png",nil,Jpoint(-1,0),Jpoint(2,0))
+--    backgroundMountain:initView()
+--    self.backgroundSprite_:addChild(backgroundMountain);
+--    self.backgroundMountain_ = backgroundMountain;
     
     --近处
-    local ground = require("engin.components.HorizontalScrollSpriteByAllGeneration").new();
-    ground:initData("#ground.png",nil,Jpoint(-2,0),Jpoint(2,0))
-    ground:initView()
-    self.ground_ = ground;
-    self.batch_:addChild(ground);
+--    local ground = require("engin.components.HorizontalScrollSpriteByAllGeneration").new();
+--    ground:initData("#ground.png",nil,Jpoint(-2,0),Jpoint(2,0))
+--    ground:initView()
+--    self.ground_ = ground;
+--    self.batch_:addChild(ground);
     
 --    最简单的算法是
 --	 三层移动速度都是一样的
@@ -78,7 +78,6 @@ function FightScene:tick(dt)
 	FightScene.super.tick(self,dt);
 	
 	self.sceneController_:tick(dt);
-	
 	--测试
 --	self.ground_:tick(dt);
 --	self.backgroundMountain_:tick(dt);

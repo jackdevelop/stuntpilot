@@ -11,9 +11,12 @@ end
 function RoleBehavior:bind(object)
 
 	--[[
+		设置摄像头跟随的物件
+		 只能MapCamera.lua中调用此方法 
+		 因为要保存两个引用
 	]]
-    local function setFocus(object,focusObject)
-		self.focusObject_ = focusObject; 
+    local function setFocus(object)
+		self.focusObject_ = object; 
     end
     object:bindMethod(self, "setFocus", setFocus)
     
