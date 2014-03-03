@@ -107,7 +107,7 @@ function MovableBehavior:bind(object)
         if state == MovableBehavior.MOVING_STATE_STOPPED then return end
 		
 		
-		object:runPos();
+		
     end
     object:bindMethod(self, "tick", tick)
 
@@ -136,19 +136,23 @@ function MovableBehavior:bind(object)
 
 	
 	
+	local function setPosition(object,x,y)
+		object:runPos(x,y);
+    end
+    object:bindMethod(self, "setPosition", setPosition)
+	
 	
 	
 	--[[
 	计算坐标
 	]]
-	local function runPos(object)
+	local function runPos(object,x,y)
 		--if(_controler) _controler.calcAction();
 		
     	local targetX,targety;
-    	local model = self.model_ ;
+    	local model = object.model_ ;
     	local maxX = model.width_
     	local maxY = model.height_;
-    	
     	
     	
     	local targetx,targety;
@@ -157,32 +161,33 @@ function MovableBehavior:bind(object)
     		local halfWidth = math.floor(display.width/2); --display.width>>1
 			local halfHeight = math.floor(display.height/2);
     		
-    		if object.x_ < halfWidth then 
-    			targetx = object.x_;
+    		if x < halfWidth then 
+    			targetx = x;
     		else
-    			targetx = halfWidth;
+    			targetx = x--halfWidth;
     		end
     		
-    		if object.y_ < halfHeight then 
-    			targety = object.y_;
+    		if y < halfHeight then 
+    			targety = y;
     		else
-    			targety = halfHeight;
+    			targety = y-- halfHeight;
     		end
     		
     		
-    		if object.x_ > maxX - halfWidth then
-    			targetx = object.x_ - (maxX - display.width);
+    		if x > maxX - halfWidth then
+    			targetx = x - (maxX - display.width);
     		end
     		
-    		if object.y_ > maxY - halfHeight then
-    			targety = object.y_ - (maxY - display.height);
+    		if y > maxY - halfHeight then
+    			targety = y - (maxY - display.height);
     		end
     		
     	else
-    		
-    		targetx,targety=self.controller_.scene_:getCamera():convertToScreenPosition(object.x_,object.y_);
+    		--将地图坐标转换为屏幕坐标 
+    		targetx,targety=x,y;--model.controller_.scene_:getCamera():convertToScreenPosition(object.x_,object.y_);
     	end
     	
+    	echoj(targetx,targety,"llllllllll" );
     	object.x_,object.y_ = targetx,targety ;
     end
     object:bindMethod(self, "runPos", runPos)

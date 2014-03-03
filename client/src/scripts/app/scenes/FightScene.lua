@@ -45,7 +45,7 @@ function FightScene:createCCParallax()
 --    self.backgroundSprite_:addChild(backgroundMountain);
 --    self.backgroundMountain_ = backgroundMountain;
     
-    --近处
+--    --近处
 --    local ground = require("engin.components.HorizontalScrollSpriteByAllGeneration").new();
 --    ground:initData("#ground.png",nil,Jpoint(-2,0),Jpoint(2,0))
 --    ground:initView()
@@ -58,6 +58,9 @@ function FightScene:createCCParallax()
 --	 背景层.scaleX = 背景层.scaleY = 0.8
 --	地面层不动
 --	 前景层.scaleX = 前景层.scaley = 1.2
+
+	local spt = display.newSprite("#ground.png",display.cx,display.cy);
+	self.batch_:addChild(spt);
 end
 
 

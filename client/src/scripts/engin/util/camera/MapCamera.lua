@@ -388,6 +388,8 @@ end
 
 
 function MapCamera:setFocus(focusObject)
+	if self.focusObject_ == focusObject then return end
+	
 	if 	self.focusObject_ then
 		self.focusObject_:setFocus(false);
 	end
@@ -417,6 +419,7 @@ function MapCamera:tick(dt)
 		if _zeroY<0 then _zeroY = 0 end
 		if _zeroY>value then _zeroY = value  end
 		
+		echoj(_zeroX, _zeroY);
 		self:setOffset(-_zeroX, -_zeroY);
 	end
 	
@@ -456,7 +459,7 @@ function MapCamera:tick(dt)
         transition.stopTarget(debugLayer)
     end
 	
-    if backgroundLayer then  self.map_:getBackgroundLayer():setPosition(x, y) end
+    if backgroundLayer then backgroundLayer:setPosition(x, y) end
     if batchLayer then  batchLayer:setPosition(x, y) end
     if flysLayer then flysLayer:setPosition(x, y) end
     if floorsLayer then floorsLayer:setPosition(x, y) end

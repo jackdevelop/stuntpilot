@@ -109,7 +109,7 @@ function BaseObject:getPosition()
     return self.x_, self.y_
 end
 function BaseObject:setPosition(x, y)
-    self.x_, self.y_ = x, y
+--    self.x_, self.y_ = x, y
 end
 
 

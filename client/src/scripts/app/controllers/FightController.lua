@@ -33,10 +33,12 @@ end
 function FightController:init()
 	local state = {
 		defineId = "p1_cart",
-		x =display.width,
-		y =display.height
+		x =0,--display.width,
+		y =0--display.height
 	}
 	self.plane = self.model_:newObject(BaseObject.CLASS_ID["role"], state)
+	
+	
 end
 
 
@@ -67,16 +69,23 @@ function FightController:tick(dt)
         object.updated__ = lx ~= object.x_ or ly ~= object.y_
 
         -- 只有当对象的位置发生变化时才调整对象的 ZOrder
-        if object.updated__ and object.sprite_  then
+        if object.sprite_  then
+--        	object.updated__ and
         	
         	object:updateView();
         	
         	if object.viewZOrdered_ then 
-            	self.batch_:reorderChild(object.sprite_, maxZOrder - object.y_ )
+        		local batch = self.scene_:getBatchLayer();
+            	batch:reorderChild(object.sprite_, maxZOrder - object.y_ )
             end
         end
 	
 	end
+	
+	
+	
+	local x,y = self.plane:getPosition();
+	self.plane:setPosition(x+5,640);
 end
 
 
