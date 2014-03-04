@@ -109,71 +109,20 @@ function MovableBehavior:bind(object)
         if state == MovableBehavior.MOVING_STATE_STOPPED then return end
         
         if self.path_ and self.path_[self.step_] then
---        	local _nextTarget = _step==_path.length ? _endTarget : WorldMap.me.tile2WorldPostion(_path[_step][0],_path[_step][1]);
-        	
+        	--local _nextTarget = _step==_path.length ? _endTarget : WorldMap.me.tile2WorldPostion(_path[_step][0],_path[_step][1]);
         
         end
     end
-		 
---		protected function calcActionMouse():void
---		{
---			if(isStatic) return;
---			
---			var c:CharacterObject = _me as CharacterObject;
---			
---			if(_path!=null && _path[_step]!=null)
---			{
---				if(c.action==Actions.Wait) c.action = Actions.Run;
---				
---				_nextTarget = _step==_path.length ? _endTarget : WorldMap.me.tile2WorldPostion(_path[_step][0],_path[_step][1]);
---				
---				
---				var radian:Number = GMath.getPointAngle(_nextTarget.x-c.PosX,_nextTarget.y-c.PosY);
---				var angle:int = GMath.R2A(radian)+90;
---				
---				var xisok:Boolean=false;
---				var yisok:Boolean=false;
---				
---				var xspeed:Number = c.speed*Math.cos(radian);
---				var yspeed:Number = c.speed*Math.sin(radian);
---				
---				
---				if(Math.abs(c.PosX-_nextTarget.x)<=xspeed)
---				{
---					xisok=true;
---					xspeed=0;
---				}
---				
---				if(Math.abs(c.PosY-_nextTarget.y)<=yspeed)
---				{
---					yisok=true;
---					yspeed=0;
---				}
---				
---				moveTo(c.PosX+xspeed,c.PosY+yspeed,c);
---				
---				if(xisok && yisok)
---				{
---					// 走到新的位置点 更新区块坐标					
---					_step++;
---					if(_step>=_path.length)
---					{
---						
---						stopMove();
---						if(_onWalkComplate!=null) _onWalkComplate.apply(null,_onWalkParams);
---						clearWalkComplate();
---					}
---				}else{
---					changeDirectionByAngle(angle);
---				}
---			}
---		}
+	
+	
+	
     local function tick(object, dt)
         if object.movingLocked_ > 0  then return end
 
         local state = object.movingState_
         if state == MovableBehavior.MOVING_STATE_STOPPED then return end
 		
+		local radians = object:getPlaneFlyRadians();
 		
     end
     object:bindMethod(self, "tick", tick)
@@ -217,7 +166,6 @@ function MovableBehavior:bind(object)
 	]]
 	local function runPos(object,x,y)
 		--if(_controler) _controler.calcAction();
-		
     	local targetX,targety;
     	local model = object.model_ ;
     	local maxX = model.width_
