@@ -21,144 +21,209 @@ LOAD LUA FILE: F:/workspace/lua/stuntpilot/client/src//scripts/main.lua
 ------------------------------------------------
 lua_loadChunksFromZIP() - load zip file: F:\workspace\lua\stuntpilot\client\src\res/script/framework_precompiled.zip
 lua_loadChunksFromZIP() - loaded chunks count: 54
-[0.1161] [INFO] 
-[0.1165] [INFO] # DEBUG                        = 1
-[0.1173] [INFO] #
-[0.1179] [INFO] # device.platform              = windows
-[0.1182] [INFO] # device.model                 = unknown
-[0.1185] [INFO] # device.language              = cn
-[0.1189] [INFO] # device.writablePath          = F:\workspace\lua\stuntpilot\client\src\\
-[0.1196] [INFO] # device.cachePath             = F:\workspace\lua\stuntpilot\client\src\\
-[0.1204] [INFO] # device.directorySeparator    = \
-[0.1207] [INFO] # device.pathSeparator         = ;
-[0.1211] [INFO] #
-[0.1231] [INFO] # CONFIG_SCREEN_AUTOSCALE      = FIXED_HEIGHT
-[0.1234] [INFO] # CONFIG_SCREEN_WIDTH          = 960.00
-[0.1239] [INFO] # CONFIG_SCREEN_HEIGHT         = 640.00
-[0.1244] [INFO] # display.widthInPixels        = 960.00
-[0.1248] [INFO] # display.heightInPixels       = 640.00
-[0.1253] [INFO] # display.contentScaleFactor   = 1.00
-[0.1257] [INFO] # display.width                = 960.00
-[0.1261] [INFO] # display.height               = 640.00
-[0.1266] [INFO] # display.cx                   = 480.00
-[0.1271] [INFO] # display.cy                   = 320.00
-[0.1275] [INFO] # display.left                 = 0.00
-[0.1279] [INFO] # display.right                = 960.00
-[0.1283] [INFO] # display.top                  = 640.00
-[0.1288] [INFO] # display.bottom               = 0.00
-[0.1292] [INFO] # display.c_left               = -480.00
-[0.1296] [INFO] # display.c_right              = 480.00
-[0.1301] [INFO] # display.c_top                = 320.00
-[0.1306] [INFO] # display.c_bottom             = -320.00
-[0.1312] [INFO] #
-[0.1616] dfffff, FightLoadingScene, nil, nil
-[0.1713] [INFO] Scene "BaseScene:onEnter()"
-[1.6896] 加载进度：, 50
-[1.8411] 加载进度：, 100
-[1.9590] dfffff, FightScene, LoginScene, {"levelData":{"width":2048,"sceneSound":"bg_sound","backgroundImageName":"#background.png","height":2048,"levelId":"1000"}}
-[2.0337] [INFO] Scene "BaseScene:onExit()"
-[2.0340] [INFO] ----------------------------------------
-[2.0346] [INFO] LUA VM MEMORY USED: 1685.88 KB
+[0.1378] [INFO] 
+[0.1381] [INFO] # DEBUG                        = 1
+[0.1385] [INFO] #
+[0.1403] [INFO] # device.platform              = windows
+[0.1410] [INFO] # device.model                 = unknown
+[0.1418] [INFO] # device.language              = cn
+[0.1425] [INFO] # device.writablePath          = F:\workspace\lua\stuntpilot\client\src\\
+[0.1434] [INFO] # device.cachePath             = F:\workspace\lua\stuntpilot\client\src\\
+[0.1442] [INFO] # device.directorySeparator    = \
+[0.1446] [INFO] # device.pathSeparator         = ;
+[0.1449] [INFO] #
+[0.1473] [INFO] # CONFIG_SCREEN_AUTOSCALE      = FIXED_HEIGHT
+[0.1477] [INFO] # CONFIG_SCREEN_WIDTH          = 960.00
+[0.1482] [INFO] # CONFIG_SCREEN_HEIGHT         = 640.00
+[0.1486] [INFO] # display.widthInPixels        = 960.00
+[0.1491] [INFO] # display.heightInPixels       = 640.00
+[0.1496] [INFO] # display.contentScaleFactor   = 1.00
+[0.1500] [INFO] # display.width                = 960.00
+[0.1505] [INFO] # display.height               = 640.00
+[0.1510] [INFO] # display.cx                   = 480.00
+[0.1515] [INFO] # display.cy                   = 320.00
+[0.1520] [INFO] # display.left                 = 0.00
+[0.1525] [INFO] # display.right                = 960.00
+[0.1530] [INFO] # display.top                  = 640.00
+[0.1535] [INFO] # display.bottom               = 0.00
+[0.1539] [INFO] # display.c_left               = -480.00
+[0.1545] [INFO] # display.c_right              = 480.00
+[0.1558] [INFO] # display.c_top                = 320.00
+[0.1567] [INFO] # display.c_bottom             = -320.00
+[0.1573] [INFO] #
+[0.1899] dfffff, FightLoadingScene, nil, nil
+[0.1997] [INFO] Scene "BaseScene:onEnter()"
+[1.7172] 加载进度：, 50
+[1.8629] 加载进度：, 100
+[1.9807] dfffff, FightScene, LoginScene, {"levelData":{"width":2048,"sceneSound":"bg_sound","backgroundImageName":"#background.png","height":2048,"levelId":"1000"}}
+[2.0997] [INFO] Scene "BaseScene:onExit()"
+[2.1000] [INFO] ----------------------------------------
+[2.1008] [INFO] LUA VM MEMORY USED: 1689.55 KB
 cocos2d: "cc_fps_images" rc=4 id=2 256 x 32 @ 16 bpp => 16 KB
 cocos2d: "F:\workspace\lua\stuntpilot\client\src\\res/fight/Sheet_Map.png" rc=9 id=1 1024 x 2048 @ 32 bpp => 8192 KB
 cocos2d: "cc_2x2_white_image" rc=2 id=3 2 x 2 @ 32 bpp => 0 KB
 cocos2d: CCTextureCache dumpDebugInfo: 3 textures, for 8208 KB (8.02 MB)
-[2.0371] [INFO] ----------------------------------------
-[2.0377] [INFO] Scene "BaseScene:onEnter()"
-[5.9583] 245, 320
-[5.9750] 250, 320
-[5.9916] 255, 320
-[6.0083] 260, 320
-[6.0249] 265, 320
-[6.0417] 270, 320
-[6.0583] 275, 320
-[6.0749] 280, 320
-[6.0916] 285, 320
-[6.1083] 290, 320
-[6.1249] 295, 320
-[6.1416] 300, 320
-[6.1583] 305, 320
-[6.1749] 310, 320
-[6.1916] 315, 320
-[6.2083] 320, 320
-[6.2249] 325, 320
-[6.2416] 330, 320
-[6.2583] 335, 320
-[6.2749] 340, 320
-[6.2916] 345, 320
-[6.3083] 350, 320
-[6.3249] 355, 320
-[6.3416] 360, 320
-[6.3583] 365, 320
-[6.3749] 370, 320
-[6.3916] 375, 320
-[6.4083] 380, 320
-[6.4249] 385, 320
-[6.4416] 390, 320
-[6.4583] 395, 320
-[6.4749] 400, 320
-[6.4916] 405, 320
-[6.5083] 410, 320
-[6.5249] 415, 320
-[6.5416] 420, 320
-[6.5583] 425, 320
-[6.5749] 430, 320
-[6.5916] 435, 320
-[6.6083] 440, 320
-[6.6250] 445, 320
-[6.6416] 450, 320
-[6.6583] 455, 320
-[6.6749] 460, 320
-[6.6916] 465, 320
-[6.7083] 470, 320
-[6.7249] 475, 320
-[6.7416] 480, 320
-[6.7583] 485, 320
-[6.7749] 490, 320
-[6.7916] 495, 320
-[6.8083] 500, 320
-[6.8249] 505, 320
-[6.8416] 510, 320
-[6.8583] 515, 320
-[6.8749] 520, 320
-[6.8916] 525, 320
-[6.9083] 530, 320
-[6.9249] 535, 320
-[6.9416] 540, 320
-[6.9583] 545, 320
-[6.9749] 550, 320
-[6.9916] 555, 320
-[7.0083] 560, 320
-[7.0249] 565, 320
-[7.0416] 570, 320
-[7.0583] 575, 320
-[7.0749] 580, 320
-[7.0916] 585, 320
-[7.1083] 590, 320
-[7.1249] 595, 320
-[7.1416] 600, 320
-[7.1583] 605, 320
-[7.1749] 610, 320
-[7.1916] 615, 320
-[7.2083] 620, 320
-[7.2249] 625, 320
-[7.2416] 630, 320
-[7.2583] 635, 320
-[7.2749] 640, 320
-[7.2916] 645, 320
-[7.3083] 650, 320
-[7.3249] 655, 320
-[7.3416] 660, 320
-[7.3583] 665, 320
-[7.3749] 670, 320
-[7.3916] 675, 320
-[7.4083] 680, 320
-[7.4249] 685, 320
-[7.4416] 690, 320
-[7.4583] 695, 320
-[7.4749] 700, 320
-[7.4916] 705, 320
-[7.5083] 710, 320
-[7.5249] 715, 320
-[7.5416] 720, 320
-[7.5583] 725, 320
+[2.1036] [INFO] ----------------------------------------
+[2.1043] [INFO] Scene "BaseScene:onEnter()"
+[10.2083] [INFO] LUA VM MEMORY USED: 1767.58 KB
+[20.2135] [INFO] LUA VM MEMORY USED: 1877.84 KB
+[30.2147] [INFO] LUA VM MEMORY USED: 1988.09 KB
+[40.2198] [INFO] LUA VM MEMORY USED: 2093.02 KB
+[50.2225] [INFO] LUA VM MEMORY USED: 2203.28 KB
+[60.2237] [INFO] LUA VM MEMORY USED: 2313.53 KB
+[70.2254] [INFO] LUA VM MEMORY USED: 2394.47 KB
+[80.2291] [INFO] LUA VM MEMORY USED: 1975.29 KB
+[90.2301] [INFO] LUA VM MEMORY USED: 1656.07 KB
+[92.8490] ppppppppp, 0
+[93.0795] ppppppppp, -1
+[93.3004] ppppppppp, -2
+[93.4908] ppppppppp, -3
+[93.6713] ppppppppp, -4
+[93.8619] ppppppppp, -5
+[94.0525] ppppppppp, -6
+[94.2431] ppppppppp, -7
+[94.4036] ppppppppp, -8
+[94.6243] ppppppppp, -9
+[94.8650] ppppppppp, -10
+[95.0456] ppppppppp, -11
+[95.2261] ppppppppp, -12
+[95.4169] ppppppppp, -13
+[95.6174] ppppppppp, -14
+[95.7883] ppppppppp, -15
+[96.1809] ppppppppp, -16
+[96.3799] ppppppppp, -15
+[96.5602] ppppppppp, -14
+[96.7409] ppppppppp, -13
+[96.9214] ppppppppp, -12
+[97.2734] ppppppppp, -11
+[97.4530] ppppppppp, -12
+[97.6336] ppppppppp, -13
+[97.8542] ppppppppp, -14
+[98.0348] ppppppppp, -15
+[98.2086] ppppppppp, -16
+[98.3859] ppppppppp, -17
+[98.7980] ppppppppp, -18
+[99.0194] ppppppppp, -19
+[99.3210] ppppppppp, -20
+[99.5116] ppppppppp, -21
+[99.7022] ppppppppp, -22
+[99.9529] ppppppppp, -23
+[100.2038] ppppppppp, -24
+[100.2394] [INFO] LUA VM MEMORY USED: 1813.22 KB
+[100.5950] ppppppppp, -25
+[100.7956] ppppppppp, -26
+[100.9863] ppppppppp, -27
+[101.1870] ppppppppp, -28
+[101.3774] ppppppppp, -29
+[101.5680] ppppppppp, -30
+[101.7385] ppppppppp, -31
+[101.9492] ppppppppp, -32
+[102.1097] ppppppppp, -33
+[102.3103] ppppppppp, -34
+[102.5116] ppppppppp, -35
+[102.6927] ppppppppp, -36
+[102.9043] ppppppppp, -37
+[103.1054] ppppppppp, -38
+[103.2967] ppppppppp, -39
+[103.4880] ppppppppp, -40
+[103.6891] ppppppppp, -41
+[103.8797] ppppppppp, -42
+[104.0604] ppppppppp, -43
+[104.2509] ppppppppp, -44
+[104.4515] ppppppppp, -45
+[104.6522] ppppppppp, -46
+[104.8332] ppppppppp, -47
+[105.0244] ppppppppp, -48
+[105.2257] ppppppppp, -49
+[105.4069] ppppppppp, -50
+[105.5981] ppppppppp, -51
+[105.7893] ppppppppp, -52
+[105.9805] ppppppppp, -53
+[106.1720] ppppppppp, -54
+[106.3529] ppppppppp, -55
+[106.5442] ppppppppp, -56
+[106.7656] ppppppppp, -57
+[106.9770] ppppppppp, -58
+[107.1782] ppppppppp, -59
+[107.3594] ppppppppp, -60
+[107.5505] ppppppppp, -61
+[107.7418] ppppppppp, -62
+[107.9432] ppppppppp, -63
+[108.1444] ppppppppp, -64
+[108.3356] ppppppppp, -65
+[108.5268] ppppppppp, -66
+[108.7282] ppppppppp, -67
+[108.9396] ppppppppp, -68
+[109.1407] ppppppppp, -69
+[109.3521] ppppppppp, -70
+[109.5332] ppppppppp, -71
+[109.7447] ppppppppp, -72
+[109.9358] ppppppppp, -73
+[110.1472] ppppppppp, -74
+[110.2537] [INFO] LUA VM MEMORY USED: 1975.01 KB
+[110.3484] ppppppppp, -75
+[110.5496] ppppppppp, -76
+[110.7610] ppppppppp, -77
+[110.9922] ppppppppp, -78
+[111.2529] ppppppppp, -79
+[111.5037] ppppppppp, -80
+[111.9952] ppppppppp, -81
+[112.2460] ppppppppp, -82
+[112.4667] ppppppppp, -83
+[112.6574] ppppppppp, -84
+[112.8478] ppppppppp, -85
+[113.0385] ppppppppp, -86
+[114.6535] ppppppppp, -87
+[114.8440] ppppppppp, -88
+[115.0346] ppppppppp, -89
+[115.2352] ppppppppp, -90
+[115.4158] ppppppppp, -91
+[115.6165] ppppppppp, -92
+[115.8171] ppppppppp, -93
+[115.9978] ppppppppp, -94
+[116.1984] ppppppppp, -95
+[116.3788] ppppppppp, -96
+[116.5698] ppppppppp, -97
+[116.7510] ppppppppp, -98
+[116.9523] ppppppppp, -99
+[117.1435] ppppppppp, -100
+[117.3448] ppppppppp, -101
+[117.5461] ppppppppp, -102
+[117.7574] ppppppppp, -103
+[117.9388] ppppppppp, -104
+[118.1298] ppppppppp, -105
+[118.3312] ppppppppp, -106
+[118.5021] ppppppppp, -107
+[118.6833] ppppppppp, -108
+[118.8846] ppppppppp, -109
+[119.0959] ppppppppp, -110
+[119.3072] ppppppppp, -111
+[119.4682] ppppppppp, -112
+[119.6594] ppppppppp, -113
+[119.8406] ppppppppp, -114
+[120.0331] ppppppppp, -115
+[120.2230] ppppppppp, -116
+[120.2638] [INFO] LUA VM MEMORY USED: 2125.43 KB
+[120.4234] ppppppppp, -117
+[120.6240] ppppppppp, -118
+[121.0854] ppppppppp, -119
+[121.2861] ppppppppp, -118
+[121.4666] ppppppppp, -117
+[121.6472] ppppppppp, -116
+[121.8279] ppppppppp, -115
+[122.0083] ppppppppp, -114
+[123.0418] [INFO] Scene "BaseScene:onExit()"
+[123.0423] [INFO] ----------------------------------------
+[123.0432] [INFO] LUA VM MEMORY USED: 2162.23 KB
+cocos2d: "cc_fps_images" rc=4 id=2 256 x 32 @ 16 bpp => 16 KB
+cocos2d: "F:\workspace\lua\stuntpilot\client\src\\res/fight/Sheet_Map.png" rc=9 id=1 1024 x 2048 @ 32 bpp => 8192 KB
+cocos2d: "cc_2x2_white_image" rc=1 id=3 2 x 2 @ 32 bpp => 0 KB
+cocos2d: CCTextureCache dumpDebugInfo: 3 textures, for 8208 KB (8.02 MB)
+[123.0482] [INFO] ----------------------------------------
+cocos2d: CCSpriteFrameCache: removing unused frame: background.png
+cocos2d: CCSpriteFrameCache: removing unused frame: background_mountain.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ground.png
+cocos2d: CCTextureCache: texture: cc_fps_images
+cocos2d: CCTextureCache: texture: F:\workspace\lua\stuntpilot\client\src\\res/fight/Sheet_Map.png
+cocos2d: CCTextureCache: texture: cc_2x2_white_image
+cocos2d: CCTextureCache: removing unused texture: cc_2x2_white_image

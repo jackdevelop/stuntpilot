@@ -20,8 +20,39 @@ function MovableDirectBehavior:bind(object)
     end
     object:bindMethod(self, "setPlaneFlyRadians", setPlaneFlyRadians)
 
-
-
+	
+	
+	--[[
+	增加减少度数
+	]]
+	local function decreasePlaneFlyRadians(object,value)
+		local aad = 1;
+		local currentV = object.flyRadians_ + aad * value;
+		object.flyRadians_ = currentV;
+    end
+    object:bindMethod(self, "decreasePlaneFlyRadians", decreasePlaneFlyRadians)
+    
+    
+	
+	--[[
+	设置发行的角度
+	正右为0度   顺时针旋转 度数增加
+	]]
+    local function getPlaneFlyRadians(object)
+    	return object.flyRadians_;
+    end
+    object:bindMethod(self, "getPlaneFlyRadians", getPlaneFlyRadians)
+    
+    
+    
+    
+    local function updateView(object)		
+        local sprite = object.sprite_;
+        sprite:setRotation(tonum(object.flyRadians_));
+    end
+    object:bindMethod(self, "updateView", updateView)
+    
+    
 	
     local function vardump(object, state)
         return state

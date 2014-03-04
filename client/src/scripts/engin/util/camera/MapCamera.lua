@@ -419,7 +419,6 @@ function MapCamera:tick(dt)
 		if _zeroY<0 then _zeroY = 0 end
 		if _zeroY>value then _zeroY = value  end
 		
-		echoj(_zeroX, _zeroY);
 		self:setOffset(-_zeroX, -_zeroY);
 	end
 	
