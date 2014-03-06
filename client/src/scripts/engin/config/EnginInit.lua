@@ -76,6 +76,7 @@ HttpLoadResultHandle = require("engin.mvcs.service.HttpLoadResultHandle").new()
 
 --基础的控件
 FilterText = require("engin.components.FilterText").new();
+SpriteButton =  require("engin.components.SpriteButton").new();
 AtlasText  = require("engin.components.AtlasText").new();
 BubbleButton =  require("engin.components.BubbleButton").new();
 SpriteMask = require("engin.components.SpriteMask").new();

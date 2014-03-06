@@ -17,44 +17,63 @@ function FightUI:initView()
         
 	
 	 --向下
-	local loginButtonParam = {
-	    on ="fight/Button02.png",
-	}
-	cc.ui.UICheckBoxButton.new(loginButtonParam)
-        :setButtonLabel(cc.ui.UILabel.new({text = "↓", size = 16,  color = display.COLOR_BLUE}))
-        --:setButtonLabelOffset(0, 40)
-        --:setButtonEnabled(false)
-        :setButtonLabelAlignment(display.CENTER)
-        :onButtonStateChanged(function(event)
-        	local plane = self.object_.sceneController_.plane;--飞机
-            plane:decreasePlaneFlyRadians(1);
-            
-            local radians = plane:getPlaneFlyRadians();
-            txt:setString("度数："..radians);
-        end)
-        :align(display.CENTER,display.cx - 100, display.bottom + 50)
-        :addTo(batch)
+	 SpriteButton:newButton("fight/Button02.png", "↓",true, function()
+		local plane = self.object_.sceneController_.plane;--飞机
+        plane:decreasePlaneFlyRadians(1);
         
+        local radians = plane:getPlaneFlyRadians();
+        txt:setString("度数："..radians);
+	end)
+	:align(display.CENTER,display.cx - 100, display.bottom + 50)
+	:addTo(batch)
 	
+	--向上
+	SpriteButton:newButton("fight/Button02.png", "↑",true, function()
+		local plane = self.object_.sceneController_.plane;--飞机
+        plane:decreasePlaneFlyRadians(-1);
+        
+        local radians = plane:getPlaneFlyRadians();
+        txt:setString("度数："..radians);
+	end)
+	:align(display.CENTER,display.cx + 100, display.bottom + 50)
+	:addTo(batch)
 	
-	 --向上
-	local loginButtonParam = {
-	    on ="fight/Button02.png",
-	}
-	cc.ui.UICheckBoxButton.new(loginButtonParam)
-        :setButtonLabel(cc.ui.UILabel.new({text = "↑", size = 16,  color = display.COLOR_BLUE}))
-        --:setButtonLabelOffset(0, 40)
-        --:setButtonEnabled(false)
-        :setButtonLabelAlignment(display.CENTER)
-        :onButtonStateChanged(function(event)
-        	local plane = self.object_.sceneController_.plane;--飞机
-            plane:decreasePlaneFlyRadians(-1);
-            
-            local radians = plane:getPlaneFlyRadians();
-            txt:setString("度数："..radians);
-        end)
-        :align(display.CENTER,display.cx + 100, display.bottom + 50)
-        :addTo(batch)
+--	local loginButtonParam = {
+--	    on ="fight/Button02.png",
+--	}
+--	cc.ui.UICheckBoxButton.new(loginButtonParam)
+--        :setButtonLabel(cc.ui.UILabel.new({text = "↓", size = 16,  color = display.COLOR_BLUE}))
+--        --:setButtonLabelOffset(0, 40)
+--        --:setButtonEnabled(false)
+--        :setButtonLabelAlignment(display.CENTER)
+--        :onButtonStateChanged(function(event)
+--        	local plane = self.object_.sceneController_.plane;--飞机
+--            plane:decreasePlaneFlyRadians(1);
+--            
+--            local radians = plane:getPlaneFlyRadians();
+--            txt:setString("度数："..radians);
+--        end)
+--        :align(display.CENTER,display.cx - 100, display.bottom + 50)
+--        :addTo(batch)
+	
+--	 --向上
+--	local loginButtonParam = {
+--	    on ="fight/Button02.png",
+--	}
+--	cc.ui.UICheckBoxButton.new(loginButtonParam)
+--        :setButtonLabel(cc.ui.UILabel.new({text = "↑", size = 16,  color = display.COLOR_BLUE}))
+--        --:setButtonLabelOffset(0, 40)
+--        --:setButtonEnabled(false)
+--        :setButtonLabelAlignment(display.CENTER)
+--        :onButtonStateChanged(function(event)
+--        	local plane = self.object_.sceneController_.plane;--飞机
+--            plane:decreasePlaneFlyRadians(-1);
+--            
+--            local radians = plane:getPlaneFlyRadians();
+--            txt:setString("度数："..radians);
+--        end)
+--        :align(display.CENTER,display.cx + 100, display.bottom + 50)
+--        :addTo(batch)
 	
 end
 
