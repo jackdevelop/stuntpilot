@@ -28,8 +28,9 @@ function FightUI:initView()
         local radians = plane:getPlaneFlyRadians();
         txt:setString("度数："..radians);
         
-        local vector = math.cos(radians);
-        vectorTxt:setString("向量："..vector);
+        local vectorX = math.cos(360-radians);
+        local vectorY = math.sin(radians);
+        vectorTxt:setString("向量："..vectorX..","..vectorY);
 	end)
 	:align(display.CENTER,display.cx - 100, display.bottom + 50)
 	:addTo(batch)
@@ -42,8 +43,9 @@ function FightUI:initView()
         local radians = plane:getPlaneFlyRadians();
         txt:setString("度数："..radians);
         
-        local vector = math.cos(radians);
-        vectorTxt:setString("向量："..vector);
+        local vectorX = math.cos(360-radians);
+        local vectorY = math.sin(radians);
+        vectorTxt:setString("向量："..vectorX..","..vectorY);
 	end)
 	:align(display.CENTER,display.cx + 100, display.bottom + 50)
 	:addTo(batch)

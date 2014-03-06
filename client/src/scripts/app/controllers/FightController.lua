@@ -88,8 +88,10 @@ function FightController:tick(dt)
 	
 	local x,y = self.plane:getPosition();
 	local radians = self.plane:getPlaneFlyRadians();--飞行的角度
-	local flyLen = math.cos(radians);
---	self.plane:setPosition(x+5,y);
+        
+    local vectorX = math.cos(360-radians);
+    local vectorY = math.sin(radians);
+	self.plane:setPosition(x+vectorX,y+vectorY);
 	
 	
 end
