@@ -72,7 +72,7 @@ function SpriteButton:newButton(imageName, name,isPress, listener)
 			if isPress and not pressAction then 
 	       		pressAction = sprite:scheduleUpdate(function(dt)
 	       			dt_ = dt_ + dt
-	       			if dt_ > 1 then
+	       			if dt_ > 0.5 then
 	       				clickOneceHandle();
 	       				dt_ = 0;
 	       			end

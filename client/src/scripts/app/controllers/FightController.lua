@@ -33,8 +33,8 @@ end
 function FightController:init()
 	local state = {
 		defineId = "p1_cart",
-		x =display.cx,--display.width,
-		y =display.cy
+		x = 0,--display.width,
+		y = display.cy
 	}
 	self.plane = self.model_:newObject(BaseObject.CLASS_ID["role"], state)
 	self:setPlaneFlyRadians(0);
@@ -86,8 +86,12 @@ function FightController:tick(dt)
 	
 	
 	
---	local x,y = self.plane:getPosition();
+	local x,y = self.plane:getPosition();
+	local radians = self.plane:getPlaneFlyRadians();--飞行的角度
+	local flyLen = math.cos(radians);
 --	self.plane:setPosition(x+5,y);
+	
+	
 end
 
 

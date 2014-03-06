@@ -28,11 +28,18 @@ function MovableDirectBehavior:bind(object)
 	local function decreasePlaneFlyRadians(object,value)
 		local aad = 1;
 		local currentV = object.flyRadians_ + aad * value;
-		if currentV > 360 then 
-			currentV = currentV - 360;
-		elseif currentV < -360 then
-			currentV = currentV + 360;
+--		if currentV > 360 then 
+--			currentV = currentV - 360;
+--		elseif currentV < -360 then
+--			currentV = currentV + 360;
+--		end
+		
+		if currentV < 0 then 
+			currentV = 360 + currentV;
+		elseif currentV > 360 then 
+			currentV = currentV  - 360;
 		end
+		
 		
 		object.flyRadians_ = currentV;
     end

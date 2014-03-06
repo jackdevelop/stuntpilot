@@ -14,6 +14,10 @@ function FightUI:initView()
         :align(display.CENTER, display.cx, display.top - 20)
         :addTo(batch)
         
+    local vectorTxt =  cc.ui.UILabel.new({text = "向量：(1,0)", size = 24, color = display.COLOR_BLACK})
+        :align(display.CENTER, display.cx, display.top - 40)
+        :addTo(batch)
+       
         
 	
 	 --向下
@@ -23,6 +27,9 @@ function FightUI:initView()
         
         local radians = plane:getPlaneFlyRadians();
         txt:setString("度数："..radians);
+        
+        local vector = math.cos(radians);
+        vectorTxt:setString("向量："..vector);
 	end)
 	:align(display.CENTER,display.cx - 100, display.bottom + 50)
 	:addTo(batch)
@@ -34,6 +41,9 @@ function FightUI:initView()
         
         local radians = plane:getPlaneFlyRadians();
         txt:setString("度数："..radians);
+        
+        local vector = math.cos(radians);
+        vectorTxt:setString("向量："..vector);
 	end)
 	:align(display.CENTER,display.cx + 100, display.bottom + 50)
 	:addTo(batch)
