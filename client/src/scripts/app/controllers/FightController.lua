@@ -88,9 +88,16 @@ function FightController:tick(dt)
 	
 	local x,y = self.plane:getPosition();
 	local radians = self.plane:getPlaneFlyRadians();--飞行的角度
-        
-    local vectorX = math.cos(360-radians);
-    local vectorY = math.sin(radians);
+    local angle =  Math2d.degrees2radians(360-radians)--飞行的弧度
+    
+    
+    
+    local vectorX = math.cos(angle);
+    local vectorY = math.sin(angle);
+    
+    echoj("角度:",radians,"弧度",angle,"向量：".."("..vectorX,vectorY,")");
+    
+    
 	self.plane:setPosition(x+vectorX,y+vectorY);
 	
 	
