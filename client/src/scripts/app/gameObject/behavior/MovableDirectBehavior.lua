@@ -15,19 +15,19 @@ function MovableDirectBehavior:bind(object)
 	设置发行的角度
 	正右为0度   顺时针旋转 度数增加
 	]]
-    local function setPlaneFlyRadians(object,flyRadians)
-    	object.flyRadians_ = flyRadians;
+    local function setPlaneFlyDegrees(object,flyDegrees)
+    	object.flyDegrees_ = flyDegrees;
     end
-    object:bindMethod(self, "setPlaneFlyRadians", setPlaneFlyRadians)
+    object:bindMethod(self, "setPlaneFlyDegrees", setPlaneFlyDegrees)
 
 	
 	
 	--[[
 	增加减少度数
 	]]
-	local function decreasePlaneFlyRadians(object,value)
+	local function decreasePlaneFlyDegrees(object,value)
 		local aad = 1;
-		local currentV = object.flyRadians_ + aad * value;
+		local currentV = object.flyDegrees_ + aad * value;
 --		if currentV > 360 then 
 --			currentV = currentV - 360;
 --		elseif currentV < -360 then
@@ -41,9 +41,9 @@ function MovableDirectBehavior:bind(object)
 		end
 		
 		
-		object.flyRadians_ = currentV;
+		object.flyDegrees_ = currentV;
     end
-    object:bindMethod(self, "decreasePlaneFlyRadians", decreasePlaneFlyRadians)
+    object:bindMethod(self, "decreasePlaneFlyDegrees", decreasePlaneFlyDegrees)
     
     
 	
@@ -51,10 +51,10 @@ function MovableDirectBehavior:bind(object)
 	设置发行的角度
 	正右为0度   顺时针旋转 度数增加
 	]]
-    local function getPlaneFlyRadians(object)
-    	return object.flyRadians_;
+    local function getPlaneFlyDegrees(object)
+    	return object.flyDegrees_;
     end
-    object:bindMethod(self, "getPlaneFlyRadians", getPlaneFlyRadians)
+    object:bindMethod(self, "getPlaneFlyDegrees", getPlaneFlyDegrees)
     
     
     
