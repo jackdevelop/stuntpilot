@@ -5,7 +5,7 @@
  	
  	sprite的按钮
 	使用：
-	local c = SpriteMask:createMaskByImageName("ui/PinkScale9Block.png","ui/RadioButtonOn.png")
+	local c = SpriteButton:newButton(imageName, name,isPress, listener)
      self:addChild(c);
  	
  
@@ -34,7 +34,7 @@ local SpriteButton = class("SpriteButton");
 @param imageName 按钮的图片地址
 @param name  按钮上的文字
 @param isPress 是否可以长按  默认为false
-@param listener
+@param listener 点击后的回调
 ]]
 function SpriteButton:newButton(imageName, name,isPress, listener)
     local sprite = display.newSprite(imageName)
