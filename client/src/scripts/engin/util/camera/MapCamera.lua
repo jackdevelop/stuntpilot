@@ -386,7 +386,9 @@ end
 
 
 
-
+--[[
+设置镜头的跟随对象
+]]
 function MapCamera:setFocus(focusObject)
 	if self.focusObject_ == focusObject then return end
 	

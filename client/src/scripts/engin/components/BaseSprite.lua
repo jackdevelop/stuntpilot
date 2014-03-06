@@ -3,7 +3,7 @@
  	public ->> 全局公开类
  	
 	sprite显示对象的基类  
-	
+	直接返回ccnode对象   所以继承当前BaseSprite对象  外部不能使用queuebatch批量渲染
  
  
  * @author  jackdevelop@sina.com
