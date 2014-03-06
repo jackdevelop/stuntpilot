@@ -25,7 +25,7 @@ function FightUI:initView()
 		local plane = self.object_.sceneController_.plane;--飞机
         plane:decreasePlaneFlyDegrees(1);
         
-        local radians = plane:getPlaneFlyRadians();
+        local radians = plane:getPlaneFlyDegrees();
         txt:setString("度数："..radians);
         
         local vectorX = math.cos(360-radians);
@@ -40,7 +40,7 @@ function FightUI:initView()
 		local plane = self.object_.sceneController_.plane;--飞机
         plane:decreasePlaneFlyDegrees(-1);
         
-        local radians = plane:getPlaneFlyRadians();
+        local radians = plane:getPlaneFlyDegrees();
         txt:setString("度数："..radians);
         
         local vectorX = math.cos(360-radians);

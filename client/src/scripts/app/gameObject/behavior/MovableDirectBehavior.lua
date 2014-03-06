@@ -52,7 +52,7 @@ function MovableDirectBehavior:bind(object)
 	正右为0度   顺时针旋转 度数增加
 	]]
     local function getPlaneFlyDegrees(object)
-    	return object.flyDegrees_;
+    	return tonum(object.flyDegrees_);
     end
     object:bindMethod(self, "getPlaneFlyDegrees", getPlaneFlyDegrees)
     
@@ -61,7 +61,7 @@ function MovableDirectBehavior:bind(object)
     
     local function updateView(object)		
         local sprite = object.sprite_;
-        sprite:setRotation(tonum(object.flyRadians_));
+        sprite:setRotation(tonum(object.flyDegrees_));
     end
     object:bindMethod(self, "updateView", updateView)
     
@@ -79,6 +79,7 @@ function MovableDirectBehavior:unbind(object)
 end
 
 function MovableDirectBehavior:reset(object)
+	object.flyDegrees_ = 0;
 end
 
 return MovableDirectBehavior
