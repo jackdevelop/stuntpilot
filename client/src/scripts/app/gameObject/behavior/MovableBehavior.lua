@@ -225,6 +225,7 @@ function MovableBehavior:bind(object)
 			object:setPlaneFlyDegrees(270);
 		elseif object.x_ < -10 then
 			object:setPlaneFlyDegrees(0);
+		elseif object.x_  > object.model_.width_ + 10 then
 		end
     end
     object:bindMethod(self, "setPosition", setPosition)
