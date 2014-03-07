@@ -25,3 +25,9 @@ require("socket").gettime()
   
   
   
+
+  
+--解决从后台切换回复到正常进程后   锁屏时间过长问题
+http://www.csdn123.com/html/itweb/20131021/178352.htm
+--cocos2d-x android平台切入后台纹理失效的解决方法
+http://blog.csdn.net/langresser_king/article/details/8659538

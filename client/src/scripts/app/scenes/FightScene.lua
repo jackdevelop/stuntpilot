@@ -41,8 +41,38 @@ end
 创建CCParallaxNode 
 ]]
 function FightScene:createCCParallax()	
-	local spt = display.newSprite("#ground.png",display.cx,display.cy);
-	self.batch_:addChild(spt);
+	local batch = self:getBatchLayer();
+	
+	
+	
+	
+	display.newSprite("#background_mountain.png")
+	:align(display.LEFT_BOTTOM, 0, 0)
+	:addTo(batch)
+	
+	display.newSprite("#background_mountain.png")
+	:align(display.LEFT_BOTTOM, 800, 0)
+	:addTo(batch)
+	
+	display.newSprite("#background_mountain.png")
+	:align(display.LEFT_BOTTOM, 800*2, 0)
+	:addTo(batch)
+	
+	
+	
+	
+	display.newSprite("#ground.png")
+	:align(display.LEFT_BOTTOM, 0, 0)
+	:addTo(batch)
+	
+	display.newSprite("#ground.png")
+	:align(display.LEFT_BOTTOM, 1150, 0)
+	:addTo(batch)
+	
+	display.newSprite("#ground.png")
+	:align(display.LEFT_BOTTOM, 1150*2, 0)
+	:addTo(batch)
+	
 end
 
 

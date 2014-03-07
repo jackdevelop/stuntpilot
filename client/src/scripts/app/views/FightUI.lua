@@ -23,7 +23,7 @@ function FightUI:initView()
 	 --向下
 	 SpriteButton:newButton("fight/Button02.png", "↓",true, function()
 		local plane = self.object_.sceneController_.plane;--飞机
-        plane:decreasePlaneFlyDegrees(1);
+        plane:decreasePlaneFlyDegrees(5);
         
         local radians = plane:getPlaneFlyDegrees();
         txt:setString("度数："..radians);
@@ -38,7 +38,7 @@ function FightUI:initView()
 	--向上
 	SpriteButton:newButton("fight/Button02.png", "↑",true, function()
 		local plane = self.object_.sceneController_.plane;--飞机
-        plane:decreasePlaneFlyDegrees(-1);
+        plane:decreasePlaneFlyDegrees(-5);
         
         local radians = plane:getPlaneFlyDegrees();
         txt:setString("度数："..radians);
