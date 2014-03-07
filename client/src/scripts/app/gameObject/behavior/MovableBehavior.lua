@@ -161,56 +161,71 @@ function MovableBehavior:bind(object)
 	
 	
 	
-	--[[
-	计算坐标
-	]]
-	local function runPos(object,x,y)
-		--if(_controler) _controler.calcAction();
-    	local targetX,targety;
-    	local model = object.model_ ;
-    	local maxX = model.width_
-    	local maxY = model.height_;
-    	
-    	
-    	local targetx,targety;
-    	if object:getFocus() then
-    		
-    		local halfWidth = math.floor(display.width/2); --display.width>>1
-			local halfHeight = math.floor(display.height/2);
-    		
-    		if x < halfWidth then 
-    			targetx = x;
-    		else
-    			targetx = x--halfWidth;
-    		end
-    		
-    		if y < halfHeight then 
-    			targety = y;
-    		else
-    			targety = y-- halfHeight;
-    		end
-    		
-    		
-    		if x > maxX - halfWidth then
-    			targetx = x - (maxX - display.width);
-    		end
-    		
-    		if y > maxY - halfHeight then
-    			targety = y - (maxY - display.height);
-    		end
-    		
-    	else
-    		--将地图坐标转换为屏幕坐标 
-    		targetx,targety=x,y;--model.controller_.scene_:getCamera():convertToScreenPosition(object.x_,object.y_);
-    	end
-    	
-    	object.x_,object.y_ = targetx,targety ;
-    end
-    -- object:bindMethod(self, "runPos", runPos)
+
     
     
     local function setPosition(object,x,y)
+    	--[[
+		计算坐标
+		]]
+		local function runPos(object,x,y)
+			--if(_controler) _controler.calcAction();
+	    	local targetX,targety;
+	    	local model = object.model_ ;
+	    	local maxX = model.width_
+	    	local maxY = model.height_;
+	    	
+	    	
+	    	local targetx,targety;
+	    	if object:getFocus() then
+	    		
+	    		local halfWidth = math.floor(display.width/2); --display.width>>1
+				local halfHeight = math.floor(display.height/2);
+	    		
+	    		if x < halfWidth then 
+	    			targetx = x;
+	    		else
+	    			targetx = x--halfWidth;
+	    		end
+	    		
+	    		if y < halfHeight then 
+	    			targety = y;
+	    		else
+	    			targety = y-- halfHeight;
+	    		end
+	    		
+	    		
+	    		if x > maxX - halfWidth then
+	    			targetx = x - (maxX - display.width);
+	    		end
+	    		
+	    		if y > maxY - halfHeight then
+	    			targety = y - (maxY - display.height);
+	    		end
+	    		
+	    	else
+	    		--将地图坐标转换为屏幕坐标 
+	    		targetx,targety=x,y;--model.controller_.scene_:getCamera():convertToScreenPosition(object.x_,object.y_);
+	    	end
+	    	
+	    	object.x_,object.y_ = targetx,targety ;
+	    end
+	    
+	    
+	    
+	    
 		runPos(object,x,y);
+		
+		
+		
+		--过滤信息
+		if object.y_ > display.height + 10 then
+			object:setPlaneFlyDegrees(90);
+		elseif object.y_ < -10 then
+			object:setPlaneFlyDegrees(270);
+		elseif object.x_ < -10 then
+			object:setPlaneFlyDegrees(0);
+		end
     end
     object:bindMethod(self, "setPosition", setPosition)
    
