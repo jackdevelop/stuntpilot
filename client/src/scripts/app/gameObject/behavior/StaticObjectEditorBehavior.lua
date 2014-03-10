@@ -33,7 +33,7 @@ function StaticObjectEditorBehavior:bind(object)
         object.radiusCircle_:setLineStippleEnabled(true)
         debugLayer:addChild(object.radiusCircle_, StaticObjectEditorBehavior.CIRCLE_ZORDER)
 
-        object.flagSprite_ = display.newSprite("edit/CenterFlag.png")
+        object.flagSprite_ = display.newSprite("#CenterFlag.png")
         debugLayer:addChild(object.flagSprite_, StaticObjectEditorBehavior.FLAG_ZORDER)
     end
     object:bindMethod(self, "createView", createView)

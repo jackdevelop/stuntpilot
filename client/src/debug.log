@@ -21,335 +21,871 @@ LOAD LUA FILE: F:/workspace/lua/stuntpilot/client/src//scripts/main.lua
 ------------------------------------------------
 lua_loadChunksFromZIP() - load zip file: F:\workspace\lua\stuntpilot\client\src\res/script/framework_precompiled.zip
 lua_loadChunksFromZIP() - loaded chunks count: 54
-[0.1255] [INFO] 
-[0.1260] [INFO] # DEBUG                        = 1
-[0.1277] [INFO] #
-[0.1284] [INFO] # device.platform              = windows
-[0.1290] [INFO] # device.model                 = unknown
-[0.1294] [INFO] # device.language              = cn
-[0.1298] [INFO] # device.writablePath          = F:\workspace\lua\stuntpilot\client\src\\
-[0.1305] [INFO] # device.cachePath             = F:\workspace\lua\stuntpilot\client\src\\
-[0.1312] [INFO] # device.directorySeparator    = \
-[0.1315] [INFO] # device.pathSeparator         = ;
-[0.1319] [INFO] #
-[0.1339] [INFO] # CONFIG_SCREEN_AUTOSCALE      = FIXED_HEIGHT
-[0.1342] [INFO] # CONFIG_SCREEN_WIDTH          = 960.00
-[0.1347] [INFO] # CONFIG_SCREEN_HEIGHT         = 640.00
-[0.1351] [INFO] # display.widthInPixels        = 960.00
-[0.1357] [INFO] # display.heightInPixels       = 640.00
-[0.1365] [INFO] # display.contentScaleFactor   = 1.00
-[0.1369] [INFO] # display.width                = 960.00
-[0.1373] [INFO] # display.height               = 640.00
-[0.1379] [INFO] # display.cx                   = 480.00
-[0.1385] [INFO] # display.cy                   = 320.00
-[0.1391] [INFO] # display.left                 = 0.00
-[0.1398] [INFO] # display.right                = 960.00
-[0.1403] [INFO] # display.top                  = 640.00
-[0.1408] [INFO] # display.bottom               = 0.00
-[0.1412] [INFO] # display.c_left               = -480.00
-[0.1416] [INFO] # display.c_right              = 480.00
-[0.1442] [INFO] # display.c_top                = 320.00
-[0.1446] [INFO] # display.c_bottom             = -320.00
-[0.1450] [INFO] #
-[0.1801] dfffff, FightLoadingScene, nil, nil
-[0.1925] [INFO] Scene "BaseScene:onEnter()"
-[1.7130] 加载进度：, 50
-[2.5336] 加载进度：, 100
-[2.6515] dfffff, FightScene, LoginScene, {"levelData":{"width":1920,"sceneSound":"bg_sound","levelId":"1000","backgroundImageName":"#background_jpg.png","height":960,"static":{"static:1":{"y":537,"x":400,"defineId":"balloon"},"static:2":{"y":653,"x":821,"defineId":"balloon"}}}}
-[2.7733] [INFO] Scene "BaseScene:onExit()"
-[2.7739] [INFO] ----------------------------------------
-[2.7748] [INFO] LUA VM MEMORY USED: 1800.00 KB
+[0.1227] [INFO] 
+[0.1235] [INFO] # DEBUG                        = 1
+[0.1244] [INFO] #
+[0.1250] [INFO] # device.platform              = windows
+[0.1253] [INFO] # device.model                 = unknown
+[0.1258] [INFO] # device.language              = cn
+[0.1262] [INFO] # device.writablePath          = F:\workspace\lua\stuntpilot\client\src\\
+[0.1269] [INFO] # device.cachePath             = F:\workspace\lua\stuntpilot\client\src\\
+[0.1277] [INFO] # device.directorySeparator    = \
+[0.1281] [INFO] # device.pathSeparator         = ;
+[0.1285] [INFO] #
+[0.1307] [INFO] # CONFIG_SCREEN_AUTOSCALE      = FIXED_HEIGHT
+[0.1311] [INFO] # CONFIG_SCREEN_WIDTH          = 960.00
+[0.1315] [INFO] # CONFIG_SCREEN_HEIGHT         = 640.00
+[0.1320] [INFO] # display.widthInPixels        = 960.00
+[0.1325] [INFO] # display.heightInPixels       = 640.00
+[0.1330] [INFO] # display.contentScaleFactor   = 1.00
+[0.1338] [INFO] # display.width                = 960.00
+[0.1343] [INFO] # display.height               = 640.00
+[0.1351] [INFO] # display.cx                   = 480.00
+[0.1356] [INFO] # display.cy                   = 320.00
+[0.1363] [INFO] # display.left                 = 0.00
+[0.1368] [INFO] # display.right                = 960.00
+[0.1374] [INFO] # display.top                  = 640.00
+[0.1383] [INFO] # display.bottom               = 0.00
+[0.1387] [INFO] # display.c_left               = -480.00
+[0.1393] [INFO] # display.c_right              = 480.00
+[0.1398] [INFO] # display.c_top                = 320.00
+[0.1404] [INFO] # display.c_bottom             = -320.00
+[0.1409] [INFO] #
+[0.1793] dfffff, FightLoadingScene, nil, nil
+[0.1941] [INFO] Scene "BaseScene:onEnter()"
+[1.7117] 加载进度：, 50
+[2.5795] 加载进度：, 100
+[2.6973] dfffff, FightScene, LoginScene, {"levelData":{"width":1920,"sceneSound":"bg_sound","levelId":"1000","backgroundImageName":"#background_jpg.png","height":960,"static":{"static:1":{"y":537,"x":400,"defineId":"balloon"},"static:2":{"y":653,"x":821,"defineId":"balloon"}}}}
+[2.7919] [INFO] Scene "BaseScene:onExit()"
+[2.7925] [INFO] ----------------------------------------
+[2.7930] [INFO] LUA VM MEMORY USED: 1831.36 KB
 cocos2d: "cc_fps_images" rc=4 id=2 256 x 32 @ 16 bpp => 16 KB
-cocos2d: "F:\workspace\lua\stuntpilot\client\src\\res/fight/Sheet_Map.png" rc=816 id=1 2048 x 2048 @ 32 bpp => 16384 KB
+cocos2d: "F:\workspace\lua\stuntpilot\client\src\\res/fight/Sheet_Map.png" rc=825 id=1 2048 x 2048 @ 32 bpp => 16384 KB
 cocos2d: "cc_2x2_white_image" rc=2 id=3 2 x 2 @ 32 bpp => 0 KB
 cocos2d: "F:\workspace\lua\stuntpilot\client\src\\res/fight/Button02.png" rc=3 id=6 88 x 78 @ 32 bpp => 26 KB
-cocos2d: "F:\workspace\lua\stuntpilot\client\src\\res/edit/CenterFlag.png" rc=4 id=10 8 x 8 @ 32 bpp => 0 KB
-cocos2d: CCTextureCache dumpDebugInfo: 5 textures, for 16427 KB (16.04 MB)
-[2.7786] [INFO] ----------------------------------------
-[2.7792] [INFO] Scene "BaseScene:onEnter()"
-[4.2840] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.3006] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.3173] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.3340] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.3506] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.3675] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.3840] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.4007] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.4173] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.4340] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.4507] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.4674] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.4840] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.5007] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.5173] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.5340] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.5507] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.5673] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.5840] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.6007] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.6173] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.6340] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.6507] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.6673] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.6840] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.7007] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.7174] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.7340] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.7507] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.7673] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.7840] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.8007] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.8174] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.8340] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.8507] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.8673] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.8840] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.9007] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.9174] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.9340] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.9507] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.9673] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[4.9840] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.0007] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.0174] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.0341] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.0507] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.0673] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.0840] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.1007] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.1173] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.1340] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.1507] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.1673] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.1840] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.2007] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.2173] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.2340] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.2507] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.2673] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.2840] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.3007] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.3173] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.3340] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.3507] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.3673] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.3840] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.4007] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.4173] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.4340] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.4507] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.4673] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.4840] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.5007] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.5173] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.5340] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.5507] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.5673] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.5840] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.6007] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.6174] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.6341] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.6507] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.6674] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.6845] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.7012] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.7178] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.7345] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.7512] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.7678] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.7845] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.8012] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.8178] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.8345] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.8511] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.8678] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.8845] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.9012] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.9178] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.9345] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.9511] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.9678] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[5.9845] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.0011] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.0178] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.0345] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.0512] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.0678] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.0846] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.1011] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.1178] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.1345] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.1513] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.1678] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.1845] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.2011] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.2178] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.2345] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.2512] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.2679] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.2845] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.3012] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.3179] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.3345] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.3512] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.3678] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.3845] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.4013] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.4178] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.4345] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.4512] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.4679] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.4845] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.5012] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.5178] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.5345] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.5514] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.5679] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.5845] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.6015] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.6179] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.6345] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.6512] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.6679] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.6845] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.7012] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.7179] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.7352] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.7517] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.7683] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.7851] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.8017] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.8183] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.8350] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.8517] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.8683] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.8850] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.9017] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.9183] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.9350] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.9517] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.9684] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[6.9851] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.0017] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.0183] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.0350] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.0517] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.0683] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.0850] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.1018] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.1184] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.1350] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.1517] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.1683] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.1850] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.2017] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.2185] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.2351] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.2517] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.2684] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.2851] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.3017] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.3184] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.3351] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.3518] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.3684] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.3851] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.4017] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.4184] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.4351] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.4517] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.4684] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.4851] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.5017] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.5184] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.5351] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.5517] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.5684] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.5851] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.6017] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.6184] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.6351] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.6517] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.6684] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.6851] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.7017] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.7184] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.7351] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.7517] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.7684] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.7851] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.8017] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.8184] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.8351] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.8517] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.8684] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.8853] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.9017] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.9184] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.9353] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.9517] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.9684] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[7.9851] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.0018] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.0185] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.0351] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.0517] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.0684] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.0851] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.1017] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.1184] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.1351] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.1517] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.1684] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.1851] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.2017] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.2184] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.2351] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.2517] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.2684] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.2851] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.3017] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.3184] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.3351] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.3518] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.3684] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.3851] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.4017] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.4184] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.4351] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.4517] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.4684] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.4851] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.5017] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.5184] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.5351] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.5517] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.5684] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.5851] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.6017] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.6184] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.6351] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.6517] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.6685] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.6851] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.7017] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.7184] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.7354] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.7517] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.7684] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.7851] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.8017] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.8185] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.8351] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.8517] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.8684] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.8851] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.9017] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.9184] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.9351] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.9517] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.9684] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[8.9851] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[9.0017] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[9.0184] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
-[9.0351] 角度:, 0, 弧度, 6.2831853071796, 向量：(1, -1, )
+cocos2d: CCTextureCache dumpDebugInfo: 4 textures, for 16426 KB (16.04 MB)
+[2.7972] [INFO] ----------------------------------------
+[2.7982] [INFO] Scene "BaseScene:onEnter()"
+[7.9261] [INFO] Scene "BaseScene:onExit()"
+[7.9268] [INFO] ----------------------------------------
+[7.9278] [INFO] LUA VM MEMORY USED: 1938.52 KB
+cocos2d: "cc_fps_images" rc=4 id=2 256 x 32 @ 16 bpp => 16 KB
+cocos2d: "F:\workspace\lua\stuntpilot\client\src\\res/fight/Sheet_Map.png" rc=825 id=1 2048 x 2048 @ 32 bpp => 16384 KB
+cocos2d: "cc_2x2_white_image" rc=1 id=3 2 x 2 @ 32 bpp => 0 KB
+cocos2d: "F:\workspace\lua\stuntpilot\client\src\\res/fight/Button02.png" rc=3 id=6 88 x 78 @ 32 bpp => 26 KB
+cocos2d: CCTextureCache dumpDebugInfo: 4 textures, for 16426 KB (16.04 MB)
+[7.9365] [INFO] ----------------------------------------
+cocos2d: CCSpriteFrameCache: removing unused frame: CenterFlag.png
+cocos2d: CCSpriteFrameCache: removing unused frame: CustomPreloader_corner_embed.png
+cocos2d: CCSpriteFrameCache: removing unused frame: CustomPreloader_loadingImage.png
+cocos2d: CCSpriteFrameCache: removing unused frame: CustomPreloader_miniclip_button.png
+cocos2d: CCSpriteFrameCache: removing unused frame: EnemyHp.png
+cocos2d: CCSpriteFrameCache: removing unused frame: FriendlyHp.png
+cocos2d: CCSpriteFrameCache: removing unused frame: MainMenu_music_button_embed.png
+cocos2d: CCSpriteFrameCache: removing unused frame: MainMenu_off_button_embed.png
+cocos2d: CCSpriteFrameCache: removing unused frame: MainMenu_sound_button_embed.png
+cocos2d: CCSpriteFrameCache: removing unused frame: NagScreen_free1.png
+cocos2d: CCSpriteFrameCache: removing unused frame: NagScreen_free2.png
+cocos2d: CCSpriteFrameCache: removing unused frame: NagScreen_lastGame.png
+cocos2d: CCSpriteFrameCache: removing unused frame: NagScreen_nextGame.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ObjectHpOutline.png
+cocos2d: CCSpriteFrameCache: removing unused frame: background_jpg.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon001_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon003_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon004_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon005_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon006_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon007_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon008_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon009_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon010_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon011_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon012_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon013_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon014_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon015_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon016_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon017_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon018_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon019_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon020_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon_path_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: blimp001_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: blimp002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: blimp003_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: blimp004_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: blimp005_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: blimp006_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: blimp007_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: blimp008_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: blimp009_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: blimp010_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bomb_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_1_002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_1_003_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_1_004_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_1_005_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_1_006_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_1_007_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_1_008_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_1_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_2_002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_2_003_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_2_004_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_2_005_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_2_006_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_2_007_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_2_008_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_2_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_3_002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_3_003_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_3_004_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_3_005_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_3_006_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_3_007_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_3_008_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_3_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_4_001_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_4_002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_4_003_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_4_004_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_4_005_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_4_006_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_4_007_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_4_008_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_5_001_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_5_002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_5_003_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_5_004_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_5_005_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_5_006_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_5_007_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_5_008_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_5_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_6_001_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_6_002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_6_003_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_6_004_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_6_005_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_6_006_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_6_007_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_6_008_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_6_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_7_001_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_7_002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_7_003_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_7_004_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_7_005_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_7_006_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_7_007_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_7_008_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_7_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_8_001_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_8_002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_8_003_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_8_004_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_8_005_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_8_006_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_8_007_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_8_008_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_8_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonus_ball_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonuscannon_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonuscannon_target_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonuspath_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonuspoint0_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonuspoint1_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonuspoint2_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: bonuspoint3_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: button_control_1_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: button_control_2_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: button_keep_playing_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: button_submit_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: cannon_foot_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: cloud1_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: cloud2_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: content_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: corner_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: crash_smoke001_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: crash_smoke002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: crash_smoke003_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: crash_smoke004_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: crash_smoke005_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: crash_smoke006_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: crash_smoke007_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: crash_smoke008_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: crash_smoke009_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: crash_smoke010_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: crash_smoke011_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: crash_smoke012_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: crash_smoke013_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: crash_smoke014_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: crash_smoke015_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: crash_smoke016_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: crash_smoke017_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: crash_smoke018_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: crash_smoke019_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: crash_smoke020_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: display_large_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: display_small_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_big001_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_big002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_big003_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_big004_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_big005_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_big006_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_big007_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_big008_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_big009_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_big010_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_big011_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_big012_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_big013_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_big014_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_big015_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_big016_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_big017_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_big018_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_big019_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_big020_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_big021_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_big022_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_big023_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_big024_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_big025_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_big026_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_big027_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_trail001_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_trail002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_trail003_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_trail004_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_trail005_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_trail006_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_trail007_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_trail008_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_trail009_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_trail010_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_trail011_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_trail012_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_trail013_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_trail014_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_trail015_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_trail016_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_trail017_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_trail018_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_trail019_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_trail020_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_trail021_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_trail022_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_trail023_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_trail024_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_trail025_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_trail026_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_trail027_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_trail028_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_trail029_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_trail030_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: dust_trail031_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ed_load_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ed_save_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ed_test_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: editorPanelLast_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: editorPanelNext_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: editorpanel_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: exit_arrow_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: exit_text_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: explosa0001_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: explosa0002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: explosa0003_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: explosa0004_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: explosa0005_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: explosa0006_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: explosa0007_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: explosa0008_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: explosa0009_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: explosa0010_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: explosa0011_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: explosa0012_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: explosa0013_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: explosa0014_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: explosa0015_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: explosa0016_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: explosa0017_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: explosa0018_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: explosa0019_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: explosa0020_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: explosa0021_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: explosa0022_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: explosa0023_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: explosa0024_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: explosa0025_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: explosa0026_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: explosa0027_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: explosa026_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: fire001_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: fire002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: fire003_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: fire004_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: fire005_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: fire006_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: fire007_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: fire008_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: fire009_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: fire010_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: fire011_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: fire012_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: fire013_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: fire014_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: fire015_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: fire016_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: fire017_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: fire018_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: fire019_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: fire020_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: flag001_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: flag002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: flag003_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: flag004_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: flag005_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: flag006_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: flag007_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: flag008_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: flag009_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: flag010_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: flag011_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: flag012_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: flag013_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: flag014_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: flag015_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: flag016_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: flag017_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: flag018_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: flag019_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: flag020_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: fuellow001_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: fuellow002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: gameoverscore_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ground_obstacle_1_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ground_obstacle_2_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ground_obstacle_3_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ground_obstacle_4_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ground_obstacle_5_dead_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ground_obstacle_5_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ground_obstacle_6_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ground_obstacle_7_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ground_obstacle_8_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ground_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: hanger_dead_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: highscore_all_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: highscore_back_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: highscore_month_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: highscore_next_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: highscore_ok_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: highscore_page_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: highscore_page_selected_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: highscore_panel_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: highscore_skip_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: highscore_today_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: icon_help_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: icon_pause_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: icon_play_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: icon_quit_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: input_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: instructions.png
+cocos2d: CCSpriteFrameCache: removing unused frame: land_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: level_panel_2_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: level_panel_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: lives_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_dead_001_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_fall_001_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_fall_002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_fall_003_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_fall_004_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_fall_005_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_fall_006_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_fall_007_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_fall_008_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_fall_009_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_fall_010_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_fall_011_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_fall_012_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_fall_013_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_fall_014_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_fall_015_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_fall_016_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_fall_017_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_fall_018_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_fall_019_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_fall_020_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_fall_021_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_fall_022_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_fall_023_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_fall_024_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_fall_025_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_fall_026_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_fall_027_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_fall_028_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_fall_029_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_fall_030_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_fall_031_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_fall_032_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_idle_001_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_idle_002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_idle_003_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_idle_004_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_idle_005_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_idle_006_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_idle_007_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_idle_008_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_idle_009_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_idle_010_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_idle_011_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_idle_012_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_idle_013_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_idle_014_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_idle_015_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_idle_016_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_idle_017_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_idle_018_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_idle_019_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_idle_020_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_run_001_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_run_002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_run_003_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_run_004_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_run_005_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_run_006_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_run_007_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_run_008_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_run_009_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_run_010_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_run_011_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_run_012_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_run_013_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_run_014_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_run_015_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: man_run_016_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: medal_bronze_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: medal_gold_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: medal_silver_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: menu_button_link_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: menu_button_play_big_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: menu_button_play_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: menu_button_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: menu_logo_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: multichoice_delete_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: multichoice_last_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: multichoice_next_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: multichoice_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: multichoiceempty_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: multichoiceover_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: netloading_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart001_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart003_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart004_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart005_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart006_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart007_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart008_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart009_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart010_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart011_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart012_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart013_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart014_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart015_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart016_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart017_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart018_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart019_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart020_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart021_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart022_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart023_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart024_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart025_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart026_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart027_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart028_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart029_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart030_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart031_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart032_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading001_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading003_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading004_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading005_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading006_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading007_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading008_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading009_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading010_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading011_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading012_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading013_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading014_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading015_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading016_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading017_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading018_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading019_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading020_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading021_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading022_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading023_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading024_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading025_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading026_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading027_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading028_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading029_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading030_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading031_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading032_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_no_wing001_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_no_wing002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_no_wing003_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_no_wing004_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_no_wing005_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_no_wing006_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_no_wing007_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_no_wing008_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_no_wing009_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_no_wing010_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_no_wing011_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_no_wing012_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_no_wing013_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_no_wing014_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_no_wing015_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_no_wing016_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_no_wing017_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_no_wing018_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_no_wing019_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_no_wing020_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_no_wing021_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_no_wing022_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_no_wing023_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_no_wing024_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_no_wing025_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_no_wing026_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_no_wing027_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_no_wing028_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_no_wing029_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_no_wing030_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_no_wing031_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_no_wing032_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_roll001_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_roll002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_roll003_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_roll004_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_roll005_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_roll006_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_roll007_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_roll008_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_roll009_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_roll010_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_roll011_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_roll012_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_roll013_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_roll014_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_roll015_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_roll016_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_roll017_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_roll018_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_roll019_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_roll020_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_roll021_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_roll022_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_roll023_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_roll024_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_roll025_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_roll026_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_roll027_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_roll028_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_roll029_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_roll030_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_roll031_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_roll032_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_wing001_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_wing002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_wing003_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_wing004_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_wing005_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_wing006_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_wing007_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_wing008_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_wing009_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_wing010_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_wing011_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_wing012_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_wing013_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_wing014_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_wing015_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_wing016_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_wing017_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_wing018_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_wing019_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_wing020_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_wing021_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_wing022_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_wing023_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_wing024_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_wing025_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_wing026_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_wing027_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_wing028_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_wing029_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_wing030_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_wing031_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p1_wing032_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p_flag001_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p_flag002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p_flag003_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p_flag004_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p_flag005_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p_flag006_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p_flag007_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p_flag008_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p_flag009_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p_flag010_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p_flag011_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p_flag012_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p_flag013_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p_flag014_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p_flag015_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p_flag016_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p_purple001_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p_purple002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p_purple003_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p_purple004_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p_purple005_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p_purple006_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p_purple007_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p_purple008_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p_purple009_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p_purple010_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p_purple011_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p_purple012_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p_purple013_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p_purple014_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p_purple015_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: p_purple016_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: panelbase_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: panelcancel_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: panelok_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: parachute_man_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: parachute_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: pickup_001_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: pickup_002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: pickup_003_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: pickup_004_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: pickup_005_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: pickup_006_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: pickup_007_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: pickup_008_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: pickup_009_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: pickup_010_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: pickup_011_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: pickup_012_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: pickup_013_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: pickup_014_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: pickup_015_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: pickup_016_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: plane_prop001_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: plane_prop002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: plane_prop003_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: planecrash_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: planeshadow_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: pop_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: replay_icon_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ring01_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ring02_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ring03_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ring04_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ring05_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ring06_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ring07_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ring08_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ring09_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ring10_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ring11_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ringback01_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ringback02_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ringback03_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ringback04_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ringback05_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ringback06_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ringback07_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ringback08_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ringback09_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ringback10_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: ringback11_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: scaffhold_destroyed_1_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: scaffhold_destroyed_2_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: scaffhold_destroyed_3_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: scaffholding_1_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: scaffholding_2_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: scaffholding_3_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: scaffholding_4_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: scaffholding_base_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: scaffholding_shadow_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: scaffold_v_1_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: scaffold_v_2_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: scaffold_v_3_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: shield_empty_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: shield_full_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: shot2_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: shot_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: shrapnel_001_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: shrapnel_002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: shrapnel_003_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: shrapnel_004_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: shrapnel_005_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: shrapnel_006_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: shrapnel_007_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: shrapnel_008_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: shrapnel_009_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: shrapnel_010_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: shrapnel_011_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: shrapnel_012_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: shrapnel_013_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: shrapnel_014_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: shrapnel_015_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: shrapnel_016_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: shrapnel_017_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: shrapnel_018_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: shrapnel_019_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: shrapnel_020_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: shrapnel_021_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: shrapnel_022_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: shrapnel_023_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: shrapnel_024_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smallexp_001_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smallexp_002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smallexp_003_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smallexp_004_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smallexp_005_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smallexp_006_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smallexp_007_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smallexp_008_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smallexp_009_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smallexp_010_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smallexp_011_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smallexp_012_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smallexp_013_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smallexp_014_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smallexp_015_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smallexp_016_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke2_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_a001_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_a002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_a003_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_a004_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_a005_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_a006_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_a007_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_a008_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_a009_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_a010_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_a011_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_a012_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_a013_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_a014_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_a015_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_a016_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_a017_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_a018_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_a019_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_a020_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_a021_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_a022_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_a023_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_a024_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_a025_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_a026_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_a027_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_a028_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_a029_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_a030_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_a031_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_b001_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_b002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_b003_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_b004_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_b005_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_b006_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_b007_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_b008_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_b009_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_b010_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_b011_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_b012_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_b013_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_b014_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_b015_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_b016_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_b017_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_b018_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_b019_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_b020_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_b021_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_b022_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_b023_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_b024_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_b025_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_b026_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_b027_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_b028_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_b029_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_b030_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_b031_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_c001_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_c002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_c003_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_c004_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_c005_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_c006_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_c007_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_c008_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_c009_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_c010_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_c011_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_c012_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_c013_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_c014_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_c015_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_c016_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_c017_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_c018_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_c019_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_c020_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_c021_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_c022_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_c023_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_c024_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_c025_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_c026_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_c027_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_c028_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_c029_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_c030_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_c031_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_c032_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: smoke_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: string_1_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: string_2_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: string_3_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: tick_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: trigger_sprite_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: volume_container_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: volume_slider_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: wreck_1_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: wreck_dirt_png.png
+cocos2d: CCTextureCache: texture: cc_fps_images
+cocos2d: CCTextureCache: texture: F:\workspace\lua\stuntpilot\client\src\\res/fight/Sheet_Map.png
+cocos2d: CCTextureCache: texture: cc_2x2_white_image
+cocos2d: CCTextureCache: texture: F:\workspace\lua\stuntpilot\client\src\\res/fight/Button02.png
+cocos2d: CCTextureCache: removing unused texture: cc_2x2_white_image

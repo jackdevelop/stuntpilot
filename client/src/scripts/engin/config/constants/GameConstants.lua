@@ -16,6 +16,7 @@ GameConstants.FileExtensionName_PLIST = ".plist"; --plist文件后缀名称
 GameConstants.FileExtensionName_PNG = ".png"; --png文件后缀名称 
 
 
-
+GameConstants.PLAYER_CAMP            = 1
+GameConstants.ENEMY_CAMP             = 2
 
 return GameConstants

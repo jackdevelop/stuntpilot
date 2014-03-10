@@ -16,7 +16,7 @@ local SearchAlgorithm = {}
 @param target2
 @return true表示碰撞
 ]]
-function SearchAlgorithm.fightDist(target1,target2)
+function SearchAlgorithm.checkCollision(target1,target2)
 	local x1= target1["x_"];
     local y1= target1["y_"];
     local radius1 = target1["radius_"]; 

@@ -64,13 +64,32 @@ end
 
 
 
+
+
+
 --tick帧跳
 function FightController:tick(dt)
 	local model = self.model_
 	local allObject = model:getAllObjects();
 	
+	if model.over_  then return end;
+	
+	
+	--检测碰撞相关
+	for i, object in pairs(allObject) do
+		if object ~= self.plane then 
+			local collision = SearchAlgorithm.checkCollision(object,self.plane)
+			if collision then 
+				model.over_ = true;
+				return;
+			end
+		end
+	end
+	
+	
+	
+
 	local maxZOrder = SceneConstants.MAX_OBJECT_ZORDER;
-	 
 	for i, object in pairs(allObject) do
 		local lx, ly = object.x_, object.y_
         object:tick(dt)
@@ -78,8 +97,6 @@ function FightController:tick(dt)
 
         -- 只有当对象的位置发生变化时才调整对象的 ZOrder
         if object.sprite_  then
---        	object.updated__ and
-        	
         	object:updateView();
         	
         	if object.viewZOrdered_ then 
@@ -92,18 +109,15 @@ function FightController:tick(dt)
 	
 	
 	
+	
+	--飞机行走	
 	local x,y = self.plane:getPosition();
 	local degrees = self.plane:getPlaneFlyDegrees();--飞行的角度
     local angle =  Math2d.degrees2radians(360-degrees)--飞行的弧度
     
-    
-    
     local vectorX = math.cos(angle);
     local vectorY = toint(math.sin(angle));
-    
-    echoj("角度:",degrees,"弧度",angle,"向量：".."("..vectorX,vectorY,")");
-    
-    
+    --echoj("角度:",degrees,"弧度",angle,"向量：".."("..vectorX,vectorY,")");
 	self.plane:setPosition(x+vectorX,y+vectorY);
 	
 	

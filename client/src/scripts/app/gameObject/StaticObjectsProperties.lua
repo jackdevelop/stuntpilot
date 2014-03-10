@@ -24,7 +24,7 @@ local object = {
     viewZOrdered = true,
     behaviors   = {
     				"DecorateBehavior","ObjectViewBehavior","MovableBehavior",
-    				"MovableDirectBehavior","RoleBehavior","DistanceCalculateBehavior",
+    				"MovableDirectBehavior","RoleBehavior","DestroyedBehavior","CampBehavior","HpViewBehavior",
     				
     				"StaticObjectEditorBehavior"
     			},
@@ -49,7 +49,7 @@ local object = {
     viewZOrdered = true,
     behaviors   = {
     				"DecorateBehavior","ObjectViewBehavior","MovableBehavior",
-    				"MovableDirectBehavior","RoleBehavior","DistanceCalculateBehavior",
+    				"MovableDirectBehavior","RoleBehavior","DestroyedBehavior","CampBehavior",
     				
     				
     				"StaticObjectEditorBehavior"
