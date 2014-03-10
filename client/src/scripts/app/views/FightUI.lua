@@ -14,23 +14,23 @@ function FightUI:initView()
         :align(display.CENTER, display.cx, display.top - 20)
         :addTo(batch)
         
-    local vectorTxt =  cc.ui.UILabel.new({text = "向量：(1,0)", size = 24, color = display.COLOR_BLACK})
-        :align(display.CENTER, display.cx, display.top - 40)
-        :addTo(batch)
+--    local vectorTxt =  cc.ui.UILabel.new({text = "向量：(1,0)", size = 24, color = display.COLOR_BLACK})
+--        :align(display.CENTER, display.cx, display.top - 40)
+--        :addTo(batch)
        
         
 	
 	 --向下
 	 SpriteButton:newButton("fight/Button02.png", "↓",true, function()
 		local plane = self.object_.sceneController_.plane;--飞机
-        plane:decreasePlaneFlyDegrees(5);
+        plane:decreasePlaneFlyDegrees(1);
         
         local radians = plane:getPlaneFlyDegrees();
         txt:setString("度数："..radians);
         
-        local vectorX = math.cos(360-radians)*2;
-        local vectorY = math.sin(radians)*2;
-        vectorTxt:setString("向量："..vectorX..","..vectorY);
+--        local vectorX = math.cos(360-radians)*2;
+--        local vectorY = math.sin(radians)*2;
+--        vectorTxt:setString("向量："..vectorX..","..vectorY);
 	end)
 	:align(display.CENTER,display.cx - 100, display.bottom + 50)
 	:addTo(batch)
@@ -38,14 +38,14 @@ function FightUI:initView()
 	--向上
 	SpriteButton:newButton("fight/Button02.png", "↑",true, function()
 		local plane = self.object_.sceneController_.plane;--飞机
-        plane:decreasePlaneFlyDegrees(-5);
+        plane:decreasePlaneFlyDegrees(-1);
         
         local radians = plane:getPlaneFlyDegrees();
         txt:setString("度数："..radians);
         
-        local vectorX = math.cos(360-radians)*2;
-        local vectorY = math.sin(radians)*2;
-        vectorTxt:setString("向量："..vectorX..","..vectorY);
+--        local vectorX = math.cos(360-radians)*2;
+--        local vectorY = math.sin(radians)*2;
+--        vectorTxt:setString("向量："..vectorX..","..vectorY);
 	end)
 	:align(display.CENTER,display.cx + 100, display.bottom + 50)
 	:addTo(batch)

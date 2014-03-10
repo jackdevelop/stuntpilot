@@ -32,6 +32,19 @@ function ObjectViewBehavior:bind(object)
 
 	
 	
+	
+	
+	--[[
+	获取当前显示的视图动画
+	]]
+	local function getAnimation(object, x, y)
+        return self.animation_
+    end
+    object:bindMethod(self, "getAnimation", getAnimation)
+	 
+	
+	
+	
 	--创建动画
     local function createView(object, batch, marksLayer, debugLayer)
 --       if object.framesName_ then
@@ -55,10 +68,6 @@ function ObjectViewBehavior:bind(object)
         local view = animation:getView()
         object.sprite_ = view;
         self.animation_ = animation;
-        --batch:reorderChild(view, objectZOrder + decoration.zorder_)
-        --view:setFlipX(flip)
-            
-	
 	
 	    local size = object.sprite_:getContentSize()
 	    object.spriteSize_ = {size.width, size.height}
@@ -66,15 +75,21 @@ function ObjectViewBehavior:bind(object)
 	    if object.scale_ then
 	        object.sprite_:setScale(self.scale_)
 	    end
-	    
-	    --batch:addChild(object.sprite_)
     end
     object:bindMethod(self, "createView", createView)
 
 	
 	
 	
+	
+	
+	
     local function removeView(object)
+    	if self.animation_ then 
+    		self.animation_:removeView();
+    		self.animation_ = nil;
+    	end
+    	 
     	if object.sprite_ then
 			object.sprite_:removeSelf()
 			object.sprite_ = nil
@@ -82,10 +97,12 @@ function ObjectViewBehavior:bind(object)
     end
     object:bindMethod(self, "removeView", removeView, true)
 
+
+
+	
     local function updateView(object)		
         local x, y = math.floor(object.x_), math.floor(object.y_)
         object.sprite_:setPosition(x,y)
-    	--object.sprite_:setFlipX(self.flipSprite_)
     end
     object:bindMethod(self, "updateView", updateView)
 end

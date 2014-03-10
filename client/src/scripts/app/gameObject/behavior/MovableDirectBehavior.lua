@@ -28,16 +28,11 @@ function MovableDirectBehavior:bind(object)
 	local function decreasePlaneFlyDegrees(object,value)
 		local aad = 1;
 		local currentV = object.flyDegrees_ + aad * value;
---		if currentV > 360 then 
---			currentV = currentV - 360;
---		elseif currentV < -360 then
---			currentV = currentV + 360;
---		end
 		
-		if currentV < 0 then 
-			currentV = 360 + currentV;
-		elseif currentV > 360 then 
-			currentV = currentV  - 360;
+		if currentV < 1 then 
+			currentV = 32 + currentV;
+		elseif currentV > 32 then 
+			currentV = currentV  - 32;
 		end
 		
 		
@@ -52,16 +47,18 @@ function MovableDirectBehavior:bind(object)
 	正右为0度   顺时针旋转 度数增加
 	]]
     local function getPlaneFlyDegrees(object)
-    	return tonum(object.flyDegrees_);
+    	return toint(object.flyDegrees_);
     end
     object:bindMethod(self, "getPlaneFlyDegrees", getPlaneFlyDegrees)
     
     
     
     
-    local function updateView(object)		
-        local sprite = object.sprite_;
-        sprite:setRotation(tonum(object.flyDegrees_));
+    local function updateView(object)	
+    	local animation = object:getAnimation();
+    	animation:setDisplayFrameIndex(toint(object.flyDegrees_));
+        --local sprite = object.sprite_;
+        --sprite:setRotation(tonum(object.flyDegrees_));
     end
     object:bindMethod(self, "updateView", updateView)
     
@@ -75,11 +72,11 @@ end
 
 function MovableDirectBehavior:unbind(object)
     object:unbindMethod(self, "vardump")
-    object:unbindMethod(self, "setPlaneFlyRadians")
+    object:unbindMethod(self, "getPlaneFlyDegrees")
 end
 
 function MovableDirectBehavior:reset(object)
-	object.flyDegrees_ = 0;
+	object.flyDegrees_ = 1;
 end
 
 return MovableDirectBehavior

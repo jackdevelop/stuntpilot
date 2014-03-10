@@ -112,7 +112,7 @@ function FightController:tick(dt)
 	
 	--飞机行走	
 	local x,y = self.plane:getPosition();
-	local degrees = self.plane:getPlaneFlyDegrees();--飞行的角度
+	local degrees = self.plane:getPlaneFlyDegrees()*11.25;--飞行的角度
     local angle =  Math2d.degrees2radians(360-degrees)--飞行的弧度
     
     local vectorX = math.cos(angle);

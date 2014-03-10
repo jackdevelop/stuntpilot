@@ -103,7 +103,6 @@ function HpViewBehavior:bind(object)
         object.hp__ = object.hp_
         if object.hp_ > 0 then
             local x, y = object.x_, object.y_
---            local radiusOffsetX, radiusOffsetY = object.radiusOffsetX_, object.radiusOffsetY_
             local x2 = x  - object.hpSprite_:getContentSize().width / 2
             local y2 = y  + object.radius_ + HpViewBehavior.HP_BAR_OFFSET_Y
             object.hpSprite_:setPosition(x2, y2)

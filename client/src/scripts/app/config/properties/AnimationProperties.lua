@@ -33,7 +33,7 @@ local defines = {}
 local decoration = {
     framesName      = "p1_cart%03d_png.png",
     framesBegin     = 1,            -- 从 ShipWaveUp0001.png 开始
-    framesLength    = 20,           -- 一共有 16 帧
+    framesLength    = 32,           -- 一共有 16 帧
     framesTime      = 1/30,     -- 播放速度为每秒 20 帧
 
     -- 以下为都为可选设定
