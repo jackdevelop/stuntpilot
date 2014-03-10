@@ -46,30 +46,30 @@ function FightScene:createCCParallax()
 	
 	
 	
-	display.newSprite("#background_mountain.png")
+	display.newSprite("#land_png.png")
 	:align(display.LEFT_BOTTOM, 0, 0)
 	:addTo(batch)
 	
-	display.newSprite("#background_mountain.png")
+	display.newSprite("#land_png.png")
 	:align(display.LEFT_BOTTOM, 800, 0)
 	:addTo(batch)
 	
-	display.newSprite("#background_mountain.png")
+	display.newSprite("#land_png.png")
 	:align(display.LEFT_BOTTOM, 800*2, 0)
 	:addTo(batch)
 	
 	
 	
 	
-	display.newSprite("#ground.png")
+	display.newSprite("#ground_png.png")
 	:align(display.LEFT_BOTTOM, 0, 0)
 	:addTo(batch)
 	
-	display.newSprite("#ground.png")
+	display.newSprite("#ground_png.png")
 	:align(display.LEFT_BOTTOM, 1150, 0)
 	:addTo(batch)
 	
-	display.newSprite("#ground.png")
+	display.newSprite("#ground_png.png")
 	:align(display.LEFT_BOTTOM, 1150*2, 0)
 	:addTo(batch)
 	

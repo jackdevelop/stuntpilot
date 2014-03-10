@@ -31,6 +31,15 @@ end
 初始化
 ]]
 function FightController:init()
+	--初始化地图
+	local levelData = self.model_.levelData_;
+	local staticData = levelData.static;
+	for id,v in pairs(staticData) do
+		self.model_:newObject(BaseObject.CLASS_ID["static"], v,id)
+	end
+	
+
+
 	local state = {
 		defineId = "p1_cart",
 		x = 0,--display.width,
@@ -38,9 +47,6 @@ function FightController:init()
 	}
 	self.plane = self.model_:newObject(BaseObject.CLASS_ID["role"], state)
 	self:setFocus();
-	
---	self.plane:setPlaneFlyRadians(radians);
-	
 end
 
 
@@ -93,7 +99,7 @@ function FightController:tick(dt)
     
     
     local vectorX = math.cos(angle);
-    local vectorY = math.sin(angle);
+    local vectorY = toint(math.sin(angle));
     
     echoj("角度:",degrees,"弧度",angle,"向量：".."("..vectorX,vectorY,")");
     

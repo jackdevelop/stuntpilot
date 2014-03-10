@@ -11,22 +11,55 @@ local defines = {}
 
 ----------------------------------------
 
+--飞机
 local object = {
     classId      = "static",
-    framesName   = "p1_cart%03d.png",
-    framesBegin  = 1,
-    framesLength = 2,
-    framesTime   = 1.0 / 28,
---    radius       = 60,
---    scale        = 2.0,
---    offsetY      = 20,
+    animation   = "p1_cart",
+--    framesName   = "p1_cart%03d_png.png",
+--    framesBegin  = 1,
+--    framesLength = 2,
+--    framesTime   = 1.0 / 28,
+    radius       = 30,
     zorder       = 30000,
     viewZOrdered = true,
-    behaviors   = {"DecorateBehavior","ObjectViewBehavior","MovableBehavior","MovableDirectBehavior","RoleBehavior"},
-    
-    flyRadians = 0,--飞行的角度 初始化向右为0
+    behaviors   = {
+    				"DecorateBehavior","ObjectViewBehavior","MovableBehavior",
+    				"MovableDirectBehavior","RoleBehavior","DistanceCalculateBehavior",
+    				
+    				"StaticObjectEditorBehavior"
+    			},
 }
 defines["p1_cart"] = object
+
+
+
+
+
+
+--降落伞
+local object = {
+    classId      = "static",
+--    framesName   = "balloon%03d_png.png",
+--    framesBegin  = 1,
+--    framesLength = 20,
+--    framesTime   = 1.0 / 30,
+	animation   = "balloon",
+    radius       = 30,
+    --zorder       = 30000,
+    viewZOrdered = true,
+    behaviors   = {
+    				"DecorateBehavior","ObjectViewBehavior","MovableBehavior",
+    				"MovableDirectBehavior","RoleBehavior","DistanceCalculateBehavior",
+    				
+    				
+    				"StaticObjectEditorBehavior"
+    			},
+}
+defines["balloon"] = object
+
+
+
+
 
 ----------------------------------------
 

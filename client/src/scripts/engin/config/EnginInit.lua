@@ -26,6 +26,7 @@ SceneConstants = require("engin.config.constants.SceneConstants")
 GameConstants = require("engin.config.constants.GameConstants")
 
 Math2d =  require("engin.util.math.Math2d"); 
+SearchAlgorithm =  require("engin.util.math.SearchAlgorithm"); 
 
 GameUtil = require("engin.util.GameUtil"); 
 BehaviorFactory = require("engin.util.behavior.BehaviorFactory");

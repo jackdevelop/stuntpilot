@@ -47,6 +47,9 @@ function BaseObject:ctor(id, state, model)
     self.offsetX_    = toint(self.offsetX_)
     self.offsetY_    = toint(self.offsetY_)
     
+    --半径
+    self.radius_  = toint(self.radius_)
+    
     
     self.state_      = state
     self.play_       = false

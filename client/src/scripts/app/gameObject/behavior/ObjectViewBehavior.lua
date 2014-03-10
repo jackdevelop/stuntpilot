@@ -34,18 +34,31 @@ function ObjectViewBehavior:bind(object)
 	
 	--创建动画
     local function createView(object, batch, marksLayer, debugLayer)
-       if object.framesName_ then
-	        local frames = display.newFrames(object.framesName_, object.framesBegin_, object.framesLength_)
-	        object.sprite_ = display.newSprite();--display.newSpriteFrame(frames[1])
-	        object.sprite_:playAnimationForever(display.newAnimation(frames, object.framesTime_))
-	        object.sprite_:displayFrame(frames[1])
-	    else
-	        local imageName = object.imageName_
-	        if type(imageName) == "table" then
-	            imageName = imageName[1]
-	        end
-	        object.sprite_ = display.newSprite(imageName)
-	    end
+--       if object.framesName_ then
+--	        local frames = display.newFrames(object.framesName_, object.framesBegin_, object.framesLength_)
+--	        object.sprite_ = display.newSprite();--display.newSpriteFrame(frames[1])
+--	        object.sprite_:playAnimationForever(display.newAnimation(frames, object.framesTime_))
+--	        object.sprite_:displayFrame(frames[1])
+--	   else
+--	        local imageName = object.imageName_
+--	        if type(imageName) == "table" then
+--	            imageName = imageName[1]
+--	        end
+--	        object.sprite_ = display.newSprite(imageName)
+--	    end
+	
+        local animation = AnimationCache.new()
+     	local animationParam  = AnimationProperties.get(object.animation_);
+     	animation:initData(object.animation_,animationParam)
+        animation:createView(batch)
+        animation:updateView(true);
+        local view = animation:getView()
+        object.sprite_ = view;
+        self.animation_ = animation;
+        --batch:reorderChild(view, objectZOrder + decoration.zorder_)
+        --view:setFlipX(flip)
+            
+	
 	
 	    local size = object.sprite_:getContentSize()
 	    object.spriteSize_ = {size.width, size.height}
@@ -54,7 +67,7 @@ function ObjectViewBehavior:bind(object)
 	        object.sprite_:setScale(self.scale_)
 	    end
 	    
-	    batch:addChild(object.sprite_)
+	    --batch:addChild(object.sprite_)
     end
     object:bindMethod(self, "createView", createView)
 

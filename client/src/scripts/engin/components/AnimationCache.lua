@@ -135,7 +135,7 @@ end
 @param enforce 是否强制执行
 ]]
 function AnimationCache:updateView(enforce)
-	if not self.enforce_  and self.previousName_ == self.name_ then return end --同一份动画数据 直接返回
+	if not enforce and not self.enforce_ and self.previousName_ == self.name_ then return end --同一份动画数据 直接返回
 	
 	
 	local currentFirstFrame = analyseFrames(self);
@@ -146,7 +146,6 @@ function AnimationCache:updateView(enforce)
     if not self.visible_ then
         self.sprite_:setVisible(false)
     end
-
 
     if not self.autoplay_ then return end
 

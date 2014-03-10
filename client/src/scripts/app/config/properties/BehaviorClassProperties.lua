@@ -22,6 +22,11 @@ local defines = {
 	MovableBehavior    = require("app.gameObject.behavior.MovableBehavior"),
 	MovableDirectBehavior    = require("app.gameObject.behavior.MovableDirectBehavior"),
 	RoleBehavior       = require("app.gameObject.behavior.RoleBehavior"),
+	DistanceCalculateBehavior =  require("app.gameObject.behavior.DistanceCalculateBehavior"),
+	
+	
+	
+	StaticObjectEditorBehavior =  require("app.gameObject.behavior.StaticObjectEditorBehavior"),
 }
 
 

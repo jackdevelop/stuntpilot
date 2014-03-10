@@ -99,20 +99,20 @@ function MovableBehavior:bind(object)
 	
 	
 	
-	--[[
-	  鼠标控制状态下的计算行动
-	 ]]
-  	local function calcActionMouse(object)
-  		if object.movingLocked_ > 0  then return end
-
-        local state = object.movingState_
-        if state == MovableBehavior.MOVING_STATE_STOPPED then return end
-        
-        if self.path_ and self.path_[self.step_] then
-        	--local _nextTarget = _step==_path.length ? _endTarget : WorldMap.me.tile2WorldPostion(_path[_step][0],_path[_step][1]);
-        
-        end
-    end
+--	--[[
+--	  鼠标控制状态下的计算行动
+--	 ]]
+--  	local function calcActionMouse(object)
+--  		if object.movingLocked_ > 0  then return end
+--
+--        local state = object.movingState_
+--        if state == MovableBehavior.MOVING_STATE_STOPPED then return end
+--        
+--        if self.path_ and self.path_[self.step_] then
+--        	--local _nextTarget = _step==_path.length ? _endTarget : WorldMap.me.tile2WorldPostion(_path[_step][0],_path[_step][1]);
+--        
+--        end
+--    end
 	
 	
 	
@@ -195,14 +195,13 @@ function MovableBehavior:bind(object)
 	    		end
 	    		
 	    		
-	    		if x > maxX - halfWidth then
-	    			targetx = x - (maxX - display.width);
-	    		end
-	    		
-	    		if y > maxY - halfHeight then
-	    			targety = y - (maxY - display.height);
-	    		end
-	    		
+--	    		if x > maxX - halfWidth then
+--	    			targetx = x - (maxX - display.width);
+--	    		end
+--	    		
+--	    		if y > maxY - halfHeight then
+--	    			targety = y - (maxY - display.height);
+--	    		end
 	    	else
 	    		--将地图坐标转换为屏幕坐标 
 	    		targetx,targety=x,y;--model.controller_.scene_:getCamera():convertToScreenPosition(object.x_,object.y_);
@@ -226,6 +225,7 @@ function MovableBehavior:bind(object)
 		elseif object.x_ < -10 then
 			object:setPlaneFlyDegrees(0);
 		elseif object.x_  > object.model_.width_ + 10 then
+			object:setPlaneFlyDegrees(180);
 		end
     end
     object:bindMethod(self, "setPosition", setPosition)

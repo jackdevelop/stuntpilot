@@ -15,6 +15,7 @@ function FightModel:ctor(controller,levelData)
     
     self.controller_ = controller;
     self.batch_ = controller.scene_:getBatchLayer();
+    self.debugLayer_ =  controller.scene_:getDebugLayer();
     
     --拆分数据
     self.levelData_ = levelData;
