@@ -100,6 +100,7 @@ local function analyseFrames(self)
         self.animation_ = display.newAnimation(self.frames_, self.framesTime_)
      	self.animation_:retain()
         
+        echoj(self.frames_[1],"xxxxxxxxxxx",self.framesName_);
         currentFirstTexture = self.frames_[1];
     elseif self.frames_ then
     	self.animation_ = display.newAnimation(self.frames_, self.framesTime_)

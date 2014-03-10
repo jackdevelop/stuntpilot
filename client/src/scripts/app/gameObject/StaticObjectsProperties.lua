@@ -15,18 +15,19 @@ local defines = {}
 local object = {
     classId      = "static",
     animation   = "p1_cart",
---    framesName   = "p1_cart%03d_png.png",
---    framesBegin  = 1,
---    framesLength = 2,
---    framesTime   = 1.0 / 28,
+	flyDegrees = 1,--飞行的方向 ，1-32
     radius       = 30,
     zorder       = 30000,
     viewZOrdered = true,
     behaviors   = {
     				"DecorateBehavior","ObjectViewBehavior","MovableBehavior",
-    				"MovableDirectBehavior","RoleBehavior","DestroyedBehavior","CampBehavior","HpViewBehavior",
+    				"MovableDirectBehavior","RoleBehavior","DestroyedBehavior","CampBehavior",
     				
-    				"StaticObjectEditorBehavior"
+    				"StaticObjectEditorBehavior",
+    				
+    				
+    				
+    				"HpViewBehavior","PlaneBehavior",
     			},
 }
 defines["p1_cart"] = object
@@ -39,20 +40,17 @@ defines["p1_cart"] = object
 --降落伞
 local object = {
     classId      = "static",
---    framesName   = "balloon%03d_png.png",
---    framesBegin  = 1,
---    framesLength = 20,
---    framesTime   = 1.0 / 30,
 	animation   = "balloon",
     radius       = 30,
-    --zorder       = 30000,
+   	zorder       = 0,
     viewZOrdered = true,
+    flyDegrees = 9,--飞行的方向 ，1-32
     behaviors   = {
     				"DecorateBehavior","ObjectViewBehavior","MovableBehavior",
     				"MovableDirectBehavior","RoleBehavior","DestroyedBehavior","CampBehavior",
     				
     				
-    				"StaticObjectEditorBehavior"
+    				"StaticObjectEditorBehavior",
     			},
 }
 defines["balloon"] = object

@@ -59,6 +59,7 @@ local decoration = {
     framesLength    = 20,           -- 一共有 16 帧
     framesTime      = 1/30,     -- 播放速度为每秒 20 帧
 
+
     -- 以下为都为可选设定
     zorder          = 0,            -- 在被装饰对象的 ZOrder 基础上 +1，默认值为 0
     playForever     = true,         -- 是否循环播放，默认值为 false

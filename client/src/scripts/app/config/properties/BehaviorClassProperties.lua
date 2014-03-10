@@ -25,7 +25,7 @@ local defines = {
 	DestroyedBehavior = require("app.gameObject.behavior.DestroyedBehavior"),
 	HpViewBehavior  = require("app.gameObject.behavior.HpViewBehavior"),
 	CampBehavior  = require("app.gameObject.behavior.CampBehavior"),
-	
+	PlaneBehavior = require("app.gameObject.behavior.PlaneBehavior"),
 	
 	
 	StaticObjectEditorBehavior =  require("app.gameObject.behavior.StaticObjectEditorBehavior"),

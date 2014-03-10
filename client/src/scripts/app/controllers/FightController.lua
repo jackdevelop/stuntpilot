@@ -2,7 +2,7 @@
 战斗控制器
 ]]
 
-
+local FlyDegreesData = require("app.data.FlyDegreesData")
 
 local FightController = class("FightController")
 
@@ -112,12 +112,9 @@ function FightController:tick(dt)
 	
 	--飞机行走	
 	local x,y = self.plane:getPosition();
-	local degrees = self.plane:getPlaneFlyDegrees()*11.25;--飞行的角度
-    local angle =  Math2d.degrees2radians(360-degrees)--飞行的弧度
-    
-    local vectorX = math.cos(angle);
-    local vectorY = toint(math.sin(angle));
-    --echoj("角度:",degrees,"弧度",angle,"向量：".."("..vectorX,vectorY,")");
+	local flyDegrees = self.plane:getPlaneFlyDegrees();
+    local vectorX,vectorY = FlyDegreesData[toint(flyDegrees)]();
+--    echoj("角度:",flyDegrees,"向量：".."("..vectorX,vectorY,")");
 	self.plane:setPosition(x+vectorX,y+vectorY);
 	
 	

@@ -1,5 +1,5 @@
 --[[
-移动方向管理
+角度管理
 ]]
 local MovableDirectBehavior = class("MovableDirectBehavior", BehaviorBase)
 
@@ -10,8 +10,7 @@ end
 
 function MovableDirectBehavior:bind(object)
 
-	
-	--[[
+		--[[
 	设置发行的角度
 	正右为0度   顺时针旋转 度数增加
 	]]
@@ -51,18 +50,8 @@ function MovableDirectBehavior:bind(object)
     end
     object:bindMethod(self, "getPlaneFlyDegrees", getPlaneFlyDegrees)
     
-    
-    
-    
-    local function updateView(object)	
-    	local animation = object:getAnimation();
-    	animation:setDisplayFrameIndex(toint(object.flyDegrees_));
-        --local sprite = object.sprite_;
-        --sprite:setRotation(tonum(object.flyDegrees_));
-    end
-    object:bindMethod(self, "updateView", updateView)
-    
-    
+	
+	
 	
     local function vardump(object, state)
         return state
@@ -76,7 +65,6 @@ function MovableDirectBehavior:unbind(object)
 end
 
 function MovableDirectBehavior:reset(object)
-	object.flyDegrees_ = 1;
 end
 
 return MovableDirectBehavior
