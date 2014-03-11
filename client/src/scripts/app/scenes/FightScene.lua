@@ -14,6 +14,7 @@ function FightScene:ctor(param)
 	param.backgroundImageName = levelData.backgroundImageName;
 	param.width = levelData.width;
 	param.height = display.height;
+	param.batchNodeImage = levelData.batchNodeImage;
 	FightScene.super.ctor(self,param)
     GameUtil.spriteFullScreen(self.backgroundSprite_)
     
@@ -30,7 +31,23 @@ function FightScene:ctor(param)
     local FightController = require("app.controllers.FightController")
 	self.sceneController_ = FightController.new(self,levelData);
 	
+	
+	
+	
 end
+
+
+
+function FightScene:initViewOnEnter()
+	--添加暂停开始的ui
+	local StartView = require("app.views.StartView");
+	local startView = StartView.new(nil,self);
+	startView:initView();
+	PopUpManager:addPopUp(startView,nil,true)
+	PopUpManager:center(startView)
+end
+
+
 
 
 

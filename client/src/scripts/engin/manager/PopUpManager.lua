@@ -63,12 +63,21 @@ function PopUpManager:addPopUp(window, parent, modal, childList, moduleFactory)
 	if not parent then 
 		parent = app.currentScene_; --当前场景的ui层
 		
-		if parent.getUILayer() then
+		if parent.getUILayer then
 			parent = parent:getUILayer();
 		end
 	end
 	
-	self.arr_ [#self.arr_ + 1] = window;
+	
+	local cover;
+	if modal then 
+		cover = SpriteCover:createCoverSprite();
+		parent:addChild(cover);
+	end
+	
+	
+	
+	self.arr_ [#self.arr_ + 1] = {window,cover};
 	parent:addChild(window);
 end
 
@@ -79,15 +88,45 @@ end
  参数 
  popUp:IFlexDisplayObject — 表示弹出窗口的 IFlexDisplayObject。  
 ]]
-function PopUpManager:deletePopUp(popUp)
+function PopUpManager:deletePopUp(popUp,effetId,onComplete)
 	 for i = #self.arr_, 1, -1 do
-	 	local onePopup = self.arr_[i]
+	 	local onePopup,cover = self.arr_[i][1],self.arr_[i][2];
         if onePopup  == popUp then 
-        	popUp:dispose();
+        	
+        	
+        	local function onCompleteHandle() 
+        		popUp:removeView();
+        		
+        		if cover then 
+        			cover:removeSelf();
+        		end
+        	end
+        	
+        	
+        	
+        	
+        	
+        	
+        	
+        	--特效
+			CCDirector:sharedDirector():setDepthTest(false)
+			--[[ 
+				作用：分多行消失特效
+				参数1：特效持续的时间
+				参数2：行数
+			]]
+			local actions = {};
+			local time = 1
+			actions[#actions + 1] = CCSplitRows:create(time, 9);
+			actions[#actions + 1] = CCCallFunc:create(onCompleteHandle);
+			local effect = transition.sequence(actions)
+		    popUp:runAction(effect)
+    
+        	
 		 	table.remove(self.arr_, i)
 		 	return;
-		else
-			table.remove(self.arr_, i)
+--		else
+--			table.remove(self.arr_, i)
 		end
 	end
 end
@@ -103,7 +142,10 @@ function PopUpManager:bringToFront(popUp)
 	popUp:setZOrder(SceneConstants.MAX_UI_ZORDER);
 end
 
-
+--居中
+function PopUpManager:center(popUp)
+	popUp:align(display.CENTER,display.cx ,display.cy)
+end
 
 
 

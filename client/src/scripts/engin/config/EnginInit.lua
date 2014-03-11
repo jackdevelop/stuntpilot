@@ -81,7 +81,7 @@ SpriteButton =  require("engin.components.SpriteButton").new();
 AtlasText  = require("engin.components.AtlasText").new();
 BubbleButton =  require("engin.components.BubbleButton").new();
 SpriteMask = require("engin.components.SpriteMask").new();
-
+SpriteCover = require("engin.components.SpriteCover").new();
 
 --管理类
 PopUpManager = require("engin.manager.PopUpManager").new();

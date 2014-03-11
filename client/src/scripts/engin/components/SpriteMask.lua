@@ -3,6 +3,7 @@
  	public ->> 全局公开类
  	不可重写
  	
+ 	创建遮罩的显示sprite
 	使用：
 	local c = SpriteMask:createMaskByImageName("ui/PinkScale9Block.png","ui/RadioButtonOn.png")
      self:addChild(c);

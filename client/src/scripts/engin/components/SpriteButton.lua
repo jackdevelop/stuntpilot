@@ -45,7 +45,7 @@ function SpriteButton:newButton(imageName, name,isPress, listener)
         label:setPosition(cs.width / 2, cs.height / 2)
         sprite:addChild(label)
     end
-
+	--sprite:setCascadeBoundingBox(CCRect(0, 0, display.width, display.height))
 	
 	--点击效果
 	local function touchClick()
@@ -61,7 +61,9 @@ function SpriteButton:newButton(imageName, name,isPress, listener)
 	
 	--点击监听回调事件
 	local function clickOneceHandle()
-		listener()
+		if listener then 
+			listener()
+		end
 	end
 	
 	
@@ -93,8 +95,9 @@ function SpriteButton:newButton(imageName, name,isPress, listener)
            touchClick();
            
           clickPressHandle(true);
-            -- return cc.TOUCH_BEGAN -- stop event dispatching
-            return cc.TOUCH_BEGAN_NO_SWALLOWS -- continue event dispatching
+            return cc.TOUCH_BEGAN -- stop event dispatching
+--			return cc.TOUCH_BEGAN_SWALLOWS --吞噬事件
+--            return cc.TOUCH_BEGAN_NO_SWALLOWS -- continue event dispatching
         end
 
         local touchInSprite = sprite:getCascadeBoundingBox():containsPoint(CCPoint(x, y))

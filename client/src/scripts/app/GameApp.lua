@@ -42,17 +42,19 @@ function UIDemoApp:enterScene(sceneName,backScaneName, param,...)
 	    local sceneClass = require(scenePackageName)
 	    local scene = sceneClass.new(args)
 	    display.replaceScene(scene, transitionType, time, more)
+	    
+	    return scene
 	end
 
 echoj("dfffff",sceneName,backScaneName, param);
 	if not param then param = {} end
 	param.sceneName = sceneName;
   	--UIDemoApp.super.enterScene(self, sceneName,param, ...)
-    enterSceneFun(sceneName,param, ...);
+    local scene = enterSceneFun(sceneName,param, ...);
     
     self.previousSceneName_ = self.currentSceneName_;
     self.currentSceneName_ = sceneName;
-    self.currentScene_ = display.getRunningScene();
+    self.currentScene_ = scene; --display.getRunningScene();
 end
 
 

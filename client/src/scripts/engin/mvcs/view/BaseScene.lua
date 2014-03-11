@@ -33,7 +33,7 @@ function BaseScene:ctor(param)
 	local height = param.height;
 	local sceneName = param.sceneName;
 	local isMultiTouch =param.isMultiTouch;
-	
+	local batchNodeImage = param.batchNodeImage;
 	 
 	self.sceneSound_ = param.sceneSound
 	self.currentSceneName_ = sceneName;--场景名称
@@ -89,12 +89,6 @@ function BaseScene:ctor(param)
     self:addChild(self.touchLayer_)-- touchLayer 用于接收触摸事
     
 	
-	local debug=self:getDebugLayer();
-    if debug then --debug层
-    	 self.mapLayer:addChild(debug);
-    end
-    
-   
    
     self.floorsLayer_=display.newNode()
     self.mapLayer:addChild(self.floorsLayer_)--底层
@@ -102,13 +96,25 @@ function BaseScene:ctor(param)
     
     
    
-    self.batch_=display.newNode()
+--    self.batch_=display.newNode()
+    self.batch_ = display.newBatchNode(batchNodeImage)
     self.mapLayer:addChild(self.batch_)--渲染层
     
     self.flysLayer_ = display.newNode() --飞行层
 	self.mapLayer:addChild(self.flysLayer_)
     
     
+    
+    
+--    if DEBUG ~= 0 then
+--		if not self.debugLayer_ then 
+--			self.debugLayer_=display.newNode()-- .newLayer();
+--		end
+--    end
+--  self.mapLayer:addChild(debug);
+    
+    
+--      self.uiLayer_ = display.newBatchNode(batchNodeImage)
     self.uiLayer_ = display.newLayer();
     self.mapLayer:addChild(self.uiLayer_);--ui层
     
@@ -211,12 +217,6 @@ end
 debug层
 ]]
 function BaseScene:getDebugLayer()
-	if DEBUG ~= 0 then
-		if not self.debugLayer_ then 
-			self.debugLayer_=display.newNode()-- .newLayer();
-		end
-    end
-    
     return self.debugLayer_;
 end
 
@@ -447,7 +447,8 @@ function BaseScene:touchMoved(event, x, y)
 end
 function BaseScene:touchCancle(event, x, y)
 end
-
+function BaseScene:initViewOnEnter()
+end
 
 
 
@@ -524,6 +525,8 @@ function BaseScene:onEnter()
         self.touchLayer_:setKeypadEnabled(true)
 	end 
 	
+	
+	self:initViewOnEnter();	
 --	self:performWithDelay(function()
 		--分发进入场景事件
 --		local flowData = FlowData.new(GameFlowConstants.ENTER_SCENE,{sceneName = self.sceneName_,scene=self});

@@ -100,7 +100,6 @@ local function analyseFrames(self)
         self.animation_ = display.newAnimation(self.frames_, self.framesTime_)
      	self.animation_:retain()
         
-        echoj(self.frames_[1],"xxxxxxxxxxx",self.framesName_);
         currentFirstTexture = self.frames_[1];
     elseif self.frames_ then
     	self.animation_ = display.newAnimation(self.frames_, self.framesTime_)
@@ -121,7 +120,7 @@ end
 
 function AnimationCache:createView(batch)
 	if self.sprite_  then return end
-    self.sprite_ = display.newSprite()
+    self.sprite_ = display.newSprite("#CenterFlag.png")
     
 	batch:addChild(self.sprite_)
 	self.sprite_:registerScriptHandler(function(event)
@@ -275,6 +274,7 @@ function AnimationCache:setDisplayFrameIndex(index)
         self.sprite_:setDisplayFrame(self.frames_[index])
     end
 end
+--暂停  
 function AnimationCache:stopAnimation()
 	if self.actions_ then 
 	    for i, action in ipairs(self.actions_) do
@@ -283,8 +283,16 @@ function AnimationCache:stopAnimation()
 	    self.actions_ = {}
     end
 end
+--暂停后 重新播放
+function AnimationCache:resumePlay()
+	if not self.autoplay_ then return end
 
-
+    if self.playForever_ then
+        self:playAnimationForever()
+    else
+        self:playAnimationOnce()
+    end
+end
 
 
 

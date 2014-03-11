@@ -2,7 +2,6 @@
 战斗控制器
 ]]
 
-local FlyDegreesData = require("app.data.FlyDegreesData")
 
 local FightController = class("FightController")
 
@@ -20,10 +19,12 @@ function FightController:ctor(scene,levelData)
 	local FightModel = require("app.model.FightModel")
 	self.model_ = FightModel.new(self,levelData);
 	
+	--控制的数据
+    self.over_ = false; 
+	self.pause_ = true;
 	
 	self:init();
 end
-
 
 
 
@@ -46,20 +47,52 @@ function FightController:init()
 		y = display.cy
 	}
 	self.plane = self.model_:newObject(BaseObject.CLASS_ID["role"], state)
-	self:setFocus();
-end
-
-
-
---[[
-设置飞机加油量
-]]
-function FightController:setFocus()
-	local plane = self.plane_;--飞机对象
-	--self.plane:setPlaneFlyDegrees(radians);
 	local mapCamera = self.scene_:getCamera()
 	mapCamera:setFocus(self.plane)
 end
+
+
+
+
+
+
+
+
+
+
+
+
+--暂停 
+function FightController:pausePlay()
+	self.pause_ = true;
+	
+	local model = self.model_
+	local allObject = model:getAllObjects();
+	
+	for k,obj in pairs(allObject) do 
+		obj:stopMoving();
+		obj:pausePlay();
+	end
+end
+--播放
+function FightController:resumePlay()
+	self.pause_ = false;
+	
+	local model = self.model_
+	local allObject = model:getAllObjects();
+	
+	
+	for k,obj in pairs(allObject) do 
+			obj:startMoving();
+			obj:resumePlay();
+	end
+end
+
+
+
+
+
+
 
 
 
@@ -72,7 +105,7 @@ function FightController:tick(dt)
 	local model = self.model_
 	local allObject = model:getAllObjects();
 	
-	if model.over_  then return end;
+	if self.over_ and self.pause_  then return end;
 	
 	
 	--检测碰撞相关
@@ -80,7 +113,7 @@ function FightController:tick(dt)
 		if object ~= self.plane then 
 			local collision = SearchAlgorithm.checkCollision(object,self.plane)
 			if collision then 
-				model.over_ = true;
+				self.over_ = true;
 				return;
 			end
 		end
@@ -96,7 +129,7 @@ function FightController:tick(dt)
         object.updated__ = lx ~= object.x_ or ly ~= object.y_
 
         -- 只有当对象的位置发生变化时才调整对象的 ZOrder
-        if object.sprite_  then
+        if object.sprite_ and object.updated__ then
         	object:updateView();
         	
         	if object.viewZOrdered_ then 
@@ -106,18 +139,6 @@ function FightController:tick(dt)
         end
 	
 	end
-	
-	
-	
-	
-	--飞机行走	
-	local x,y = self.plane:getPosition();
-	local flyDegrees = self.plane:getPlaneFlyDegrees();
-    local vectorX,vectorY = FlyDegreesData[toint(flyDegrees)]();
---    echoj("角度:",flyDegrees,"向量：".."("..vectorX,vectorY,")");
-	self.plane:setPosition(x+vectorX,y+vectorY);
-	
-	
 end
 
 

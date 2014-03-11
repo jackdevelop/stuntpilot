@@ -45,6 +45,55 @@ function ObjectViewBehavior:bind(object)
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+    --[[
+    	停止所有动作
+    ]]
+     local function pausePlay(object)
+     	 local animation = self.animation_
+     	 animation:stopAllActions();
+     end
+    object:bindMethod(self, "pausePlay", pausePlay)
+    
+      --[[
+   	 重新播放所有动作
+    ]]
+     local function resumePlay(object)
+     	 local animation = self.animation_
+     	animation:resumePlay();
+     end
+    object:bindMethod(self, "resumePlay", resumePlay)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	--创建动画
     local function createView(object, batch, marksLayer, debugLayer)
 --       if object.framesName_ then
@@ -62,6 +111,7 @@ function ObjectViewBehavior:bind(object)
 	
         local animation = AnimationCache.new()
      	local animationParam  = AnimationProperties.get(object.animation_);
+     	echoj("==========",animationParam);
      	animation:initData(object.animation_,animationParam)
         animation:createView(batch)
         animation:updateView(true);

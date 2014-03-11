@@ -1,4 +1,5 @@
 
+local FlyDegreesData = require("app.data.FlyDegreesData")
 local MovableBehavior = class("MovableBehavior", BehaviorBase)
 
 MovableBehavior.MOVING_STATE_STOPPED   = 0
@@ -122,8 +123,15 @@ function MovableBehavior:bind(object)
         local state = object.movingState_
         if state == MovableBehavior.MOVING_STATE_STOPPED then return end
 		
-		local radians = object:getPlaneFlyRadians();
+--		local radians = object:getPlaneFlyRadians();
 		
+		
+		--飞机行走	
+		local x,y = object:getPosition();
+		local flyDegrees = object:getPlaneFlyDegrees();
+	    local vectorX,vectorY = FlyDegreesData[toint(flyDegrees)]();
+	--    echoj("角度:",flyDegrees,"向量：".."("..vectorX,vectorY,")");
+		object:setPosition(x+vectorX,y+vectorY);
     end
     object:bindMethod(self, "tick", tick)
 
@@ -222,7 +230,7 @@ function MovableBehavior:bind(object)
 			object:setPlaneFlyDegrees(9);
 		elseif object.y_ < -10 then
 			object:setPlaneFlyDegrees(24);
-		elseif object.x_ < 20 then 
+		elseif object.x_ < 100 then 
 			if not object:getFocus() then 
 				object:setPlaneFlyDegrees(1);
 			end

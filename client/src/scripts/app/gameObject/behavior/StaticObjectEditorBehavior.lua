@@ -18,6 +18,8 @@ function StaticObjectEditorBehavior:bind(object)
 
 
     local function createView(object, batch, marksLayer, debugLayer)
+    	if not debugLayer then return end
+    	
         object.idLabel_ = ui.newTTFLabel({
             text  = object:getId(),
 --            font  = 15--EditorConstants.LABEL_FONT,
@@ -33,6 +35,7 @@ function StaticObjectEditorBehavior:bind(object)
         object.radiusCircle_:setLineStippleEnabled(true)
         debugLayer:addChild(object.radiusCircle_, StaticObjectEditorBehavior.CIRCLE_ZORDER)
 
+		--object.flagSprite_ = display.newSprite("#balloon_path_png.png")
         object.flagSprite_ = display.newSprite("#CenterFlag.png")
         debugLayer:addChild(object.flagSprite_, StaticObjectEditorBehavior.FLAG_ZORDER)
     end
@@ -61,6 +64,9 @@ function StaticObjectEditorBehavior:bind(object)
         local x, y = math.floor(object.x_), math.floor(object.y_)
 
 		local debugLayer = object.model_.debugLayer_;
+		if not debugLayer then return end
+		
+		
         local scale = debugLayer:getScale()
         if scale > 1 then scale = 1 / scale end
 

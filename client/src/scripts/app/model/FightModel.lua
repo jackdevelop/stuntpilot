@@ -24,8 +24,6 @@ function FightModel:ctor(controller,levelData)
     
     
     
-    --新示数据
-    self.over_ = false; 
 end
 
 
