@@ -59,7 +59,7 @@ mx.managers.PopUpManager.addPopUp(tw, pnl, false);
  childList:String (default = null) — 要将弹出窗口添加到其中的子项列表。PopUpManagerChildList.APPLICATION、PopUpManagerChildList.POPUP 或 PopUpManagerChildList.PARENT（默认）中的任意一项。  
  moduleFactory:IFlexModuleFactory (default = null) — 此弹出窗口应在其中查找其嵌入字体和样式管理器的 moduleFactory。  
 ]]
-function PopUpManager:addPopUp(window, parent, modal, childList, moduleFactory)
+function PopUpManager:addPopUp(window, parent, modal,center, childList, moduleFactory)
 	if not parent then 
 		parent = app.currentScene_; --当前场景的ui层
 		
@@ -75,7 +75,9 @@ function PopUpManager:addPopUp(window, parent, modal, childList, moduleFactory)
 		parent:addChild(cover);
 	end
 	
-	
+	if center then
+		PopUpManager:center(window)
+	end
 	
 	self.arr_ [#self.arr_ + 1] = {window,cover};
 	parent:addChild(window);

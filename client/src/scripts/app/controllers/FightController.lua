@@ -64,18 +64,23 @@ end
 
 --暂停 
 function FightController:pausePlay()
+	if self.pause_ then return end
+	
 	self.pause_ = true;
 	
 	local model = self.model_
 	local allObject = model:getAllObjects();
 	
 	for k,obj in pairs(allObject) do 
-		obj:stopMoving();
+		obj:stopMovingNow();
 		obj:pausePlay();
 	end
 end
 --播放
 function FightController:resumePlay()
+	if not self.pause_ then return end
+	
+	
 	self.pause_ = false;
 	
 	local model = self.model_
@@ -83,7 +88,7 @@ function FightController:resumePlay()
 	
 	
 	for k,obj in pairs(allObject) do 
-			obj:startMoving();
+			obj:startMovingNow();
 			obj:resumePlay();
 	end
 end

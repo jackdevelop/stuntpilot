@@ -62,7 +62,7 @@ function ObjectViewBehavior:bind(object)
     ]]
      local function pausePlay(object)
      	 local animation = self.animation_
-     	 animation:stopAllActions();
+     	 animation:stopAnimation();
      end
     object:bindMethod(self, "pausePlay", pausePlay)
     
@@ -111,7 +111,6 @@ function ObjectViewBehavior:bind(object)
 	
         local animation = AnimationCache.new()
      	local animationParam  = AnimationProperties.get(object.animation_);
-     	echoj("==========",animationParam);
      	animation:initData(object.animation_,animationParam)
         animation:createView(batch)
         animation:updateView(true);

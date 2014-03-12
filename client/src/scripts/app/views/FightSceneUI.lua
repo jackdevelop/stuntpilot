@@ -1,11 +1,11 @@
 --[[
 战斗场景
 ]]
-local FightUI = class("FightUI", Base)
+local FightSceneUI = class("FightSceneUI", Base)
 
 
 	
-function FightUI:initView()
+function FightSceneUI:initView()
 	local batch = self:getBatch();
 	
 	
@@ -22,7 +22,7 @@ function FightUI:initView()
 	
 	 --向下
 --	 SpriteButton:newButton("#NagScreen_lastGame.png", "↓",true, function()
-	 SpriteButton:newButton("#NagScreen_lastGame.png", nil,true, function()
+	 SpriteButton:newButton("#NagScreen_lastGame.png", "↓",true, function()
 		local plane = self.object_.sceneController_.plane;--飞机
         plane:decreasePlaneFlyDegrees(1);
         
@@ -38,7 +38,7 @@ function FightUI:initView()
 	
 	--向上
 --	SpriteButton:newButton("#NagScreen_nextGame.png", "↑",true, function()
-	SpriteButton:newButton("#NagScreen_nextGame.png", nil,true, function()
+	SpriteButton:newButton("#NagScreen_nextGame.png", "↑",true, function()
 		local plane = self.object_.sceneController_.plane;--飞机
         plane:decreasePlaneFlyDegrees(-1);
         
@@ -51,6 +51,28 @@ function FightUI:initView()
 	end)
 	:align(display.CENTER,display.cx + 100, display.bottom + 50)
 	:addTo(batch)
+	
+	
+	
+	
+	SpriteButton:newButton("#cannon_foot_png.png", "HELP",false, function()
+		local object = self.object_;
+    	object.sceneController_:pausePlay();
+		
+		--添加暂停开始的ui
+		local HelpUI = require("app.views.HelpUI");
+		local helpUI = HelpUI.new(nil,object);
+		helpUI:initView();
+		PopUpManager:addPopUp(helpUI,nil,true,true)
+		
+	end)
+	:align(display.CENTER,display.width-100, display.bottom + 50)
+	:addTo(batch)
+	
+	
+	
+	
+	
 	
 --	local loginButtonParam = {
 --	    on ="fight/Button02.png",
@@ -94,4 +116,4 @@ end
 
 
 
-return FightUI
+return FightSceneUI

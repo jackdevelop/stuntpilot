@@ -4,11 +4,11 @@
 	初始化的“战斗开始”界面
 
 ]]
-local StartView = class("StartView", BaseSprite)
+local StartUI = class("StartUI", BaseSprite)
 
 
 
-function StartView:initView()
+function StartUI:initView()
 	
 	local loginButtonParam = {
 	    on ="#menu_button_play_big_png.png",
@@ -29,9 +29,14 @@ function StartView:initView()
         :addTo(self)  
     
     
+    	
+	
+
+	
+	
 end
 
 
 
 
-return StartView
+return StartUI

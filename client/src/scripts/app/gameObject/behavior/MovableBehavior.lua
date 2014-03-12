@@ -41,30 +41,38 @@ function MovableBehavior:bind(object)
 	
 	
 	
-	
+	--慢慢加速
     local function startMoving(object)
-        if object.movingState_ == MovableBehavior.MOVING_STATE_STOPPED
-                or object.movingState_ == MovableBehavior.MOVING_STATE_SPEEDDOWN then
+        if object.movingState_ == MovableBehavior.MOVING_STATE_STOPPED --暂停状态
+                or object.movingState_ == MovableBehavior.MOVING_STATE_SPEEDDOWN  --减速
+        then
             object.movingState_ = MovableBehavior.MOVING_STATE_SPEEDUP
         end
     end
     object:bindMethod(self, "startMoving", startMoving)
-
+	
+	--慢慢减速
     local function stopMoving(object)
-        if object.movingState_ == MovableBehavior.MOVING_STATE_FULLSPEED
-                or object.movingState_ == MovableBehavior.MOVING_STATE_SPEEDUP then
+        if object.movingState_ == MovableBehavior.MOVING_STATE_FULLSPEED --全速
+                or object.movingState_ == MovableBehavior.MOVING_STATE_SPEEDUP --加速
+        then
             object.movingState_ = MovableBehavior.MOVING_STATE_SPEEDDOWN
         end
     end
     object:bindMethod(self, "stopMoving", stopMoving)
 
-	
+	--迅速切换到暂停  并吧speed的速度职位0
     local function stopMovingNow(object)
         object.movingState_ = MovableBehavior.MOVING_STATE_STOPPED
         object.currentSpeed_ = 0
     end
     object:bindMethod(self, "stopMovingNow", stopMovingNow)
-
+	--迅速切换到全速  并吧speed的速度职位全速
+    local function startMovingNow(object)
+        object.movingState_ = MovableBehavior.MOVING_STATE_FULLSPEED
+        object.currentSpeed_  = object.maxSpeed_
+    end
+    object:bindMethod(self, "startMovingNow", startMovingNow)
 	
     local function isMoving(object)
         return object.movingState_ == MovableBehavior.MOVING_STATE_FULLSPEED
@@ -228,12 +236,12 @@ function MovableBehavior:bind(object)
 		--过滤信息
 		if object.y_ > display.height + 10 then
 			object:setPlaneFlyDegrees(9);
-		elseif object.y_ < -10 then
-			object:setPlaneFlyDegrees(24);
-		elseif object.x_ < 100 then 
+		elseif object.y_ < 50 then
 			if not object:getFocus() then 
-				object:setPlaneFlyDegrees(1);
+				object:setPlaneFlyDegrees(24);
 			end
+		elseif object.x_ < -10 then 
+			object:setPlaneFlyDegrees(1);
 		elseif object.x_  > object.model_.width_ + 10 then
 			object:setPlaneFlyDegrees(16);
 		end

@@ -23,16 +23,13 @@ function FightScene:ctor(param)
     
     self:createCCParallax();
     --添加ui
-    local FightUI = require("app.views.FightUI")
-    local fightUI = FightUI.new(self:getUILayer(),self);
-    fightUI:initView();
+    local FightSceneUI = require("app.views.FightSceneUI")
+    local fightSceneUI = FightSceneUI.new(self:getUILayer(),self);
+    fightSceneUI:initView();
     
     --控制器
     local FightController = require("app.controllers.FightController")
 	self.sceneController_ = FightController.new(self,levelData);
-	
-	
-	
 	
 end
 
@@ -40,11 +37,10 @@ end
 
 function FightScene:initViewOnEnter()
 	--添加暂停开始的ui
-	local StartView = require("app.views.StartView");
-	local startView = StartView.new(nil,self);
-	startView:initView();
-	PopUpManager:addPopUp(startView,nil,true)
-	PopUpManager:center(startView)
+	local StartUI = require("app.views.StartUI");
+	local startUI = StartUI.new(nil,self);
+	startUI:initView();
+	PopUpManager:addPopUp(startUI,nil,true,true)
 end
 
 
