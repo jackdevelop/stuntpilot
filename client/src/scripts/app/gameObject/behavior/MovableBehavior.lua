@@ -233,17 +233,25 @@ function MovableBehavior:bind(object)
 		
 		
 		
-		--过滤信息
-		if object.y_ > display.height + 10 then
-			object:setPlaneFlyDegrees(9);
-		elseif object.y_ < 50 then
-			if not object:getFocus() then 
-				object:setPlaneFlyDegrees(24);
+		
+		if object:isDestroyed() then
+		
+		
+		else
+			--过滤信息
+			if object.y_ > display.height + 10 then
+				object:setPlaneFlyDegrees(9);
+			elseif object.y_ < 50 then
+				if object:getFocus() and object.y_ < 0 then 
+					object:setPlaneFlyDegrees(24);
+				else
+					object:setPlaneFlyDegrees(24);
+				end
+			elseif object.x_ < -10 then 
+				object:setPlaneFlyDegrees(1);
+			elseif object.x_  > object.model_.width_ + 10 then
+				object:setPlaneFlyDegrees(16);
 			end
-		elseif object.x_ < -10 then 
-			object:setPlaneFlyDegrees(1);
-		elseif object.x_  > object.model_.width_ + 10 then
-			object:setPlaneFlyDegrees(16);
 		end
     end
     object:bindMethod(self, "setPosition", setPosition)

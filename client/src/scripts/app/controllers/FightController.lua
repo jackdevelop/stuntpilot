@@ -110,20 +110,25 @@ function FightController:tick(dt)
 	local model = self.model_
 	local allObject = model:getAllObjects();
 	
-	if self.over_ and self.pause_  then return end;
+	if  self.pause_  then return end;
 	
 	
-	--检测碰撞相关
-	for i, object in pairs(allObject) do
-		if object ~= self.plane then 
-			local collision = SearchAlgorithm.checkCollision(object,self.plane)
-			if collision then 
-				self.over_ = true;
-				return;
+	if not self.over_ then 
+		--检测碰撞相关
+		for i, object in pairs(allObject) do
+			if object ~= self.plane then 
+				local collision = SearchAlgorithm.checkCollision(object,self.plane)
+				if collision then 
+					self.over_ = true;
+					
+					--播放死忙特效
+					object:setDestroyed(true);
+					
+					return;
+				end
 			end
 		end
 	end
-	
 	
 	
 

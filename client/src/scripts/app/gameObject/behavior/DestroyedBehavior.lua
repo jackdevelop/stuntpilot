@@ -15,8 +15,22 @@ function DestroyedBehavior:bind(object)
 	
 	local function setDestroyed(object,destroyed)
         object.destroyed_ = destroyed;
+        
+        if destroyed then 	
+        	object:setPlaneFlyDegrees(9);
+        	object:enforcePlay();
+        end
     end
     object:bindMethod(self, "setDestroyed", setDestroyed)
+    
+    
+    
+    
+    
+    
+    
+    
+    
 end
 
 function DestroyedBehavior:unbind(object)

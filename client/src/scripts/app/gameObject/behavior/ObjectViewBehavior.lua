@@ -74,8 +74,15 @@ function ObjectViewBehavior:bind(object)
      	animation:resumePlay();
      end
     object:bindMethod(self, "resumePlay", resumePlay)
-	
-	
+	--[[
+   	强制播放
+    ]]
+     local function enforcePlay(object)
+     	 local animation = self.animation_
+     	animation:enforcePlay();
+     	echoj("xxxxxxxxxxxxxxxx");
+     end
+    object:bindMethod(self, "enforcePlay", enforcePlay)
 	
 	
 	

@@ -294,6 +294,14 @@ function AnimationCache:resumePlay()
     end
 end
 
+--强制播放
+function AnimationCache:enforcePlay()
+    if self.playForever_ then
+        self:playAnimationForever()
+    else
+        self:playAnimationOnce()
+    end
+end
 
 
 
