@@ -11,7 +11,9 @@ local FightModel = class("FightModel")
 function FightModel:ctor(controller,levelData)
 	self.objects_           = {}
     self.objectsByClass_    = {}
+    self.heroObject_  		= nil;
     self.nextObjectIndex_   = 1
+    
     
     self.controller_ = controller;
     self.batch_ = controller.scene_:getBatchLayer();
@@ -62,6 +64,7 @@ function FightModel:newObject(classId, state, id)
         self.objectsByClass_[classId] = {}
     end
     self.objectsByClass_[classId][id] = object
+	
 
     -- validate object
 --    if self.ready_ then
@@ -144,5 +147,27 @@ end
 
 
 
+
+--[[--
+
+返回地图中的主角对象
+
+]]
+function FightModel:getFocusObject()
+    return self.focusObject_;
+end
+function FightModel:setFocusObject(object)
+	if self.focusObject_ == object then return end
+	
+	if 	self.focusObject_ then
+		self.focusObject_:setFocus(false);
+	end
+	object:setFocus(true);
+    self.focusObject_ = object;
+    
+    
+    local mapCamera = self.controller_.scene_:getCamera()
+	mapCamera:setFocus(object)
+end
 
 return FightModel

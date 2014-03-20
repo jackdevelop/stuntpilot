@@ -21,60 +21,62 @@ LOAD LUA FILE: F:/workspace/lua/stuntpilot/client/src//scripts/main.lua
 ------------------------------------------------
 lua_loadChunksFromZIP() - load zip file: F:\workspace\lua\stuntpilot\client\src\res/script/framework_precompiled.zip
 lua_loadChunksFromZIP() - loaded chunks count: 54
-[0.1176] [INFO] 
-[0.1181] [INFO] # DEBUG                        = 1
-[0.1187] [INFO] #
-[0.1192] [INFO] # device.platform              = windows
-[0.1196] [INFO] # device.model                 = unknown
-[0.1201] [INFO] # device.language              = cn
-[0.1205] [INFO] # device.writablePath          = F:\workspace\lua\stuntpilot\client\src\\
-[0.1213] [INFO] # device.cachePath             = F:\workspace\lua\stuntpilot\client\src\\
-[0.1221] [INFO] # device.directorySeparator    = \
-[0.1226] [INFO] # device.pathSeparator         = ;
-[0.1230] [INFO] #
-[0.1251] [INFO] # CONFIG_SCREEN_AUTOSCALE      = FIXED_HEIGHT
-[0.1255] [INFO] # CONFIG_SCREEN_WIDTH          = 960.00
-[0.1261] [INFO] # CONFIG_SCREEN_HEIGHT         = 640.00
-[0.1266] [INFO] # display.widthInPixels        = 960.00
-[0.1270] [INFO] # display.heightInPixels       = 640.00
-[0.1276] [INFO] # display.contentScaleFactor   = 1.00
-[0.1281] [INFO] # display.width                = 960.00
-[0.1286] [INFO] # display.height               = 640.00
-[0.1291] [INFO] # display.cx                   = 480.00
-[0.1295] [INFO] # display.cy                   = 320.00
-[0.1299] [INFO] # display.left                 = 0.00
-[0.1309] [INFO] # display.right                = 960.00
-[0.1315] [INFO] # display.top                  = 640.00
-[0.1323] [INFO] # display.bottom               = 0.00
-[0.1328] [INFO] # display.c_left               = -480.00
-[0.1334] [INFO] # display.c_right              = 480.00
-[0.1338] [INFO] # display.c_top                = 320.00
-[0.1343] [INFO] # display.c_bottom             = -320.00
-[0.1347] [INFO] #
-[0.1742] dfffff, FightLoadingScene, nil, nil
-[0.1874] [INFO] Scene "BaseScene:onEnter()"
-[1.7054] 加载进度：, 50
-[2.5265] 加载进度：, 100
-[2.6447] dfffff, FightScene, LoginScene, {"levelData":{"width":1920,"backgroundImageName":"#background_jpg.png","sceneSound":"bg_sound","levelId":"1000","batchNodeImage":"fight\/Sheet_Map.png","height":960,"static":{"static:2":{"y":653,"x":821,"defineId":"balloon"},"static:1":{"y":537,"x":400,"defineId":"balloon"},"static:3":{"y":537,"x":600,"defineId":"balloon"}}}}
-[2.7222] [INFO] Scene "BaseScene:onExit()"
-[2.7226] [INFO] ----------------------------------------
-[2.7231] [INFO] LUA VM MEMORY USED: 1862.05 KB
+[0.1298] [INFO] 
+[0.1302] [INFO] # DEBUG                        = 1
+[0.1308] [INFO] #
+[0.1314] [INFO] # device.platform              = windows
+[0.1318] [INFO] # device.model                 = unknown
+[0.1322] [INFO] # device.language              = cn
+[0.1327] [INFO] # device.writablePath          = F:\workspace\lua\stuntpilot\client\src\\
+[0.1336] [INFO] # device.cachePath             = F:\workspace\lua\stuntpilot\client\src\\
+[0.1345] [INFO] # device.directorySeparator    = \
+[0.1349] [INFO] # device.pathSeparator         = ;
+[0.1353] [INFO] #
+[0.1379] [INFO] # CONFIG_SCREEN_AUTOSCALE      = FIXED_HEIGHT
+[0.1384] [INFO] # CONFIG_SCREEN_WIDTH          = 960.00
+[0.1392] [INFO] # CONFIG_SCREEN_HEIGHT         = 640.00
+[0.1412] [INFO] # display.widthInPixels        = 960.00
+[0.1416] [INFO] # display.heightInPixels       = 640.00
+[0.1421] [INFO] # display.contentScaleFactor   = 1.00
+[0.1426] [INFO] # display.width                = 960.00
+[0.1430] [INFO] # display.height               = 640.00
+[0.1435] [INFO] # display.cx                   = 480.00
+[0.1439] [INFO] # display.cy                   = 320.00
+[0.1443] [INFO] # display.left                 = 0.00
+[0.1447] [INFO] # display.right                = 960.00
+[0.1451] [INFO] # display.top                  = 640.00
+[0.1456] [INFO] # display.bottom               = 0.00
+[0.1459] [INFO] # display.c_left               = -480.00
+[0.1464] [INFO] # display.c_right              = 480.00
+[0.1469] [INFO] # display.c_top                = 320.00
+[0.1473] [INFO] # display.c_bottom             = -320.00
+[0.1478] [INFO] #
+[0.1890] dfffff, FightLoadingScene, nil, nil
+[0.1993] [INFO] Scene "BaseScene:onEnter()"
+[1.7274] 加载进度：, 50
+[2.5583] 加载进度：, 100
+[2.6761] dfffff, FightScene, LoginScene, {"levelData":{"width":1920,"backgroundImageName":"#background_jpg.png","sceneSound":"bg_sound","levelId":"1000","batchNodeImage":"fight\/Sheet_Map.png","height":960,"static":{"static:2":{"y":653,"x":821,"defineId":"balloon"},"static:1":{"y":537,"x":400,"defineId":"balloon"},"static:3":{"y":537,"x":600,"defineId":"balloon"}}}}
+[2.7614] [INFO] Scene "BaseScene:onExit()"
+[2.7618] [INFO] ----------------------------------------
+[2.7624] [INFO] LUA VM MEMORY USED: 1863.58 KB
 cocos2d: "cc_fps_images" rc=4 id=2 256 x 32 @ 16 bpp => 16 KB
 cocos2d: "F:\workspace\lua\stuntpilot\client\src\\res/fight/Sheet_Map.png" rc=827 id=1 2048 x 2048 @ 32 bpp => 16384 KB
 cocos2d: "cc_2x2_white_image" rc=2 id=3 2 x 2 @ 32 bpp => 0 KB
 cocos2d: CCTextureCache dumpDebugInfo: 3 textures, for 16400 KB (16.02 MB)
-[2.7256] [INFO] ----------------------------------------
-[2.7261] [INFO] Scene "BaseScene:onEnter()"
-[10.1878] [INFO] LUA VM MEMORY USED: 2214.87 KB
-[14.3213] xxxxxxxxxxxxxxxx
-[16.7409] [INFO] Scene "BaseScene:onExit()"
-[16.7418] [INFO] ----------------------------------------
-[16.7429] [INFO] LUA VM MEMORY USED: 1735.46 KB
+[2.7652] [INFO] ----------------------------------------
+[2.7657] [INFO] Scene "BaseScene:onEnter()"
+[10.2137] [INFO] LUA VM MEMORY USED: 2217.96 KB
+[17.4986] xxxxxxxxxxxxxxxx
+[17.4992] xxxxxxxxxxxxxxxx
+[20.2156] [INFO] LUA VM MEMORY USED: 1900.72 KB
+[20.4358] [INFO] Scene "BaseScene:onExit()"
+[20.4370] [INFO] ----------------------------------------
+[20.4380] [INFO] LUA VM MEMORY USED: 1907.69 KB
 cocos2d: "cc_fps_images" rc=4 id=2 256 x 32 @ 16 bpp => 16 KB
 cocos2d: "F:\workspace\lua\stuntpilot\client\src\\res/fight/Sheet_Map.png" rc=827 id=1 2048 x 2048 @ 32 bpp => 16384 KB
 cocos2d: "cc_2x2_white_image" rc=1 id=3 2 x 2 @ 32 bpp => 0 KB
 cocos2d: CCTextureCache dumpDebugInfo: 3 textures, for 16400 KB (16.02 MB)
-[16.7487] [INFO] ----------------------------------------
+[20.4428] [INFO] ----------------------------------------
 cocos2d: CCSpriteFrameCache: removing unused frame: CenterFlag.png
 cocos2d: CCSpriteFrameCache: removing unused frame: CustomPreloader_corner_embed.png
 cocos2d: CCSpriteFrameCache: removing unused frame: CustomPreloader_loadingImage.png
@@ -90,6 +92,26 @@ cocos2d: CCSpriteFrameCache: removing unused frame: NagScreen_lastGame.png
 cocos2d: CCSpriteFrameCache: removing unused frame: NagScreen_nextGame.png
 cocos2d: CCSpriteFrameCache: removing unused frame: ObjectHpOutline.png
 cocos2d: CCSpriteFrameCache: removing unused frame: background_jpg.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon001_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon002_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon003_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon004_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon005_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon006_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon007_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon008_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon009_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon010_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon011_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon012_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon013_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon014_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon015_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon016_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon017_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon018_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon019_png.png
+cocos2d: CCSpriteFrameCache: removing unused frame: balloon020_png.png
 cocos2d: CCSpriteFrameCache: removing unused frame: balloon_path_png.png
 cocos2d: CCSpriteFrameCache: removing unused frame: blimp001_png.png
 cocos2d: CCSpriteFrameCache: removing unused frame: blimp002_png.png
@@ -461,38 +483,6 @@ cocos2d: CCSpriteFrameCache: removing unused frame: multichoice_png.png
 cocos2d: CCSpriteFrameCache: removing unused frame: multichoiceempty_png.png
 cocos2d: CCSpriteFrameCache: removing unused frame: multichoiceover_png.png
 cocos2d: CCSpriteFrameCache: removing unused frame: netloading_png.png
-cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart001_png.png
-cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart002_png.png
-cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart003_png.png
-cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart004_png.png
-cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart005_png.png
-cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart006_png.png
-cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart007_png.png
-cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart008_png.png
-cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart009_png.png
-cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart010_png.png
-cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart011_png.png
-cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart012_png.png
-cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart013_png.png
-cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart014_png.png
-cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart015_png.png
-cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart016_png.png
-cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart017_png.png
-cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart018_png.png
-cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart019_png.png
-cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart020_png.png
-cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart021_png.png
-cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart022_png.png
-cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart023_png.png
-cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart024_png.png
-cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart025_png.png
-cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart026_png.png
-cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart027_png.png
-cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart028_png.png
-cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart029_png.png
-cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart030_png.png
-cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart031_png.png
-cocos2d: CCSpriteFrameCache: removing unused frame: p1_cart032_png.png
 cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading001_png.png
 cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading002_png.png
 cocos2d: CCSpriteFrameCache: removing unused frame: p1_heading003_png.png

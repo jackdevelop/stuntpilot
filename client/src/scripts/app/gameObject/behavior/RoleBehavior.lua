@@ -15,16 +15,16 @@ function RoleBehavior:bind(object)
 		 只能MapCamera.lua中调用此方法 
 		 因为要保存两个引用
 	]]
-    local function setFocus(object)
-		self.focusObject_ = object; 
+    local function setFocus(object,enable)
+		self.isFocusObject_ = enable; 
     end
     object:bindMethod(self, "setFocus", setFocus)
     
     
-     local function getFocus(object)
-		return self.focusObject_ ; 
+     local function isFocus(object)
+		return self.isFocusObject_ ; 
     end
-    object:bindMethod(self, "getFocus", getFocus)
+    object:bindMethod(self, "isFocus", isFocus)
 
 end
 
@@ -33,6 +33,10 @@ function RoleBehavior:unbind(object)
 end
 
 function RoleBehavior:reset(object)
+	--是否是主角
+	if object.isFocus_ then 
+		object.model_:setFocusObject(object);
+	end
 end
 
 return RoleBehavior

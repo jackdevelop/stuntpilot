@@ -390,25 +390,23 @@ end
 设置镜头的跟随对象
 ]]
 function MapCamera:setFocus(focusObject)
-	if self.focusObject_ == focusObject then return end
-	
-	if 	self.focusObject_ then
-		self.focusObject_:setFocus(false);
-	end
-	focusObject:setFocus(true);
-	self.focusObject_ =focusObject; 
+--	local focusObject = self.map_.sceneController_.model_:getFocusObject()
+	self.focusObject_ = focusObject;
 end
-
+function MapCamera:getFocusObject()
+	return self.focusObject_;
+end
 
 
 --[[
 更新
 ]]
 function MapCamera:tick(dt)
-	if self.focusObject_ then 
+	local focusObject = self:getFocusObject();
+	if  focusObject then 
 		--获取偏离中心点多远
-		local _zeroX = self.focusObject_.x_ - math.floor(display.width/2);
-		local _zeroY = self.focusObject_.y_ - math.floor(display.height/2);
+		local _zeroX = focusObject.x_ - math.floor(display.width/2);
+		local _zeroY = focusObject.y_ - math.floor(display.height/2);
 		
 		--宽度计算不能超过最大最小的值
 		local width,height = self:getMapSize();

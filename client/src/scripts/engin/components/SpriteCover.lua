@@ -19,13 +19,14 @@ local SpriteCover = class("SpriteCover");
 
 
 
-function SpriteCover:createCoverSprite(stopRect)
+function SpriteCover:createCoverSprite(stopRect,color)
 	if not stopRect then 
 		stopRect = CCRect(0, 0, display.width, display.height)
 	end
 	
 	local cover = SpriteButton:newButton();
 	cover:setCascadeBoundingBox(stopRect)
+	--cover:setColor(ccc3(255, 255, 0 ))
 	
 	return cover
 end

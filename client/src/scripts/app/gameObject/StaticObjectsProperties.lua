@@ -19,6 +19,8 @@ local object = {
     radius       = 30,
     zorder       = 30000,
     viewZOrdered = true,
+     speed = 300,
+     isHero = true,--是否是主角
     behaviors   = {
     				"DecorateBehavior","ObjectViewBehavior","MovableBehavior",
     				"MovableDirectBehavior","RoleBehavior","DestroyedBehavior","CampBehavior",
@@ -45,6 +47,7 @@ local object = {
    	zorder       = 0,
     viewZOrdered = true,
     flyDegrees = 9,--飞行的方向 ，1-32
+    speed = 300,
     behaviors   = {
     				"DecorateBehavior","ObjectViewBehavior","MovableBehavior",
     				"MovableDirectBehavior","RoleBehavior","DestroyedBehavior","CampBehavior",

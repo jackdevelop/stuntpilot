@@ -47,8 +47,7 @@ function FightController:init()
 		y = display.cy
 	}
 	self.plane = self.model_:newObject(BaseObject.CLASS_ID["role"], state)
-	local mapCamera = self.scene_:getCamera()
-	mapCamera:setFocus(self.plane)
+	self.model_:setFocusObject(self.plane);
 end
 
 
@@ -123,6 +122,7 @@ function FightController:tick(dt)
 					
 					--播放死忙特效
 					object:setDestroyed(true);
+					self.plane:setDestroyed(true);
 					
 					return;
 				end

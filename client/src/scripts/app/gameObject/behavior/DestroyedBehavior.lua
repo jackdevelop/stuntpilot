@@ -17,7 +17,9 @@ function DestroyedBehavior:bind(object)
         object.destroyed_ = destroyed;
         
         if destroyed then 	
+        	
         	object:setPlaneFlyDegrees(9);
+        	object:setSpeed(tonum(object.state_.speed * 2))
         	object:enforcePlay();
         end
     end
