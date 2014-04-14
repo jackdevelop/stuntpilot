@@ -1,0 +1,21 @@
+
+<dict>
+	cocos2d.x.version: 2.2.1
+	cocos2d.x.compiled_with_profiler: false
+	cocos2d.x.compiled_with_gl_state_cache: true
+	gl.vendor: Intel
+	gl.renderer: Intel(R) HD Graphics Family
+	gl.version: 3.1.0 - Build 8.15.10.2827
+	gl.max_texture_size: 8192
+	gl.max_texture_units: 16
+	gl.supports_PVRTC: false
+	gl.supports_NPOT: true
+	gl.supports_BGRA8888: false
+	gl.supports_discard_framebuffer: false
+	gl.supports_vertex_array_object: true
+</dict>
+lua_loadChunksFromZIP() - not found or invalid zip file: E:\cocos2d-x+lua\lua\item\engin\git\devel\quick-cocos2d-x\lib\framework_precompiled\framework_precompiled.zip
+------------------------------------------------
+LOAD LUA FILE: scripts/main.lua
+------------------------------------------------
+Get data from file(scripts/main.lua) failed!

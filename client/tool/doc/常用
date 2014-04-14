@@ -17,6 +17,13 @@ require("socket").gettime()
 
 
 
+
+
+--45度建筑z轴  z=x+y*w
+
+
+
+
 --ipad 禁止自动锁屏 
  在AppController.mm中添加 
   [UIAplication sharedApplication].idleTimerDisabled = YES;
