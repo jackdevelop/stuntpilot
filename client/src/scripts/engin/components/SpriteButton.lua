@@ -121,8 +121,13 @@ function SpriteButton:newButton(param)
 
 
     sprite:setTouchEnabled(true) -- enable sprite touch
-    sprite:addTouchEventListener(function(event, x, y, prevX, prevY)
-        if event == "began" then
+    --sprite:addTouchEventListener(function(event, x, y, prevX, prevY)
+    sprite:addNodeEventListener(c.NODE_TOUCH_EVENT,function(event)
+    	local x = event.x;
+    	local y = event.y;
+    	
+    	local name = event.name
+        if name == "began" then
            touchClick();
            
           clickPressHandle(true);
@@ -135,7 +140,7 @@ function SpriteButton:newButton(param)
         end
 
         local touchInSprite = sprite:getCascadeBoundingBox():containsPoint(CCPoint(x, y))
-        if event == "moved" then
+        if name == "moved" then
 			if touchInSprite then 
 				touchClick();
 				clickPressHandle(true);
@@ -144,7 +149,7 @@ function SpriteButton:newButton(param)
 				clickPressHandle(false);
 			end
 			
-        elseif event == "ended" then
+        elseif name == "ended" then
             if touchInSprite then clickOneceHandle() end
             touchNoClick()
             clickPressHandle(false);
@@ -154,7 +159,7 @@ function SpriteButton:newButton(param)
         end
         
          return  swallows;
-    end, cc.MULTI_TOUCHES_ON) 
+    end) 
 
     return sprite
 end

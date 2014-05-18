@@ -58,9 +58,10 @@ function BaseScene:ctor(param)
 		CCTexture2D:setDefaultAlphaPixelFormat(kCCTexture2DPixelFormat_RGB565)
 	    self.backgroundSprite_ = display.newSprite(backgroundImageName)
 	    CCTexture2D:setDefaultAlphaPixelFormat(kCCTexture2DPixelFormat_RGBA8888)
-		self.backgroundSprite_:registerScriptHandler(function(event) 
+--		self.backgroundSprite_:registerScriptHandler(function(event) 
+		self.backgroundSprite_:addNodeEventListener(cc.NODE_EVENT,function(event) 
 	        -- 地图对象删除时，自动从缓存里卸载地图材质
-	        if event == "exit" then
+	        if event.name == "exit" then
 	            display.removeSpriteFrameByImageName(backgroundImageName)
 	        end
 	    end)
@@ -504,7 +505,8 @@ end
 ]]
 function BaseScene:onEnter()
 	if self.touchLayer_ then 
-	 	self.touchLayer_:addTouchEventListener(function(event, x, y)
+--	 	self.touchLayer_:addTouchEventListener(function(event, x, y)
+	 	self.touchLayer_:addNodeEventListener(cc.NODE_TOUCH_EVENT, function(event)
 --		 	if self.isMultiTouch_ then --多点触摸处理
 		 		return self:multiTouchHandle( event,x)-- points 是包含一系列坐标的表格对象，内容为 {x, y, [x, y], [x, y] ...}
 --		 	else
@@ -512,17 +514,19 @@ function BaseScene:onEnter()
 --		 	end
 	 	
 --	    end,self.isMultiTouch_,LayerEventPriority.BaseSceneLayer,false)
-	     end,true,SceneConstants.LayerEventPriorityConstants_scene_touchLayer,false)
-	    self.touchLayer_:setTouchEnabled(true)
+	     end)
+--	    self.touchLayer_:setTouchEnabled(true)
 	    
 --	    if self.isMultiTouch_ then
-		    self.touchLayer_:setTouchMode(kCCTouchesAllAtOnce) -- 一次性把所有点的数据传入回调函数
+--		    self.touchLayer_:setTouchMode(kCCTouchesAllAtOnce) -- 一次性把所有点的数据传入回调函数
 			 --self.touchLayer_:setTouchMode(kCCTouchesOneByOne) -- 多个点分成多次传入，也就是说多点触摸时，回调函数会调用多次
 --		end
 		
         -- keypad layer, for android
-        self.touchLayer_:addKeypadEventListener(function(event)
-            if event == "back" then 
+         self.touchLayer_:addNodeEventListener(cc.KEYPAD_EVENT, function(event)
+--        self.touchLayer_:addNodeEventListener(c.NODE_TOUCH_EVENT, function(event)
+--        self.touchLayer_:addKeypadEventListener(function(event)
+            if event.name == "back" then 
             	app.exit()
             end
         end)

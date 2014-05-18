@@ -123,7 +123,8 @@ function AnimationCache:createView(batch)
     self.sprite_ = display.newSprite("#CenterFlag.png")
     
 	batch:addChild(self.sprite_)
-	self.sprite_:registerScriptHandler(function(event)
+--	self.sprite_:registerScriptHandler(function(event)
+	self.sprite_:addNodeEventListener(cc.NODE_EVENT,function(event) 
         if event == "exit" then
             self:release()
         end

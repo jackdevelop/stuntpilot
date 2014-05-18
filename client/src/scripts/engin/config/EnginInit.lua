@@ -32,6 +32,9 @@ GameUtil = require("engin.util.GameUtil");
 BehaviorFactory = require("engin.util.behavior.BehaviorFactory");
 BehaviorBase  =  require("engin.util.behavior.BehaviorBase");
 
+CCSBaseUI =  require("engin.ccs.CCSBaseUI");
+CCSButton =  require("engin.ccs.CCSButton").new();
+
 StringUtil = require("engin.util.string.StringUtil"); --字符串相关工具类
 StringBuffer= require("engin.util.string.StringBuffer"); --高效字符串连接类
  

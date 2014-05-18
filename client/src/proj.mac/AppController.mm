@@ -23,9 +23,6 @@
  ****************************************************************************/
 
 #import "AppController.h"
-#import "ProjectConfigDialogController.h"
-#import "PlayerPreferencesDialogController.h"
-#import "ConsoleWindowController.h"
 
 #include <sys/stat.h>
 #include <stdio.h>
@@ -58,22 +55,11 @@ using namespace cocos2d::extra;
 
 - (void) applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    waitForRestart = NO;
     isAlwaysOnTop = NO;
-    isMaximized = NO;
-    hasPopupDialog = NO;
-    debugLogFile = 0;
-
-    NSString *path = [[NSUserDefaults standardUserDefaults] objectForKey:@"QUICK_COCOS2DX_ROOT"];
-    if (path && [path length])
-    {
-        SimulatorConfig::sharedDefaults()->setQuickCocos2dxRootPath([path cStringUsingEncoding:NSUTF8StringEncoding]);
-    }
 
     [self updateProjectConfigFromCommandLineArgs:&projectConfig];
     [self createWindowAndGLView];
     [self startup];
-    [self updateOpenRect];
     [self initUI];
     [self updateUI];
 
@@ -91,39 +77,9 @@ using namespace cocos2d::extra;
     return NO;
 }
 
-- (BOOL) validateUserInterfaceItem:(id <NSValidatedUserInterfaceItem>)anItem
-{
-    return hasPopupDialog == NO;
-}
-
 - (void) windowWillClose:(NSNotification *)notification
 {
     [[NSApplication sharedApplication] terminate:self];
-}
-
-- (void) openConsoleWindow
-{
-    if (!consoleController)
-    {
-        consoleController = [[ConsoleWindowController alloc] initWithWindowNibName:@"ConsoleWindow"];
-    }
-    [consoleController.window orderFrontRegardless];
-
-    //set console pipe
-    pipe = [NSPipe pipe] ;
-    pipeReadHandle = [pipe fileHandleForReading] ;
-
-    int outfd = [[pipe fileHandleForWriting] fileDescriptor];
-    if (dup2(outfd, fileno(stderr)) != fileno(stderr) || dup2(outfd, fileno(stdout)) != fileno(stdout))
-    {
-        perror("Unable to redirect output");
-        [self showAlert:@"Unable to redirect output to console!" withTitle:@"stuntpilot-player error"];
-    }
-    else
-    {
-        [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(handleNotification:) name: NSFileHandleReadCompletionNotification object: pipeReadHandle] ;
-        [pipeReadHandle readInBackgroundAndNotify] ;
-    }
 }
 
 #pragma mark -
@@ -135,6 +91,22 @@ using namespace cocos2d::extra;
     float left = 10;
     float bottom = NSHeight([[NSScreen mainScreen] visibleFrame]) - frameSize.height;
     bottom -= [[[NSApplication sharedApplication] menu] menuBarHeight] + 10;
+
+    NSDictionary *state = [[NSUserDefaults standardUserDefaults] objectForKey:@"last-state"];
+    if (state)
+    {
+        NSNumber *x = [state objectForKey:@"x"];
+        NSNumber *y = [state objectForKey:@"y"];
+        if (x && y)
+        {
+            projectConfig.setWindowOffset(CCPoint([x floatValue], [y floatValue]));
+        }
+        NSNumber *scale = [state objectForKey:@"scale"];
+        if (scale)
+        {
+            projectConfig.setFrameScale([scale floatValue]);
+        }
+    }
 
     // create the window
     // note that using NSResizableWindowMask causes the window to be a little
@@ -153,7 +125,7 @@ using namespace cocos2d::extra;
 
     // set window parameters
     [window setContentView:glView];
-    [window setTitle:@"stuntpilot-player"];
+    [window setTitle:@"stuntpilot"];
     [window center];
 
     if (projectConfig.getProjectDir().length())
@@ -173,22 +145,10 @@ using namespace cocos2d::extra;
 
 - (void) startup
 {
-//    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"QUICK_COCOS2DX_ROOT"];
-    NSString *path = [[NSUserDefaults standardUserDefaults] objectForKey:@"QUICK_COCOS2DX_ROOT"];
-    if (!path || [path length] == 0)
-    {
-        [self showPreferences:YES];
-        [self showAlertWithoutSheet:@"Please set quick-cocos2d-x root path." withTitle:@"stuntpilot-player error"];
-    }
-
     const string projectDir = projectConfig.getProjectDir();
     if (projectDir.length())
     {
         CCFileUtils::sharedFileUtils()->setSearchRootPath(projectDir.c_str());
-        if (projectConfig.isWriteDebugLogToFile())
-        {
-            [self writeDebugLogToFile:projectConfig.getDebugLogFilePath()];
-        }
     }
 
     const string writablePath = projectConfig.getWritableRealPath();
@@ -197,50 +157,9 @@ using namespace cocos2d::extra;
         CCFileUtils::sharedFileUtils()->setWritablePath(writablePath.c_str());
     }
 
-    if (projectConfig.isShowConsole())
-    {
-        [self openConsoleWindow];
-    }
-
     app = new AppDelegate();
     app->setProjectConfig(projectConfig);
     app->run();
-}
-
-- (void) updateOpenRect
-{
-    NSMutableArray *recents = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"recents"]];
-
-    for (NSInteger i = [recents count] - 1; i >= 0; --i)
-    {
-        id recentItem = [recents objectAtIndex:i];
-        if (![[recentItem class] isSubclassOfClass:[NSDictionary class]])
-        {
-            [recents removeObjectAtIndex:i];
-            continue;
-        }
-
-        NSString *title = [recentItem objectForKey:@"title"];
-        if (!title || [title length] == 0 || !CCFileUtils::sharedFileUtils()->isDirectoryExist([title cStringUsingEncoding:NSUTF8StringEncoding]))
-        {
-            [recents removeObjectAtIndex:i];
-        }
-    }
-
-    NSString *title = [NSString stringWithCString:projectConfig.getProjectDir().c_str() encoding:NSUTF8StringEncoding];
-    for (NSInteger i = [recents count] - 1; i >= 0; --i)
-    {
-        id recentItem = [recents objectAtIndex:i];
-        if ([title compare:[recentItem objectForKey:@"title"]] == NSOrderedSame)
-        {
-            [recents removeObjectAtIndex:i];
-        }
-    }
-
-    NSMutableArray *args = [self makeCommandLineArgsFromProjectConfig:kProjectConfigOpenRecent];
-    NSDictionary *item = [NSDictionary dictionaryWithObjectsAndKeys:title, @"title", args, @"args", nil];
-    [recents insertObject:item atIndex:0];
-    [[NSUserDefaults standardUserDefaults] setObject:recents forKey:@"recents"];
 }
 
 - (void) initUI
@@ -263,25 +182,10 @@ using namespace cocos2d::extra;
         }
         [submenu insertItem:item atIndex:0];
     }
-
-    NSArray *recents = [[NSUserDefaults standardUserDefaults] arrayForKey:@"recents"];
-    submenu = [[[[[window menu] itemWithTitle:@"File"] submenu] itemWithTitle:@"Open Recent"] submenu];
-    for (NSInteger i = [recents count] - 1; i >= 0; --i)
-    {
-        NSDictionary *recentItem = [recents objectAtIndex:i];
-        NSMenuItem *item = [[[NSMenuItem alloc] initWithTitle:[recentItem objectForKey:@"title"]
-                                                       action:@selector(onFileOpenRecent:)
-                                                keyEquivalent:@""] autorelease];
-        [submenu insertItem:item atIndex:0];
-    }
 }
 
 - (void) updateUI
 {
-    NSMenu *menuPlayer = [[[window menu] itemWithTitle:@"Player"] submenu];
-    NSMenuItem *itemWriteDebugLogToFile = [menuPlayer itemWithTitle:@"Write Debug Log to File"];
-    [itemWriteDebugLogToFile setState:projectConfig.isWriteDebugLogToFile() ? NSOnState : NSOffState];
-
     NSMenu *menuScreen = [[[window menu] itemWithTitle:@"Screen"] submenu];
     NSMenuItem *itemPortait = [menuScreen itemWithTitle:@"Portait"];
     NSMenuItem *itemLandscape = [menuScreen itemWithTitle:@"Landscape"];
@@ -323,47 +227,7 @@ using namespace cocos2d::extra;
         [itemZoom25 setState:NSOnState];
     }
 
-    NSArray *recents = [[NSUserDefaults standardUserDefaults] arrayForKey:@"recents"];
-    NSMenu *menuRecents = [[[[[window menu] itemWithTitle:@"File"] submenu] itemWithTitle:@"Open Recent"] submenu];
-    while (true)
-    {
-        NSMenuItem *item = [menuRecents itemAtIndex:0];
-        if ([item isSeparatorItem]) break;
-        [menuRecents removeItemAtIndex:0];
-    }
-
-    for (NSInteger i = [recents count] - 1; i >= 0; --i)
-    {
-        NSDictionary *recentItem = [recents objectAtIndex:i];
-        NSMenuItem *item = [[[NSMenuItem alloc] initWithTitle:[recentItem objectForKey:@"title"]
-                                                       action:@selector(onFileOpenRecent:)
-                                                keyEquivalent:@""] autorelease];
-        [menuRecents insertItem:item atIndex:0];
-    }
-
-    [window setTitle:[NSString stringWithFormat:@"stuntpilot-player (%0.0f%%)", projectConfig.getFrameScale() * 100]];
-}
-
-- (void) showModelSheet
-{
-    hasPopupDialog = YES;
-    if (app)
-    {
-        CCDirector::sharedDirector()->pause();
-        CocosDenshion::SimpleAudioEngine::sharedEngine()->pauseBackgroundMusic();
-        CocosDenshion::SimpleAudioEngine::sharedEngine()->pauseAllEffects();
-    }
-}
-
-- (void) stopModelSheet
-{
-    hasPopupDialog = NO;
-    if (app)
-    {
-        CCDirector::sharedDirector()->resume();
-        CocosDenshion::SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
-        CocosDenshion::SimpleAudioEngine::sharedEngine()->resumeAllEffects();
-    }
+    [window setTitle:[NSString stringWithFormat:@"stuntpilot (%0.0f%%)", projectConfig.getFrameScale() * 100]];
 }
 
 - (NSMutableArray*) makeCommandLineArgsFromProjectConfig
@@ -374,7 +238,8 @@ using namespace cocos2d::extra;
 - (NSMutableArray*) makeCommandLineArgsFromProjectConfig:(unsigned int)mask
 {
     projectConfig.setWindowOffset(CCPoint(window.frame.origin.x, window.frame.origin.y));
-    NSString *commandLine = [NSString stringWithCString:projectConfig.makeCommandLine(mask).c_str() encoding:NSUTF8StringEncoding];
+    NSString *commandLine = [NSString stringWithCString:projectConfig.makeCommandLine(mask).c_str()
+                                               encoding:NSUTF8StringEncoding];
     return [NSMutableArray arrayWithArray:[commandLine componentsSeparatedByString:@" "]];
 }
 
@@ -387,12 +252,14 @@ using namespace cocos2d::extra;
         args.push_back([[nsargs objectAtIndex:i] cStringUsingEncoding:NSUTF8StringEncoding]);
     }
     config->parseCommandLine(args);
+    config->dump();
 }
 
 - (void) launch:(NSArray*)args
 {
     NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] bundlePath]];
-    NSMutableDictionary *configuration = [NSMutableDictionary dictionaryWithObject:args forKey:NSWorkspaceLaunchConfigurationArguments];
+    NSMutableDictionary *configuration = [NSMutableDictionary dictionaryWithObject:args
+                                                                            forKey:NSWorkspaceLaunchConfigurationArguments];
     NSError *error = [[[NSError alloc] init] autorelease];
     [[NSWorkspace sharedWorkspace] launchApplicationAtURL:url
                                                   options:NSWorkspaceLaunchNewInstance
@@ -401,8 +268,16 @@ using namespace cocos2d::extra;
 
 - (void) relaunch:(NSArray*)args
 {
-    [self launch:args];
-    [[NSApplication sharedApplication] terminate:self];
+    [self saveLastState];
+    if (projectConfig.isExitWhenRelaunch())
+    {
+        exit(99);
+    }
+    else
+    {
+        [self launch:args];
+        [[NSApplication sharedApplication] terminate:self];
+    }
 }
 
 - (void) relaunch
@@ -413,68 +288,11 @@ using namespace cocos2d::extra;
 - (void) showAlertWithoutSheet:(NSString*)message withTitle:(NSString*)title
 {
     NSAlert *alert = [[[NSAlert alloc] init] autorelease];
-	[alert addButtonWithTitle:@"OK"];
-	[alert setMessageText:message];
-	[alert setInformativeText:title];
-	[alert setAlertStyle:NSWarningAlertStyle];
+    [alert addButtonWithTitle:@"OK"];
+    [alert setMessageText:message];
+    [alert setInformativeText:title];
+    [alert setAlertStyle:NSWarningAlertStyle];
     [alert runModal];
-}
-
-- (void) showAlert:(NSString*)message withTitle:(NSString*)title
-{
-
-    NSAlert *alert = [[[NSAlert alloc] init] autorelease];
-	[alert addButtonWithTitle:@"OK"];
-	[alert setMessageText:message];
-	[alert setInformativeText:title];
-	[alert setAlertStyle:NSWarningAlertStyle];
-
-	[alert beginSheetModalForWindow:window
-					  modalDelegate:self
-					 didEndSelector:nil
-						contextInfo:nil];
-}
-
-- (bool) writeDebugLogToFile:(const string)path
-{
-    if (debugLogFile) return true;
-    //log to file
-    if(fileHandle) return true;
-    NSString *fPath = [NSString stringWithCString:path.c_str() encoding:[NSString defaultCStringEncoding]];
-    [[NSFileManager defaultManager] createFileAtPath:fPath contents:nil attributes:nil] ;
-    fileHandle = [NSFileHandle fileHandleForWritingAtPath:fPath];
-    [fileHandle retain];
-    return true;
-}
-
-- (void)handleNotification:(NSNotification *)note
-{
-    //NSLog(@"Received notification: %@", note);
-    [pipeReadHandle readInBackgroundAndNotify] ;
-    NSData *data = [[note userInfo] objectForKey:NSFileHandleNotificationDataItem];
-    NSString *str = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
-    //show log to console
-    [consoleController trace:str];
-    if(fileHandle!=nil){
-        [fileHandle writeData:[str dataUsingEncoding:NSUTF8StringEncoding]];
-    }
-
-}
-
-- (void) closeDebugLogFile
-{
-    if(fileHandle){
-        [fileHandle closeFile];
-        [fileHandle release];
-        fileHandle = nil;
-    }
-    if (debugLogFile)
-    {
-        close(debugLogFile);
-        debugLogFile = 0;
-        NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-        [nc removeObserver:self];
-    }
 }
 
 - (void) setZoom:(float)scale
@@ -500,126 +318,22 @@ using namespace cocos2d::extra;
     isAlwaysOnTop = alwaysOnTop;
 }
 
-- (void) showPreferences:(BOOL)relaunch
+-(void) saveLastState
 {
-    [self showModelSheet];
-    PlayerPreferencesDialogController *controller = [[PlayerPreferencesDialogController alloc] initWithWindowNibName:@"PlayerPreferencesDialog"];
-    [NSApp beginSheet:controller.window modalForWindow:window didEndBlock:^(NSInteger returnCode) {
-        [self stopModelSheet];
-        [controller release];
-
-        NSString *path = [[NSUserDefaults standardUserDefaults] objectForKey:@"QUICK_COCOS2DX_ROOT"];
-        SimulatorConfig::sharedDefaults()->setQuickCocos2dxRootPath([path cStringUsingEncoding:NSUTF8StringEncoding]);
-
-        if (relaunch)
-        {
-            [self relaunch];
-        }
-    }];
+    NSMutableDictionary *state = [NSMutableDictionary dictionary];
+    [state setObject:[NSNumber numberWithInt:window.frame.origin.x] forKey:@"x"];
+    [state setObject:[NSNumber numberWithInt:window.frame.origin.y] forKey:@"y"];
+    [state setObject:[NSNumber numberWithFloat:projectConfig.getFrameScale()] forKey:@"scale"];
+    [[NSUserDefaults standardUserDefaults] setObject:state forKey:@"last-state"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 #pragma mark -
 #pragma mark IB Actions
 
-- (IBAction) onServicePreferences:(id)sender
-{
-    [self showPreferences:NO];
-}
-
-- (IBAction) onFileNewPlayer:(id)sender
-{
-    NSMutableArray *args = [self makeCommandLineArgsFromProjectConfig];
-    [args removeLastObject];
-    [args removeLastObject];
-    [self launch:args];
-}
-
-- (IBAction) onFileOpen:(id)sender
-{
-    [self showModelSheet];
-    ProjectConfigDialogController *controller = [[ProjectConfigDialogController alloc] initWithWindowNibName:@"ProjectConfigDialog"];
-    ProjectConfig newConfig;
-    if (!projectConfig.isWelcome())
-    {
-        newConfig = projectConfig;
-    }
-    [controller setProjectConfig:newConfig];
-    [NSApp beginSheet:controller.window modalForWindow:window didEndBlock:^(NSInteger returnCode) {
-        [self stopModelSheet];
-        if (returnCode == NSRunStoppedResponse)
-        {
-            projectConfig = controller.projectConfig;
-            [self relaunch];
-        }
-        [controller release];
-    }];
-}
-
-- (IBAction) onFileOpenRecent:(id)sender
-{
-    NSArray *recents = [[NSUserDefaults standardUserDefaults] objectForKey:@"recents"];
-    NSDictionary *recentItem = nil;
-    NSString *title = [sender title];
-    for (NSInteger i = [recents count] - 1; i >= 0; --i)
-    {
-        recentItem = [recents objectAtIndex:i];
-        if ([title compare:[recentItem objectForKey:@"title"]] == NSOrderedSame)
-        {
-            [self relaunch:[recentItem objectForKey:@"args"]];
-            break;
-        }
-    }
-}
-
-- (IBAction) onFileOpenRecentClearMenu:(id)sender
-{
-    [[NSUserDefaults standardUserDefaults] setObject:[NSArray array] forKey:@"recents"];
-    [self updateUI];
-}
-
-- (IBAction) onFileClose:(id)sender
-{
-    [[NSApplication sharedApplication] terminate:self];
-}
-
-- (IBAction) onPlayerWriteDebugLogToFile:(id)sender
-{
-    bool isWrite = projectConfig.isWriteDebugLogToFile();
-    if (!isWrite)
-    {
-        if ([self writeDebugLogToFile:projectConfig.getDebugLogFilePath()])
-        {
-            projectConfig.setWriteDebugLogToFile(true);
-            [(NSMenuItem*)sender setState:NSOnState];
-        }
-    }
-    else
-    {
-        projectConfig.setWriteDebugLogToFile(false);
-        [self closeDebugLogFile];
-        [(NSMenuItem*)sender setState:NSOffState];
-    }
-}
-
-- (IBAction) onPlayerOpenDebugLog:(id)sender
-{
-    const string path = projectConfig.getDebugLogFilePath();
-    [[NSWorkspace sharedWorkspace] openFile:[NSString stringWithCString:path.c_str() encoding:NSUTF8StringEncoding]];
-}
-
-- (IBAction) onPlayerRelaunch:(id)sender
+- (IBAction) onFileRelaunch:(id)sender
 {
     [self relaunch];
-}
-
-- (IBAction) onPlayerShowProjectSandbox:(id)sender
-{
-    [[NSWorkspace sharedWorkspace] openFile:[NSString stringWithCString:CCFileUtils::sharedFileUtils()->getWritablePath().c_str() encoding:NSUTF8StringEncoding]];
-}
-
-- (IBAction) onPlayerShowProjectFiles:(id)sender
-{
-    [[NSWorkspace sharedWorkspace] openFile:[NSString stringWithCString:projectConfig.getProjectDir().c_str() encoding:NSUTF8StringEncoding]];
 }
 
 - (IBAction) onScreenChangeFrameSize:(id)sender
@@ -658,7 +372,6 @@ using namespace cocos2d::extra;
     float scale = (float)[sender tag] / 100.0f;
     [self setZoom:scale];
     [self updateUI];
-    [self updateOpenRect];
 }
 
 -(IBAction) onWindowAlwaysOnTop:(id)sender

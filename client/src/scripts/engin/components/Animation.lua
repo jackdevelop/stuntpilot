@@ -88,7 +88,8 @@ function Animation:createView(batch)
         self:playAnimationOnce()
     end
 
-    self.sprite_:registerScriptHandler(function(event)
+--    self.sprite_:registerScriptHandler(function(event)
+    self.sprite_:addNodeEventListener(cc.NODE_EVENT,function(event) 
         if event == "exit" then
             self:release()
         end
