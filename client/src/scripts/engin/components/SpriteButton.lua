@@ -5,8 +5,8 @@
  	
  	sprite的按钮
 	使用：
-	local c = SpriteButton:newButton(imageName, name,isPress, listener)
-     self:addChild(c);
+	local sptButton = SpriteButton:newButton(param)
+     layer:addChild(sptButton);
  	
  
  * @author  jackdevelop@sina.com
@@ -18,34 +18,65 @@ local SpriteButton = class("SpriteButton");
 
 
 
---function TouchMenu:inSprite(x,y)
---	local touchInSprite
---	for k,v in ipairs(self.items) do
---		touchInSprite = v:getCascadeBoundingBox():containsPoint(CCPoint(x, y))
---		if touchInSprite then
---			return k
---		end
---	end
---	return 0
---end
 
 
 --[[
-@param imageName 按钮的图片地址
-@param txt  按钮上的文字
-@param isPress 是否可以长按  默认为false
-@param listener 点击后的回调
+初始化按钮
+@param param 参数
+ imageName 按钮的图片地址
+ txt  按钮上的文字
+ isPress 是否可以长按  默认为false
+ listener 点击后的回调
+ swallows 有这几种方式cc.TOUCH_BEGAN -- stop event dispatching    cc.TOUCH_BEGAN_SWALLOWS --吞噬事件    cc.TOUCH_BEGAN_NO_SWALLOWS -- continue event dispatching
+ 
+ imageParam 比如： {imageName=,x=,y=}
+ txtParam 比如：{txt=,x=,y=,size=，color}
 ]]
-function SpriteButton:newButton(imageName, txt,isPress, listener)
-    local sprite = display.newSprite(imageName)
+function SpriteButton:newButton(param)
+	if not param then param = {} end
+	local imageName=param.imageName;
+	local isPress = param.isPress
+	local listener = param.listener;
+	local x=param.x;
+	local y=param.y;
+	local swallows = param.swallows or  cc.TOUCH_BEGAN;
+	local flipX = param.flipX
+--	 view:setFlipX(decoration.framesflipX_);
+--			    view:setFlipY(decoration.framesflipY_);
+	
+	local imageParam = param.imageParam;
+	local txtParam = param.txtParam;
+	
+	
+    local sprite = display.newSprite(imageName,x,y)
+    local size = sprite:getContentSize();
+	
+	
+	
+	if imageParam then
+	 	local imageParam_imageName=imageParam.imageName;
+	 	local imageParam_sprite = display.newSprite(imageParam_imageName,imageParam.x,imageParam.y)
+	 	sprite:addChild(imageParam_sprite);
+	 	
+	 	
+		if not imageParam.x and not imageParam.y then --默认居中
+			imageParam_sprite:setPosition(size.width/2,size.height/2);
+		end
+		
+		if imageParam.scale and imageParam.scale ~= 1 then --缩放
+			imageParam_sprite:setScale(imageParam.scale);
+		end
+	end
 
-    if txt then
-        local cs = sprite:getContentSize()
-        local label = ui.newTTFLabel({text = txt, color = display.COLOR_BLACK})
-        label:setPosition(cs.width / 2, cs.height / 2)
+	
+    if txtParam then
+        local label = ui.newTTFLabel(txtParam)
         sprite:addChild(label)
+        
+        
     end
-	--sprite:setCascadeBoundingBox(CCRect(0, 0, display.width, display.height))
+	
+	
 	
 	--点击效果
 	local function touchClick()
@@ -95,7 +126,10 @@ function SpriteButton:newButton(imageName, txt,isPress, listener)
            touchClick();
            
           clickPressHandle(true);
-            return cc.TOUCH_BEGAN -- stop event dispatching
+          
+          
+          return  swallows;
+--            return cc.TOUCH_BEGAN -- stop event dispatching
 --			return cc.TOUCH_BEGAN_SWALLOWS --吞噬事件
 --            return cc.TOUCH_BEGAN_NO_SWALLOWS -- continue event dispatching
         end
@@ -118,6 +152,8 @@ function SpriteButton:newButton(imageName, txt,isPress, listener)
            touchNoClick()
            clickPressHandle(false);
         end
+        
+         return  swallows;
     end, cc.MULTI_TOUCHES_ON) 
 
     return sprite

@@ -9,6 +9,11 @@
   并使用git gui  依次点击 重新扫描》缓动改动》提交》上传
 
 
+ 环境变量：
+ E:\cocos2d-x+lua\lua\item\engin\git\devel\quick-cocos2d-x\
+
+
+
 
 --获取毫秒
 require("socket").gettime()
@@ -20,7 +25,7 @@ require("socket").gettime()
 
 
 --45度建筑z轴  z=x+y*w
-
+http://zengrong.net/post/1454.htm 将图像的透明区域转换为ALPHA通道原理
 
 
 
@@ -38,3 +43,10 @@ require("socket").gettime()
 http://www.csdn123.com/html/itweb/20131021/178352.htm
 --cocos2d-x android平台切入后台纹理失效的解决方法
 http://blog.csdn.net/langresser_king/article/details/8659538
+
+
+
+setTouchSwallowEnabled(true) 的 node，在响应触摸后就会阻止触摸往下层 node 传递。false 则不阻止。
+setTouchCaptureEnabled(true) 表示该 node 及其所有 child 都不响应触摸。
+比如对话框是一个 node，里面一堆 button。对话框 node:setTouchCaptureEnabled(false) 以后，整个对话框都不响应触摸了。不用像以前那样去禁用对话框里每一个 button
+CCMenu的优先级设定也给取消了，统统按显示层级
