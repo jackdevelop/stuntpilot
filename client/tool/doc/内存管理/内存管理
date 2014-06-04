@@ -1,0 +1,15 @@
+
+
+以前是在清理 children 后再触发的 cleanup 事件，现在是先触发事件了
+正确做法是：先清理children  在触发 cleanup 事件
+
+
+removeSelf时，c++对象必然会被回收
+
+
+
+display.removeUnusedSpriteFrames 只能删除打包后的材质，不能删除背景图这种单独的图片
+
+
+SpriteFrame 是那种很多小图打包到一起的，就称为材质吧。材质里所有小图都没有使用时才能够卸载成功。
+而背景通常是独立的图片，需要单独卸载

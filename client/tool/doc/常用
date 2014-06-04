@@ -46,6 +46,10 @@ http://blog.csdn.net/langresser_king/article/details/8659538
 
 
 
+
+友情分享一个坑，尽量不要在场景的ctor中使用闭包，此时闭包中捕获的self变量可能和实际运行时不是一个self
+
+
 setTouchSwallowEnabled(true) 的 node，在响应触摸后就会阻止触摸往下层 node 传递。false 则不阻止。
 setTouchCaptureEnabled(true) 表示该 node 及其所有 child 都不响应触摸。
 比如对话框是一个 node，里面一堆 button。对话框 node:setTouchCaptureEnabled(false) 以后，整个对话框都不响应触摸了。不用像以前那样去禁用对话框里每一个 button
