@@ -20,11 +20,11 @@ end)
 
 --[[
 BaseScene的构造函数
-@param backgroundImageName 背景地图
-@param multiTouch 是否支持多点触摸  默认为false
-@param width 当前场景的宽度      为nil时  自动读取背景地图的宽度
-@param height 当前场景的高度     为nil时  自动读取背景地图的宽度
-@param backgroundMusicArr 背景音乐，是个table{},默认只播放第table的第一个   但 退出table的所有都dou会自动释放并卸载
+ backgroundImageName 背景地图
+ touchMode 0不支持触摸,1单点触摸，2多点触摸
+ width 当前场景的宽度      为nil时  自动读取背景地图的宽度
+ height 当前场景的高度     为nil时  自动读取背景地图的宽度
+ backgroundMusicArr 背景音乐，是个table{},默认只播放第table的第一个   但 退出table的所有都dou会自动释放并卸载
 ]]
 function BaseScene:ctor(param)
 	if not param then param = {} end
@@ -32,17 +32,17 @@ function BaseScene:ctor(param)
 	local width = param.width;
 	local height = param.height;
 	local sceneName = param.sceneName;
-	local isMultiTouch =param.isMultiTouch;
+	local touchMode =param.touchMode;
 	local batchNodeImage = param.batchNodeImage;
 	 
 	self.sceneSound_ = param.sceneSound
 	self.currentSceneName_ = sceneName;--场景名称
-	self.isMultiTouch_=isMultiTouch;--多点触摸
+	self.touchMode_=touchMode;--触摸flag
 
 
 	--播放场景的背景音乐
 	if self.sceneSound_ then
-		audio.playBackgroundMusic(self.sceneSound_);
+		audio.playMusic(self.sceneSound_);
 	end
 	
 	-- mapLayer 包含地图的整个视图
@@ -58,13 +58,12 @@ function BaseScene:ctor(param)
 		CCTexture2D:setDefaultAlphaPixelFormat(kCCTexture2DPixelFormat_RGB565)
 	    self.backgroundSprite_ = display.newSprite(backgroundImageName)
 	    CCTexture2D:setDefaultAlphaPixelFormat(kCCTexture2DPixelFormat_RGBA8888)
---		self.backgroundSprite_:registerScriptHandler(function(event) 
-		self.backgroundSprite_:addNodeEventListener(cc.NODE_EVENT,function(event) 
-	        -- 地图对象删除时，自动从缓存里卸载地图材质
-	        if event.name == "exit" then
+	    local function backGroundSpriteHandle(event)
+	    	if event.name == "exit" then
 	            display.removeSpriteFrameByImageName(backgroundImageName)
 	        end
-	    end)
+	    end
+		self.backgroundSprite_:addNodeEventListener(cc.NODE_EVENT,backGroundSpriteHandle)-- 地图对象删除时，自动从缓存里卸载地图材质
 	    
 	    --if width then self.backgroundSprite_:setContentSize(CCSize(width,height)); end
 		local contentSize=self.backgroundSprite_:getContentSize();
@@ -73,15 +72,16 @@ function BaseScene:ctor(param)
 			height= contentSize.height;
 		end
 		self.backgroundSprite_:align(display.LEFT_BOTTOM, 0, 0)
-	    self.mapLayer:addChild(self.backgroundSprite_)--背景地图
+	    self.mapLayer:addChild(self.backgroundSprite_)
     end
     
     
     
+    
+    
+    --设置当前尺寸
 	self.width_=width or display.width;
 	self.height_=height or display.height;
-	
-	
 	
 	
 	
@@ -96,7 +96,6 @@ function BaseScene:ctor(param)
     self.mapLayer:addChild(self.floorsLayer_)--底层 
     
     
-    
    
 	if batchNodeImage then
     	self.batch_ = display.newBatchNode(batchNodeImage)
@@ -104,6 +103,8 @@ function BaseScene:ctor(param)
     	self.batch_=display.newNode()
     end
     self.mapLayer:addChild(self.batch_)--渲染层
+    
+    
     
     self.flysLayer_ = display.newNode() --飞行层
 	self.mapLayer:addChild(self.flysLayer_)
@@ -125,7 +126,7 @@ function BaseScene:ctor(param)
     
     
     
-    self.loadingLayer_=display.newLayer();
+    self.loadingLayer_=display.newNode()
    	self.mapLayer:addChild(self.loadingLayer_);--loading层
     
     
@@ -204,7 +205,7 @@ end
 --[[--
 返回于tips层
 ]]
-function BaseScene:getTipLayer_()
+function BaseScene:getTipLayer()
     return self.tipLayer_
 end
 
@@ -213,8 +214,7 @@ end
 返回背景图
 ]]
 function BaseScene:getBackgroundLayer()
-    
-    
+    return self.backgroundSprite_
 end
 
 
@@ -231,16 +231,24 @@ end
 ]]
 function BaseScene:getLayerByParentLayerName(parentLayerName)
 	local currentLayer ;
-	if parentLayerName == SceneConstants.FLY_LAYER then
-		currentLayer = self:getFlysLayer()
-	elseif parentLayerName == SceneConstants.FLOORS_LAYER then
+	
+	if parentLayerName == SceneConstants.FLOORS_LAYER then --地板层
 		currentLayer = self:getFloorsLayer()
+	elseif parentLayerName == SceneConstants.FLY_LAYER then --飞行层
+		currentLayer = self:getFlysLayer()
+	elseif parentLayerName == SceneConstants.TOUCH_LAYER then --触摸层
+		currentLayer = self:getTouchLayer()
+	elseif parentLayerName == SceneConstants.UI_LAYER then --ui层
+		currentLayer = self:getUILayer()
+	elseif parentLayerName == SceneConstants.LOADING_LAYER then --地图的loading层
+		currentLayer = self:getLoadingLayer()
+	elseif parentLayerName == SceneConstants.tipLayer then --tips层
+		currentLayer = self:getTipLayer()
 	else
 		currentLayer = self:getBatchLayer()
 	end
 	return currentLayer;
 end
-
 
 
 
@@ -288,6 +296,11 @@ end
 function BaseScene:getCamera()
     return self.camera_
 end
+
+
+
+
+
 
 
 

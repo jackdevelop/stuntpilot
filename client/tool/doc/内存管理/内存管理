@@ -5,7 +5,7 @@
 
 
 removeSelf时，c++对象必然会被回收
-
+Fps显示后面多了一个数值，是当前还未删除的cpp对象
 
 
 display.removeUnusedSpriteFrames 只能删除打包后的材质，不能删除背景图这种单独的图片
@@ -13,3 +13,8 @@ display.removeUnusedSpriteFrames 只能删除打包后的材质，不能删除�
 
 SpriteFrame 是那种很多小图打包到一起的，就称为材质吧。材质里所有小图都没有使用时才能够卸载成功。
 而背景通常是独立的图片，需要单独卸载
+
+
+
+材质要删除后，plist才能删除
+这样说吧。你首先要把所有sprite从场景里删除掉，然后才能清理这些sprite用到的 sprite frame，接下来才能清理 texture
