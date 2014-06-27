@@ -17,9 +17,9 @@ function PlaneBehavior:bind(object)
     
     local function updateView(object)	
     	local animation = object:getAnimation();
-    	animation:setDisplayFrameIndex(toint(object.flyDegrees_));
+    	animation:setDisplayFrameIndex(checkint(object.flyDegrees_));
         --local sprite = object.sprite_;
-        --sprite:setRotation(tonum(object.flyDegrees_));
+        --sprite:setRotation(checknumber(object.flyDegrees_));
     end
     object:bindMethod(self, "updateView", updateView)
 end

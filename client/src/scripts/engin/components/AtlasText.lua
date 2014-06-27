@@ -24,7 +24,7 @@
  * $Id:$
  * @version 1.0
 ]]
-local AtlasText = class("AtlasText");
+local AtlasText ={}-- class("AtlasText");
 
 
 
@@ -37,7 +37,7 @@ local AtlasText = class("AtlasText");
 --itemWidth  第三个参数：每一个数字的宽
 --itemHeight 第四个参数：每一个数字的高 这个不能设错，否则显示的时候可能就不对了。
 --每五个数字：开始字符
-function AtlasText:create(atlasParam,txtParam)
+function AtlasText.create(atlasParam,txtParam)
 	--CCLabelAtlas的基础参数
 	local labelWithString = atlasParam.labelWithString or "0";
 	local charMapFile = atlasParam.charMapFile or "font/ui_num.png" ;

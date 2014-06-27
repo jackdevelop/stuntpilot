@@ -14,6 +14,10 @@ local Base = class("Base")
 
 
 
+--[[
+@param batch显示
+@param object
+]]
 function Base:ctor(batch,object)
 	self.batch_=batch;--父类
 	self.object_=object;

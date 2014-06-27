@@ -15,7 +15,7 @@
 	        y = display.cy + 150
 	    })
 	
-	local  renderTexture =  FilterText:createStroke(quickLabel, 4, ccc3(0xca, 0xa5, 0x5f), 100)
+	local  renderTexture =  FilterText.createStroke(quickLabel, 4, ccc3(0xca, 0xa5, 0x5f), 100)
 	-- 设置反锯齿
 	renderTexture:getSprite():getTexture():setAntiAliasTexParameters()
 	self:addChild(renderTexture, filterLabel:getZOrder()-1)
@@ -25,7 +25,7 @@
  * $Id:$
  * @version 1.0
 ]]
-local FilterText = class("FilterText");
+local FilterText = {}--class("FilterText");
 
 
 
@@ -37,7 +37,7 @@ local FilterText = class("FilterText");
  @param:color 描边颜色
  @param:opacity 描边透明度
 ]]
-function FilterText:createStroke(node, strokeWidth, color, opacity,x,y,size)
+function FilterText.createStroke(node, strokeWidth, color, opacity,x,y,size)
     local w = node:getTexture():getContentSize().width + strokeWidth * 2
     local h = node:getTexture():getContentSize().height + strokeWidth * 2
     local rt = CCRenderTexture:create(w, h)

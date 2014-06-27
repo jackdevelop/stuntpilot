@@ -5,7 +5,7 @@
  	
  	创建遮罩的显示sprite
 	使用：
-	local c = SpriteMask:createMaskByImageName("ui/PinkScale9Block.png","ui/RadioButtonOn.png")
+	local c = SpriteMask.createMaskByImageName("ui/PinkScale9Block.png","ui/RadioButtonOn.png")
      self:addChild(c);
  	
  
@@ -13,7 +13,7 @@
  * $Id:$
  * @version 1.0
 ]]
-local SpriteMask = class("SpriteMask");
+local SpriteMask = {}--class("SpriteMask");
 
 
 --[[
@@ -21,7 +21,7 @@ local SpriteMask = class("SpriteMask");
 @param showSpt 显示的图片
 @param maskSpt	用来遮罩的片，形状
 ]]
-function SpriteMask:createMaskBySprite(showSpt,maskSpt)
+function SpriteMask.createMaskBySprite(showSpt,maskSpt)
 	local size = display.size;
 	--创建干净的画板
 	local pRt = CCRenderTexture:create(display.width,display.height);
@@ -69,7 +69,7 @@ end
 ]]
 function SpriteMask:createMaskByImageName(showImageName,maskImageName)
 	local showSpt,maskSpt = display.newSprite(showImageName),display.newSprite(maskImageName);
-	local pRt = self:createMaskBySprite(showSpt,maskSpt)
+	local pRt = SpriteMask.createMaskBySprite(showSpt,maskSpt)
 	return pRt
 end
 

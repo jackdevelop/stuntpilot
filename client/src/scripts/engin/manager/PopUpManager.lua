@@ -71,7 +71,7 @@ function PopUpManager:addPopUp(window, parent, modal,center, childList, moduleFa
 	
 	local cover;
 	if modal then 
-		cover = SpriteCover:createCoverSprite();
+		cover = SpriteCover.createCoverSprite();
 		parent:addChild(cover);
 	end
 	
@@ -107,22 +107,21 @@ function PopUpManager:deletePopUp(popUp,effetId,onComplete)
         	
         	
         	
+        	onCompleteHandle();
         	
-        	
-        	
-        	--特效
-			CCDirector:sharedDirector():setDepthTest(false)
-			--[[ 
-				作用：分多行消失特效
-				参数1：特效持续的时间
-				参数2：行数
-			]]
-			local actions = {};
-			local time = 1
-			actions[#actions + 1] = CCSplitRows:create(time, 9);
-			actions[#actions + 1] = CCCallFunc:create(onCompleteHandle);
-			local effect = transition.sequence(actions)
-		    popUp:runAction(effect)
+--        	--特效
+--			CCDirector:sharedDirector():setDepthTest(false)
+--			--[[ 
+--				作用：分多行消失特效
+--				参数1：特效持续的时间
+--				参数2：行数
+--			]]
+--			local actions = {};
+--			local time = 1
+--			actions[#actions + 1] = CCSplitRows:create(time, 9);
+--			actions[#actions + 1] = CCCallFunc:create(onCompleteHandle);
+--			local effect = transition.sequence(actions)
+--		    popUp:runAction(effect)
     
         	
 		 	table.remove(self.arr_, i)
@@ -132,6 +131,32 @@ function PopUpManager:deletePopUp(popUp,effetId,onComplete)
 		end
 	end
 end
+
+
+
+
+
+
+--[[
+删除全局的所有弹框
+]]
+function PopUpManager:deleteAllPopUp()
+	 for i = #self.arr_, 1, -1 do
+		 	local onePopup,cover = self.arr_[i][1],self.arr_[i][2];
+	        if onePopup and not tolua.isnull(onePopup) then
+				onePopup:removeSelf();
+			end
+			
+			if cover then 
+				cover:removeSelf();
+			end
+			
+			table.remove(self.arr_, i)
+	 end
+end
+
+
+
 
 
 

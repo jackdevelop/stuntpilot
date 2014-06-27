@@ -31,7 +31,7 @@ function StaticObjectEditorBehavior:bind(object)
 
         object.radiusCircle_ = display.newCircle(object.radius_)
 --        object.radiusCircle_:setColor(unpack(EditorConstants.UNSELECTED_COLOR))
-        object.radiusCircle_:setLineStipple(tonum("1111000011110000", 2))
+        object.radiusCircle_:setLineStipple(checknumber("1111000011110000", 2))
         object.radiusCircle_:setLineStippleEnabled(true)
         debugLayer:addChild(object.radiusCircle_, StaticObjectEditorBehavior.CIRCLE_ZORDER)
 

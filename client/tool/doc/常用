@@ -47,6 +47,14 @@ http://blog.csdn.net/langresser_king/article/details/8659538
 
 
 
+
+
+
+
+
+
+
+
 友情分享一个坑，尽量不要在场景的ctor中使用闭包，此时闭包中捕获的self变量可能和实际运行时不是一个self
 
 

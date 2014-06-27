@@ -32,12 +32,21 @@ GameUtil = require("engin.util.GameUtil");
 BehaviorFactory = require("engin.util.behavior.BehaviorFactory");
 BehaviorBase  =  require("engin.util.behavior.BehaviorBase");
 
-CCSBaseUI =  require("engin.ccs.CCSBaseUI");
-CCSButton =  require("engin.ccs.CCSButton").new();
-
 StringUtil = require("engin.util.string.StringUtil"); --字符串相关工具类
 StringBuffer= require("engin.util.string.StringBuffer"); --高效字符串连接类
- 
+
+
+--基础的控件
+FilterText = require("engin.components.FilterText");
+SpriteButton =  require("engin.components.SpriteButton");
+AtlasText  = require("engin.components.AtlasText");
+BubbleButton =  require("engin.components.BubbleButton").new();
+SpriteMask = require("engin.components.SpriteMask");
+SpriteCover = require("engin.components.SpriteCover");
+
+--ccs组件
+CCSBaseUI =  require("engin.ccs.view.CCSBaseUI");
+CCSButton =  require("engin.ccs.view.CCSButton");
 
 --可重写 全部重写的
 --BehaviorClassProperties = require("engin.util.behavior.BehaviorClassProperties");
@@ -78,13 +87,6 @@ StringBuffer= require("engin.util.string.StringBuffer"); --高效字符串连接
 HttpLoad = require("engin.mvcs.service.HttpLoad").new()
 HttpLoadResultHandle = require("engin.mvcs.service.HttpLoadResultHandle").new()
 
---基础的控件
-FilterText = require("engin.components.FilterText").new();
-SpriteButton =  require("engin.components.SpriteButton").new();
-AtlasText  = require("engin.components.AtlasText").new();
-BubbleButton =  require("engin.components.BubbleButton").new();
-SpriteMask = require("engin.components.SpriteMask").new();
-SpriteCover = require("engin.components.SpriteCover").new();
 
 --管理类
 PopUpManager = require("engin.manager.PopUpManager").new();

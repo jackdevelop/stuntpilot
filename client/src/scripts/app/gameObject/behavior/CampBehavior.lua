@@ -6,7 +6,7 @@ function CampBehavior:ctor()
 end
 
 function CampBehavior:bind(object)
-    object.campId_ = toint(object.state_.campId)
+    object.campId_ = checkint(object.state_.campId)
     if object.campId_ ~= GameConstants.ENEMY_CAMP and object.campId_ ~= GameConstants.PLAYER_CAMP then
         object.campId_ = GameConstants.ENEMY_CAMP
     end

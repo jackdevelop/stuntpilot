@@ -39,16 +39,16 @@ function BaseObject:ctor(id, state, model)
     local classId, index = unpack(string.split(id, ":"))
     self.classId_    = BaseObject.CLASS_ID[classId]
     self.classIndex_ = BaseObject.CLASS_INDEX[classId]
-    self.index_      = toint(index)
+    self.index_      = checkint(index)
     
     
-    self.x_          = toint(self.x_)
-    self.y_          = toint(self.y_)
-    self.offsetX_    = toint(self.offsetX_)
-    self.offsetY_    = toint(self.offsetY_)
+    self.x_          = checkint(self.x_)
+    self.y_          = checkint(self.y_)
+    self.offsetX_    = checkint(self.offsetX_)
+    self.offsetY_    = checkint(self.offsetY_)
     
     --半径
-    self.radius_  = toint(self.radius_)
+    self.radius_  = checkint(self.radius_)
     
     
     self.state_      = state

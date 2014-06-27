@@ -15,15 +15,20 @@ function HelpUI:initView()
         
         
         
-   	SpriteButton:newButton("#instructions.png", nil,false, function()
-   		 local object = self.object_;
-    	 object.sceneController_:resumePlay();
-    	 
-    	 
-		 PopUpManager:deletePopUp(self)
-	end)
-	--:align(display.CENTER,display.width-100, display.bottom + 50)
-	:addTo(self)
+        local param = {
+			imageName		  = "#instructions.png",
+--			x     = display.width-100,
+--			y     = display.bottom + 50,
+		    listener =function() 	
+		    	 local object = self.object_;
+		    	 object.sceneController_:resumePlay();
+		    	 
+		    	 
+				 PopUpManager:deletePopUp(self)
+		    end
+		}
+	 SpriteButton.newButton(param)
+	 :addTo(self)
 end
 
 

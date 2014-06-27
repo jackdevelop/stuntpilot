@@ -93,7 +93,7 @@ function MovableBehavior:bind(object)
 	设置速度
 	]]
     local function setSpeed(object, maxSpeed)
-        object.speed_ = tonum(maxSpeed)
+        object.speed_ = checknumber(maxSpeed)
         if object.speed_ < 0 then object.speed_ = 0 end
 
         object.speedIncr_ = object.speed_ * 0.025 * MovableBehavior.SPEED_SCALE
@@ -160,7 +160,7 @@ function MovableBehavior:bind(object)
 		--飞机行走	
 		local x,y = object:getPosition();
 		local flyDegrees = object:getPlaneFlyDegrees();
-	    local vectorX,vectorY = FlyDegreesData[toint(flyDegrees)]();
+	    local vectorX,vectorY = FlyDegreesData[checkint(flyDegrees)]();
 	    vectorX,vectorY = vectorX *object.currentSpeed_ ,vectorY*object.currentSpeed_ ;
 	    
 	    --死亡  使用死亡速度
@@ -313,7 +313,7 @@ end
 
 
 function MovableBehavior:reset(object)
-    object:setSpeed(tonum(object.state_.speed))
+    object:setSpeed(checknumber(object.state_.speed))
     object.currentSpeed_ = 0
     object.movingState_  = MovableBehavior.MOVING_STATE_STOPPED
 end

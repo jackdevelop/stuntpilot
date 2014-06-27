@@ -46,7 +46,7 @@ function MovableDirectBehavior:bind(object)
 	正右为0度   顺时针旋转 度数增加
 	]]
     local function getPlaneFlyDegrees(object)
-    	return toint(object.flyDegrees_);
+    	return checkint(object.flyDegrees_);
     end
     object:bindMethod(self, "getPlaneFlyDegrees", getPlaneFlyDegrees)
     

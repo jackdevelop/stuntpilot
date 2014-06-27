@@ -88,7 +88,7 @@ function BaseScene:ctor(param)
 	
 	
     self.touchLayer_ = display.newLayer()
-    self:addChild(self.touchLayer_)-- touchLayer 用于接收触摸事
+    self.mapLayer:addChild(self.touchLayer_)-- touchLayer 用于接收触摸事
     
 	
    
@@ -316,6 +316,8 @@ end
 
 
 
+
+
 --[[--
 	触摸事件 
 ]]
@@ -334,18 +336,22 @@ function BaseScene:onTouch(event, x, y)
 		}
 		self:touchBegan(event,x,y);
 		return true
+        -- return cc.TOUCH_BEGAN_NO_SWALLOWS
 	elseif event == "moved" then
 		if self.drag then
 			self.drag.offsetX = x - self.drag.lastX
 			self.drag.offsetY = y - self.drag.lastY
 			self.drag.lastX = x
 			self.drag.lastY = y
-			if not self.touchBuildView and Math2d.dist(self.drag.lastX, self.drag.lastY, self.drag.startX, self.drag.startY) >= 4 then
+            local canMove = (not self.touchBuildView) or (self.touchBuildView and (not self.touchBuildView:isMoveAble()))
+			if canMove and Math2d.dist(self.drag.lastX, self.drag.lastY, self.drag.startX, self.drag.startY) >= 4 then
 				self.drag.moved = true -- 设置移动中标志
-				self.camera_:moveOffset(self.drag.offsetX, self.drag.offsetY)
+				self:getCamera():moveOffset(self.drag.offsetX, self.drag.offsetY)
 			end
 		end
 		self:touchMoved(event,x,y);
+        return true
+        -- return cc.TOUCH_MOVED_RELEASE_OTHERS
 	else
         if self.drag and self.drag.moved then
             local offsetX = self.drag.lastX - self.drag.startX
@@ -376,28 +382,40 @@ end
 
 --[[
 多点触摸处理
-@param string event began/moved/ended
-@param array points 形如:{x0, y0, p0, x1, y1, p1, ..., xN, yN, pN}
+@param string event began/moved/ended/cancelled
+@param array points 形如:{point0, point1, ..., pointN}
+
+其中每一个触摸点的值包含：
+point.x, point.y 触摸点的当前位置
+point.prevX, point.prevY 触摸点之前的位置
+point.id 触摸点 id，用于确定触摸点的变化
 ]]
 function BaseScene:multiTouchHandle(event, points)
     if event == "began" then -- 立即取消缓动特效
         self.tween = nil
     end
-
     local pointArr = {}
-    for i = 1, #points, 3 do
-        pointArr[points[i + 2]] = {x = points[i], y = points[i + 1]}
-        self.pointArr_[points[i + 2]] = {x = points[i], y = points[i + 1]}
+    for k, v in pairs(points) do
+        if v.id - 2 <= 0 then
+            pointArr[v.id] = {x = v.x, y = v.y}
+            self.pointArr_[v.id] = {x = v.x, y = v.y}
+        end
     end
     local touchPointNum = table.nums(self.pointArr_)
-    if touchPointNum == 1 and points[3] == 0 then -- 只按下了一个触点时
-        self:onTouch(event, points[1], points[2])
+    if touchPointNum == 1 and points["0"] then -- 只按下了一个触点时
+        return self:onTouch(event, points["0"].x, points["0"].y)
+    elseif not self.multiTouch_ then
+        self.pointArr_ = {}
         return
     end
 
     if event == "began" then
-        if self.pointArr_[0] and self.pointArr_[1] and pointArr[1] then
-            local p1, p2 = self.pointArr_[0], self.pointArr_[1]
+        if self.drag then -- 多点的时候，强制取消拖动
+            self:touchCancle(event, self.pointArr_["0"].x, self.pointArr_["0"].y);
+            self.drag = nil
+        end
+        if self.pointArr_["0"] and self.pointArr_["1"] and pointArr["1"] then
+            local p1, p2 = self.pointArr_["0"], self.pointArr_["1"]
             local dist = Math2d.dist(p1.x, p1.y, p2.x, p2.y) -- 两触点间的距离
             local midScreenX, midScreenY = (p1.x + p2.x) / 2, (p1.y + p2.y) / 2
             self.lastZoomInfo_ = { -- 保存起来
@@ -409,8 +427,8 @@ function BaseScene:multiTouchHandle(event, points)
         
         self:multiTouchBegan(event);
     elseif event == "moved" then
-        if self.isMultiTouch_ and self.pointArr_[0] and self.pointArr_[1] then -- 缩放时只取前两个触点（需开启多点触摸）
-            local p1, p2 = self.pointArr_[0], self.pointArr_[1]
+        if self.multiTouch_ and self.pointArr_["0"] and self.pointArr_["1"] then -- 缩放时只取前两个触点（需开启多点触摸）
+            local p1, p2 = self.pointArr_["0"], self.pointArr_["1"]
             local dist = Math2d.dist(p1.x, p1.y, p2.x, p2.y) -- 两触点间的距离
             local lastDist, lastMid
             if self.lastZoomInfo_ then
@@ -441,11 +459,9 @@ function BaseScene:multiTouchHandle(event, points)
         end
         
     else
-        if pointArr[0] or pointArr[1] then
+        if pointArr["0"] or pointArr["1"] then -- 0/1任意一个触点ended/cancelled的，便取消缩放
             self.lastZoomInfo_ = nil
-        end
-        for k, v in pairs(pointArr) do
-            self.pointArr_[k] = nil
+            self.pointArr_ = {}
         end
     end
 end
@@ -456,7 +472,6 @@ end
 
 
 function BaseScene:multiTouchBegan(event)
-	
 end
 function BaseScene:touchBegan(event, x, y)
 end
@@ -465,16 +480,6 @@ function BaseScene:touchMoved(event, x, y)
 end
 function BaseScene:touchCancle(event, x, y)
 end
-function BaseScene:initViewOnEnter()
-end
-
-
-
-
-
-
-
-
 
 
 
@@ -488,8 +493,6 @@ end
 tick帧更新事件
 ]]
 function BaseScene:tick(dt)
-	self.camera_:tick(dt);
-	   
     if self.drag then
         self.drag.time = self.drag.time + dt
     end
@@ -517,48 +520,39 @@ end
 进入场景
 ]]
 function BaseScene:onEnter()
-	if self.touchLayer_ then 
---	 	self.touchLayer_:addTouchEventListener(function(event, x, y)
-	 	self.touchLayer_:addNodeEventListener(cc.NODE_TOUCH_EVENT, function(event)
---		 	if self.isMultiTouch_ then --多点触摸处理
-		 		return self:multiTouchHandle( event,x)-- points 是包含一系列坐标的表格对象，内容为 {x, y, [x, y], [x, y] ...}
---		 	else
---		 		 return self:onTouch(event, x, y)
---		 	end
-	 	
---	    end,self.isMultiTouch_,LayerEventPriority.BaseSceneLayer,false)
-	     end)
---	    self.touchLayer_:setTouchEnabled(true)
-	    
---	    if self.isMultiTouch_ then
---		    self.touchLayer_:setTouchMode(kCCTouchesAllAtOnce) -- 一次性把所有点的数据传入回调函数
-			 --self.touchLayer_:setTouchMode(kCCTouchesOneByOne) -- 多个点分成多次传入，也就是说多点触摸时，回调函数会调用多次
---		end
-		
-        -- keypad layer, for android
-         self.touchLayer_:addNodeEventListener(cc.KEYPAD_EVENT, function(event)
---        self.touchLayer_:addNodeEventListener(c.NODE_TOUCH_EVENT, function(event)
---        self.touchLayer_:addKeypadEventListener(function(event)
-            if event.name == "back" then 
-            	app.exit()
+    if self.touchLayer_ then
+        -- @see https://github.com/chukong/quick-cocos2d-x/blob/develop/docs/UPGRADE_TO_2_2_3.md
+        self.touchLayer_:addNodeEventListener(
+            cc.NODE_TOUCH_EVENT,
+            function(event)
+                return self:multiTouchHandle(event.name, event.points)
             end
-        end)
-        self.touchLayer_:setKeypadEnabled(true)
-	end 
-	
-	
-	self:initViewOnEnter();	
---	self:performWithDelay(function()
-		--分发进入场景事件
---		local flowData = FlowData.new(GameFlowConstants.ENTER_SCENE,{sceneName = self.sceneName_,scene=self});
---		GameFlow:push(flowData);
+        )
+        -- 如果当前 node 响应了触摸，是否吞噬触摸事件（阻止事件继续传递）
+        self.touchLayer_:setTouchSwallowEnabled(false)
+         -- 触点一次性传入
+        self.touchLayer_:setTouchMode(cc.TOUCH_MODE_ALL_AT_ONCE)
+        self.touchLayer_:setTouchEnabled(true)
+    end 
+
+--     --分发进入场景事件
+--    local flowData = FlowData.new(GameFlowConstants.ENTER_SCENE,{sceneName = self.sceneName_,scene=self});
+--    GameFlow:push(flowData);
     
-    	
-    	--因为加载资源是从tick中加载的   所以延迟几秒  
-    	self:performWithDelay(function()
-    		self:scheduleUpdate(function(dt) self:tick(dt) end)
-    	end,1.5)
+
+    --因为加载资源是从tick中加载的   所以延迟几秒  
+    self:performWithDelay(function()
+        self:addNodeEventListener(cc.NODE_ENTER_FRAME_EVENT, function(dt)
+           self:tick(dt)
+        end)
+        self:scheduleUpdate()
+    end, 1.5)
 end
+
+
+
+
+
 
 
 
@@ -572,28 +566,39 @@ end
 
 
 
-
-
-
-
-
 --[[--
 场景销毁
 ]]
 function BaseScene:onCleanup()
 	self:unscheduleUpdate();
-	display.removeUnusedSpriteFrames()
+	self.uiLayer_ = nil;
+
+--	--释放背景音乐
+--	if self.backgroundMusicArr_ then 
+--		for k, v in paris(self.backgroundMusicArr_) do
+--			audio.stopBackgroundMusic(v);
+--			--audio.stopBackgroundMusic();
+--			audio.unloadSound(v);
+--		end
+--	end
 	
+	
+--	if device.platform ~= "windows" then
+--        self:removeAllChildren()
+		display.removeUnusedSpriteFrames()
+		collectgarbage("collect")
+		collectgarbage("collect")
+		
+--		CCSpriteFrameCache:sharedSpriteFrameCache():removeSpriteFrames()
+--     	CCTextureCache:sharedTextureCache():removeAllTextures()
+		
+		
+--	end
 --	CCActionManager:sharedManager():removeAllActions();--强制停止动画
 --	CCTextureCache:sharedTextureCache():removeAllTextures() --释放以前的资源
 	CCLabelBMFont:purgeCachedData();--释放位图字体
 	
-	--卸载音乐
-	if self.sceneSound_ then 
-		audio.stopBackgroundMusic(self.sceneSound_);
-		--audio.stopBackgroundMusic();
-		audio.unloadSound(self.sceneSound_);
-	end
+	
 	
 	
 --	如果游戏有很多场景，在切换场景的时候可以把前一个场景的内存全部释放，防止总内存过高.
@@ -612,6 +617,10 @@ function BaseScene:onCleanup()
 	
 --	CCTextureCache:sharedTextureCache():removeAllTextures() --释放以前的资源
 --	CCLabelBMFont:purgeCachedData();--释放位图字体
+
+--		把所有图片的texture设置下setAliasTexParameters就不会模糊了
+--		setAntiAliasTexParameters
+--		默认不是RGBA8888
 end
 
 

@@ -2,7 +2,7 @@
 
 SET CUR_DIR=%~dp0
 
-SET EXE_DIR=%CUR_DIR%\proj.win32\Debug\stuntpilot-player.exe
+SET EXE_DIR=%CUR_DIR%\proj.win32\Debug\stuntpilot.exe
 SET WORK_DIR=%CUR_DIR%
 SET FILE=%CUR_DIR%\scripts\main.lua
 SET SIZE=960x640

@@ -231,7 +231,7 @@ local StringUtil = {
 			return nil, "the string parameter is nil"
 		end
 		ch = ch or " "
-		n = tonumber(n) or 0
+		n = checknumber(n) or 0
 		local len = string.len(str)
 		return string.rep(ch, n - len) .. str
 	end,
@@ -240,7 +240,7 @@ local StringUtil = {
 			return nil, "the string parameter is nil"
 		end
 		ch = ch or " "
-		n = tonumber(n) or 0
+		n = checknumber(n) or 0
 		local len = string.len(str)
 		return str .. string.rep(ch, n - len)
 	end,
@@ -249,7 +249,7 @@ local StringUtil = {
 			return nil, "the string parameter is nil"
 		end
 		ch = ch or " "
-		n = tonumber(n) or 0
+		n = checknumber(n) or 0
 		local len = string.len(str)
 		rn_tmp = math.floor((n - len) / 2)
 		ln_tmp = n - rn_tmp - len

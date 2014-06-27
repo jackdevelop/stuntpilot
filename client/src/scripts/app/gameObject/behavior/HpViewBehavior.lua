@@ -18,7 +18,7 @@ function HpViewBehavior:bind(object)
     object:bindMethod(self, "getMaxHp", getMaxHp)
 
     local function setMaxHp(object, maxHp)
-        maxHp = toint(maxHp)
+        maxHp = checkint(maxHp)
         assert(maxHp > 0, string.format("HpViewBehavior.setMaxHp() - invalid maxHp %s", tostring(maxHp)))
         object.maxHp_ = maxHp
     end
@@ -30,7 +30,7 @@ function HpViewBehavior:bind(object)
     object:bindMethod(self, "getHp", getHp)
 
     local function setHp(object, hp)
-        hp = tonumber(hp)
+        hp = checknumber(hp)
         assert(hp >= 0 and hp <= object.maxHp_,
                string.format("HpViewBehavior.setHp() - invalid hp %s", tostring(hp)))
         object.hp_ = hp
@@ -40,7 +40,7 @@ function HpViewBehavior:bind(object)
     object:bindMethod(self, "setHp", setHp)
 
     local function decreaseHp(object, amount)
-        amount = tonumber(amount)
+        amount = checknumber(amount)
         assert(amount >= 0, string.format("HpViewBehavior.decreaseHp() - invalid amount %s", tostring(amount)))
         object.hp_ = object.hp_ - amount
         if object.hp_ <= 0 then
@@ -51,7 +51,7 @@ function HpViewBehavior:bind(object)
     object:bindMethod(self, "decreaseHp", decreaseHp)
 
     local function increaseHp(object, amount)
-        amount = tonumber(amount)
+        amount = checknumber(amount)
         assert(amount >= 0, string.format("HpViewBehavior.increaseHp() - invalid amount %s", tostring(amount)))
         object.hp_ = object.hp_ + amount
         if object.hp_ >= object.maxHp_ then
@@ -141,7 +141,7 @@ function HpViewBehavior:unbind(object)
 end
 
 function HpViewBehavior:reset(object)
-    object.maxHp_      = toint(object.state_.maxHp)
+    object.maxHp_      = checkint(object.state_.maxHp)
 
     if object.maxHp_ < 1 then object.maxHp_ = 1 end
     object.hp_        = object.maxHp_

@@ -73,13 +73,13 @@ function AnimationCache:initData(name,param)
 	
 	
 
-    self.zorder_  = toint(self.zorder_)
-    self.offsetX_ = toint(self.offsetX_)
-    self.offsetY_ = toint(self.offsetY_)
-    self.delay_   = tonum(self.delay_)
+    self.zorder_  = checkint(self.zorder_)
+    self.offsetX_ = checkint(self.offsetX_)
+    self.offsetY_ = checkint(self.offsetY_)
+    self.delay_   = checknumber(self.delay_)
     self.actions_ = {}
 
-    self.scale_    = tonum(self.scale_)
+    self.scale_    = checknumber(self.scale_)
     if self.scale_ == 0 then
         self.scale_ = 1
     end
@@ -125,7 +125,7 @@ function AnimationCache:createView(batch)
 	batch:addChild(self.sprite_)
 --	self.sprite_:registerScriptHandler(function(event)
 	self.sprite_:addNodeEventListener(cc.NODE_EVENT,function(event) 
-        if event == "exit" then
+        if event.name == "exit" then
             self:release()
         end
     end)

@@ -5,7 +5,7 @@
  	
  	创建不可点击的层
 	使用：
-	local c = SpriteCover:createCoverSprite()
+	local c = SpriteCover.createCoverSprite()
      self:addChild(c);
  	
  
@@ -13,7 +13,9 @@
  * $Id:$
  * @version 1.0
 ]]
-local SpriteCover = class("SpriteCover");
+local SpriteCover = {}--class("SpriteCover");
+
+
 
 
 
@@ -26,16 +28,41 @@ local SpriteCover = class("SpriteCover");
 @param stopRect  阻止事件穿透
 @param color 
 ]]
-function SpriteCover:createCoverSprite(stopRect,color)
+function SpriteCover.createCoverSprite(stopRect,color)
 	if not stopRect then 
 		stopRect = CCRect(0, 0, display.width, display.height)
 	end
 	
-	local cover = SpriteButton:newButton();
+	local cover = SpriteButton.newButton({isPress = true});
 	cover:setCascadeBoundingBox(stopRect)
-	--cover:setColor(ccc3(255, 255, 0 ))
+	cover:setTouchSwallowEnabled(true)
+	cover:setColor(ccc3(255, 125, 0 ))
 	
 	return cover
+end
+
+
+
+
+
+
+
+
+
+
+--[[
+当项目中使用了cocostudio编辑ui时   优先统一使用SpriteCover.createCCSCoverSprite() 创建遮罩
+创建ccs遮罩
+不需要添加 
+	删除时：PopUpManager:deletePopUp(popUp)；
+]]
+function SpriteCover.createCCSCoverSprite()
+	local SpriteCoverCCSHandle  = require("client.view.ccs.handle.SpriteCoverCCSHandle");
+	local spriteCoverCCSHandle = SpriteCoverCCSHandle.new();
+	local ui = spriteCoverCCSHandle:init()
+	
+	
+	return ui
 end
 
 
@@ -57,7 +84,7 @@ end
 --@param  passRect: rect内不拦截(相对于cover内坐标)
 --@return CCLayer
 -- ]]
---function SpriteCover:createCoverSprite(func,passFun,passRectArr)
+--function SpriteCover.createCoverSprite(func,passFun,passRectArr)
 --	local _layer =display.newLayer();
 --	local _doNothing = function(eventType, x, y)
 --		if(eventType=="began") then
