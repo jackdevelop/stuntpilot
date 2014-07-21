@@ -2,4 +2,35 @@
 星界传说　　悍将传世　　摩卡幻想　　
 
 http://cn.cocos2d-x.org/tutorial/show?id=784
-不管什么层级的节点都会自动SpriteBatchNode，因为现在描绘已经不是在每个节点中自己调用描绘了，而是每个节点向一个统一描绘的对象发出描绘申请，那个唯一的描绘对象会每一次进行排序处理，把相同纹理的一次性描绘，所以相对于手动来说，效能的降低在排序上，当然相对于描绘的消耗，排序简直微乎其微了。 
+不管什么层级的节点都会自动SpriteBatchNode，因为现在描绘已经不是在每个节点中自己调用描绘了，而是每个节点向一个统一描绘的对象发出描绘申请，那个唯一的描绘对象会每一次进行排序处理，把相同纹理的一次性描绘，所以相对于手动来说，效能的降低在排序上，当然相对于描绘的消耗，排序简直微乎其微了。
+
+
+
+
+
+
+
+
+官方ccs动画ccobject数量之多 是个坑  
+ 在此记录
+armature的嵌套比较多
+armature下面有bones,每个bones有display,有movement,每个movement又有movementdata..
+movementdata又有movementBonedata
+movementBonedata下面还有frameData
+一个armature,一帧动画,一个骨骼,就有7个ccobject会被创建
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

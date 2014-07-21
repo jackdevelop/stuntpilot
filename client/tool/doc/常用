@@ -1,6 +1,12 @@
 --git使用
 前期获取
 	 安装 git 工具，然后下载 CreativeProject 仓库：
+	
+	 配置用户信息，你个人的用户名称和电子邮件地址，用户名可随意修改，git 用于记录是谁提交了更新，以及更新人的联系方式。
+	$ git config --global user.name "Donly Chan"
+	$ git config --global user.email donly@example.com
+
+	 
 	git clone   https://github.com/jackdevelop/stuntpilot.git
 				git://github.com/iyou/CreativeProject.git  --这是克隆别人的
 			  
@@ -11,6 +17,9 @@
 
  环境变量：
  E:\cocos2d-x+lua\lua\item\engin\git\devel\quick-cocos2d-x\
+player 命令行启动不要debug console是附带什么参数 
+-disable-debug-console
+-disable-console
 
 
 
@@ -43,7 +52,8 @@ http://zengrong.net/post/1454.htm 将图像的透明区域转换为ALPHA通道�
 http://www.csdn123.com/html/itweb/20131021/178352.htm
 --cocos2d-x android平台切入后台纹理失效的解决方法
 http://blog.csdn.net/langresser_king/article/details/8659538
-
+--lua源码欣赏
+http://www.codingnow.com/temp/readinglua.pdf
 
 
 
@@ -56,8 +66,7 @@ http://blog.csdn.net/langresser_king/article/details/8659538
 
 
 友情分享一个坑，尽量不要在场景的ctor中使用闭包，此时闭包中捕获的self变量可能和实际运行时不是一个self
-
-
+CascadeBoundingBox 不但包含自己的大小，还有子对象占用的尺寸   contentSize只是自己的大小
 setTouchSwallowEnabled(true) 的 node，在响应触摸后就会阻止触摸往下层 node 传递。false 则不阻止。
 setTouchCaptureEnabled(true) 表示该 node 及其所有 child 都不响应触摸。
 比如对话框是一个 node，里面一堆 button。对话框 node:setTouchCaptureEnabled(false) 以后，整个对话框都不响应触摸了。不用像以前那样去禁用对话框里每一个 button

@@ -45,34 +45,41 @@ function BaseScene:ctor(param)
 		audio.playMusic(self.sceneSound_);
 	end
 	
+	
+	
+	
 	-- mapLayer 包含地图的整个视图
     self.mapLayer = display.newNode()
     self.mapLayer:align(display.LEFT_BOTTOM, 0, 0)
     self:addChild(self.mapLayer)
 
+
+
+	self.backgroundLayer_ = display.newNode();
+	self:addChild(self.backgroundLayer_); 
     
     
     
 	--添加背景
 	if backgroundImageName then 
 		CCTexture2D:setDefaultAlphaPixelFormat(kCCTexture2DPixelFormat_RGB565)
-	    self.backgroundSprite_ = display.newSprite(backgroundImageName)
+	    local sprite = display.newSprite(backgroundImageName)
 	    CCTexture2D:setDefaultAlphaPixelFormat(kCCTexture2DPixelFormat_RGBA8888)
 	    local function backGroundSpriteHandle(event)
 	    	if event.name == "exit" then
 	            display.removeSpriteFrameByImageName(backgroundImageName)
 	        end
 	    end
-		self.backgroundSprite_:addNodeEventListener(cc.NODE_EVENT,backGroundSpriteHandle)-- 地图对象删除时，自动从缓存里卸载地图材质
+		sprite:addNodeEventListener(cc.NODE_EVENT,backGroundSpriteHandle)-- 地图对象删除时，自动从缓存里卸载地图材质
 	    
 	    --if width then self.backgroundSprite_:setContentSize(CCSize(width,height)); end
-		local contentSize=self.backgroundSprite_:getContentSize();
+		local contentSize=sprite:getContentSize();
 		if not width then
 			width = contentSize.width;
 			height= contentSize.height;
 		end
-		self.backgroundSprite_:align(display.LEFT_BOTTOM, 0, 0)
-	    self.mapLayer:addChild(self.backgroundSprite_)
+		sprite:align(display.LEFT_BOTTOM, 0, 0)
+	    self.backgroundLayer_:addChild(sprite)
     end
     
     
@@ -214,7 +221,7 @@ end
 返回背景图
 ]]
 function BaseScene:getBackgroundLayer()
-    return self.backgroundSprite_
+    return self.backgroundLayer_
 end
 
 
@@ -229,7 +236,7 @@ end
 --[[--
 通过制定的layerName获取层
 ]]
-function BaseScene:getLayerByParentLayerName(parentLayerName)
+function BaseScene:getLayerBySceneLayerName(parentLayerName)
 	local currentLayer ;
 	
 	if parentLayerName == SceneConstants.FLOORS_LAYER then --地板层
@@ -242,15 +249,13 @@ function BaseScene:getLayerByParentLayerName(parentLayerName)
 		currentLayer = self:getUILayer()
 	elseif parentLayerName == SceneConstants.LOADING_LAYER then --地图的loading层
 		currentLayer = self:getLoadingLayer()
-	elseif parentLayerName == SceneConstants.tipLayer then --tips层
+	elseif parentLayerName == SceneConstants.TIP_LAYER then --tips层
 		currentLayer = self:getTipLayer()
 	else
 		currentLayer = self:getBatchLayer()
 	end
 	return currentLayer;
 end
-
-
 
 
 
