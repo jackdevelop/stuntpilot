@@ -13,6 +13,9 @@
 后期维护  
  git pull origin master
   并使用git gui  依次点击 重新扫描》缓动改动》提交》上传
+	
+	git stash
+	新加的文件还在，但所有的修改都会抹去
 
 
  环境变量：
