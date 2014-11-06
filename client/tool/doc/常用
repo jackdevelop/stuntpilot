@@ -16,6 +16,10 @@
 	
 	git stash
 	新加的文件还在，但所有的修改都会抹去
+	
+	撤销当前本地的修改
+	1. git clean -df
+	2. git reset --hard
 
 
  环境变量：
