@@ -1,0 +1,31 @@
+
+
+---不加密
+
+set DIR=%~dp0
+%DIR%win32\php.exe %DIR%/lib/compile_scripts.php  -zip  -p "" F:\workspace\lua\TowerDefense\homeland\scripts\ game
+
+
+pause;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--加密
+set DIR=%~dp0
+%DIR%win32\php.exe %DIR%/lib/compile_scripts.php  -zip  -p "" F:\workspace\lua\TowerDefense\homeland\scripts\ game  -e xxtea_zip -ek aaa -es XT
+
+
+pause;

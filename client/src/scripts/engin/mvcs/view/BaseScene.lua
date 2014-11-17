@@ -56,7 +56,7 @@ function BaseScene:ctor(param)
 
 
 	self.backgroundLayer_ = display.newNode();
-	self:addChild(self.backgroundLayer_); 
+	self.mapLayer:addChild(self.backgroundLayer_); 
     
     
     
@@ -80,6 +80,7 @@ function BaseScene:ctor(param)
 		end
 		sprite:align(display.LEFT_BOTTOM, 0, 0)
 	    self.backgroundLayer_:addChild(sprite)
+	    self.backgroundSprite_ = sprite
     end
     
     

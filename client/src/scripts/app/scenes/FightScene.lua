@@ -84,7 +84,6 @@ function FightScene:createCCParallax()
 	display.newSprite("#ground_png.png")
 	:align(display.LEFT_BOTTOM, 1150*2, 0)
 	:addTo(batch)
-	
 end
 
 
