@@ -255,6 +255,8 @@ function MapCamera:setOffset(x, y, movingSpeed, onComplete)
 
     local x, y = display.pixels(x, y)
     self.offsetX_, self.offsetY_ = x, y
+    
+    self:tick()
 --    if backgroundLayer then
 --        transition.stopTarget(backgroundLayer)
 --    end
@@ -421,9 +423,6 @@ function MapCamera:tick(dt)
 		
 		self:setOffset(-_zeroX, -_zeroY);
 	end
-	
-	
-	
 	
 	
 	

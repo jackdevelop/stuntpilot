@@ -40,14 +40,14 @@ function FightController:init()
 	end
 	
 
-
+	--飞机
 	local state = {
 		defineId = "p1_cart",
+		isFocus = true,--主角 
 		x = 0,--display.width,
 		y = display.cy
 	}
 	self.plane = self.model_:newObject(BaseObject.CLASS_ID["role"], state)
-	self.model_:setFocusObject(self.plane);
 end
 
 

@@ -116,6 +116,24 @@ end
 @return string
 ]]
 function getObjectVal(obj)
+    if type(obj) == "table" then
+        local status, jsonStr = pcall(json.encode, obj)
+        if status and jsonStr ~= nil then
+            return jsonStr
+        elseif jsonStr == nil then
+            local arr = {}
+            for k, v in pairs(obj) do
+                if type(v) ~= "boolean" and type(v) ~= "number" and type(v) ~= "string" then
+                    arr[k] = tostring(v)
+                else
+                    arr[k] = v
+                end
+            end
+            return json.encode(arr)
+        else
+            return tostring(obj)
+        end
+    end
     if tolua == nil then
         return tostring(obj)
     end
@@ -140,7 +158,6 @@ function getObjectVal(obj)
     arr.type = type_
     return json.encode(arr)
 end
-
 --function print_r(sth)
 -- if type(sth) ~= "table" then
 -- print(sth)

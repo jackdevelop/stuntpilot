@@ -157,17 +157,17 @@ function FightModel:getFocusObject()
     return self.focusObject_;
 end
 function FightModel:setFocusObject(object)
-	if self.focusObject_ == object then return end
-	
-	if 	self.focusObject_ then
-		self.focusObject_:setFocus(false);
-	end
-	object:setFocus(true);
+--	if self.focusObject_ == object then return end
+--	
+--	if 	self.focusObject_ then
+--		self.focusObject_:setFocus(false);
+--	end
+--	object:setFocus(true);
     self.focusObject_ = object;
-    
-    
-    local mapCamera = self.controller_.scene_:getCamera()
-	mapCamera:setFocus(object)
+--    
+--    
+--    local mapCamera = self.controller_.scene_:getCamera()
+--	mapCamera:setFocus(object)
 end
 
 return FightModel

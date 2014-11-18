@@ -221,30 +221,21 @@ function MovableBehavior:bind(object)
 	    	
 	    	local targetx,targety;
 	    	if object:isFocus() then
-	    		
-	    		local halfWidth = math.floor(display.width/2); --display.width>>1
-				local halfHeight = math.floor(display.height/2);
+	    		local halfWidth =  display.cx;--math.floor(display.width/2); --display.width>>1
+				local halfHeight = display.cy --math.floor(display.height/2);
 	    		
 	    		if x < halfWidth then 
 	    			targetx = x;
+	    		elseif x >  maxX - halfWidth then
+	    			targetx = x;
 	    		else
-	    			targetx = x--halfWidth;
+	    			targetx = x --halfWidth;
+	    			local mapCamera = model.controller_.scene_:getCamera()
+	    			local offestX = object.x_ -x
+	    			mapCamera:moveOffset(offestX,0);
 	    		end
 	    		
-	    		if y < halfHeight then 
-	    			targety = y;
-	    		else
-	    			targety = y-- halfHeight;
-	    		end
-	    		
-	    		
---	    		if x > maxX - halfWidth then
---	    			targetx = x - (maxX - display.width);
---	    		end
---	    		
---	    		if y > maxY - halfHeight then
---	    			targety = y - (maxY - display.height);
---	    		end
+	    		targety = y;
 	    	else
 	    		--将地图坐标转换为屏幕坐标 
 	    		targetx,targety=x,y;--model.controller_.scene_:getCamera():convertToScreenPosition(object.x_,object.y_);
@@ -254,10 +245,7 @@ function MovableBehavior:bind(object)
 	    end
 	    
 	    
-	    
-	    
 		runPos(object,x,y);
-		
 		
 		
 		

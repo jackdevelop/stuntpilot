@@ -9,7 +9,8 @@
  * $Id:$
  * @version 1.0
 ]]
-local MapCamera = require("engin.util.camera.MapCamera")
+--local MapCamera = require("engin.util.camera.MapCamera")
+local SceneMapCamera = require("engin.util.camera.SceneMapCamera") 
 
 local BaseScene = class("BaseScene", function()
     return display.newScene("BaseScene")
@@ -28,17 +29,17 @@ BaseScene的构造函数
 ]]
 function BaseScene:ctor(param)
 	if not param then param = {} end
-	local backgroundImageName = param.backgroundImageName;
+	local backgroundImageName = param.backgroundImageName;--近景的背景图片
+	local parallaxImageName = param.parallaxImageName;--远景的图片
 	local width = param.width;
 	local height = param.height;
 	local sceneName = param.sceneName;
-	local touchMode =param.touchMode;
 	local batchNodeImage = param.batchNodeImage;
 	 
-	self.sceneSound_ = param.sceneSound
+	self.sceneSound_ = param.sceneSound --当前场景的声音
 	self.currentSceneName_ = sceneName;--场景名称
-	self.touchMode_=touchMode;--触摸flag
-
+	self.touchMode_= param.touchMode  or cc.TOUCH_MODE_ONE_BY_ONE;--触摸flag   多点 cc.TOUCH_MODE_ALL_AT_ONCE               cc.TOUCH_MODE_ONE_BY_ONE 单点触摸
+	self.touchEnabled_ = param.touchEnabled 
 
 	--播放场景的背景音乐
 	if self.sceneSound_ then
@@ -47,43 +48,56 @@ function BaseScene:ctor(param)
 	
 	
 	
+	--添加背景的局部函数
+	local function addImage(currentParent,currentImageName)
+		if currentImageName then 
+			CCTexture2D:setDefaultAlphaPixelFormat(kCCTexture2DPixelFormat_RGB565)
+		    local sprite = display.newSprite(currentImageName)
+		    CCTexture2D:setDefaultAlphaPixelFormat(kCCTexture2DPixelFormat_RGBA8888)
+		    local function backGroundSpriteHandle(event)
+		    	if event.name == "exit" then
+		            display.removeSpriteFrameByImageName(currentImageName)
+		        end
+		    end
+			sprite:addNodeEventListener(cc.NODE_EVENT,backGroundSpriteHandle)-- 地图对象删除时，自动从缓存里卸载地图材质
+		    
+		    --[[
+		    if width then self.backgroundSprite_:setContentSize(CCSize(width,height)); end
+			local contentSize=sprite:getContentSize();
+			if not width then
+				width = contentSize.width;
+				height= contentSize.height;
+			end
+			]]
+			
+			sprite:align(display.LEFT_BOTTOM, 0, 0)
+		    currentParent:addChild(sprite)
+		   
+		    
+		    return sprite;
+	    end
+    end
+	
+		
 	
 	-- mapLayer 包含地图的整个视图
     self.mapLayer = display.newNode()
     self.mapLayer:align(display.LEFT_BOTTOM, 0, 0)
     self:addChild(self.mapLayer)
 
+	
+	
+	--远景  中景  不可移动的层 可以加到这一层 
+	self.parallaxLayer_ = display.newNode(); 
+	self.mapLayer:addChild(self.parallaxLayer_); 
+	local spt = addImage(self.parallaxLayer_,parallaxImageName);
+	GameUtil.spriteFullScreen(spt)
+	 
 
-
+	
+	--背景
 	self.backgroundLayer_ = display.newNode();
 	self.mapLayer:addChild(self.backgroundLayer_); 
-    
-    
-    
-	--添加背景
-	if backgroundImageName then 
-		CCTexture2D:setDefaultAlphaPixelFormat(kCCTexture2DPixelFormat_RGB565)
-	    local sprite = display.newSprite(backgroundImageName)
-	    CCTexture2D:setDefaultAlphaPixelFormat(kCCTexture2DPixelFormat_RGBA8888)
-	    local function backGroundSpriteHandle(event)
-	    	if event.name == "exit" then
-	            display.removeSpriteFrameByImageName(backgroundImageName)
-	        end
-	    end
-		sprite:addNodeEventListener(cc.NODE_EVENT,backGroundSpriteHandle)-- 地图对象删除时，自动从缓存里卸载地图材质
-	    
-	    --if width then self.backgroundSprite_:setContentSize(CCSize(width,height)); end
-		local contentSize=sprite:getContentSize();
-		if not width then
-			width = contentSize.width;
-			height= contentSize.height;
-		end
-		sprite:align(display.LEFT_BOTTOM, 0, 0)
-	    self.backgroundLayer_:addChild(sprite)
-	    self.backgroundSprite_ = sprite
-    end
-    
-    
     
     
     
@@ -103,7 +117,6 @@ function BaseScene:ctor(param)
     self.floorsLayer_=display.newNode()
     self.mapLayer:addChild(self.floorsLayer_)--底层 
     
-    
    
 	if batchNodeImage then
     	self.batch_ = display.newBatchNode(batchNodeImage)
@@ -112,7 +125,7 @@ function BaseScene:ctor(param)
     end
     self.mapLayer:addChild(self.batch_)--渲染层
     
-    
+ 
     
     self.flysLayer_ = display.newNode() --飞行层
 	self.mapLayer:addChild(self.flysLayer_)
@@ -128,7 +141,7 @@ function BaseScene:ctor(param)
 --  self.mapLayer:addChild(debug);
     
     
---      self.uiLayer_ = display.newBatchNode(batchNodeImage)
+  	--self.uiLayer_ = display.newBatchNode(batchNodeImage)
     self.uiLayer_ = display.newLayer();
     self.mapLayer:addChild(self.uiLayer_);--ui层
     
@@ -144,7 +157,7 @@ function BaseScene:ctor(param)
 	
 	
 	-- 计算地图位移限定值
-    self.camera_ = MapCamera.new(self)
+    self.camera_ = SceneMapCamera.new(self)
     self.camera_:resetOffsetLimit()
 	self.camera_:setMargin(0, 0, 0, 0)
 	
@@ -288,7 +301,6 @@ end
 
 
 
-
 --[[--
 返回地图尺寸
 ]]
@@ -325,226 +337,28 @@ end
 
 
 --[[--
-	触摸事件 
-]]
-function BaseScene:onTouch(event, x, y)
-	if event == "began" then
-		self.drag = {
-			startX  = x,
-			startY  = y,
-			lastX   = x,
-			lastY   = y,
-			offsetX = 0,
-			offsetY = 0,
-			moveOffsetX  = 0,
-			moveOffsetY  = 0,
-            time = 0,
-		}
-		self:touchBegan(event,x,y);
-		return true
-        -- return cc.TOUCH_BEGAN_NO_SWALLOWS
-	elseif event == "moved" then
-		if self.drag then
-			self.drag.offsetX = x - self.drag.lastX
-			self.drag.offsetY = y - self.drag.lastY
-			self.drag.lastX = x
-			self.drag.lastY = y
-            local canMove = (not self.touchBuildView) or (self.touchBuildView and (not self.touchBuildView:isMoveAble()))
-			if canMove and Math2d.dist(self.drag.lastX, self.drag.lastY, self.drag.startX, self.drag.startY) >= 4 then
-				self.drag.moved = true -- 设置移动中标志
-				self:getCamera():moveOffset(self.drag.offsetX, self.drag.offsetY)
-			end
-		end
-		self:touchMoved(event,x,y);
-        return true
-        -- return cc.TOUCH_MOVED_RELEASE_OTHERS
-	else
-        if self.drag and self.drag.moved then
-            local offsetX = self.drag.lastX - self.drag.startX
-            local offsetY = self.drag.lastY - self.drag.startY
-            local s = Math2d.dist(self.drag.lastX, self.drag.lastY, self.drag.startX, self.drag.startY)
-            if s > 10 and offsetX ~= 0 and offsetY ~= 0 and self.drag.time >= 0.000000001 then
-                local v = s / self.drag.time -- 滑动速度(假定是匀速滑动,v = s / t)
-                local t = 0.75 -- 匀减速滑动时间(可调整)
-                local a = v / t -- 匀减速的加速度(vt = v0 - a * t, vt = 0)
-                -- local s2 = v * t - 0.5 * a * t * t -- 匀减速滑动距离(s = v0 * t - 1 / 2 * a * t ^ 2)
-                self.tween = {
-                    s = s,
-                    v = v,
-                    t = t,
-                    a = a,
-                    offsetX = offsetX,
-                    offsetY = offsetY,
-                    lastOffsetX = offsetX,
-                    lastOffsetY = offsetY,
-                    time = 0,
-                }
-            end
-        end
-		self:touchCancle(event,x,y);
-		self.drag = nil
-	end
-end
-
---[[
-多点触摸处理
-@param string event began/moved/ended/cancelled
-@param array points 形如:{point0, point1, ..., pointN}
-
-其中每一个触摸点的值包含：
-point.x, point.y 触摸点的当前位置
-point.prevX, point.prevY 触摸点之前的位置
-point.id 触摸点 id，用于确定触摸点的变化
-]]
-function BaseScene:multiTouchHandle(event, points)
-    if event == "began" then -- 立即取消缓动特效
-        self.tween = nil
-    end
-    local pointArr = {}
-    for k, v in pairs(points) do
-        if v.id - 2 <= 0 then
-            pointArr[v.id] = {x = v.x, y = v.y}
-            self.pointArr_[v.id] = {x = v.x, y = v.y}
-        end
-    end
-    local touchPointNum = table.nums(self.pointArr_)
-    if touchPointNum == 1 and points["0"] then -- 只按下了一个触点时
-        return self:onTouch(event, points["0"].x, points["0"].y)
-    elseif not self.multiTouch_ then
-        self.pointArr_ = {}
-        return
-    end
-
-    if event == "began" then
-        if self.drag then -- 多点的时候，强制取消拖动
-            self:touchCancle(event, self.pointArr_["0"].x, self.pointArr_["0"].y);
-            self.drag = nil
-        end
-        if self.pointArr_["0"] and self.pointArr_["1"] and pointArr["1"] then
-            local p1, p2 = self.pointArr_["0"], self.pointArr_["1"]
-            local dist = Math2d.dist(p1.x, p1.y, p2.x, p2.y) -- 两触点间的距离
-            local midScreenX, midScreenY = (p1.x + p2.x) / 2, (p1.y + p2.y) / 2
-            self.lastZoomInfo_ = { -- 保存起来
-                mid = {x = midScreenX, y = midScreenY},
-                dist = dist,
-                startDist = dist, -- 起始间距
-            };
-        end
-        
-        self:multiTouchBegan(event);
-    elseif event == "moved" then
-        if self.multiTouch_ and self.pointArr_["0"] and self.pointArr_["1"] then -- 缩放时只取前两个触点（需开启多点触摸）
-            local p1, p2 = self.pointArr_["0"], self.pointArr_["1"]
-            local dist = Math2d.dist(p1.x, p1.y, p2.x, p2.y) -- 两触点间的距离
-            local lastDist, lastMid
-            if self.lastZoomInfo_ then
-                lastDist = self.lastZoomInfo_.dist
-                lastMid = self.lastZoomInfo_.mid
-            end
-            
-            local midScreenX, midScreenY = (p1.x + p2.x) / 2, (p1.y + p2.y) / 2
-            self.lastZoomInfo_ = { -- 保存起来
-                mid = {x = midScreenX, y = midScreenY},
-                dist = dist,
-            };
-            if self.lastZoomInfo_.startDist == nil then
-               self.lastZoomInfo_.startDist = dist
-            end
-            
-            if lastDist then
-                local scale1 = self:getCamera():getScale()
-                local minScale = self:getCamera():getMinScale()
-                local maxScale = self:getCamera():getMaxScale()
-                local scale2 = math.min(maxScale, math.max(minScale, scale1 * (dist / lastDist)))
-                self:getCamera():setScale(scale2)
-                local posX, posY = self:getCamera():getOffset()
-                local newPosX = lastMid.x - (lastMid.x - posX) / scale1 * scale2
-                local newPosY = lastMid.y - (lastMid.y - posY) / scale1 * scale2
-                self:getCamera():moveOffset(newPosX - posX, newPosY - posY)
-            end
-        end
-        
-    else
-        if pointArr["0"] or pointArr["1"] then -- 0/1任意一个触点ended/cancelled的，便取消缩放
-            self.lastZoomInfo_ = nil
-            self.pointArr_ = {}
-        end
-    end
-end
-
-
-
-
-
-
-function BaseScene:multiTouchBegan(event)
-end
-function BaseScene:touchBegan(event, x, y)
-end
-
-function BaseScene:touchMoved(event, x, y)
-end
-function BaseScene:touchCancle(event, x, y)
-end
-
-
-
-
-
-
-
-
-
---[[--
-tick帧更新事件
-]]
-function BaseScene:tick(dt)
-    if self.drag then
-        self.drag.time = self.drag.time + dt
-    end
-    if self.tween then -- 滑动缓动效果处理
-        self.tween.time = self.tween.time + dt
-        local t2 = math.min(self.tween.t, self.tween.time)
-        local t = self.tween
-        local s2 = t.v * t2 - 0.5 * t.a * t2 * t2
-        local scale = (t.s + s2) / t.s
-        local offsetX = t.offsetX * scale
-        local offsetY = t.offsetY * scale
-        local deltaX = offsetX - self.tween.lastOffsetX
-        local deltaY = offsetY - self.tween.lastOffsetY
-        self:getCamera():moveOffset(deltaX, deltaY)
-        if self.tween.time >= self.tween.t then
-            self.tween = nil
-        else
-            self.tween.lastOffsetX = offsetX
-            self.tween.lastOffsetY = offsetY
-        end
-    end
-end
-
---[[--
 进入场景
 ]]
 function BaseScene:onEnter()
-    if self.touchLayer_ then
+    if self.touchEnabled_ then
         -- @see https://github.com/chukong/quick-cocos2d-x/blob/develop/docs/UPGRADE_TO_2_2_3.md
         self.touchLayer_:addNodeEventListener(
             cc.NODE_TOUCH_EVENT,
             function(event)
-                return self:multiTouchHandle(event.name, event.points)
+                if self.touchMode_ == cc.TOUCH_MODE_ONE_BY_ONE then--单点
+					return self:onTouch(event)					
+				end
             end
         )
         -- 如果当前 node 响应了触摸，是否吞噬触摸事件（阻止事件继续传递）
         self.touchLayer_:setTouchSwallowEnabled(false)
-         -- 触点一次性传入
-        self.touchLayer_:setTouchMode(cc.TOUCH_MODE_ALL_AT_ONCE)
+      	self.touchLayer_:setTouchMode(self.touchMode_) -- 多点 cc.TOUCH_MODE_ALL_AT_ONCE cc.TOUCH_MODE_ONE_BY_ONE 单点触摸
         self.touchLayer_:setTouchEnabled(true)
     end 
 
 --     --分发进入场景事件
 --    local flowData = FlowData.new(GameFlowConstants.ENTER_SCENE,{sceneName = self.sceneName_,scene=self});
 --    GameFlow:push(flowData);
-    
 
     --因为加载资源是从tick中加载的   所以延迟几秒  
     self:performWithDelay(function()
@@ -560,17 +374,81 @@ end
 
 
 
+--[[--
+	触摸事件 
+]]
+function BaseScene:onTouch(event)
+	local eventName = event.name; --event.name 是触摸事件的状态：began, moved, ended, cancelled
+	local x, y = event.x, event.y --是触摸点当前位置
+ 	local prevX,prevY = event.prevX, event.prevY --是触摸点之前的位置
+
+	if eventName == "began" then
+		self.drag = {
+			startX  = x,
+			startY  = y,
+			lastX   = x,
+			lastY   = y,
+			offsetX = 0,
+			offsetY = 0,
+			moveOffsetX  = 0,
+			moveOffsetY  = 0,
+            time = 0,
+		}
+		self:touchBegan(event,x,y);
+		return true
+	elseif eventName == "moved" then
+		if self.drag then
+			self.drag.offsetX = x - self.drag.lastX
+            self.drag.offsetY = y - self.drag.lastY
+            self.drag.lastX = x
+            self.drag.lastY = y
+            self:getCamera():moveOffset(self.drag.offsetX, self.drag.offsetY)
+		end
+		self:touchMoved(event,x,y);
+        return true
+	else
+		self:touchCancle(event,x,y);
+		self.drag = nil
+		return true
+	end
+end
+
+
+function BaseScene:touchBegan(event, x, y)
+end
+function BaseScene:touchMoved(event, x, y)
+end
+function BaseScene:touchCancle(event, x, y)
+end
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--[[--
+ 场景帧刷新
+]]
+function BaseScene:tick(dt)
+end
 
 --[[--
 	退出
 ]]
 function BaseScene:onExit()
 end
-
-
 
 --[[--
 场景销毁
@@ -628,6 +506,144 @@ function BaseScene:onCleanup()
 --		setAntiAliasTexParameters
 --		默认不是RGBA8888
 end
+
+
+----[[
+--多点触摸处理
+--@param string event began/moved/ended/cancelled
+--@param array points 形如:{point0, point1, ..., pointN}
+--
+--其中每一个触摸点的值包含：
+--point.x, point.y 触摸点的当前位置
+--point.prevX, point.prevY 触摸点之前的位置
+--point.id 触摸点 id，用于确定触摸点的变化
+--]]
+--function BaseScene:multiTouchHandle(event, points)
+--    if event == "began" then -- 立即取消缓动特效
+--        self.tween = nil
+--    end
+--    local pointArr = {}
+--    for k, v in pairs(points) do
+--        if v.id - 2 <= 0 then
+--            pointArr[v.id] = {x = v.x, y = v.y}
+--            self.pointArr_[v.id] = {x = v.x, y = v.y}
+--        end
+--    end
+--    local touchPointNum = table.nums(self.pointArr_)
+--    if touchPointNum == 1 and points["0"] then -- 只按下了一个触点时
+--        return self:onTouch(event, points["0"].x, points["0"].y)
+--    elseif not self.multiTouch_ then
+--        self.pointArr_ = {}
+--        return
+--    end
+--
+--    if event == "began" then
+--        if self.drag then -- 多点的时候，强制取消拖动
+--            self:touchCancle(event, self.pointArr_["0"].x, self.pointArr_["0"].y);
+--            self.drag = nil
+--        end
+--        if self.pointArr_["0"] and self.pointArr_["1"] and pointArr["1"] then
+--            local p1, p2 = self.pointArr_["0"], self.pointArr_["1"]
+--            local dist = Math2d.dist(p1.x, p1.y, p2.x, p2.y) -- 两触点间的距离
+--            local midScreenX, midScreenY = (p1.x + p2.x) / 2, (p1.y + p2.y) / 2
+--            self.lastZoomInfo_ = { -- 保存起来
+--                mid = {x = midScreenX, y = midScreenY},
+--                dist = dist,
+--                startDist = dist, -- 起始间距
+--            };
+--        end
+--        
+--        self:multiTouchBegan(event);
+--    elseif event == "moved" then
+--        if self.multiTouch_ and self.pointArr_["0"] and self.pointArr_["1"] then -- 缩放时只取前两个触点（需开启多点触摸）
+--            local p1, p2 = self.pointArr_["0"], self.pointArr_["1"]
+--            local dist = Math2d.dist(p1.x, p1.y, p2.x, p2.y) -- 两触点间的距离
+--            local lastDist, lastMid
+--            if self.lastZoomInfo_ then
+--                lastDist = self.lastZoomInfo_.dist
+--                lastMid = self.lastZoomInfo_.mid
+--            end
+--            
+--            local midScreenX, midScreenY = (p1.x + p2.x) / 2, (p1.y + p2.y) / 2
+--            self.lastZoomInfo_ = { -- 保存起来
+--                mid = {x = midScreenX, y = midScreenY},
+--                dist = dist,
+--            };
+--            if self.lastZoomInfo_.startDist == nil then
+--               self.lastZoomInfo_.startDist = dist
+--            end
+--            
+--            if lastDist then
+--                local scale1 = self:getCamera():getScale()
+--                local minScale = self:getCamera():getMinScale()
+--                local maxScale = self:getCamera():getMaxScale()
+--                local scale2 = math.min(maxScale, math.max(minScale, scale1 * (dist / lastDist)))
+--                self:getCamera():setScale(scale2)
+--                local posX, posY = self:getCamera():getOffset()
+--                local newPosX = lastMid.x - (lastMid.x - posX) / scale1 * scale2
+--                local newPosY = lastMid.y - (lastMid.y - posY) / scale1 * scale2
+--                self:getCamera():moveOffset(newPosX - posX, newPosY - posY)
+--            end
+--        end
+--        
+--    else
+--        if pointArr["0"] or pointArr["1"] then -- 0/1任意一个触点ended/cancelled的，便取消缩放
+--            self.lastZoomInfo_ = nil
+--            self.pointArr_ = {}
+--        end
+--    end
+--end
+--
+--
+--
+--
+--
+--
+--function BaseScene:multiTouchBegan(event)
+--end
+
+--
+--
+--
+--
+--
+--
+--
+--
+--
+----[[--
+--tick帧更新事件
+--]]
+--function BaseScene:tick(dt)
+--    if self.drag then
+--        self.drag.time = self.drag.time + dt
+--    end
+--    if self.tween then -- 滑动缓动效果处理
+--        self.tween.time = self.tween.time + dt
+--        local t2 = math.min(self.tween.t, self.tween.time)
+--        local t = self.tween
+--        local s2 = t.v * t2 - 0.5 * t.a * t2 * t2
+--        local scale = (t.s + s2) / t.s
+--        local offsetX = t.offsetX * scale
+--        local offsetY = t.offsetY * scale
+--        local deltaX = offsetX - self.tween.lastOffsetX
+--        local deltaY = offsetY - self.tween.lastOffsetY
+--        self:getCamera():moveOffset(deltaX, deltaY)
+--        if self.tween.time >= self.tween.t then
+--            self.tween = nil
+--        else
+--            self.tween.lastOffsetX = offsetX
+--            self.tween.lastOffsetY = offsetY
+--        end
+--    end
+--end
+
+
+
+
+
+
+
 
 
 return BaseScene

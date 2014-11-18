@@ -16,13 +16,17 @@ function RoleBehavior:bind(object)
 		 因为要保存两个引用
 	]]
     local function setFocus(object,enable)
-		self.isFocusObject_ = enable; 
+		object.isFocus_ = enable; 
+		
+		if enable == true then
+			object.map_:setFocusObject(object);
+		end
     end
     object:bindMethod(self, "setFocus", setFocus)
     
     
      local function isFocus(object)
-		return self.isFocusObject_ ; 
+		return object.isFocus_ ; 
     end
     object:bindMethod(self, "isFocus", isFocus)
 
@@ -33,10 +37,6 @@ function RoleBehavior:unbind(object)
 end
 
 function RoleBehavior:reset(object)
-	--是否是主角
-	if object.isFocus_ then 
-		object.model_:setFocusObject(object);
-	end
 end
 
 return RoleBehavior

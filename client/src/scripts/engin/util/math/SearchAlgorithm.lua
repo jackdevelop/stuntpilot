@@ -26,7 +26,6 @@ function SearchAlgorithm.checkCollision(target1,target2)
 	local radius2 = target2["radius_"]; 
 	
 	
-	
 	--两点之间的距离
 	local radiusDist = radius1 + radius2;
 	local dist = Math2d.dist(x1,y1,x2,y2);

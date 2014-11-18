@@ -1,6 +1,6 @@
 return json.decode([====[
 {
-    "backgroundImageName": "#background_jpg.png",
+    "parallaxImageName":"#background_jpg.png",
     "batchNodeImage":"fight/Sheet_Map.png",
     "levelId": "1000",
     "sceneSound": "bg_sound",

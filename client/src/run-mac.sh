@@ -8,7 +8,7 @@ if [ ! -f $BIN ]; then
 fi
 
 ARG="-relaunch-off -quick $QUICK_COCOS2DX_ROOT -workdir $DIR"
-SIZE="-portrait"
+SIZE="-landscape"
 CMD="$BIN $ARG $SIZE"
 
 until $CMD; do

@@ -11,11 +11,12 @@ function FightScene:ctor(param)
 	
 	param.sceneSound = GameSoundProperties[levelData.sceneSound](); --GameSoundProperties.bg_sound();
 	param.backgroundImageName = levelData.backgroundImageName;
+	param.parallaxImageName = levelData.parallaxImageName;
 	param.width = levelData.width;
 	param.height = display.height;
 	param.batchNodeImage = levelData.batchNodeImage;
+	param.touchEnabled = true
 	FightScene.super.ctor(self,param)
-    GameUtil.spriteFullScreen(self.backgroundSprite_)
     
     
     
@@ -55,7 +56,19 @@ end
 function FightScene:createCCParallax()	
 	local batch = self:getBatchLayer();
 	
-	
+	--调试
+	local c = display.newSprite("#balloon_path_png.png")
+    batch:addChild(c);
+    c:setPosition(display.width,display.cy);
+    
+    local c = display.newSprite("#balloon_path_png.png")
+    batch:addChild(c);
+    c:setPosition(2*display.width,display.cy);
+    
+    local c = display.newSprite("#balloon_path_png.png")
+    batch:addChild(c);
+    c:setPosition(3*display.width,display.cy);
+	--调试
 	
 	
 	display.newSprite("#land_png.png")
@@ -84,6 +97,9 @@ function FightScene:createCCParallax()
 	display.newSprite("#ground_png.png")
 	:align(display.LEFT_BOTTOM, 1150*2, 0)
 	:addTo(batch)
+	
+	
+	
 end
 
 
@@ -154,7 +170,7 @@ end
 ----[[--
 --	触摸事件 
 --]]
-function FightScene:onTouch(event, x, y)
+--function FightScene:onTouch(event, x, y)
 --	if event == "began" then
 ----		self.startY = y;
 --		if x > display.cx then --向上
@@ -167,7 +183,7 @@ function FightScene:onTouch(event, x, y)
 --	elseif event == "moved" then
 --	else
 --	end
-end
+--end
 
 
 
