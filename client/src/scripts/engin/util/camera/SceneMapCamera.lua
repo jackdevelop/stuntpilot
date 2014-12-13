@@ -3,6 +3,7 @@ local SceneMapCamera = class("SceneMapCamera")
 function SceneMapCamera:ctor(map)
     self.map_           = map
 
+	self.parallaxScale_ = self.map_.parallaxScale_ or 0.5 --中景移动的频率比
     self.zooming_       = false
     self.scale_         = 1
     self.actualScale_   = 1
@@ -23,13 +24,12 @@ function SceneMapCamera:ctor(map)
     self.maxScale_ = 99 --最大默认为99
     
     
-    
-    self.backgroundLayer_ = self.map_:getBackgroundLayer()
+    self.parallaxLayer_in_ = self.map_:getParallaxLayer_in() --中景
+    self.backgroundLayer_ = self.map_:getBackgroundLayer() --近景
     self.floorsLayer_    = self.map_:getFloorsLayer()
     self.batchLayer_       = self.map_:getBatchLayer()
     self.flysLayer_      = self.map_:getFlysLayer()
     self.debugLayer_      = self.map_:getDebugLayer()
-    
 end
 
 
@@ -109,12 +109,14 @@ function SceneMapCamera:setScale(scale)
     self:resetOffsetLimit()
     self:setOffset(self.offsetX_, self.offsetY_)
 
+	local parallaxLayer_in_ = self.parallaxLayer_in_
     local backgroundLayer = self.backgroundLayer_
     local floorsLayer = self.floorsLayer_
     local batchLayer      =  self.batchLayer_
     local flysLayer      = self.flysLayer_ 
     local debugLayer      =  self.debugLayer_
 
+	parallaxLayer_in_:setScale(scale)
     backgroundLayer:setScale(scale)
     floorsLayer:setScale(scale)
     batchLayer:setScale(scale)
@@ -135,12 +137,14 @@ function SceneMapCamera:zoomTo(scale, x, y)
     self:resetOffsetLimit()
 
     
+	local parallaxLayer_in_ = self.parallaxLayer_in_
     local backgroundLayer = self.backgroundLayer_
     local floorsLayer = self.floorsLayer_
     local batchLayer      =  self.batchLayer_
     local flysLayer      = self.flysLayer_ 
     local debugLayer      =  self.debugLayer_
 
+	transition.removeAction(self.parallaxLayer_in_Action_)
     transition.removeAction(self.backgroundLayerAction_)
     transition.removeAction(self.floorsLayerAction_)
     transition.removeAction(self.batchLayerAction_)
@@ -149,6 +153,7 @@ function SceneMapCamera:zoomTo(scale, x, y)
         transition.stopTarget(debugLayer)
     end
 
+	self.parallaxLayer_in_Action_ = transition.scaleTo(parallaxLayer_in_, {scale = scale, time = MapConstants.ZOOM_TIME})
     self.backgroundLayerAction_ = transition.scaleTo(backgroundLayer, {scale = scale, time = MapConstants.ZOOM_TIME})
     self.floorsLayerAction_ = transition.scaleTo(floorsLayer, {scale = scale, time = MapConstants.ZOOM_TIME})
     self.batchLayerAction_ = transition.scaleTo(batchLayer, {scale = scale, time = MapConstants.ZOOM_TIME})
@@ -172,9 +177,13 @@ function SceneMapCamera:zoomTo(scale, x, y)
         y = self.offsetLimit_.maxY
     end
 
-    local x, y = display.pixels(x, y)
+--    local x, y = display.pixels(x, y)
     self.offsetX_, self.offsetY_ = x, y
 
+
+
+	
+	transition.moveTo(parallaxLayer_in_, {x = x*self.parallaxScale_ , y = y*self.parallaxScale_ , time = MapConstants.ZOOM_TIME})
     transition.moveTo(backgroundLayer, {
         x = x,
         y = y,
@@ -220,12 +229,13 @@ function SceneMapCamera:setOffset(x, y, movingSpeed, onComplete)
     if y > self.offsetLimit_.maxY then
         y = self.offsetLimit_.maxY
     end
-
-    local x, y = display.pixels(x, y)
+	
+--    local x, y = display.pixels(x, y)
     self.offsetX_, self.offsetY_ = x, y
 
 	
 	
+	local parallaxLayer_in_ = self.parallaxLayer_in_
 	local backgroundLayer = self.backgroundLayer_
     local floorsLayer = self.floorsLayer_
     local batchLayer      =  self.batchLayer_
@@ -235,6 +245,7 @@ function SceneMapCamera:setOffset(x, y, movingSpeed, onComplete)
     
 
     if type(movingSpeed) == "number" and movingSpeed > 0 then
+    	transition.stopTarget(parallaxLayer_in_)
         transition.stopTarget(backgroundLayer)
         transition.stopTarget(floorsLayer)
         transition.stopTarget(batchLayer)
@@ -253,6 +264,8 @@ function SceneMapCamera:setOffset(x, y, movingSpeed, onComplete)
             movingTime = mty
         end
 
+
+		transition.moveTo(parallaxLayer_in_, {x*self.parallaxScale_ , y*self.parallaxScale_ , time = movingTime})
         transition.moveTo(backgroundLayer, {
             x = x,
             y = y,
@@ -266,7 +279,8 @@ function SceneMapCamera:setOffset(x, y, movingSpeed, onComplete)
             transition.moveTo(debugLayer, {x = x, y = y, time = movingTime})
         end
     else
-        x, y = display.pixels(x, y)
+--        x, y = display.pixels(x, y)
+        parallaxLayer_in_:setPosition(x*self.parallaxScale_ , y*self.parallaxScale_ )
         backgroundLayer:setPosition(x, y)
         floorsLayer:setPosition(x, y)
         batchLayer:setPosition(x, y)

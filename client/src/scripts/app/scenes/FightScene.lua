@@ -1,6 +1,7 @@
 --[[
 战斗场景
 ]]
+local TiledMapUtil = require("engin.util.TiledMapUtil")
 local BaseScene = require("engin.mvcs.view.BaseScene")
 local FightScene = class("FightScene", BaseScene)
 
@@ -13,25 +14,37 @@ local FightScene = class("FightScene", BaseScene)
 function FightScene:ctor(param)
 	local levelData = param.levelData;
 	
-	param.sceneSound = GameSoundProperties[levelData.sceneSound](); --GameSoundProperties.bg_sound();
+	--param.sceneSound = GameSoundProperties[levelData.sceneSound](); --GameSoundProperties.bg_sound();
 	param.backgroundImageName = levelData.backgroundImageName;
 	param.parallax = levelData.parallax;
 	param.width = levelData.width;
-	param.height = display.height;
+	param.height = display.height*1.2;
 	param.batchNodeImage = levelData.batchNodeImage;
 	param.touchEnabled = true
 	FightScene.super.ctor(self,param)
     
     
+    
+    
     --添加远景 近景的层次
     local parallax = levelData.parallax;
     local function createTiledNode(tileUrl)
-		local tileMap=CCTMXTiledMap:create(tileUrl);
-	   return tileMap
+		local tiledMap=CCTMXTiledMap:create(tileUrl);
+		--TiledMapUtil.getObjects(tiledMap,"pengzhuang")
+	   return tiledMap
 	end
-    self.parallaxLayer_:addChild(createTiledNode("map/tile/a1levmg.tmx"));
-    self.parallaxLayer_:addChild(createTiledNode("map/tile/0_0jg.tmx"));
-    self.parallaxLayer_:addChild(createTiledNode("map/tile/0_0.tmx"));
+    --远景
+    local spt = GameUtil.addBackgroundImage(self.parallaxLayer_far_,parallax.parallaxLayer_far_ImageName);
+	GameUtil.spriteFullScreen(spt)
+	--中景
+    self.parallaxLayer_in_:addChild(createTiledNode("map/tile/a1levmg.tmx"));
+    --近景
+    self.backgroundLayer_:addChild(createTiledNode("map/tile/0_0jg.tmx"));
+    self.backgroundLayer_:addChild(createTiledNode("map/tile/0_0.tmx"));
+    
+    
+    
+    
     
     
     --添加ui

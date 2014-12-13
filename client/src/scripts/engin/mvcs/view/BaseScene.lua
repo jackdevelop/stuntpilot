@@ -17,35 +17,6 @@ local BaseScene = class("BaseScene", function()
 end)
 
 
---添加背景的局部函数
-local function addImage(currentParent,currentImageName)
-	if currentImageName then 
-		CCTexture2D:setDefaultAlphaPixelFormat(kCCTexture2DPixelFormat_RGB565)
-	    local sprite = display.newSprite(currentImageName)
-	    CCTexture2D:setDefaultAlphaPixelFormat(kCCTexture2DPixelFormat_RGBA8888)
-	    local function backGroundSpriteHandle(event)
-	    	if event.name == "exit" then
-	            display.removeSpriteFrameByImageName(currentImageName)
-	        end
-	    end
-		sprite:addNodeEventListener(cc.NODE_EVENT,backGroundSpriteHandle)-- 地图对象删除时，自动从缓存里卸载地图材质
-	    
-	    --[[
-	    if width then self.backgroundSprite_:setContentSize(CCSize(width,height)); end
-		local contentSize=sprite:getContentSize();
-		if not width then
-			width = contentSize.width;
-			height= contentSize.height;
-		end
-		]]
-		
-		sprite:align(display.LEFT_BOTTOM, 0, 0)
-	    currentParent:addChild(sprite)
-	   
-	    
-	    return sprite;
-    end
-end
 
 --[[
 BaseScene的构造函数
@@ -65,12 +36,23 @@ function BaseScene:ctor(param)
 	local batchNodeImage = param.batchNodeImage;
 	 
 	 
-	self.parallax_ = param.parallax; --远景近景
+	self.parallax_ = param.parallax ; --远景近景
+	if self.parallax_ then
+	    self.parallaxScale_ = self.parallax_.parallaxScale;-- The proportion of the camera's movement to move the backgrounds by.
+		self.parallaxReductionFactor_=self.parallax_.parallaxReductionFactor;--每层的连续视差How much less each successive layer should parallax.
+	end
 	self.sceneSound_ = param.sceneSound --当前场景的声音
 	self.currentSceneName_ = sceneName;--场景名称
 	self.touchMode_= param.touchMode  or cc.TOUCH_MODE_ONE_BY_ONE;--触摸flag   多点 cc.TOUCH_MODE_ALL_AT_ONCE               cc.TOUCH_MODE_ONE_BY_ONE 单点触摸
 	self.touchEnabled_ = param.touchEnabled 
 
+	
+    --设置当前尺寸
+	self.width_=width or display.width;
+	self.height_=height or display.height;
+	
+	
+	
 	--播放场景的背景音乐
 	if self.sceneSound_ then
 		audio.playMusic(self.sceneSound_);
@@ -93,33 +75,22 @@ function BaseScene:ctor(param)
 		640×960 的参考虚拟分辨率，背景图最大尺寸是 640×1140，翻倍后是 1280×2280。
 		考虑到可能会为 iPad 单独做优化，所以图片宽度放大到 1536。因为 Retina iPad 的屏幕分辨率是 1536×2048
 	]]
-	self.parallaxLayer_ = display.newNode(); 
-	self.mapLayer:addChild(self.parallaxLayer_); 
-	local parallax = self.parallax_;
-	if parallax then --如果有远景 近景数组
---		local parallaxScale = parallax.parallaxScale;-- The proportion of the camera's movement to move the backgrounds by.
---		local parallaxReductionFactor = parallax.parallaxReductionFactor;-- How much less each successive layer should parallax.
-		local parallaxBackgroundImageName = parallax.parallaxBackgroundImageName;
-		local spt = addImage(self.parallaxLayer_,parallaxBackgroundImageName);
-		GameUtil.spriteFullScreen(spt)
-	end
+	self.parallaxLayer_far_ = display.newNode(); --远景
+	self.mapLayer:addChild(self.parallaxLayer_far_);
+--	local parallax = self.parallax_;
+--	local parallaxLayer_far_ImageName = parallax.parallaxLayer_far_ImageName;--远景一般全屏 且禁止不动
+--	local spt = addImage(self.parallaxLayer_far_,parallaxLayer_far_ImageName);
+--	GameUtil.spriteFullScreen(spt)
 	
-
+	self.parallaxLayer_in_ = display.newNode(); --中景
+	self.mapLayer:addChild(self.parallaxLayer_in_); 
 	
-	--背景
+	--背景  即是近景 
 	self.backgroundLayer_ = display.newNode();
-	local spt = addImage(self.backgroundLayer_,backgroundImageName);
+	local spt = GameUtil.addBackgroundImage(self.backgroundLayer_,backgroundImageName);
 	self.mapLayer:addChild(self.backgroundLayer_); 
     
     
-    
-    --设置当前尺寸
-	self.width_=width or display.width;
-	self.height_=height or display.height;
-	
-	
-	
-	
 	
     self.touchLayer_ = display.newLayer()
     self.mapLayer:addChild(self.touchLayer_)-- touchLayer 用于接收触摸事
@@ -242,6 +213,24 @@ function BaseScene:getTipLayer()
     return self.tipLayer_
 end
 
+
+
+
+--[[--
+返回远景
+]]
+function BaseScene:getParallaxLayer_far()
+    return self.parallaxLayer_far_
+end
+
+
+
+--[[--
+返回中景
+]]
+function BaseScene:getParallaxLayer_in()
+    return self.parallaxLayer_in_
+end
 
 --[[--
 返回背景图

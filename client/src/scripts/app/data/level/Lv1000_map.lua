@@ -1,14 +1,14 @@
 return json.decode([====[
 {
     "parallax":{
-    	"parallaxBackgroundImageName":"map/tile/beijing1.png",
+    	"parallaxLayer_far_ImageName":"map/tile/beijing1.png",
     	"parallaxScale":"0.5",
     	"parallaxReductionFactor":"0.5"
     },
     "batchNodeImage":"fight/Sheet_Map.png",
     "levelId": "1000",
     "sceneSound": "bg_sound",
-    "width":1920,
+    "width":2400,
     "height":960,
     
      "static": {
