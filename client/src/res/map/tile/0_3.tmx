@@ -24,7 +24,7 @@
   </data>
  </layer>
  <objectgroup name="pengzhuang">
-  <object id="11" x="-1.66667" y="477.667">
+  <object id="11" x="-0.333333" y="60.3333">
    <polygon points="0,0 0,-60 140,0"/>
   </object>
  </objectgroup>

@@ -76,14 +76,14 @@ function TiledMapUtil.getObjects(tiledMap,objName)
 			]]
 			local points = one:objectForKey("points");
 			if points then
-			local pointsCount = points:count();
-			for k = 0, pointsCount-1, 1 do
-				local onePoint = points:objectAtIndex(k);
-				local onePointCount = onePoint:count();
-				local x =  onePoint:valueForKey("x"):getCString() 
-				local y = onePoint:valueForKey("y"):getCString() 
-				--echoj(x,y);
-			end
+				local pointsCount = points:count();
+				for k = 0, pointsCount-1, 1 do
+					local onePoint = points:objectAtIndex(k);
+					local onePointCount = onePoint:count();
+					local x =  onePoint:valueForKey("x"):getCString() 
+					local y = onePoint:valueForKey("y"):getCString() 
+					--echoj(x,y);
+				end
 			end
 			
 			

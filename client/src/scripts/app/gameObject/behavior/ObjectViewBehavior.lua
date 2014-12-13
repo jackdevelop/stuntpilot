@@ -80,7 +80,6 @@ function ObjectViewBehavior:bind(object)
      local function enforcePlay(object)
      	 local animation = self.animation_
      	animation:enforcePlay();
-     	echoj("xxxxxxxxxxxxxxxx");
      end
     object:bindMethod(self, "enforcePlay", enforcePlay)
 	

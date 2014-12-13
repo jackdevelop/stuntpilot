@@ -40,7 +40,7 @@ function FightScene:ctor(param)
     self.parallaxLayer_in_:addChild(createTiledNode("map/tile/a1levmg.tmx"));
     --近景
     self.backgroundLayer_:addChild(createTiledNode("map/tile/0_0jg.tmx"));
-    self.backgroundLayer_:addChild(createTiledNode("map/tile/0_3.tmx"));
+    self.backgroundLayer_:addChild(createTiledNode("map/tile/0_0.tmx"));
     
     
     
