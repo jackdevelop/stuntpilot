@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="20" height="12" tilewidth="40" tileheight="40">
+ <tileset firstgid="1" name="a-jinjing" tilewidth="40" tileheight="40">
+  <image source="a-jinjing.png" width="2036" height="1144"/>
+ </tileset>
+ <layer name="land1" width="20" height="12">
+  <data encoding="base64" compression="zlib">
+   eJztzMdRgmEUhtGfIkQFFboBVKKkVlCQ6Kh0g4kxdCOoiFiDZ8Geb8HSd+as7p0niv63reUpUKREmQpnVKlRp0EzoNelR58BQ0Zcre/X3HDLOKA34Y57Hnjkien6/swLr7wF9N6ZMeeDT75Y8M2SH1b8BvR2YlEUZ5c99kmQ5IBDjkiRjm3uZfxkyXHMCafkKVCkRJlKQK/l55wL2nS4pEuPPgOGjAJ629gfX6MnMQ==
+  </data>
+ </layer>
+ <layer name="land2" width="20" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFQxG0Udm8HVQ2bxTQBwAAUE4BPw==
+  </data>
+ </layer>
+</map>

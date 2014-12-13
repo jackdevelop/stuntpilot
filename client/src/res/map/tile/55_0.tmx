@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="20" height="12" tilewidth="40" tileheight="40">
+ <tileset firstgid="1" name="a-land" tilewidth="40" tileheight="40">
+  <image source="a-land.png" width="2046" height="1000"/>
+ </tileset>
+ <layer name="land1" width="20" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUDBXwB40PABOAAP0=
+  </data>
+ </layer>
+ <layer name="land2" width="20" height="12">
+  <data encoding="base64" compression="zlib">
+   eJzti8sNgDAMQy224LcRUDailI2AMh8PReohC3BppKfYjiPVqfPfjI3iAD100BpCi0zcvk7pee//VnaABWaYDKFFpmCd0vPe/x3sBDtE2AyhRaZkndLz3v897Aw3XHAaQotM2Tql573/ewGzMzkJ
+  </data>
+ </layer>
+ <layer name="land3" width="20" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUDDYwhYk4dQAbLgCX
+  </data>
+ </layer>
+ <layer name="land4" width="20" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUDDYwhYk4dQAbLgCX
+  </data>
+ </layer>
+ <objectgroup name="pengzhuang" width="20" height="12">
+  <object x="-5" y="383" width="808" height="102"/>
+ </objectgroup>
+ <objectgroup name="zuobiao1" width="20" height="12"/>
+ <objectgroup name="zuobiao2" width="20" height="12">
+  <object x="666" y="378">
+   <properties>
+    <property name="id" value="106"/>
+    <property name="num" value="0"/>
+    <property name="time" value="1"/>
+   </properties>
+  </object>
+  <object x="579" y="382">
+   <properties>
+    <property name="id" value="101"/>
+    <property name="num" value="-1"/>
+    <property name="range" value="300"/>
+    <property name="time" value="7"/>
+    <property name="timemax" value="12"/>
+    <property name="timmin" value="4"/>
+   </properties>
+  </object>
+  <object x="99" y="382">
+   <properties>
+    <property name="id" value="101"/>
+    <property name="num" value="-1"/>
+    <property name="range" value="300"/>
+    <property name="time" value="5"/>
+    <property name="timemax" value="12"/>
+    <property name="timmin" value="4"/>
+   </properties>
+  </object>
+  <object x="379" y="382">
+   <properties>
+    <property name="id" value="102"/>
+    <property name="num" value="-1"/>
+    <property name="range" value="350"/>
+    <property name="time" value="3"/>
+    <property name="timemax" value="15"/>
+    <property name="timmin" value="7"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="zuobiao3" width="20" height="12"/>
+</map>

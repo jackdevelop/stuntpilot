@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="20" height="12" tilewidth="40" tileheight="40">
+ <tileset firstgid="1" name="b-land" tilewidth="40" tileheight="40">
+  <image source="b-land.png" width="1885" height="2029"/>
+ </tileset>
+ <layer name="land1" width="20" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFQxXcZaeueTwc1DXPmsrmZVHZvJlUNu8Elc37ToR5AMbKBB4=
+  </data>
+ </layer>
+ <layer name="land2" width="20" height="12">
+  <data encoding="base64" compression="zlib">
+   eJztjkkKgDAQBAf0H67vMS4f6ifH7W6FwZOgd0lDkWa6DjHLyflPYmG2wgY7HHA6ooub2ISj6Lz6VWlWQwMtdNA7ooub2IST3E9/oAcYS//vzLs4omsCNgV3lZzbZ3v4F8+aKBw=
+  </data>
+ </layer>
+ <layer name="land3" width="20" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUDAQIZKHcDAAaUABW
+  </data>
+ </layer>
+ <layer name="land4" width="20" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUDFbgx4JfHgAN/ABT
+  </data>
+ </layer>
+ <objectgroup name="pengzhuang" width="20" height="12">
+  <object x="-11" y="402" width="818" height="82"/>
+ </objectgroup>
+ <objectgroup name="zuobiao1" width="20" height="12"/>
+ <objectgroup name="zuobiao2" width="20" height="12">
+  <object x="642" y="402">
+   <properties>
+    <property name="id" value="109"/>
+    <property name="num" value="0"/>
+    <property name="time" value="1"/>
+   </properties>
+  </object>
+  <object x="408" y="400">
+   <properties>
+    <property name="id" value="108"/>
+    <property name="num" value="-1"/>
+    <property name="range" value="350"/>
+    <property name="time" value="5"/>
+    <property name="timemax" value="20"/>
+    <property name="timmin" value="10"/>
+   </properties>
+  </object>
+  <object x="409" y="160">
+   <properties>
+    <property name="id" value="107"/>
+    <property name="num" value="-1"/>
+    <property name="range" value="350"/>
+    <property name="time" value="8"/>
+    <property name="timemax" value="25"/>
+    <property name="timmin" value="10"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="zuobiao3" width="20" height="12"/>
+</map>

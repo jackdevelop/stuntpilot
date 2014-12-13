@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="60" height="96" tilewidth="40" tileheight="40">
+ <tileset firstgid="1" name="a-jinjing" tilewidth="40" tileheight="40">
+  <image source="a-jinjing.png" width="2036" height="1144"/>
+ </tileset>
+ <layer name="land1" width="60" height="96">
+  <data encoding="base64" compression="zlib">
+   eJzt3HdslHUYB/D3upgq4p7gnomLvZQhw40L3AootLRlo+DCDSpbUNkbnIl7K6ACKnsPce8toAgq+DGm/5DU0nrXu76+3+TzT9O893yTS++u7++5IIgS5gxKC4LBDGEowxjOA4xgZFqyJ4xvZuozi9m8yVu8zRzmMi9kfTfos5FN/MKvbOY3trA1ZH0PTw+CIziSoziaYziW4zg+PdkTxjcX69OGtlzCpVzG5VzBlSHr21+fAdzLfdzPQAYxmCEh6/uyPq/wKq/xOm8wk1nMDlnf7/T5nh/4kZ/4mQ1sZFPI+h6cEQTVqM4hHMphHM4RHJmR7AmjRIkSJUqU/56lXr+XsZwVrGQVq1nDWtaV4DW+Q/xHjUsyvH5nkkU5ylOBilSiMrvs8Bp/GZdzBVdyFVdzDe1oz8jSLFGM1NKlNnWoSz3q04CGNOLUHfoOZBCDGcJQhjGcBxjBvFJtsfPppEs2OXQmlzzy6UJXuu3Q9w1mMovZvMlbvM0c5rK1NEsUI6N0Gc0YxjKO8UxgIpOYvEPfn9nARjbxC7+ymd/YUroVipX5uixgIYtYzBKWsozlrAjRe/Rtumz/u09mEMRII50MMsmiXGb8Hq9REPRrSAPqU4+61KE28Xuk1EhXnbqQTx65dCaH7BD2naTTRCYwnnGMZQyjQ9h3uU7LWMoSFrOIhSwIYd+sWNAvkwzSSSNGwPYQ9q2jV21qUZManMLJnBQLX98cnbLpREeu41o60D6EfcfoNJpRPMxDPMhIRoSw70KdFjCf93iXd5jH3BD2DdL8XdJrG3/yB7+zlS1c71duoA99uZGbkjpwYvMIj/IYj/METyZ1osRmHe+zng/4kI+SOVCCs0ssCHZlN6qwO1VjyZ4qcTlVt9NoTBOa0izBfdeney7xIR/xMZ/wKZ8l+H5VN92604Oe9KJ3gvvu5vNhFXanKnuwJ3uxd4I/C0/WbQpTmcZ0ZiS4b2OdmtCUZpxOc1rQMsF9V+i2klWsZg1rE9y3h0496UVvrucG+tA3RP/rKMhUnaYxnRk8wqM8xuMh7BslSpQoUaJEKb0k6t53qqYk977Lckpy77sspyT3vstySnLvuywnuved2HvfUaJEifJv6ZDsAUo5qXqusSDF2ZfcmXOcqXqusSDF2ZfcmXOcqXqusSDF2ZfcmXOcqZ7i7EuW5XOcBYn2JaN9yTDl/7YvGSVKlChRokSJ8n9LMs8aJiPJPGuYjCTzrGEyEp01jM4aplJOozFNaEozTqc5LWhJK85I0nzxTnd60JNe9CZVd2DO5hzO5Txacz4XcCEXcTFtaFvINaYwlWlMZ0ZQ9A5Mx7Qg6EQ2OXQmlzzy6UJXutGdHvSMw/fq3Rr8s0B5G7dzB3dyF3dzD/0ZwL2FXGMlq1jNGtYGRe/APGz2UYxmDGMZx3gmMJFJTGYKU5kWh75P8TTP8CzP8Twv8CIv8TKv8Goh1ygfC4IKVKQSlWNF78C8Z/b5LGAhi1jMEpayjOWsYCWrWB2Hvp/yGZ/zBV/yFV/zDd/yHd/zQyHXqKdHfRrQkEaxondg/jT7Nrb/3cF7xhhppJNBJlmUozwVqBiH95Z7mWFv9mFf9mN/DuBADuJgqlG9kB2HXD/PI58udI0VvQNzgtlP5CRO5hRqUJNa1KYOdalHfRrEoW8LM7SkFWdwJmdxNudwLufRmvML6TvOz8czgYlMihW9A3ON2dvRng5cy3V0pBPZ5NCZXPLIj0PfPmboy43cxM3cwq304zZu5w7uLKRvmudkOhlkkkU5ylOBilSicsi+tzRV8xc8d9zu
+  </data>
+ </layer>
+ <layer name="land2" width="60" height="96">
+  <data encoding="base64" compression="zlib">
+   eJzt2skNwlAMBFAfoA2WTnNk6YilI5YWmPTgiATek+b4R/EtslwFAAAAwNTOqxpOyTE5JN/+nqndM+MtuSaXP5j3nRlfyTN5/MG8+3UNu2SbbNa/Py8AAADz0bljyftKT6Vv7J2lzh1L3ld6Kn1j7yx17ljyvtJT6Rt7Z6lzx5L3lZ5K39gLAAAAAAAAAABAgyXcGnZawq1hpyXcGnZyawhAB/9Hv83/EUznA34AP70=
+  </data>
+ </layer>
+</map>

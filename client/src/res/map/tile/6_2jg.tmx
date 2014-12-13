@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="80" height="12" tilewidth="40" tileheight="40">
+ <tileset firstgid="1" name="b-jinjing" tilewidth="40" tileheight="40">
+  <image source="b-jinjing.png" width="1447" height="440"/>
+ </tileset>
+ <layer name="land1" width="80" height="12">
+  <data encoding="base64" compression="zlib">
+   eJzF1UesVVUYBeD/qYliI5GicxVQEGmCAiozC1gSRAUT2YBza2LXFfvcmtg1AUTniprYNbHPBTXBbmKf63ccId7k3hvu4+68743OeXudf591XtWBWWdX5SzOZCUrWM4B2v4/a1VVu4oHeInP+YvjJqqtZByZ+q0tZrWZTTQ2cuWY5ucsmzztfl7kM/7kWLNbMeT8ZjOHkziZucwbfeSSNfdxL/dwN3eNaX560Jxlk6ft4FP+YKbZLR9yfqtZwwVcyEVcPPrI5Zwja15gO9vY2mN+Ol26XTpeut49a/e+jHT5u00PmrNs8rRP+J0ZZnfGkPO7mmu4luu4nhsGuG8BC1nEYpZwGktZ1uN6HYlzjqz5mI/4sMf8dLp0+9+H8IzlPem6P9LlbJq/3/SgOcsmT/uN6WZ3+pDze5CHeJhHeJTHBrjvEtZxKZdxOevZwBU9rvd9iY7EOUfW/MovPean06Xb5dnK+1E61nW/77Jn7B0ZIktkimyRMbJm7V57eb+bM2r2aXrQnGWTp00zu2VDzu9lXmEnr/Iarw9w303czC3cym3czh3c2eN63+b4vkRH4pwja46Z+P/8dLo8U3kvSrdK57vu9132jL0jQ2SJTJEtMkbW3LjX/Hwjmve8Oatmv6YHzVk2edrSIef3BbvYzZd8xdcD3PcET/IUT/MMz/Iczw8TYJ/lWcr7UDpVul4633W/77Jn7B0ZIktkimyRMbLm8Un6X/V392vCDwdxMIdM9L/vTd7ibd7hXd7jfT7Yjzzeg9Kl0vHS9dL5rvt9lz1j78gQWSJTZIuMkTVvTNL8jjerEziRWcxmzgDz+4Zv+Y7v+YEf+Ymf9yOPDpVul46XrpfOd93vu+wZe0eGyBKZIltkjKzZM0nzO0e2czmP81nNmgHyHuaaKRzOERzJURzN1AHuH/WyZ+wdGSJLZIpskTGy5tAe39pxrnlmdArzOZUFLGQRi8cwP3vG3pEhskSmyBYZI2vmTtL8/gG6dOB+
+  </data>
+ </layer>
+ <layer name="land2" width="80" height="12">
+  <data encoding="base64" compression="zlib">
+   eJzt0McNAlEQBNH5mEjwkWB2FxMJ/r454CPBR4KPBCoADnNDSF3Su7faTCmllPpezyztooM2EsSI8Ott/9CUnyYYY4QhBujrP1cbflpjhSUWmGOm/1yd+emEIw7YY4et/nP14qcnHrjjhisu+s9VPliaQxYZBBje+s9Vja+qqKCMEoooBP3nKeGnGBFaaKKBOj5x0zS1
+  </data>
+ </layer>
+</map>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="80" height="15" tilewidth="40" tileheight="40">
+ <tileset firstgid="1" name="b-land" tilewidth="40" tileheight="40">
+  <image source="b-land.png" width="1885" height="2029"/>
+ </tileset>
+ <layer name="land1" width="80" height="15">
+  <data encoding="base64" compression="zlib">
+   eJzt0FlKQmEYh/GPPHUO2GS1kWZo0AawcRHNkGla0GDduINu07IBsgmah400g5pZ7aNnA8IHkUfz/cPv5r16eZSSlco2DL3bf9yoQ0VGMIwhDGIAXtj9WzFsnU5rCGMVK1jGkvTT2imdTnCMIxwigQPpp7U3Or3iBc94wiMepJ/WLENFTFSgHAYcKDOkn87a6dSGVrSgGU1ozEO/M1Opc1zgEle4xg1ucYd786+/+N1m6DSNKUxiAuMYy0O/JG1SSOMdGXwgi0984bvA+9k5p6VUJapQjRrUwoU61KPBsvvLwl0HbTrRhW644UEPetGHfumXc7O08WEOfgQwjyBCWMCi9Mu5TdpEEcMWthHHDnaxh33pJyvC/QCowk01
+  </data>
+ </layer>
+ <layer name="land2" width="80" height="15">
+  <data encoding="base64" compression="zlib">
+   eJztlslOVFEURTcUhp+Qzo6xE8UWQdGBdCo69jssmoNAHPodoCA2YwciNn9gA+oPACrYDF333brJHVBUvfLVSyqpnaw8cs5JUW+zyTlSU3nqQdv+NFWdmv79n8r5V4uHJ7P/eg2hlUOyLHN4N9Nvl6/WC7LXsAavYN0jfhY10XMzegNv4R28L2T7P/swu4/KXXv4tQs/4YdH4UlN9NyMfsFv+AN/C7X9rh5y2w1d0Akd4OovM3yfvHW0TXYEeqDbo/CkJnpuRsfgOJyA3hqzN45fYzAKIzBc8m8rw/fJWzfx6gaMw5hH4UlN9NyMbsEE3IY7FfwjVyJfImciby53iWbwaxqmYBKKJf8Ot9T5JeuoWbwymIFpj8KTmui5Gd2HOZiHhQr+kSuRL5EzkTeXu0Ru7yzDY3gESyX/rjewf6t49QRWYNmj8KQmem5GT+EZPIcXFfwjVyJfImciby53B+peA/v3Fa++wCZseBSe1ETPzegbbLM3duC73zHJfgl7h5rRM2ZcrkS+RM5E3lzuDtRiA/uXRh142Aldfsck+yXsHWpGz5ixj/j1CT7DBmxW8M/pQx095GYwbgfjhrBwb8QZiG+MeCbORrn5NBrGrxEY9Tsm2S9h71AzesaMVft57a0pjahR3AzG7WDcEBbujTgD8Y0Rz8TZKDefRkXmJ2HK75hkv4S9Q83oWTGFf6fw7zT0wRk4C+fgPFyAi9APl2AABuEyXIEhuArXqvgbcDMYt4NxQ1i4N+IMxDdGPBNno9z8P7m90ko=
+  </data>
+ </layer>
+ <layer name="land3" width="80" height="15">
+  <data encoding="base64" compression="zlib">
+   eJzt0MENgCAURMF/o0yUgkA7drsQkpnk3TdbBQAAAHvqrepKdxrt7zXnmflspSe9/uNgHxpzA/k=
+  </data>
+ </layer>
+ <layer name="land4" width="80" height="15">
+  <data encoding="base64" compression="zlib">
+   eJzt0M0JwkAUReG3ESYlGI3dGGNHKUKjVmERGpMqUkT8a8EDzn4gEIaBe+DjwayGa6aUUkqpOds6sxI7VNi7//uBe0SDE864uLh/TaHab3Tj3tHigQ699gt29RuN3CdeeOODr/YLNviNlplZjhXWKLDJ4v4thRbaSCml1MR+HlwSZQ==
+  </data>
+ </layer>
+ <objectgroup name="pengzhuang" width="80" height="15">
+  <object x="0" y="288" width="498" height="38"/>
+  <object x="1127" y="297" width="109" height="63"/>
+  <object x="2305" y="527" width="900" height="76"/>
+  <object x="493" y="488" width="286" height="108"/>
+  <object x="878" y="373" width="119" height="55"/>
+ </objectgroup>
+ <objectgroup name="zuobiao1" width="80" height="15">
+  <object x="1360" y="320">
+   <properties>
+    <property name="id" value="2"/>
+    <property name="max" value="1680"/>
+    <property name="type" value="3"/>
+   </properties>
+  </object>
+  <object x="1960" y="560">
+   <properties>
+    <property name="id" value="3"/>
+    <property name="max" value="240"/>
+    <property name="type" value="3"/>
+   </properties>
+  </object>
+  <object x="68" y="284">
+   <properties>
+    <property name="id" value="12"/>
+    <property name="type" value="0"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="zuobiao2" width="80" height="15">
+  <object x="130" y="290">
+   <properties>
+    <property name="id" value="102"/>
+    <property name="num" value="3"/>
+    <property name="range" value="0"/>
+    <property name="time" value="1"/>
+    <property name="timemax" value="10"/>
+    <property name="timmin" value="3"/>
+   </properties>
+  </object>
+  <object x="3107" y="530">
+   <properties>
+    <property name="id" value="109"/>
+    <property name="num" value="0"/>
+    <property name="time" value="1"/>
+   </properties>
+  </object>
+  <object x="1154" y="296">
+   <properties>
+    <property name="id" value="111"/>
+    <property name="num" value="2"/>
+    <property name="range" value="20"/>
+    <property name="time" value="1"/>
+    <property name="timemax" value="8"/>
+    <property name="timmin" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="zuobiao3" width="80" height="15"/>
+</map>

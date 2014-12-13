@@ -8,7 +8,7 @@ end
 
 
 --自己这里定义
---CCLuaLoadChunksFromZIP("res/script/framework_precompiled.zip")
+CCLuaLoadChunksFromZIP("res/script/framework_precompiled.zip")
 --CCLuaLoadChunksFromZIP("res/script/framework_precompiled.zip")
 --[[
  环境变量    

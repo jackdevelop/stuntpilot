@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="40" height="12" tilewidth="40" tileheight="40">
+ <tileset firstgid="1" name="4-1" tilewidth="40" tileheight="40">
+  <image source="d-land.png" width="2025" height="1793"/>
+ </tileset>
+ <layer name="land1" width="40" height="12">
+  <data encoding="base64" compression="zlib">
+   eJztjskJgEAQBHsHNhA1JDUKjyzUKDwy8khEzcD+zkdBWFCYgoJ+9KMAwzD+zO6Ag55O768QCRDTRPQOSeGBkla09vfflC0ZzUXvkPRsGuhIp4e+hi0t7UTvkMxsWuhKt4c+4z0XpIYTXQ==
+  </data>
+ </layer>
+ <layer name="land2" width="40" height="12">
+  <data encoding="base64" compression="zlib">
+   eJzt00dOw1AQANC/idf0ch0g1OvQCdKchpo41LtQk5h6DR7yGouVzYIvPelrimY2k9L/+8uv20qpR06fCy654pobblvN7Tcwe8iIghdeeeOdDz4b3G8sS2mcCSaZYpoZZpljPmtuvwWzF1mizTIrrLLGOhsN7rdp9hbb7LDLHvsc0OGwwf2OzD7mhFPOOKdLj5x+xX5Vd0X4h1jIhZpQG3npV313Zt/zwCNPPDNgyIgi+3le1V0R/iEWcqEmirKntr6quyL8QyzkQk2o/e6pra/qrgj/EAu5UBPtsqe2vi+/T5bJ
+  </data>
+ </layer>
+ <layer name="land3" width="40" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRgA7+swMJDgYGRo7BaZ8hUJ0REBvTyX2k2pcMVJcCxKl0ch+97aMGAAAikQYT
+  </data>
+ </layer>
+ <layer name="land4" width="40" height="12">
+  <data encoding="base64" compression="zlib">
+   eJztzrkNACAQxMCT6Ju3Id7+cEYFQLKWJreZUkopdS/vzAIiEjKK+311qrw0dAxMrAd/GxsvB1c=
+  </data>
+ </layer>
+ <objectgroup name="pengzhuang" width="40" height="12">
+  <object x="1" y="380" width="1600" height="101"/>
+  <object x="1013" y="145" width="309" height="31"/>
+ </objectgroup>
+ <objectgroup name="zuobiao1" width="40" height="12">
+  <object x="972" y="394">
+   <properties>
+    <property name="id" value="9"/>
+    <property name="type" value="1"/>
+   </properties>
+  </object>
+  <object x="531" y="394">
+   <properties>
+    <property name="id" value="9"/>
+    <property name="type" value="0"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="zuobiao2" width="40" height="12">
+  <object x="24" y="378">
+   <properties>
+    <property name="id" value="103"/>
+    <property name="num" value="5"/>
+    <property name="toward" value="0"/>
+    <property name="wave" value="3"/>
+   </properties>
+  </object>
+  <object x="69" y="379">
+   <properties>
+    <property name="id" value="104"/>
+    <property name="num" value="5"/>
+    <property name="toward" value="0"/>
+    <property name="wave" value="2"/>
+   </properties>
+  </object>
+  <object x="96" y="382">
+   <properties>
+    <property name="id" value="104"/>
+    <property name="num" value="5"/>
+    <property name="toward" value="0"/>
+    <property name="wave" value="1"/>
+   </properties>
+  </object>
+  <object x="46" y="380">
+   <properties>
+    <property name="id" value="103"/>
+    <property name="num" value="6"/>
+    <property name="toward" value="0"/>
+    <property name="wave" value="3"/>
+   </properties>
+  </object>
+  <object x="1451" y="51">
+   <properties>
+    <property name="id" value="107"/>
+    <property name="num" value="7"/>
+    <property name="toward" value="1"/>
+    <property name="wave" value="2"/>
+   </properties>
+  </object>
+  <object x="1549" y="377">
+   <properties>
+    <property name="id" value="104"/>
+    <property name="num" value="5"/>
+    <property name="toward" value="1"/>
+    <property name="wave" value="2"/>
+   </properties>
+  </object>
+  <object x="1522" y="380">
+   <properties>
+    <property name="id" value="104"/>
+    <property name="num" value="10"/>
+    <property name="toward" value="1"/>
+    <property name="wave" value="3"/>
+   </properties>
+  </object>
+  <object x="1497" y="380">
+   <properties>
+    <property name="id" value="103"/>
+    <property name="num" value="6"/>
+    <property name="toward" value="1"/>
+    <property name="wave" value="3"/>
+   </properties>
+  </object>
+  <object x="1571" y="376">
+   <properties>
+    <property name="id" value="104"/>
+    <property name="num" value="5"/>
+    <property name="toward" value="1"/>
+    <property name="wave" value="1"/>
+   </properties>
+  </object>
+  <object x="168" y="49">
+   <properties>
+    <property name="id" value="107"/>
+    <property name="num" value="7"/>
+    <property name="toward" value="0"/>
+    <property name="wave" value="2"/>
+   </properties>
+  </object>
+  <object x="211" y="50">
+   <properties>
+    <property name="id" value="107"/>
+    <property name="num" value="10"/>
+    <property name="toward" value="0"/>
+    <property name="wave" value="3"/>
+   </properties>
+  </object>
+  <object x="1492" y="51">
+   <properties>
+    <property name="id" value="107"/>
+    <property name="num" value="10"/>
+    <property name="toward" value="1"/>
+    <property name="wave" value="3"/>
+   </properties>
+  </object>
+  <object x="129" y="49">
+   <properties>
+    <property name="id" value="107"/>
+    <property name="num" value="12"/>
+    <property name="toward" value="0"/>
+    <property name="wave" value="4"/>
+   </properties>
+  </object>
+  <object x="1412" y="52">
+   <properties>
+    <property name="id" value="107"/>
+    <property name="num" value="12"/>
+    <property name="toward" value="1"/>
+    <property name="wave" value="4"/>
+   </properties>
+  </object>
+  <object x="119" y="384">
+   <properties>
+    <property name="id" value="103"/>
+    <property name="num" value="6"/>
+    <property name="toward" value="0"/>
+    <property name="wave" value="4"/>
+   </properties>
+  </object>
+  <object x="1475" y="383">
+   <properties>
+    <property name="id" value="103"/>
+    <property name="num" value="6"/>
+    <property name="toward" value="1"/>
+    <property name="wave" value="4"/>
+   </properties>
+  </object>
+  <object x="37" y="384">
+   <properties>
+    <property name="id" value="108"/>
+    <property name="num" value="5"/>
+    <property name="toward" value="0"/>
+    <property name="wave" value="3"/>
+   </properties>
+  </object>
+  <object x="1564" y="385">
+   <properties>
+    <property name="id" value="108"/>
+    <property name="num" value="5"/>
+    <property name="toward" value="1"/>
+    <property name="wave" value="3"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="zuobiao3" width="40" height="12"/>
+</map>

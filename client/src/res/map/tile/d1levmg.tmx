@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="60" height="12" tilewidth="40" tileheight="40">
+ <tileset firstgid="1" name="d-zhongjing" tilewidth="40" tileheight="40">
+  <image source="d-zhongjing.png" width="1870" height="998"/>
+ </tileset>
+ <layer name="zhongjing1" width="60" height="12">
+  <data encoding="base64" compression="zlib">
+   eJzt1FlOFkEUBtA2bELBeTGCE7oEHFGeBWfzrQBx9llwQF2C4OwO3ITg7AI8eNMJMcqLRfTBSk5Sqfvd6vsn3X/X/Z01xiEOc+Sn2jgnOMnEOj/3KMc4/ovnEvs4i1pkIhs90ZuJAZmBH/s/uscsMVPGStP5puUuM8MVrnKN69zgJre4XWIfZ1GLTGSjJ3ozU5rcY6ZMl6bzPZFbYJGnPOM5L3jJK17zpsQ+zqIWmchGT/RmsTS5Z6Fmaz7fO7kllnnPBz7yic984SvfSuzjLGqRiWz0RG+WS5N7lmq25vNt3NB1mxhkiM1sYSvb2M4OdpbYx1nUIhPZ6IneDJYm95hpZbbm8+2SG2aE3exhL/vYzygHOFhiH2dRi0xkoyd6M1Ka3DNcszWf75TcJFOc5gxnOcd5LnCRSyX2cRa1yEQ2eqI3U6XJPZM1W/P57sjNMsdd7nGfB8zzkEc8LrGPs6hFJrLRE72ZK03uma3Zms/XrcMaWvWuja76zt6u8Q32/z0rq39v+/eyv+tfXb/7ztaq9b/7/2q7vgNyT39A
+  </data>
+ </layer>
+ <layer name="zhongjing2" width="60" height="12">
+  <data encoding="base64" compression="zlib">
+   eJzt0sdNQ0EUheGHqzFgm1gBmQZMLMLE9b8wsQgTyzGxHBN/mO1IaK4QbDzSJ43unKP7Fq+qhmd4huenM16rqoaaamlCk5rStGY0W/vvr/z7s1pVrGhZS1rUguY1p9/e19GOdrWnfR3oMME7zvANM5ilk2R7pfnonmivpwtd6krXutFtgnec4RtmMEsvyfZK89E90V5fd7rXgx71pOcE7zjDN8xgln6S7ZXmo3uivYFe9Ko3vevj60cf+YZ3nOEbZjDLIMn2SvPRPdFe3d6oxjSuhppqJXjHGb5hBrPUk2yvNB/dE+21taZ1bWhTW9pO8I4zfMMMZmkn2V5pPron2uvqSMc60anOdJ7gHWf4hhnM0k2yvdJ8dE+09wnjq0w6
+  </data>
+ </layer>
+ <layer name="zhongjing3" width="60" height="12">
+  <data encoding="base64" compression="zlib">
+   eJzti8kNgEAMxCJBDZzNTrnL1QNG+cNj2d9YshQlToQxxhhjjPmT0kVsuOOBJ16pmMVO3ESjkr72tf+t+6GPGHHCGRdcUzGLnbiJ5mk/+9r/1v0NnjlacQ==
+  </data>
+ </layer>
+</map>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="60" height="12" tilewidth="40" tileheight="40">
+ <tileset firstgid="1" name="d-zhongjing" tilewidth="40" tileheight="40">
+  <image source="d-zhongjing.png" width="1870" height="998"/>
+ </tileset>
+ <layer name="zhongjing1" width="60" height="12">
+  <data encoding="base64" compression="zlib">
+   eJzt08dzlVUYB+AvOmPvS1Qgse9ROraNUmLXv0ATRClbTMiPAJa1ErCgWwxpgGWtBLDg2tCD4g4LAfvG596DM3dgxtXnxvHMPDNnzvm97zlnvnur6v/xXx5zL6qqecxnAQtZxL3cx/08wINFzGMt9iIT2aiJ2ugRvaJnGr176GUdfTQW19PPBjayiZd5hVd57V++X5dcN8t5nhW8wIusZBWrWVPEPNZiLzKRjZqojR7pLj2b7x1kB0MMM8IoY+xkF7v5gA/5iI9b3vqcM+u+32a5AbawlTd5i7d5h228y3tFzGMt9iIT2aiJ2uiRgdKz+d4JDnKIwxzhKMc4ziQn+IZvOcl3Le99w5l132+P3Dh72cd+PuNzvuBLDvBVEfNYi73IRDZqojZ6ZLz0bL73kraqupTLuJwruJKruJpruJbruJ4b2sr3/Ht8al73/U7LTXGGs/zML/zKb/zOH/xZxDzWYi8ykY2aqI0emSo9m++d5f53cw+zmcNc5jGfBSzk2cZvly66WX7uvT85s+77zbi4qmbSTge3cCu3cTt3cCd3FTGPtdiLTGSjJmqjR/Rq9Mwp9/2eH/ixcXdOM1Vd+H1fb/x22cwAW9jKdGfWfb9lcp08wqM8xuM8wZM8xdM8U8Q81mIvMpGNmqiNHuksPTPNO27kJm5mOjOY2Vbe3Pp9P2n8dtnDOHvZx1Jn1n2/l+R66GUdfYT19LOBjWwqYh5rsReZyEZN1EaP9JSeecg7HmYxS1jKMjrPvbl1nP/9z3CWtc6s+37vyw2ygyGGGWGUMXayi91FzGMt9iIT2aiJ2uiRwdKz+f/9pze3jvO/fzsdbHdm3ff7Wm6CgxziMEc4yjGOM8mJIuaxFnuRiWzURG30yETpmaqmUff9/gKNxpJ2
+  </data>
+ </layer>
+ <layer name="zhongjing2" width="60" height="12">
+  <data encoding="base64" compression="zlib">
+   eJzt0reTlWUUB+DLXQSBSqIISuxISxQqBBSRHCqUTC0oOfOzIqeaqORcoWT+CIISrMiSBMGaZ+fb/s4we7t9Z57ZM+/7O+eeb2ZLpcbTeBrPh55e5VKpN33oSz9q6c8ABjKIweXq/P7LJqXSK/7lNW/4j7e84/9C1HEXb5GJbPREb14WKs6pO9N9x/f8wAxmMovZzGEu85hfrs5+nc39nC/oQle60Z0e9CxEHXfxFpnIRk/0pnOh4py6s8HfjWxiM1vYyja2s4Od7KrPN/R+YxnHeCYwkUlMZgpTC1HHXbxFJrLRE70ZW6g4Zxrn+J0/OM8FLnKJy1zhKtfqv7eh91vBSlaxmjWsZR3rSSHquIu3yEQ2eqI3KwoV5/zCfR7wkEc85glP+YdnPOdF/fc29H5HOMoxjnOCk5ziNGcKUcddvEUmstETvTlSqDjnLJ/UlEqtaUNb2tGeDnxKRz6jE4ersN8NbnKLP/mL29zhLvcKUcddvEUmstETvblRqDjnb4b7jq8YwUhG8TXfMJpvGcN3XK/CfmVza2jKRzSjOR/TgpaFqOMu3iIT2eiJ3pQLFee04kcWsJCf+JlFLGYJS1nGcprUNPx+tfRnAAMZxGCG8CVDC1HHXbxFJrLRE72pLVScM4zd7GEv+9jPAX7lNw5yqO5/mX5V2O89a5Ym7Q==
+  </data>
+ </layer>
+ <layer name="zhongjing3" width="60" height="12">
+  <data encoding="base64" compression="zlib">
+   eJzti8kNgEAMxCJBDZzNTrnL1QNG+cNj2d9YshQlToQxxhhjjPmT0kVsuOOBJ16pmMVO3ESjkr72tf+t+6GPGHHCGRdcUzGLnbiJ5mk/+9r/1v0NnjlacQ==
+  </data>
+ </layer>
+</map>

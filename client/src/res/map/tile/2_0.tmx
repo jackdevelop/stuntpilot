@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="40" height="12" tilewidth="40" tileheight="40">
+ <tileset firstgid="1" name="a-land" tilewidth="40" tileheight="40">
+  <image source="a-land.png" width="2046" height="1000"/>
+ </tileset>
+ <layer name="land1" width="40" height="12">
+  <data encoding="base64" compression="zlib">
+   eJztzkEVgCAUBdFHBSlAGbESUMlvJoniZHDzN2/OufuRnHPOufy61CYCL46idmLgRvbfxdPCg43KU8dE/Pj7AHTDCZk=
+  </data>
+ </layer>
+ <layer name="land2" width="40" height="12">
+  <data encoding="base64" compression="zlib">
+   eJztztsNgkAUhOFZu1CkI3XpSFg7UteKCBdjEfzkUIPngZ3ky54M84BU8u/0wd6Bd8SEGd+t/wW/fysp2VPqg9ozKpxwNOIWnfi2btx2DX3EDVdcjLhFp2gbt92DPqFDi7sRt+iUbOO2+9BnvPHC04hbdMq2cdstn5JwUA==
+  </data>
+ </layer>
+ <layer name="land3" width="40" height="12">
+  <data encoding="base64" compression="zlib">
+   eJztzrsRgCAQANGjCtGSBCzJT0l+SkJtw83FwOgIbmdeviKWVXcBEQmD4seICTMWxY+vVmzYcSi/lMo4ceFWfinVOBGPFp3TvnnX8xQQkSr8s/73ALv6Cyk=
+  </data>
+ </layer>
+ <layer name="land4" width="40" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRQGvAx0Idc64yMzBcA+LrQHyDmTpmgoAjldzHATSHE4i5gJibSmaCQAmVzLIGmmMDxLZAbEdF95EDAMB1BW4=
+  </data>
+ </layer>
+ <objectgroup name="pengzhuang" width="40" height="12">
+  <object x="-1" y="387" width="1603" height="93"/>
+ </objectgroup>
+ <objectgroup name="zuobiao1" width="40" height="12">
+  <object x="964" y="398">
+   <properties>
+    <property name="id" value="9"/>
+    <property name="type" value="1"/>
+   </properties>
+  </object>
+  <object x="523" y="396">
+   <properties>
+    <property name="id" value="9"/>
+    <property name="type" value="0"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="zuobiao2" width="40" height="12">
+  <object x="16" y="385">
+   <properties>
+    <property name="id" value="104"/>
+    <property name="num" value="10"/>
+    <property name="toward" value="0"/>
+    <property name="wave" value="3"/>
+   </properties>
+  </object>
+  <object x="77" y="388">
+   <properties>
+    <property name="id" value="104"/>
+    <property name="num" value="5"/>
+    <property name="toward" value="0"/>
+    <property name="wave" value="1"/>
+   </properties>
+  </object>
+  <object x="48" y="386">
+   <properties>
+    <property name="id" value="104"/>
+    <property name="num" value="7"/>
+    <property name="toward" value="0"/>
+    <property name="wave" value="2"/>
+   </properties>
+  </object>
+  <object x="1591" y="384">
+   <properties>
+    <property name="id" value="104"/>
+    <property name="num" value="5"/>
+    <property name="toward" value="1"/>
+    <property name="wave" value="1"/>
+   </properties>
+  </object>
+  <object x="1545" y="388">
+   <properties>
+    <property name="id" value="104"/>
+    <property name="num" value="10"/>
+    <property name="toward" value="1"/>
+    <property name="wave" value="3"/>
+   </properties>
+  </object>
+  <object x="1567" y="384">
+   <properties>
+    <property name="id" value="104"/>
+    <property name="num" value="7"/>
+    <property name="toward" value="1"/>
+    <property name="wave" value="2"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="zuobiao3" width="40" height="12"/>
+</map>

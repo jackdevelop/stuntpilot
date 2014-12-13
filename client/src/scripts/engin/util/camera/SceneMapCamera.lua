@@ -21,6 +21,15 @@ function SceneMapCamera:ctor(map)
     if minScaleH > minScale then minScale = minScaleH end
     self.minScale_ = minScale
     self.maxScale_ = 99 --最大默认为99
+    
+    
+    
+    self.backgroundLayer_ = self.map_:getBackgroundLayer()
+    self.floorsLayer_    = self.map_:getFloorsLayer()
+    self.batchLayer_       = self.map_:getBatchLayer()
+    self.flysLayer_      = self.map_:getFlysLayer()
+    self.debugLayer_      = self.map_:getDebugLayer()
+    
 end
 
 
@@ -100,14 +109,16 @@ function SceneMapCamera:setScale(scale)
     self:resetOffsetLimit()
     self:setOffset(self.offsetX_, self.offsetY_)
 
-    local backgroundLayer = self.map_:getBackgroundLayer()
-    local batchLayer      = self.map_:getBatchLayer()
-    local marksLayer      = self.map_:getMarksLayer()
-    local debugLayer      = self.map_:getDebugLayer()
+    local backgroundLayer = self.backgroundLayer_
+    local floorsLayer = self.floorsLayer_
+    local batchLayer      =  self.batchLayer_
+    local flysLayer      = self.flysLayer_ 
+    local debugLayer      =  self.debugLayer_
 
     backgroundLayer:setScale(scale)
+    floorsLayer:setScale(scale)
     batchLayer:setScale(scale)
-    marksLayer:setScale(scale)
+    flysLayer:setScale(scale)
     if debugLayer then debugLayer:setScale(scale) end
 end
 
@@ -124,12 +135,11 @@ function SceneMapCamera:zoomTo(scale, x, y)
     self:resetOffsetLimit()
 
     
-    local backgroundLayer = self.map_:getBackgroundLayer()
-    local floorsLayer    = self.map_:getFloorsLayer()
-    local batchLayer      = self.map_:getBatchLayer()
-    local flysLayer      = self.map_:getFlysLayer()
-    local debugLayer      = self.map_:getDebugLayer()
-    
+    local backgroundLayer = self.backgroundLayer_
+    local floorsLayer = self.floorsLayer_
+    local batchLayer      =  self.batchLayer_
+    local flysLayer      = self.flysLayer_ 
+    local debugLayer      =  self.debugLayer_
 
     transition.removeAction(self.backgroundLayerAction_)
     transition.removeAction(self.floorsLayerAction_)
@@ -216,11 +226,11 @@ function SceneMapCamera:setOffset(x, y, movingSpeed, onComplete)
 
 	
 	
-	local backgroundLayer = self.map_:getBackgroundLayer()
-    local floorsLayer    = self.map_:getFloorsLayer()
-    local batchLayer      = self.map_:getBatchLayer()
-    local flysLayer      = self.map_:getFlysLayer()
-    local debugLayer      = self.map_:getDebugLayer()
+	local backgroundLayer = self.backgroundLayer_
+    local floorsLayer = self.floorsLayer_
+    local batchLayer      =  self.batchLayer_
+    local flysLayer      = self.flysLayer_ 
+    local debugLayer      =  self.debugLayer_
     
     
 

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="60" height="12" tilewidth="40" tileheight="40">
+ <tileset firstgid="1" name="b-land" tilewidth="40" tileheight="40">
+  <image source="b-land.png" width="1885" height="2029"/>
+ </tileset>
+ <layer name="land1" width="60" height="12">
+  <data encoding="base64" compression="zlib">
+   eJzdz0dOw0AYhuFfGWMbrkKTaHegnIASSIANZQtJ2GRLCWVJ2ZLYCUegeEkRTYLEgavQXvaJbOEC5JOejaUZzysSz5K6yDRmkEJaj+nHv7QCfdvYwS72WqS3mGj8/ZS+M5zjAk6L9C6YIotYwrLZvN9rw4bICEYxZoT7xjC3T+MBDnEUoDdDYxY5rP3h3ksar3CNG9PfmXlNnDnMIo0USjRasFFu0HurRO5wjwc8qnA7otwQfYMYQD/6UKWxBhf1Br1v9L3jA5/frVrsz/7xDPp0tEGDgteZTvq60I0e9P6jXleJU0MVz3hS3r3j9E1gElNIBuw9SUi+gjJsWAh2Y/PZ9FkooYhjH73r9G1gE1soBOx9pe8FdbioRdiboy+LDFax4qM37HUoybfDhAFdRdcb574AnOlcqg==
+  </data>
+ </layer>
+ <layer name="land2" width="60" height="12">
+  <data encoding="base64" compression="zlib">
+   eJzN1cdzlkUcB/A3vEn0jxDSA6gHu3+E6QUsB6VasB2spG0aloNSErp6sJJeQOFkoWM5WEmjWU+UVLDM+HmGd4Z3xjiJjKA785nZ2f3t8+x397Cx2JVpzelX6MP/03Y6Houd4SznGGWMcSaYZCr+X+/y32tzU2OxeWSQSRbZ5JBLHvmpl+qXsJRlLGcFK3mQh3iYR1jFozzG4zzBk1cp03VpcjGPDDLJSrs4VyBLIUUUU0IpZZRTQWVS3rWsYz0baKGVjWxiM1vYyja28xqv88ZVynuXbAUUUkQxJYm8VbJUU0MtdQTqaaCRpqS8H/IRH/MJe9nHfg5wkEMc5gif8hmf88U/2PP2ObGwja1sYTOb2EgrLUR1093jaqqopoZa6hJ522Rpp4NOuuimh1766E/Ke5oznOUco4wxzgSTTHGeC/zKb/zOH0l5nuJpnuFZnuN5Vkd3EJ2TPEc4zCEOcoD97GNvIu9097iDNtrpoJOuRN4BWQYZYpgRjnGcE5zkVFLeuSnOkwwyySKbHHLJI5/5LGAh13MDN6Zc+s6bvMXbvMO7vMeO6A6ic5LnAueZYpIJxhljNJF3uns8ygCDDDHMSJT3Mt6iAnsupIhiSiiljHIqqGQRi7mbe7iX+5LyfslXfM03fMt3HI3ugIXxWFjAfPLJI5ccssmKX8z7d/f4l5Z+earsuZoaaqkjUE8DjTTRzBpe4EVe4uWkvCn6c4iTShrpXMO10TnJs5hFVFJBOWWUUpLIO1Ob6b0l6AdjwVxQE9QGa4K1oc1e2umgky666aGXPvrZyS7e5wN2sycp7036N3MLt3Ibt3MHd0bn5F9raKaJRhqoJ1A3y7wzvbcE/WAsmAtqgtpgTbA2DNjLIEMMM8IxjnOCk5zie37gR37iZ35Jynu//gMsYSnLWM4KVkbnJM8udtJPH7300E3XLPPO9N4S9IOxYC6oCWqDNcHaWf1jNu0VmV5lLetYzwZaaOVPVnoQsw==
+  </data>
+ </layer>
+ <layer name="land3" width="60" height="12">
+  <data encoding="base64" compression="zlib">
+   eJztz8cNgEAQBMH9Xar4dLCXDj4d/IdOAoGWban+MyKWZVmW9Z8CJxIiQowEKTL39rJnyvlVoESFGg280r8tvzr0GDBiwqz078KvFRt2HDhxKf37lW4XoRQv
+  </data>
+ </layer>
+ <layer name="land4" width="60" height="12">
+  <data encoding="base64" compression="zlib">
+   eJztz8sNglAQRuHZEG6ZwF6xEB66RylEQfcghYA2IJp4SiDkXiFx/uTbTuaI6HQ6nc7mEiOSIkNulv7G/c40XlChntgb+CIhIt/dXxtPZIsYO8/e3Z7GAQ88J/bmdO5xcNhb0HjECaXF3jmr6bzi5rC3obHFHd3Cvb/Yi8YRb3z+oHft+wI8ixom
+  </data>
+ </layer>
+ <objectgroup name="pengzhuang" width="60" height="12">
+  <object x="0" y="286" width="289" height="65"/>
+  <object x="443" y="247" width="114" height="41"/>
+  <object x="681" y="168" width="113" height="40"/>
+  <object x="944" y="87" width="307" height="37"/>
+  <object x="780" y="409" width="345" height="71"/>
+  <object x="1125" y="305" width="120" height="174"/>
+  <object x="1632" y="249" width="88" height="19"/>
+  <object x="2360" y="247" width="45" height="37"/>
+  <object x="1405" y="248" width="227" height="19"/>
+  <object x="1721" y="249" width="226" height="18"/>
+  <object x="2143" y="341" width="100" height="26"/>
+  <object x="2238" y="277" width="136" height="39"/>
+  <object x="1245" y="408" width="53" height="76"/>
+ </objectgroup>
+ <objectgroup name="zuobiao1" width="60" height="12">
+  <object x="1041" y="67">
+   <properties>
+    <property name="id" value="1"/>
+    <property name="type" value="1"/>
+   </properties>
+  </object>
+  <object x="950" y="391">
+   <properties>
+    <property name="id" value="1"/>
+    <property name="type" value="1"/>
+   </properties>
+  </object>
+  <object x="1006" y="394">
+   <properties>
+    <property name="id" value="1"/>
+    <property name="type" value="1"/>
+   </properties>
+  </object>
+  <object x="1134" y="88">
+   <properties>
+    <property name="id" value="12"/>
+    <property name="type" value="0"/>
+   </properties>
+  </object>
+  <object x="1072" y="406">
+   <properties>
+    <property name="id" value="12"/>
+    <property name="type" value="0"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="zuobiao2" width="60" height="12">
+  <object x="1673" y="247">
+   <properties>
+    <property name="id" value="101"/>
+    <property name="num" value="5"/>
+    <property name="range" value="100"/>
+    <property name="time" value="1"/>
+    <property name="timemax" value="12"/>
+    <property name="timemin" value="3"/>
+    <property name="z" value="0"/>
+   </properties>
+  </object>
+  <object x="738" y="170">
+   <properties>
+    <property name="id" value="101"/>
+    <property name="num" value="5"/>
+    <property name="range" value="100"/>
+    <property name="time" value="1"/>
+    <property name="timemax" value="12"/>
+    <property name="timmin" value="3"/>
+    <property name="z" value="0"/>
+   </properties>
+  </object>
+  <object x="234" y="286">
+   <properties>
+    <property name="id" value="101"/>
+    <property name="num" value="5"/>
+    <property name="range" value="100"/>
+    <property name="time" value="1"/>
+    <property name="timemax" value="12"/>
+    <property name="timmin" value="3"/>
+    <property name="z" value="0"/>
+   </properties>
+  </object>
+  <object x="838" y="408">
+   <properties>
+    <property name="id" value="102"/>
+    <property name="num" value="3"/>
+    <property name="range" value="0"/>
+    <property name="time" value="1"/>
+    <property name="timemax" value="10"/>
+    <property name="timmin" value="3"/>
+   </properties>
+  </object>
+  <object x="2378" y="246">
+   <properties>
+    <property name="id" value="102"/>
+    <property name="num" value="3"/>
+    <property name="range" value="0"/>
+    <property name="time" value="1"/>
+    <property name="timemax" value="10"/>
+    <property name="timmin" value="3"/>
+   </properties>
+  </object>
+  <object x="1180" y="88">
+   <properties>
+    <property name="id" value="104"/>
+    <property name="num" value="4"/>
+    <property name="range" value="50"/>
+    <property name="time" value="1"/>
+    <property name="timemax" value="6"/>
+    <property name="timmin" value="3"/>
+   </properties>
+  </object>
+  <object x="502" y="252">
+   <properties>
+    <property name="id" value="103"/>
+    <property name="num" value="4"/>
+    <property name="range" value="50"/>
+    <property name="time" value="1"/>
+    <property name="timemax" value="6"/>
+    <property name="timmin" value="3"/>
+   </properties>
+  </object>
+  <object x="1074" y="86">
+   <properties>
+    <property name="id" value="111"/>
+    <property name="num" value="2"/>
+    <property name="range" value="20"/>
+    <property name="time" value="1"/>
+    <property name="timemax" value="8"/>
+    <property name="timmin" value="1"/>
+   </properties>
+  </object>
+  <object x="716" y="170">
+   <properties>
+    <property name="id" value="111"/>
+    <property name="num" value="2"/>
+    <property name="range" value="20"/>
+    <property name="time" value="1"/>
+    <property name="timemax" value="8"/>
+    <property name="timmin" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="zuobiao3" width="60" height="12">
+  <object x="1405" y="125" width="227" height="123">
+   <properties>
+    <property name="poid" value="1"/>
+   </properties>
+  </object>
+  <object x="1716" y="118" width="243" height="131">
+   <properties>
+    <property name="poid" value="0"/>
+   </properties>
+  </object>
+  <object x="2143" y="277" width="95" height="64">
+   <properties>
+    <property name="poid" value="0"/>
+   </properties>
+  </object>
+  <object x="2239" y="247" width="121" height="30">
+   <properties>
+    <property name="poid" value="0"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

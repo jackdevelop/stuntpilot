@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="80" height="24" tilewidth="40" tileheight="40">
+ <tileset firstgid="1" name="b-land" tilewidth="40" tileheight="40">
+  <image source="b-land.png" width="1885" height="2029"/>
+ </tileset>
+ <layer name="land1" width="80" height="24">
+  <data encoding="base64" compression="zlib">
+   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
+  </data>
+ </layer>
+ <layer name="land2" width="80" height="24">
+  <data encoding="base64" compression="zlib">
+   eJzt2OVz1EAcxvEcSXHKH4AUp7i7vMNrUNzd3aG2SIu7u1sN5y3u7tTw17j7t9x0JnPk0iRNejDDb+YzzSR7m+SZNLsbSfpfuV0t0BKt0Bpt0BbtEIRghCAUYWiPDgj3xcX+hTURkzAZUzAV0zAdEYhEFKIRA4EZmKnRVzE/SSqOEiiJAJRCaT/n78OOOi1L0hmcxTmcxwVcxCVZ+zc7sBO7sBt7sBf7EI8EJCIJydiPAzio0VdbcmqHIAQjBKEI+0fye0NGb/EO7/EBH/EJn73kdwu3cQd3cQ/38QApSEUa0pGBh3iExxp9TSOn6YhAJKIQjRiD+Z3gGk/ilGztWchplVYkqQzKohzKowIqIlDR/o3LJUl5IEOBH/IiH/KjAAqiEAqjCPxR1PVnX3vJaR/ikYBEJCHZYH4vyeUVXsvWnoWcVhgZtUcHhKMjOqEzunjJryY51EJt1EFd1EN9NEBDNEJjNEE4196Mv8018rtPTg+QglSkIR0ZBvMryTUGoJRi7VnIacXQr8AMzMQszEYs4nTO2Zcs+qE/BmAgBmEwhmAohmGOLIk4xGK2/HsosbWCucYQhCrWnoWsOi4bfxeoK5l+9+MADuIQDuMIjuqccwnZLMUyLMcKrMQqrMYarMUxMjuKIzjsQH6RXGMUohXrz0JmvZCNvwvUlUG/D/EIj/EET/EMz72cs4/G/6GvKoFrTESSYv1ZyKwSivF3QU5r8V+UXyr3k4Z05c9nYQRGYhRGYwzGYhzGe+QQpBh/F5gts3Pb3JwLF6DvgiiEwigCfxTFeu51AzZiEzZjC7Zim0cOEYrxd4HZMju3NdN+gmTvekZdF7nXS7iMK7iKa7iOGx45xCvG3wVmy+zc1kz77ZK96xl1feJeP+MLvuIbvuMHfnrkkKLovwvU44LZMju3NdP+pmTvekZdFTlvICqhMqqgKqqh+j+yPsy2XPauZ9TVmYy6oCu6oTt6oCd6eclPbw4DwbZgn+CYeO3AfMxs1XCZX880dXlfz6grloziMAdzMQ/zsQALveSnN4eBYFuwT3BM0Eaof+v0OKvVvrfLPZ80up4ZjhEYiVEOzKP05jAQbAv2CY6JUI/8nBxnvbVf5HLPJ42uZ9ZhPTZgowP56c1hINgW7BMcE9Ee+Tk5zlpp74vSm8NAsC3YJzgmkjzyc3KctdLeF6U3h4FgW7BPcEyke+TndHn7RpXd2l1r3HvlZkv7rG8DmfU9X24mYk9lt3bXGvcC3Gxpn/VtILOq5vdtFlYqu7W71rgX4mZL+6xvA1bqF4/Myas=
+  </data>
+ </layer>
+ <layer name="land3" width="80" height="24">
+  <data encoding="base64" compression="zlib">
+   eJzt2ddv1VUAB/DLMLj1wfHCKqNMx5sy1AfHC6uFluE2KpT5B0hpf4XSAs6o0EVV9Ek6oVDAlbjYzjeBtvrgeGEV2jLVT/OrCVdpcqm35bbpN/mkp+f8cnrON/0lN20k0pve/DfH+kUixznBSRo5xWmaQoFxYC5oDEWtN9PS72rfIkxB30ikkCKKKWEjpbzDu7zHJt7ng75X/jMmDIhEJjKJyQzqH4kMZghDSWIYwxkRCowDc0FSKGp9JMn9499FR7JbH3vYyz72c4CDfMO3fMf3/MCPHegvY0D091PdfRrTmUEKqcxkVigwDswFKaGo9TTSE6S/Jn0008IZznKO81zgIn/yV2tv3pk+7bw3y8lkBVlkE5BDwb/6W+7umawgi2wCclgZCowDc0F2KGp9FbkJ0t8IfYwkmVGMZgxjGcd47uJu7uHedvrbTBnlVFBJFdWXe9bdyyingkqqqGZLKDAOzAWVoaj1rdTEqb96vxcNHXinWpPa1kWar+nMZg5zmcfjPMGTPMXTPNNOfz9xiMMcoa71bDRc7ll3P8RhjlBHPQ38HAqMA3NBXShq/Rfy7JPPGtayrmMV/K8El3SRa7yaPPJZw1rW8TKv8CqvtdPftX0ikeu4nhu4kZu4mVu4tU/8z1/LDnayK/7bX1Fq9LKN7dSyg53s4iM+5hM+bae/+/RzPxOYyCQm8wAP8lAn9Pcrv/E7f8R/+y7NfP0sIIOFLGIxS1jKsk7o7zZ73s4d3NkJ+3dl1jv/BgoopIhiSthIaSfc72F7PsKjPNbN++tNb65WnuW5tvHzvMCLzGcBGSxkEYtZwlKWdfVBEzSv80bb+E3e4m3Ws4ECCimimBI2UtrlJ+3aDLsmtuc+u2T8OV/wJV/xNbvZw172sZ8DHIzfURMyqTH2d5RjHOcEJ2nkFKdpopkWznCWc5znAhfje+yESRBjfwN9dhjEYIYwlCSGMZwRjCSZUYxmDGMZx/ge+tmjKsb+prj/VKYxnRmkkMpMZpFGOrOZw1zm9dDe/kl9jP29pIflZLKCLLIJyGElq8hlNXnks6aH9xdrPtTDZsoop4JKqqhmC1upYRvbqWVHD+/vaIL8j6G7ZmCC/I23u2ZKN+/vb/+T63s=
+  </data>
+ </layer>
+ <layer name="land4" width="80" height="24">
+  <data encoding="base64" compression="zlib">
+   eJzt2clKQnEYhvEPcugGGqFdk9oNNGlBI3QF1aJaNWlBI3QF1aJaNWlBI3QF1QU0ae27gUZo16QGPQs3ujjHExaV3wu/hYp/5Nmcc1BEp/ufy7OL5KMAhfb0v9fpFOlCt/P7fttfWBPNmtGCVgv9Zuk2h/ks7zdGs3FMYNJCv0O6HeE4pV8Pr3vRl3g/yJkhbFg4O5u3QLdFLCX6hekWwaX2+9KidIshrv10Op1OZzIv1wofGtBocN24sYnc4g73eMCj7ed+52+dn2YBjGDUoF/qs08RivU6nXTPvGnQI/XZpw3t2i/pnvnKoEfqs88UprVf0j3zh0GPLT7bxg52sYd97Scuh4gbHlQ5Mnv2U05mz8u2lej12XTVTpEa1KIO9fDChw7tZ7p+Og1gEEMYhh8BzGg/0y3TaQWrWMM6ggjhQPuZ7oROpzjDOS4QRgTX2s90z3R6wSve8I4oYohn+f8F6aw0V6QM5ahAJVxww5Nr/bxPyitLIw==
+  </data>
+ </layer>
+ <objectgroup name="pengzhuang" width="80" height="24">
+  <object x="0" y="207" width="178" height="57"/>
+  <object x="339" y="164" width="101" height="41"/>
+  <object x="772" y="126" width="115" height="33"/>
+  <object x="1017" y="168" width="152" height="25"/>
+  <object x="1414" y="127" width="108" height="27"/>
+  <object x="1655" y="204" width="116" height="30"/>
+  <object x="1944" y="242" width="276" height="27"/>
+  <object x="2220" y="85" width="620" height="30"/>
+  <object x="2220" y="113" width="37" height="156"/>
+  <object x="2496" y="504" width="276" height="20"/>
+  <object x="2400" y="443" width="96" height="81"/>
+  <object x="1814" y="680" width="366" height="22"/>
+  <object x="1576" y="528" width="137" height="37"/>
+  <object x="1127" y="732" width="109" height="33"/>
+  <object x="883" y="491" width="113" height="24"/>
+  <object x="645" y="736" width="113" height="33"/>
+  <object x="402" y="494" width="115" height="29"/>
+  <object x="164" y="735" width="111" height="29"/>
+  <object x="1377" y="883" width="1111" height="78"/>
+  <object x="2488" y="786" width="116" height="173"/>
+  <object x="2744" y="640" width="457" height="50"/>
+  <object x="2702" y="412" width="70" height="92"/>
+  <object x="224" y="229" width="115" height="26"/>
+  <object x="440" y="224" width="242" height="26"/>
+  <object x="683" y="152" width="89" height="32"/>
+  <object x="887" y="168" width="130" height="29"/>
+  <object x="1169" y="168" width="153" height="25"/>
+  <object x="1321" y="139" width="92" height="26"/>
+  <object x="1523" y="204" width="133" height="29"/>
+  <object x="1771" y="242" width="174" height="29"/>
+  <object x="2180" y="640" width="220" height="30"/>
+  <object x="1713" y="576" width="101" height="27"/>
+  <object x="1462" y="560" width="115" height="30"/>
+  <object x="1388" y="620" width="74" height="22"/>
+  <object x="1362" y="667" width="31" height="18"/>
+  <object x="2688" y="364" width="211" height="48"/>
+  <object x="2974" y="101" width="74" height="260"/>
+  <object x="2899" y="281" width="76" height="118"/>
+  <object x="2605" y="886" width="48" height="74"/>
+  <object x="2924" y="-413" width="126" height="527"/>
+ </objectgroup>
+ <objectgroup name="zuobiao1" width="80" height="24">
+  <object x="1120" y="165">
+   <properties>
+    <property name="id" value="1"/>
+    <property name="type" value="1"/>
+   </properties>
+  </object>
+  <object x="220" y="732">
+   <properties>
+    <property name="id" value="17"/>
+    <property name="type" value="1"/>
+   </properties>
+  </object>
+  <object x="2328" y="66">
+   <properties>
+    <property name="id" value="1"/>
+    <property name="type" value="1"/>
+   </properties>
+  </object>
+  <object x="2384" y="69">
+   <properties>
+    <property name="id" value="1"/>
+    <property name="type" value="1"/>
+   </properties>
+  </object>
+  <object x="2170" y="864">
+   <properties>
+    <property name="id" value="1"/>
+    <property name="type" value="1"/>
+   </properties>
+  </object>
+  <object x="2226" y="867">
+   <properties>
+    <property name="id" value="1"/>
+    <property name="type" value="1"/>
+   </properties>
+  </object>
+  <object x="1629" y="506">
+   <properties>
+    <property name="id" value="1"/>
+    <property name="type" value="1"/>
+   </properties>
+  </object>
+  <object x="2045" y="663">
+   <properties>
+    <property name="id" value="1"/>
+    <property name="type" value="1"/>
+   </properties>
+  </object>
+  <object x="142" y="208">
+   <properties>
+    <property name="id" value="12"/>
+    <property name="type" value="0"/>
+   </properties>
+  </object>
+  <object x="1186" y="730">
+   <properties>
+    <property name="id" value="12"/>
+    <property name="type" value="0"/>
+   </properties>
+  </object>
+  <object x="2148" y="240">
+   <properties>
+    <property name="id" value="12"/>
+    <property name="type" value="0"/>
+   </properties>
+  </object>
+  <object x="2662" y="84">
+   <properties>
+    <property name="id" value="12"/>
+    <property name="type" value="0"/>
+   </properties>
+  </object>
+  <object x="2842" y="362">
+   <properties>
+    <property name="id" value="12"/>
+    <property name="type" value="0"/>
+   </properties>
+  </object>
+  <object x="1998" y="242">
+   <properties>
+    <property name="id" value="12"/>
+    <property name="type" value="0"/>
+   </properties>
+  </object>
+  <object x="1998" y="242">
+   <properties>
+    <property name="id" value="12"/>
+    <property name="type" value="0"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="zuobiao2" width="80" height="24">
+  <object x="1720" y="200">
+   <properties>
+    <property name="id" value="101"/>
+    <property name="num" value="5"/>
+    <property name="range" value="100"/>
+    <property name="time" value="1"/>
+    <property name="timemax" value="12"/>
+    <property name="timemin" value="3"/>
+    <property name="z" value="0"/>
+   </properties>
+  </object>
+  <object x="1478" y="884">
+   <properties>
+    <property name="id" value="101"/>
+    <property name="num" value="5"/>
+    <property name="range" value="100"/>
+    <property name="time" value="1"/>
+    <property name="timemax" value="12"/>
+    <property name="timmin" value="3"/>
+    <property name="z" value="0"/>
+   </properties>
+  </object>
+  <object x="944" y="488">
+   <properties>
+    <property name="id" value="101"/>
+    <property name="num" value="5"/>
+    <property name="range" value="100"/>
+    <property name="time" value="1"/>
+    <property name="timemax" value="12"/>
+    <property name="timmin" value="3"/>
+    <property name="z" value="0"/>
+   </properties>
+  </object>
+  <object x="698" y="730">
+   <properties>
+    <property name="id" value="102"/>
+    <property name="num" value="3"/>
+    <property name="range" value="0"/>
+    <property name="time" value="1"/>
+    <property name="timemax" value="10"/>
+    <property name="timmin" value="3"/>
+   </properties>
+  </object>
+  <object x="2548" y="784">
+   <properties>
+    <property name="id" value="102"/>
+    <property name="num" value="3"/>
+    <property name="range" value="0"/>
+    <property name="time" value="1"/>
+    <property name="timemax" value="10"/>
+    <property name="timmin" value="3"/>
+   </properties>
+  </object>
+  <object x="1456" y="124">
+   <properties>
+    <property name="id" value="102"/>
+    <property name="num" value="3"/>
+    <property name="range" value="0"/>
+    <property name="time" value="1"/>
+    <property name="timemax" value="10"/>
+    <property name="timmin" value="3"/>
+   </properties>
+  </object>
+  <object x="2080" y="240">
+   <properties>
+    <property name="id" value="104"/>
+    <property name="num" value="4"/>
+    <property name="range" value="50"/>
+    <property name="time" value="1"/>
+    <property name="timemax" value="6"/>
+    <property name="timmin" value="3"/>
+   </properties>
+  </object>
+  <object x="2010" y="680">
+   <properties>
+    <property name="id" value="104"/>
+    <property name="num" value="4"/>
+    <property name="range" value="50"/>
+    <property name="time" value="1"/>
+    <property name="timemax" value="6"/>
+    <property name="timmin" value="3"/>
+   </properties>
+  </object>
+  <object x="2950" y="638">
+   <properties>
+    <property name="id" value="104"/>
+    <property name="num" value="4"/>
+    <property name="range" value="50"/>
+    <property name="time" value="1"/>
+    <property name="timemax" value="6"/>
+    <property name="timmin" value="3"/>
+   </properties>
+  </object>
+  <object x="826" y="124">
+   <properties>
+    <property name="id" value="103"/>
+    <property name="num" value="4"/>
+    <property name="range" value="50"/>
+    <property name="time" value="1"/>
+    <property name="timemax" value="6"/>
+    <property name="timmin" value="3"/>
+   </properties>
+  </object>
+  <object x="2568" y="86">
+   <properties>
+    <property name="id" value="103"/>
+    <property name="num" value="4"/>
+    <property name="range" value="50"/>
+    <property name="time" value="1"/>
+    <property name="timemax" value="6"/>
+    <property name="timmin" value="3"/>
+   </properties>
+  </object>
+  <object x="2792" y="364">
+   <properties>
+    <property name="id" value="103"/>
+    <property name="num" value="4"/>
+    <property name="range" value="50"/>
+    <property name="time" value="1"/>
+    <property name="timemax" value="6"/>
+    <property name="timmin" value="3"/>
+   </properties>
+  </object>
+  <object x="3034" y="642">
+   <properties>
+    <property name="id" value="103"/>
+    <property name="num" value="4"/>
+    <property name="range" value="50"/>
+    <property name="time" value="1"/>
+    <property name="timemax" value="6"/>
+    <property name="timmin" value="3"/>
+   </properties>
+  </object>
+  <object x="1754" y="888">
+   <properties>
+    <property name="id" value="103"/>
+    <property name="num" value="4"/>
+    <property name="range" value="50"/>
+    <property name="time" value="1"/>
+    <property name="timemax" value="6"/>
+    <property name="timmin" value="3"/>
+   </properties>
+  </object>
+  <object x="392" y="160">
+   <properties>
+    <property name="id" value="111"/>
+    <property name="num" value="2"/>
+    <property name="range" value="20"/>
+    <property name="time" value="1"/>
+    <property name="timemax" value="8"/>
+    <property name="timmin" value="1"/>
+   </properties>
+  </object>
+  <object x="2282" y="82">
+   <properties>
+    <property name="id" value="111"/>
+    <property name="num" value="2"/>
+    <property name="range" value="20"/>
+    <property name="time" value="1"/>
+    <property name="timemax" value="8"/>
+    <property name="timmin" value="1"/>
+   </properties>
+  </object>
+  <object x="2432" y="442">
+   <properties>
+    <property name="id" value="111"/>
+    <property name="num" value="2"/>
+    <property name="range" value="20"/>
+    <property name="time" value="1"/>
+    <property name="timemax" value="8"/>
+    <property name="timmin" value="1"/>
+   </properties>
+  </object>
+  <object x="460" y="496">
+   <properties>
+    <property name="id" value="111"/>
+    <property name="num" value="2"/>
+    <property name="range" value="20"/>
+    <property name="time" value="1"/>
+    <property name="timemax" value="8"/>
+    <property name="timmin" value="1"/>
+   </properties>
+  </object>
+  <object x="2826" y="636">
+   <properties>
+    <property name="id" value="111"/>
+    <property name="num" value="2"/>
+    <property name="range" value="20"/>
+    <property name="time" value="1"/>
+    <property name="timemax" value="8"/>
+    <property name="timmin" value="1"/>
+   </properties>
+  </object>
+  <object x="2934" y="280">
+   <properties>
+    <property name="id" value="111"/>
+    <property name="num" value="2"/>
+    <property name="range" value="20"/>
+    <property name="time" value="1"/>
+    <property name="timemax" value="8"/>
+    <property name="timmin" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="zuobiao3" width="80" height="24">
+  <object x="224" y="164" width="115" height="66">
+   <properties>
+    <property name="poid" value="0"/>
+   </properties>
+  </object>
+  <object x="440" y="164" width="143" height="61">
+   <properties>
+    <property name="poid" value="1"/>
+   </properties>
+  </object>
+  <object x="583" y="152" width="101" height="73">
+   <properties>
+    <property name="poid" value="0"/>
+   </properties>
+  </object>
+  <object x="683" y="126" width="88" height="26">
+   <properties>
+    <property name="poid" value="0"/>
+   </properties>
+  </object>
+  <object x="887" y="126" width="130" height="42">
+   <properties>
+    <property name="poid" value="1"/>
+   </properties>
+  </object>
+  <object x="1321" y="95" width="93" height="44">
+   <properties>
+    <property name="poid" value="0"/>
+   </properties>
+  </object>
+  <object x="1523" y="127" width="133" height="77">
+   <properties>
+    <property name="poid" value="1"/>
+   </properties>
+  </object>
+  <object x="1771" y="204" width="173" height="38">
+   <properties>
+    <property name="poid" value="1"/>
+   </properties>
+  </object>
+  <object x="2496" y="471" width="81" height="34">
+   <properties>
+    <property name="poid" value="1"/>
+   </properties>
+  </object>
+  <object x="2180" y="443" width="220" height="198">
+   <properties>
+    <property name="poid" value="0"/>
+   </properties>
+  </object>
+  <object x="2079" y="640" width="101" height="40">
+   <properties>
+    <property name="poid" value="0"/>
+   </properties>
+  </object>
+  <object x="1814" y="576" width="124" height="104">
+   <properties>
+    <property name="poid" value="1"/>
+   </properties>
+  </object>
+  <object x="1713" y="528" width="101" height="48">
+   <properties>
+    <property name="poid" value="1"/>
+   </properties>
+  </object>
+  <object x="1462" y="528" width="114" height="32">
+   <properties>
+    <property name="poid" value="0"/>
+   </properties>
+  </object>
+  <object x="1388" y="560" width="73" height="60">
+   <properties>
+    <property name="poid" value="0"/>
+   </properties>
+  </object>
+  <object x="178" y="207" width="46" height="22">
+   <properties>
+    <property name="poid" value="1"/>
+   </properties>
+  </object>
+  <object x="1362" y="620" width="27" height="48">
+   <properties>
+    <property name="poid" value="0"/>
+   </properties>
+  </object>
+  <object x="1169" y="139" width="152" height="29">
+   <properties>
+    <property name="poid" value="0"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

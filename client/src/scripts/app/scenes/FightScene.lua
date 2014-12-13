@@ -5,13 +5,17 @@ local BaseScene = require("engin.mvcs.view.BaseScene")
 local FightScene = class("FightScene", BaseScene)
 
 
+
+
+
+
 	
 function FightScene:ctor(param)
 	local levelData = param.levelData;
 	
 	param.sceneSound = GameSoundProperties[levelData.sceneSound](); --GameSoundProperties.bg_sound();
 	param.backgroundImageName = levelData.backgroundImageName;
-	param.parallaxImageName = levelData.parallaxImageName;
+	param.parallax = levelData.parallax;
 	param.width = levelData.width;
 	param.height = display.height;
 	param.batchNodeImage = levelData.batchNodeImage;
@@ -19,9 +23,17 @@ function FightScene:ctor(param)
 	FightScene.super.ctor(self,param)
     
     
+    --添加远景 近景的层次
+    local parallax = levelData.parallax;
+    local function createTiledNode(tileUrl)
+		local tileMap=CCTMXTiledMap:create(tileUrl);
+	   return tileMap
+	end
+    self.parallaxLayer_:addChild(createTiledNode("map/tile/a1levmg.tmx"));
+    self.parallaxLayer_:addChild(createTiledNode("map/tile/0_0jg.tmx"));
+    self.parallaxLayer_:addChild(createTiledNode("map/tile/0_0.tmx"));
     
     
-    self:createCCParallax();
     --添加ui
     local FightSceneUI = require("app.views.FightSceneUI")
     local fightSceneUI = FightSceneUI.new(self:getUILayer(),self);
@@ -30,7 +42,6 @@ function FightScene:ctor(param)
     --控制器
     local FightController = require("app.controllers.FightController")
 	self.sceneController_ = FightController.new(self,levelData);
-	
 end
 
 
@@ -49,58 +60,6 @@ end
 
 
 
-
---[[
-创建CCParallaxNode 
-]]
-function FightScene:createCCParallax()	
-	local batch = self:getBatchLayer();
-	
-	--调试
-	local c = display.newSprite("#balloon_path_png.png")
-    batch:addChild(c);
-    c:setPosition(display.width,display.cy);
-    
-    local c = display.newSprite("#balloon_path_png.png")
-    batch:addChild(c);
-    c:setPosition(2*display.width,display.cy);
-    
-    local c = display.newSprite("#balloon_path_png.png")
-    batch:addChild(c);
-    c:setPosition(3*display.width,display.cy);
-	--调试
-	
-	
-	display.newSprite("#land_png.png")
-	:align(display.LEFT_BOTTOM, 0, 0)
-	:addTo(batch)
-	
-	display.newSprite("#land_png.png")
-	:align(display.LEFT_BOTTOM, 800, 0)
-	:addTo(batch)
-	
-	display.newSprite("#land_png.png")
-	:align(display.LEFT_BOTTOM, 800*2, 0)
-	:addTo(batch)
-	
-	
-	
-	
-	display.newSprite("#ground_png.png")
-	:align(display.LEFT_BOTTOM, 0, 0)
-	:addTo(batch)
-	
-	display.newSprite("#ground_png.png")
-	:align(display.LEFT_BOTTOM, 1150, 0)
-	:addTo(batch)
-	
-	display.newSprite("#ground_png.png")
-	:align(display.LEFT_BOTTOM, 1150*2, 0)
-	:addTo(batch)
-	
-	
-	
-end
 
 
 

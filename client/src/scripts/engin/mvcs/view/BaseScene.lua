@@ -17,7 +17,35 @@ local BaseScene = class("BaseScene", function()
 end)
 
 
-
+--添加背景的局部函数
+local function addImage(currentParent,currentImageName)
+	if currentImageName then 
+		CCTexture2D:setDefaultAlphaPixelFormat(kCCTexture2DPixelFormat_RGB565)
+	    local sprite = display.newSprite(currentImageName)
+	    CCTexture2D:setDefaultAlphaPixelFormat(kCCTexture2DPixelFormat_RGBA8888)
+	    local function backGroundSpriteHandle(event)
+	    	if event.name == "exit" then
+	            display.removeSpriteFrameByImageName(currentImageName)
+	        end
+	    end
+		sprite:addNodeEventListener(cc.NODE_EVENT,backGroundSpriteHandle)-- 地图对象删除时，自动从缓存里卸载地图材质
+	    
+	    --[[
+	    if width then self.backgroundSprite_:setContentSize(CCSize(width,height)); end
+		local contentSize=sprite:getContentSize();
+		if not width then
+			width = contentSize.width;
+			height= contentSize.height;
+		end
+		]]
+		
+		sprite:align(display.LEFT_BOTTOM, 0, 0)
+	    currentParent:addChild(sprite)
+	   
+	    
+	    return sprite;
+    end
+end
 
 --[[
 BaseScene的构造函数
@@ -30,12 +58,14 @@ BaseScene的构造函数
 function BaseScene:ctor(param)
 	if not param then param = {} end
 	local backgroundImageName = param.backgroundImageName;--近景的背景图片
-	local parallaxImageName = param.parallaxImageName;--远景的图片
+	
 	local width = param.width;
 	local height = param.height;
 	local sceneName = param.sceneName;
 	local batchNodeImage = param.batchNodeImage;
 	 
+	 
+	self.parallax_ = param.parallax; --远景近景
 	self.sceneSound_ = param.sceneSound --当前场景的声音
 	self.currentSceneName_ = sceneName;--场景名称
 	self.touchMode_= param.touchMode  or cc.TOUCH_MODE_ONE_BY_ONE;--触摸flag   多点 cc.TOUCH_MODE_ALL_AT_ONCE               cc.TOUCH_MODE_ONE_BY_ONE 单点触摸
@@ -48,37 +78,6 @@ function BaseScene:ctor(param)
 	
 	
 	
-	--添加背景的局部函数
-	local function addImage(currentParent,currentImageName)
-		if currentImageName then 
-			CCTexture2D:setDefaultAlphaPixelFormat(kCCTexture2DPixelFormat_RGB565)
-		    local sprite = display.newSprite(currentImageName)
-		    CCTexture2D:setDefaultAlphaPixelFormat(kCCTexture2DPixelFormat_RGBA8888)
-		    local function backGroundSpriteHandle(event)
-		    	if event.name == "exit" then
-		            display.removeSpriteFrameByImageName(currentImageName)
-		        end
-		    end
-			sprite:addNodeEventListener(cc.NODE_EVENT,backGroundSpriteHandle)-- 地图对象删除时，自动从缓存里卸载地图材质
-		    
-		    --[[
-		    if width then self.backgroundSprite_:setContentSize(CCSize(width,height)); end
-			local contentSize=sprite:getContentSize();
-			if not width then
-				width = contentSize.width;
-				height= contentSize.height;
-			end
-			]]
-			
-			sprite:align(display.LEFT_BOTTOM, 0, 0)
-		    currentParent:addChild(sprite)
-		   
-		    
-		    return sprite;
-	    end
-    end
-	
-		
 	
 	-- mapLayer 包含地图的整个视图
     self.mapLayer = display.newNode()
@@ -87,16 +86,29 @@ function BaseScene:ctor(param)
 
 	
 	
-	--远景  中景  不可移动的层 可以加到这一层 
+	--远景，近景之类的处理  不可移动的层 可以加到这一层  
+	--[[
+	为了满足所有的分辨率  全屏图片尽量   一般会考量使用Tiled编辑器制作 
+	对于背景图，设计师按照 1536×2280 来制作，原因是：
+		640×960 的参考虚拟分辨率，背景图最大尺寸是 640×1140，翻倍后是 1280×2280。
+		考虑到可能会为 iPad 单独做优化，所以图片宽度放大到 1536。因为 Retina iPad 的屏幕分辨率是 1536×2048
+	]]
 	self.parallaxLayer_ = display.newNode(); 
 	self.mapLayer:addChild(self.parallaxLayer_); 
-	local spt = addImage(self.parallaxLayer_,parallaxImageName);
-	GameUtil.spriteFullScreen(spt)
-	 
+	local parallax = self.parallax_;
+	if parallax then --如果有远景 近景数组
+--		local parallaxScale = parallax.parallaxScale;-- The proportion of the camera's movement to move the backgrounds by.
+--		local parallaxReductionFactor = parallax.parallaxReductionFactor;-- How much less each successive layer should parallax.
+		local parallaxBackgroundImageName = parallax.parallaxBackgroundImageName;
+		local spt = addImage(self.parallaxLayer_,parallaxBackgroundImageName);
+		GameUtil.spriteFullScreen(spt)
+	end
+	
 
 	
 	--背景
 	self.backgroundLayer_ = display.newNode();
+	local spt = addImage(self.backgroundLayer_,backgroundImageName);
 	self.mapLayer:addChild(self.backgroundLayer_); 
     
     
