@@ -30,7 +30,7 @@ function FightScene:ctor(param)
     local parallax = levelData.parallax;
     local function createTiledNode(tileUrl)
 		local tiledMap=CCTMXTiledMap:create(tileUrl);
-		--TiledMapUtil.getObjects(tiledMap,"pengzhuang")
+		TiledMapUtil.getObjects(tiledMap,"pengzhuang")
 	   return tiledMap
 	end
     --远景
@@ -40,21 +40,21 @@ function FightScene:ctor(param)
     self.parallaxLayer_in_:addChild(createTiledNode("map/tile/a1levmg.tmx"));
     --近景
     self.backgroundLayer_:addChild(createTiledNode("map/tile/0_0jg.tmx"));
-    self.backgroundLayer_:addChild(createTiledNode("map/tile/0_0.tmx"));
+    self.backgroundLayer_:addChild(createTiledNode("map/tile/0_3.tmx"));
     
     
     
     
     
     
-    --添加ui
-    local FightSceneUI = require("app.views.FightSceneUI")
-    local fightSceneUI = FightSceneUI.new(self:getUILayer(),self);
-    fightSceneUI:initView();
-    
-    --控制器
-    local FightController = require("app.controllers.FightController")
-	self.sceneController_ = FightController.new(self,levelData);
+--    --添加ui
+--    local FightSceneUI = require("app.views.FightSceneUI")
+--    local fightSceneUI = FightSceneUI.new(self:getUILayer(),self);
+--    fightSceneUI:initView();
+--    
+--    --控制器
+--    local FightController = require("app.controllers.FightController")
+--	self.sceneController_ = FightController.new(self,levelData);
 end
 
 
@@ -91,7 +91,7 @@ end
 function FightScene:tick(dt)
 	FightScene.super.tick(self,dt);
 	
-	self.sceneController_:tick(dt);
+--	self.sceneController_:tick(dt);
 end
 
 
