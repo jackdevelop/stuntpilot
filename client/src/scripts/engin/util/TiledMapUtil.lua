@@ -95,12 +95,64 @@ end
 
 
 
-function TiledMapUtil.getProperties(tiledMap,position)
-	local tileGid = tiledMap:getTileGIDAt(position);
-	if tileGid then
-		local properties = tiledMap:getPropertiesForGID(tileGid) --:asValueMap();
-		if  properties:empty() then
-			--auto collision = properties["Collidable"].asString();
+function TiledMapUtil.getPhysicsWorldProperties(tiledMap,objName,callBack)
+	local physicsBodyParam = {};
+	
+
+	local group = tiledMap:objectGroupNamed(objName);
+	if group then
+		local array = group:getObjects();
+		local count = array:count();--总过有多少个对象
+		for i = 0, count-1, 1 do
+			local one = array:objectAtIndex(i);
+			
+			local allKeys = one:allKeys();
+			local allKeysCount = allKeys:count();
+			
+			--获取属性
+			local x =  one:valueForKey("x"):getCString() --或者使用objectForKey
+			local y =  one:valueForKey("y"):getCString()
+			local width =  one:valueForKey("width"):getCString() 
+			local height =  one:valueForKey("height"):getCString() 
+			
+			local points = one:objectForKey("points");
+			if points then
+				local param = {};
+				local pointsCount = points:count();
+				for k = 0, pointsCount-1, 1 do
+					local onePoint = points:objectAtIndex(k);
+					local onePointCount = onePoint:count();
+					local xx =  onePoint:valueForKey("x"):getCString() 
+					local yy = onePoint:valueForKey("y"):getCString() 
+					param[#param+1]=xx ;
+					param[#param+1]=yy ;
+				end
+				
+				physicsBodyParam.type = 3;--类型 1圆形 2方向  3多边形
+				physicsBodyParam.param ={vertexes = param};
+			else
+				physicsBodyParam.type = 2;
+				physicsBodyParam.param = {width = width,height = height};
+			end
+			
+			physicsBodyParam.x = x;
+			physicsBodyParam.y = y;
+			callBack(physicsBodyParam);
+			--[[
+			单独读取碰撞属性 
+			 <objectgroup name="pengzhuang">
+			  <object id="11" x="2080" y="440">
+			   <polygon points="0,0 0,-60 140,0"/>
+			  </object>
+			 </objectgroup>
+			 最后的打印：
+			 0,0 
+			 0,-60
+			 140,0
+			]]
+			
+			
+			
 		end
 	end
 end

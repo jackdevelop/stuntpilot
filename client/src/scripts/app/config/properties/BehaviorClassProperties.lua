@@ -28,6 +28,11 @@ local defines = {
 	PlaneBehavior = require("app.gameObject.behavior.PlaneBehavior"),
 	
 	
+	--物理世界组件
+	PhysicsWorldBehavior = require("app.gameObject.behavior.PhysicsWorldBehavior"),
+	BoxCollideBehavior = require("app.gameObject.behavior.BoxCollideBehavior"),
+	
+	
 	StaticObjectEditorBehavior =  require("app.gameObject.behavior.StaticObjectEditorBehavior"),
 }
 

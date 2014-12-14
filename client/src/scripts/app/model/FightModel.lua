@@ -23,9 +23,6 @@ function FightModel:ctor(controller,levelData)
     self.levelData_ = levelData;
     self.width_ = levelData.width;
     self.height_ = levelData.height;
-    
-    
-    
 end
 
 

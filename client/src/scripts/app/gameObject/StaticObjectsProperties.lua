@@ -11,6 +11,57 @@ local defines = {}
 
 ----------------------------------------
 
+
+--场景中的物理世界
+local object = {
+    classId      = "static",
+    behaviors   = {
+    				"BoxCollideBehavior",
+    				"PhysicsWorldBehavior",
+    			},
+}
+defines["physicsWorld"] = object
+
+
+
+
+
+
+
+--角色
+local object = {
+    classId      = "static",
+	animation   = "p1_cart",
+    radius       = 30,
+   	zorder       = 0,
+    viewZOrdered = true,
+    physicsBodyParam = {
+    	type =2,
+    	mass = 200,
+    	param = {
+    		width = 40,
+	    	height = 40,
+    	},
+    	x = 480,
+    	y = 320,
+    },
+    behaviors   = {
+    				"DecorateBehavior","ObjectViewBehavior","MovableBehavior",
+    				"MovableDirectBehavior","RoleBehavior","DestroyedBehavior","CampBehavior",
+    				"BoxCollideBehavior",
+    				
+    				"StaticObjectEditorBehavior",
+    			},
+}
+defines["role"] = object
+
+
+
+
+
+
+
+
 --飞机
 local object = {
     classId      = "static",

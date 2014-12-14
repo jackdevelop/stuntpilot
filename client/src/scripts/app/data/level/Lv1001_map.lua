@@ -20,6 +20,11 @@ return json.decode([====[
             "x": 400,
             "y": 400,
             "defineId": "role"
+        },
+         "static:3": {
+            "x": 600,
+            "y": 537,
+            "defineId": "balloon"
         }
        
     }

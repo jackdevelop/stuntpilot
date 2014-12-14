@@ -1,7 +1,6 @@
 --[[
 战斗场景
 ]]
-local TiledMapUtil = require("engin.util.TiledMapUtil")
 local BaseScene = require("engin.mvcs.view.BaseScene")
 local FightScene = class("FightScene", BaseScene)
 
@@ -26,11 +25,12 @@ function FightScene:ctor(param)
     
     
     
+    
+    
     --添加远景 近景的层次
     local parallax = levelData.parallax;
     local function createTiledNode(tileUrl)
 		local tiledMap=CCTMXTiledMap:create(tileUrl);
-		TiledMapUtil.getObjects(tiledMap,"pengzhuang")
 	   return tiledMap
 	end
     --远景
@@ -40,7 +40,8 @@ function FightScene:ctor(param)
     self.parallaxLayer_in_:addChild(createTiledNode("map/tile/a1levmg.tmx"));
     --近景
     self.backgroundLayer_:addChild(createTiledNode("map/tile/0_0jg.tmx"));
-    self.backgroundLayer_:addChild(createTiledNode("map/tile/0_0.tmx"));
+    self.tiledMap_ = createTiledNode("map/tile/0_0.tmx");
+    self.backgroundLayer_:addChild(self.tiledMap_);
     
     
     
@@ -52,10 +53,13 @@ function FightScene:ctor(param)
 --    local fightSceneUI = FightSceneUI.new(self:getUILayer(),self);
 --    fightSceneUI:initView();
 --    
---    --控制器
---    local FightController = require("app.controllers.FightController")
---	self.sceneController_ = FightController.new(self,levelData);
+    --控制器
+    local FightController = require("app.controllers.FightController")
+	self.sceneController_ = FightController.new(self,levelData);
 end
+
+
+
 
 
 

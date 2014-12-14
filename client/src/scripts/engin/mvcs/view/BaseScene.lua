@@ -17,7 +17,7 @@ local BaseScene = class("BaseScene", function()
 end)
 
 
-
+local currentRunningScene = nil;
 --[[
 BaseScene的构造函数
  backgroundImageName 背景地图
@@ -45,7 +45,7 @@ function BaseScene:ctor(param)
 	self.currentSceneName_ = sceneName;--场景名称
 	self.touchMode_= param.touchMode  or cc.TOUCH_MODE_ONE_BY_ONE;--触摸flag   多点 cc.TOUCH_MODE_ALL_AT_ONCE               cc.TOUCH_MODE_ONE_BY_ONE 单点触摸
 	self.touchEnabled_ = param.touchEnabled 
-
+	currentRunningScene = self;
 	
     --设置当前尺寸
 	self.width_=width or display.width;
@@ -316,7 +316,14 @@ function BaseScene:getCamera()
     return self.camera_
 end
 
+--[[--
+返回当前正在运行的场景对象
+@return CCScene 场景对象
 
+]]
+function BaseScene.getRunningScene()
+    return currentRunningScene;
+end
 
 
 

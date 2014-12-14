@@ -40,14 +40,14 @@ function FightController:init()
 	end
 	
 
-	--飞机
-	local state = {
-		defineId = "p1_cart",
-		isFocus = true,--主角 
-		x = 0,--display.width,
-		y = display.cy
-	}
-	self.plane = self.model_:newObject(BaseObject.CLASS_ID["role"], state)
+--	--飞机
+--	local state = {
+--		defineId = "p1_cart",
+--		isFocus = true,--主角 
+--		x = 0,--display.width,
+--		y = display.cy
+--	}
+--	self.plane = self.model_:newObject(BaseObject.CLASS_ID["role"], state)
 end
 
 
@@ -106,49 +106,49 @@ end
 
 --tick帧跳
 function FightController:tick(dt)
-	local model = self.model_
-	local allObject = model:getAllObjects();
-	
-	if  self.pause_  then return end;
-	
-	
-	if not self.over_ then 
-		--检测碰撞相关
-		for i, object in pairs(allObject) do
-			if object ~= self.plane then 
-				local collision = SearchAlgorithm.checkCollision(object,self.plane)
-				if collision then 
-					self.over_ = true;
-					
-					--播放死忙特效
-					object:setDestroyed(true);
-					self.plane:setDestroyed(true);
-					
-					return;
-				end
-			end
-		end
-	end
-	
-	
-
-	local maxZOrder = SceneConstants.MAX_OBJECT_ZORDER;
-	for i, object in pairs(allObject) do
-		local lx, ly = object.x_, object.y_
-        object:tick(dt)
-        object.updated__ = lx ~= object.x_ or ly ~= object.y_
-
-        -- 只有当对象的位置发生变化时才调整对象的 ZOrder
-        if object.sprite_ and object.updated__ then
-        	object:updateView();
-        	
-        	if object.viewZOrdered_ then 
-        		local batch = self.scene_:getBatchLayer();
-            	batch:reorderChild(object.sprite_, maxZOrder - object.y_ )
-            end
-        end
-	
-	end
+--	local model = self.model_
+--	local allObject = model:getAllObjects();
+--	
+--	if  self.pause_  then return end;
+--	
+--	
+--	if not self.over_ then 
+--		--检测碰撞相关
+--		for i, object in pairs(allObject) do
+--			if object ~= self.plane then 
+--				local collision = SearchAlgorithm.checkCollision(object,self.plane)
+--				if collision then 
+--					self.over_ = true;
+--					
+--					--播放死忙特效
+--					object:setDestroyed(true);
+--					self.plane:setDestroyed(true);
+--					
+--					return;
+--				end
+--			end
+--		end
+--	end
+--	
+--	
+--
+--	local maxZOrder = SceneConstants.MAX_OBJECT_ZORDER;
+--	for i, object in pairs(allObject) do
+--		local lx, ly = object.x_, object.y_
+--        object:tick(dt)
+--        object.updated__ = lx ~= object.x_ or ly ~= object.y_
+--
+--        -- 只有当对象的位置发生变化时才调整对象的 ZOrder
+--        if object.sprite_ and object.updated__ then
+--        	object:updateView();
+--        	
+--        	if object.viewZOrdered_ then 
+--        		local batch = self.scene_:getBatchLayer();
+--            	batch:reorderChild(object.sprite_, maxZOrder - object.y_ )
+--            end
+--        end
+--	
+--	end
 end
 
 
